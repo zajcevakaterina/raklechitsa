@@ -1,9 +1,25 @@
+<!--TODO убрать из шаблона кнопку-->
 <template>
-  <div></div>
+  <div>
+    <arrow-button></arrow-button>
+  </div>
 </template>
 
 <script>
-export default {};
+import ArrowButton from '@/components/ui/ArrowButton';
+export default {
+  components: {
+    'arrow-button': ArrowButton,
+  },
+};
 </script>
-
-<style lang="scss" scoped></style>
+<!--TODO убрать див ниже-->
+<style scoped>
+div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #613a93;
+}
+</style>

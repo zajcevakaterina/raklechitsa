@@ -1,9 +1,15 @@
-<template> </template>
+<template>
+  <div>
+    <Form />
+  </div>
+</template>
 
 <script>
+import Form from '@@/components/Form';
+
 export default {
-  data() {
-    return {};
+  components: {
+    Form,
   },
 };
 </script>

@@ -1,37 +1,54 @@
 <template>
   <header class="header">
-    <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
-      >Nuxt streams</nuxt-link
-    >
-    <h1 class="header__logo" v-else>Nuxt streams</h1>
-    <main-menu />
+    <h1 class="header__title">
+      Проект Благотворительного Фонда Константина Хабенского
+    </h1>
+    <nav class="menu header__menu">
+      <ul class="rep">
+        <li class="menu__element"><a class="menu__link">Главная</a></li>
+        <li class="menu__element"><a class="menu__link">Истории</a></li>
+        <li class="menu__element">
+          <a class="menu__link">Рассказать историю</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
 
 <script>
-import Menu from '~/components/Menu';
 export default {
-  components: {
-    'main-menu': Menu,
-  },
+  components: {},
 };
 </script>
 
 <style scoped>
 .header {
-  min-height: 80px;
+  width: 1440px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
-  background-color: black;
-  padding: 0 40px;
 }
-.header /deep/ a {
-  color: white;
+
+.header__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
 }
-.header__logo {
+
+.header__menu {
+  margin: 26px 60px;
+}
+
+.rep {
+  display: flex;
+  padding-left: 0;
+}
+
+.menu__element {
+  list-style-type: none;
+}
+
+.menu__link {
   text-decoration: none;
-  font-size: 32px;
 }
 </style>

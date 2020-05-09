@@ -8,7 +8,7 @@
 
 <style scoped>
 .panel {
-  box-shadow: 0 0 2px grey;
+  box-shadow: 0 0 2px red;
   min-height: 200px;
   padding: 20px;
 }

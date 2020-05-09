@@ -1,27 +1,11 @@
-<template>
-  <div class="container">
-    <panel class="container__panel"> </panel>
-  </div>
-</template>
+<template> </template>
 
 <script>
-import Panel from '~/components/Panel';
-
 export default {
-  components: {
-    panel: Panel,
-  },
   data() {
-    return {
-      lessons: 'Hello',
-    };
+    return {};
   },
 };
 </script>
 
-<style>
-.container__panel {
-  width: 80%;
-  margin: 40px auto;
-}
-</style>
+<style></style>

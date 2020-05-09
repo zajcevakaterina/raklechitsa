@@ -1,9 +1,19 @@
 <template>
-  <div></div>
+  <div>
+    <stories />
+
+    <statistics />
+  </div>
 </template>
 
 <script>
-export default {};
+import Stories from '@/components/Stories';
+
+export default {
+  components: {
+    stories: Stories,
+  },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

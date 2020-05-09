@@ -1,15 +1,24 @@
 <template>
   <div>
-    <Form />
+    <overlay v-if="popupShown">
+      <pop-up></pop-up>
+    </overlay>
   </div>
 </template>
 
 <script>
-import Form from '@@/components/Form';
+import Popup from '@@/components/Popup';
+import Overlay from '@@/components/ui/Overlay';
 
 export default {
   components: {
-    Form,
+    overlay: Overlay,
+    'pop-up': Popup,
+  },
+  data() {
+    return {
+      popupShown: false,
+    };
   },
 };
 </script>

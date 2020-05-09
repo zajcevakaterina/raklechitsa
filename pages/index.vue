@@ -1,9 +1,16 @@
 <template>
-  <div></div>
+  <div>
+    <statistics></statistics>
+  </div>
 </template>
 
 <script>
-export default {};
+import Statistics from '@/components/Statistics';
+export default {
+  components: {
+    statistics: Statistics,
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

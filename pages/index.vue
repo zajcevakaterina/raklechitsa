@@ -1,8 +1,10 @@
+
 <template>
   <div>
     <statistics></statistics>
   </div>
 </template>
+
 
 <script>
 import Statistics from '@/components/Statistics';
@@ -13,4 +15,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

@@ -1,6 +1,6 @@
 <template>
   <button :class="['arrow-button']">
-    <img src="@/static/arrows/Polygon 3.png" alt="" />
+    <img src="@/static/arrow.png" alt="" />
   </button>
 </template>
 
@@ -12,5 +12,10 @@ export default {};
 .arrow-button {
   background: transparent;
   border: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.arrow-button_direction_right {
+  transform: rotate(90deg);
 }
 </style>

@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import ArrowButton from '@/components/ui/ArrowButton';
+import SliderButton from '@/components/ui/SliderButton';
 export default {
   components: {
-    'arrow-button': ArrowButton,
+    'arrow-button': SliderButton,
   },
 };
 </script>

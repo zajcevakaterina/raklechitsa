@@ -21,6 +21,9 @@ export default {
   color: #ffffff;
   height: 52px;
 }
+.button:hover {
+  opacity: 0.9;
+}
 
 .button_size_maxi {
   width: 280px;

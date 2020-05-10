@@ -11,23 +11,24 @@
         {{ tab.name }}
       </li>
     </ul>
-    <div>
+    <div class="tabs__content">
       <p
-        class="tabs__content"
-        :class="`tabs__content_${theme}`"
+        class="tabs__text"
+        :class="`tabs__text_${theme}`"
         v-for="(tab, index) in tabsData"
         v-if="show === index"
         :key="index"
         v-html="tab.content"
       ></p>
       <p
-        class="tabs__content"
-        :class="`tabs__content_${theme}`"
+        class="tabs__text"
+        :class="`tabs__text_${theme}`"
         v-for="(tab, index) in tabsData"
         v-if="show === index && tab.content2"
         :key="index"
         v-html="tab.content2"
       ></p>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -84,21 +85,25 @@ export default {
   display: flex;
   flex-direction: column;
   margin-left: 40px;
+}
+.tabs__text {
+  display: flex;
+  flex-direction: column;
   width: 640px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
-.tabs__content:last-child {
+.tabs__text:last-child {
   margin-bottom: 0;
 }
 
-.tabs__content_call-to-action {
+.tabs__text_call-to-action {
   color: #666666;
 }
-.tabs__content_above {
+.tabs__text_above {
   color: #dedede;
 }
 </style>

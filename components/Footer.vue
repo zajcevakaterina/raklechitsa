@@ -11,7 +11,9 @@
       </div>
       <div class="footer__social">
         <p class="footer__social-text">Мы в Инстаграме и Youtube</p>
-        <a class="footer__social_link">Поделитесь ↗</a>
+        <footer-button class="footer__social_link"
+          >Поделитесь &#8599;</footer-button
+        >
       </div>
     </div>
     <div class="footer__copyright">
@@ -26,10 +28,12 @@
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import Menu from '@/components/Menu';
+import Button from '@/components/ui/Button';
 export default {
   components: {
     'section-title': SectionTitle,
     'footer-menu': Menu,
+    'footer-button': Button,
   },
 };
 </script>
@@ -86,11 +90,15 @@ export default {
 }
 .footer__social_link {
   font-style: normal;
+  background-color: transparent;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
   cursor: pointer;
+  text-align: left;
   color: #121212;
+  padding: 0;
+  outline: 0;
 }
 .footer__social_link:hover {
   opacity: 0.8;

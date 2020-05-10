@@ -7,7 +7,11 @@
         поделиться своей историей неизлечимых привычек, навязчивых идей и
         болезненных привязанностей.
       </section-text>
-      <main-tabs :tabsData="tabs" :theme="'call-to-action'" />
+      <main-tabs :tabsData="tabs" :theme="'call-to-action'">
+        <action-button class="call-to-action__action-button"
+          >Заполнить форму</action-button
+        >
+      </main-tabs>
     </div>
   </section>
 </template>
@@ -15,12 +19,14 @@
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
+import Button from '@/components/ui/Button';
 import Tabs from '@/components/Tabs';
 export default {
   components: {
     'section-title': SectionTitle,
     'section-text': SectionText,
     'main-tabs': Tabs,
+    'action-button': Button,
   },
   data() {
     return {
@@ -50,10 +56,15 @@ export default {
   background: #f7f7f7;
   display: flex;
   flex-direction: column;
-  padding: 100px 60px 0;
+  padding: 100px 60px 100px;
 }
 .call-to-action__content {
   display: flex;
   justify-content: space-between;
+  flex: auto;
+}
+.call-to-action__action-button {
+  margin: auto 0 0;
+  width: 280px;
 }
 </style>

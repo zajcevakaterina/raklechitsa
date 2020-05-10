@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <statistics></statistics>
@@ -13,3 +14,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>

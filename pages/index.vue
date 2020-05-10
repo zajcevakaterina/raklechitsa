@@ -1,5 +1,15 @@
-<template> </template>
+<template>
+  <div>
+    <statistics></statistics>
+  </div>
+</template>
 
-<script></script>
 
-<style scoped></style>
+<script>
+import Statistics from '@/components/Statistics';
+export default {
+  components: {
+    statistics: Statistics,
+  },
+};
+</script>

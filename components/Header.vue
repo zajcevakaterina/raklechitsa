@@ -4,7 +4,7 @@
       Проект Благотворительного Фонда Константина Хабенского
     </p>
     <main-menu />
-    <button class="button_header">Расскажи историю</button>
+    <button-header class="button_header">Расскажи историю</button-header>
   </header>
 </template>
 
@@ -14,7 +14,7 @@ import Button from '@/components/ui/Button';
 export default {
   components: {
     'main-menu': Menu,
-    button: Button,
+    'button-header': Button,
   },
 };
 </script>
@@ -45,10 +45,12 @@ export default {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  color: #121212;
+  padding: 0;
+  outline: 0;
 }
 
 .button_header:hover {
-  color: #121212;
   opacity: 0.8;
 }
 </style>

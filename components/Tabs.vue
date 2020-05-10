@@ -2,34 +2,42 @@
   <div class="tabs">
     <ul class="tabs__list">
       <li
-        v-for="tab in tabsData"
+        class="tabs__link"
+        v-for="(tab, index) in tabsData"
         :key="tab.id"
-        :class="tab.class"
-        class="tabs__link "
+        :class="[{ ['active_' + theme]: show == index }, `tabs__link_${theme}`]"
+        @click.prevent="show = index"
       >
         {{ tab.name }}
       </li>
     </ul>
-    <div class="tabs__content">
+    <div>
       <p
-        v-for="tab in tabsData"
-        class="tabs__text"
-        :key="tab.id"
-        :name="tab.name"
-        :content="tab.content"
-      >
-        {{ tab.content }}
-      </p>
+        class="tabs__content"
+        :class="`tabs__content_${theme}`"
+        v-for="(tab, index) in tabsData"
+        v-if="show === index"
+        :key="index"
+        v-html="tab.content"
+      ></p>
+      <p
+        class="tabs__content"
+        :class="`tabs__content_${theme}`"
+        v-for="(tab, index) in tabsData"
+        v-if="show === index && tab.content2"
+        :key="index"
+        v-html="tab.content2"
+      ></p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['tabsData'],
+  props: ['tabsData', 'theme'],
   data() {
     return {
-      tabs: [],
+      show: 0,
     };
   },
 };
@@ -39,38 +47,58 @@ export default {
 .tabs {
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
+  margin: 32px 0 0;
+}
+.tabs__list {
+  list-style: none;
+}
+.tabs__link {
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.tabs__link_call-to-action {
+  color: #a2a2a2;
+}
+.tabs__link_call-to-action:hover {
+  color: #000000;
+}
+.active_call-to-action {
+  color: #000000;
+}
+
+.tabs__link_above {
+  color: #c9c9c9;
+}
+.tabs__link_above:hover {
+  color: #ffffff;
+}
+.active_above {
+  color: #ffffff;
 }
 .tabs__content {
   display: flex;
   flex-direction: column;
-}
-.tabs__text {
-  max-width: 630px;
+  margin-left: 40px;
+  width: 640px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  margin-bottom: 10px;
+}
+.tabs__content:last-child {
+  margin-bottom: 0;
+}
+
+.tabs__content_call-to-action {
   color: #666666;
 }
-.tabs__link {
-  width: 115px;
-  color: #a2a2a2;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  margin: 0 0 10px;
-  list-style: none;
-  margin-right: 28px;
-  cursor: pointer;
-}
-
-.tabs__link:hover {
-  font-weight: normal;
-}
-
-.tabs__link_active {
-  color: #000000;
+.tabs__content_above {
+  color: #dedede;
 }
 </style>

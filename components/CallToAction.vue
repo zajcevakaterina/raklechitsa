@@ -1,14 +1,14 @@
 <template>
   <section class="call-to-action">
-    <div class="call-to-action__entry">
-      <section-title>Расскажите свою историю</section-title>
+    <section-title>Расскажите свою историю</section-title>
+    <div class="call-to-action__content">
       <section-text
         >Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
         поделиться своей историей неизлечимых привычек, навязчивых идей и
-        болезненных привязанностей.</section-text
-      >
+        болезненных привязанностей.
+      </section-text>
+      <main-tabs :tabsData="tabs" :theme="'call-to-action'" />
     </div>
-    <main-tabs :tabsData="tabs" />
   </section>
 </template>
 
@@ -28,15 +28,14 @@ export default {
         {
           id: '1',
           name: '1-й вариант',
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-          class: 'tabs__link_active',
+          content:
+            'Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю после проверки. Пожалуйста, заполняйте все пункты корректно, если вы испытаете какие-то сложности, воспользуйтесь 2-м вариантом.',
         },
         {
           id: '2',
           name: '2-й вариант',
           content:
-            'Voluptate itaque dignissimos molestiae, totam ut corrupti atque',
-          class: '',
+            'Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.',
         },
       ],
     };
@@ -50,12 +49,11 @@ export default {
   min-height: 522px;
   background: #f7f7f7;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 100px 60px 0;
 }
-.call-to-action__entry {
-  width: 340px;
+.call-to-action__content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 </style>

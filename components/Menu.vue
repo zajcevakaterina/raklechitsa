@@ -25,6 +25,7 @@ export default {};
   line-height: 24px;
   text-decoration: none;
   color: #000000;
+  height: fit-content;
 }
 
 .menu-link:hover {
@@ -36,6 +37,6 @@ export default {};
   border-bottom: 0px;
 }
 .nuxt-link-exact-active {
-  border-bottom: solid 2px #000;
+  border-bottom: solid 2px;
 }
 </style>

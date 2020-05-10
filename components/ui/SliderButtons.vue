@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="slider-buttons">
     <button class="slider-button">
       <img
-        src="@/static/arrows/leftActivearrow.png"
+        src="@/static/arrows/leftNactivearrow.png"
         alt="arrow"
         class="arrow"
       />
@@ -27,6 +27,10 @@ export default {
 </script>
 
 <style scoped>
+.slider-buttons {
+  margin-top: auto;
+}
+
 .slider-button {
   border: 0;
   cursor: pointer;
@@ -34,8 +38,5 @@ export default {
   height: 40px;
   background-color: #fbfbfb;
   padding: 0;
-}
-
-.arrow {
 }
 </style>

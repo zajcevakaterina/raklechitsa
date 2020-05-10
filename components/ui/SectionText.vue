@@ -15,5 +15,6 @@ export default {};
   line-height: 22px;
   margin: 32px 0 0;
   width: 340px;
+  color: #666666;
 }
 </style>

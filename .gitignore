@@ -91,5 +91,3 @@ sw.*
 
 #VS Code extension
 .history
-pages/index.vue
-layouts/default.vue

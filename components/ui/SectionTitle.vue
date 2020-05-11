@@ -10,10 +10,11 @@ export default {};
 
 <style scoped>
 .section__title {
-  width: 413px;
+  max-width: 413px;
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
-  line-height: 36px;
+  line-height: 1.12;
+  margin: 0;
 }
 </style>

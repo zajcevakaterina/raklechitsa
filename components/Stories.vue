@@ -1,5 +1,8 @@
 <template>
   <section class="stories">
+    <section-title class="stories__title"
+      >Истории неизлечимых привычек</section-title
+    >
     <ul class="stories__list">
       <li class="stories__item" v-for="story in stories" :key="story.id">
         <story-item
@@ -14,10 +17,12 @@
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
 import StoryItem from '@/components/StoryItem';
 
 export default {
   components: {
+    'section-title': SectionTitle,
     'story-item': StoryItem,
   },
   data() {
@@ -87,6 +92,9 @@ export default {
 </script>
 
 <style scoped>
+.stories__title {
+  margin-bottom: 70px;
+}
 .stories__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);

@@ -1,5 +1,8 @@
 <template>
   <section class="statistics">
+    <section-title class="statistics__title"
+      >Статистика по онкозаболеваниям</section-title
+    >
     <ul class="statistics__list">
       <li
         class="statistics__item"
@@ -21,10 +24,12 @@
 
 <script>
 import StatisticsItem from '@/components/StatisticsItem';
+import SectionTitle from '@/components/ui/SectionTitle';
 
 export default {
   components: {
     'stat-item': StatisticsItem,
+    'section-title': SectionTitle,
   },
 
   data() {
@@ -78,6 +83,9 @@ export default {
 </script>
 
 <style scoped>
+.statistics__title {
+  margin: 100px 0 70px;
+}
 .statistics__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);

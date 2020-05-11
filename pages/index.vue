@@ -3,6 +3,34 @@
     <!-- TODO: добавить класс к обертке index.vue -->
 
     <stories />
+
+    <section class="insta">
+      <div class="insta__desc">
+        <a
+          class="insta__title-link"
+          href="https://www.instagram.com/raklechitsa/"
+          target="blank"
+        >
+          <section-title class="insta__title">Инстаграм</section-title>
+        </a>
+        <section-text
+          >Два раза в неделю мы просматриваем все посты по хештегу
+          #этонелечится. Все истории, где нет нецензурных выражений и
+          запрещенного контента попадают сюда. Следите за правильным написанием
+          хештега, чтобы мы не пропустили вашу историю.</section-text
+        >
+      </div>
+
+      <ul class="insta__cards">
+        <li class="insta__card" v-for="photo in photos" :key="photo.id">
+          <insta-photo
+            :author="photo.author"
+            :instaLink="photo.instaLink"
+            :instaImage="photo.instaImage"
+          />
+        </li>
+      </ul>
+    </section>
     <call-to-action />
     <statistics />
     <about />
@@ -10,7 +38,10 @@
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
+import SectionText from '@/components/ui/SectionText';
 import Stories from '@/components/Stories';
+import InstaPhoto from '@/components/InstaPhoto';
 import CallToAction from '@/components/CallToAction';
 import Statistics from '@/components/Statistics';
 import Above from '@/components/Above';
@@ -18,12 +49,108 @@ import Above from '@/components/Above';
 
 export default {
   components: {
+    'section-title': SectionTitle,
+    'section-text': SectionText,
     stories: Stories,
+    'insta-photo': InstaPhoto,
     'call-to-action': CallToAction,
     statistics: Statistics,
     about: Above,
   },
+
+  data() {
+    return {
+      photos: [
+        {
+          id: 1,
+          instaLink: 'https://www.instagram.com/p/B9ld-ULjMiz/',
+          instaImage:
+            'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/89358381_533144827582214_421034663561425989_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=102&_nc_ohc=yLJ0MQHnqZwAX8U9vny&oh=5bcad22d416cdb82bb72cdf14c603833&oe=5EE3FCCD',
+          author: 'gladkova989',
+        },
+        {
+          id: 2,
+          instaLink: 'https://www.instagram.com/p/B9ld-ULjMiz/',
+          instaImage:
+            'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/89358381_533144827582214_421034663561425989_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=102&_nc_ohc=yLJ0MQHnqZwAX8U9vny&oh=5bcad22d416cdb82bb72cdf14c603833&oe=5EE3FCCD',
+          author: 'gladkova989',
+        },
+        {
+          id: 3,
+          instaLink: 'https://www.instagram.com/p/B9ld-ULjMiz/',
+          instaImage:
+            'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/89358381_533144827582214_421034663561425989_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=102&_nc_ohc=yLJ0MQHnqZwAX8U9vny&oh=5bcad22d416cdb82bb72cdf14c603833&oe=5EE3FCCD',
+          author: 'gladkova989',
+        },
+        {
+          id: 4,
+          instaLink: 'https://www.instagram.com/p/B9ld-ULjMiz/',
+          instaImage:
+            'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/89358381_533144827582214_421034663561425989_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=102&_nc_ohc=yLJ0MQHnqZwAX8U9vny&oh=5bcad22d416cdb82bb72cdf14c603833&oe=5EE3FCCD',
+          author: 'gladkova989',
+        },
+        {
+          id: 5,
+          instaLink: 'https://www.instagram.com/p/B9ld-ULjMiz/',
+          instaImage:
+            'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/89358381_533144827582214_421034663561425989_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=102&_nc_ohc=yLJ0MQHnqZwAX8U9vny&oh=5bcad22d416cdb82bb72cdf14c603833&oe=5EE3FCCD',
+          author: 'gladkova989',
+        },
+        {
+          id: 6,
+          instaLink: 'https://www.instagram.com/p/B9ld-ULjMiz/',
+          instaImage:
+            'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/89358381_533144827582214_421034663561425989_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=102&_nc_ohc=yLJ0MQHnqZwAX8U9vny&oh=5bcad22d416cdb82bb72cdf14c603833&oe=5EE3FCCD',
+          author: 'gladkova989',
+        },
+        {
+          id: 7,
+          instaLink: 'https://www.instagram.com/p/B9ld-ULjMiz/',
+          instaImage:
+            'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/89358381_533144827582214_421034663561425989_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=102&_nc_ohc=yLJ0MQHnqZwAX8U9vny&oh=5bcad22d416cdb82bb72cdf14c603833&oe=5EE3FCCD',
+          author: 'gladkova989',
+        },
+        {
+          id: 8,
+          instaLink: 'https://www.instagram.com/p/B9ld-ULjMiz/',
+          instaImage:
+            'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/89358381_533144827582214_421034663561425989_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=102&_nc_ohc=yLJ0MQHnqZwAX8U9vny&oh=5bcad22d416cdb82bb72cdf14c603833&oe=5EE3FCCD',
+          author: 'gladkova989',
+        },
+      ],
+    };
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.insta {
+  display: flex;
+  margin: 0 auto;
+}
+
+.insta__desc {
+  padding-top: 10px;
+}
+
+/* TODO: может, эти стили вынести в папку blocks и импортировать css? */
+.insta__title-link {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
+}
+
+.insta__title {
+  margin-bottom: 32px;
+}
+
+.insta__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  padding: 0;
+  margin-left: 60px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+</style>

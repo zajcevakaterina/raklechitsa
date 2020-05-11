@@ -1,6 +1,6 @@
 <template>
-  <div class="histories-video">
-    <div class="histories-video__left">
+  <div class="intro">
+    <div class="intro__left">
       <title-text
         >Истории людей, победивших рак, но не свои привычки</title-text
       >
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style scoped>
-.histories-video {
+.intro {
   display: flex;
   justify-content: space-between;
   min-height: 650px;
@@ -39,7 +39,7 @@ export default {
   padding: 100px 60px;
 }
 
-.histories-video__left {
+.intro__left {
   display: flex;
   flex-direction: column;
   padding-top: 12px;

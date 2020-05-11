@@ -13,17 +13,20 @@
         />
       </li>
     </ul>
+    <stories-button class="stories__button">Больше статей</stories-button>
   </section>
 </template>
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import StoryItem from '@/components/StoryItem';
+import Button from '@/components/ui/Button';
 
 export default {
   components: {
     'section-title': SectionTitle,
     'story-item': StoryItem,
+    'stories-button': Button,
   },
   data() {
     return {
@@ -103,12 +106,63 @@ export default {
   padding: 0;
   list-style: none;
   justify-content: center;
+  margin: 0 0 70px;
+}
+
+.stories__button {
+  background: #fbfbfb;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #000;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  width: 100%;
+  height: 82px;
+}
+
+.stories__button:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 @media screen and (max-width: 1280px) {
   .stories__list {
     grid-template-columns: repeat(auto-fit, 265px);
     row-gap: 60px;
+  }
+
+  .stories__button {
+    height: 86px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .stories__list {
+    grid-template-columns: repeat(auto-fit, 208px);
+    column-gap: 30px;
+    row-gap: 46px;
+  }
+
+  .stories__button {
+    height: 50px;
+    font-size: 13px;
+    line-height: 1.54;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stories__list {
+    grid-template-columns: repeat(auto-fit, 216px);
+    column-gap: 20px;
+    row-gap: 40px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .stories__list {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
   }
 }
 </style>

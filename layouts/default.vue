@@ -1,11 +1,22 @@
 <template>
   <div>
-    <nuxt />
+    <page-header />
+    <main>
+      <nuxt />
+    </main>
+    <page-footer />
   </div>
 </template>
 
 <script>
-export default {};
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+export default {
+  components: {
+    'page-header': Header,
+    'page-footer': Footer,
+  },
+};
 </script>
 
 <style>

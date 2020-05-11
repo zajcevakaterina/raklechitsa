@@ -93,7 +93,7 @@ export default {
 
 <style scoped>
 .stories__title {
-  margin-bottom: 70px;
+  margin: 100px 0 70px;
 }
 .stories__list {
   display: grid;

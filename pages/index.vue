@@ -2,8 +2,7 @@
   <div>
     <!-- TODO: добавить класс к обертке index.vue -->
 
-    <stories></stories>
-    Привет всем
+    <stories />
 
     <section class="insta">
       <div class="insta__desc">

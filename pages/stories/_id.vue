@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    здесь будет страница с историей по id
+  </div>
 </template>
 
 <script>

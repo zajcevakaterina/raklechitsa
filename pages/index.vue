@@ -48,7 +48,7 @@ import Stories from '@/components/Stories';
 import InstaPhoto from '@/components/InstaPhoto';
 import CallToAction from '@/components/CallToAction';
 import Statistics from '@/components/Statistics';
-import Above from '@/components/Above';
+import About from '@/components/About';
 
 // TODO: Above переименовать на About
 
@@ -62,7 +62,7 @@ export default {
     'insta-photo': InstaPhoto,
     'call-to-action': CallToAction,
     statistics: Statistics,
-    about: Above,
+    about: About,
   },
 
   data() {

@@ -106,7 +106,7 @@ export default {
   padding: 0;
   list-style: none;
   justify-content: center;
-  margin: 0 0 70px;
+  margin: 0 0 46px;
 }
 
 .stories__button {
@@ -120,6 +120,7 @@ export default {
   font-family: inherit;
   width: 100%;
   height: 82px;
+  margin-bottom: 100px;
 }
 
 .stories__button:hover {

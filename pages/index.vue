@@ -2,7 +2,8 @@
   <div>
     <!-- TODO: добавить класс к обертке index.vue -->
 
-    <stories />
+    <stories></stories>
+    Привет всем
 
     <section class="insta">
       <div class="insta__desc">
@@ -45,6 +46,7 @@ import InstaPhoto from '@/components/InstaPhoto';
 import CallToAction from '@/components/CallToAction';
 import Statistics from '@/components/Statistics';
 import Above from '@/components/Above';
+
 // TODO: Above переименовать на About
 
 export default {

@@ -2,6 +2,8 @@
   <div>
     <!-- TODO: добавить класс к обертке index.vue -->
 
+    <cover />
+    <intro />
     <stories />
 
     <section class="insta">
@@ -40,6 +42,8 @@
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
+import Cover from '@/components/Cover';
+import Intro from '@/components/Intro';
 import Stories from '@/components/Stories';
 import InstaPhoto from '@/components/InstaPhoto';
 import CallToAction from '@/components/CallToAction';
@@ -52,6 +56,8 @@ export default {
   components: {
     'section-title': SectionTitle,
     'section-text': SectionText,
+    cover: Cover,
+    intro: Intro,
     stories: Stories,
     'insta-photo': InstaPhoto,
     'call-to-action': CallToAction,

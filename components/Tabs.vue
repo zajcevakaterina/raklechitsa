@@ -25,7 +25,7 @@
         :class="`tabs__text_${theme}`"
         v-for="(tab, index) in tabsData"
         v-if="show === index && tab.content2"
-        :key="index"
+        :key="tab.id"
         v-html="tab.content2"
       ></p>
       <slot></slot>
@@ -72,13 +72,13 @@ export default {
   color: #000000;
 }
 
-.tabs__link_above {
+.tabs__link_about {
   color: #c9c9c9;
 }
-.tabs__link_above:hover {
+.tabs__link_about:hover {
   color: #ffffff;
 }
-.active_above {
+.active_about {
   color: #ffffff;
 }
 .tabs__content {
@@ -103,7 +103,7 @@ export default {
 .tabs__text_call-to-action {
   color: #666666;
 }
-.tabs__text_above {
+.tabs__text_about {
   color: #dedede;
 }
 </style>

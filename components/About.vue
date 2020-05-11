@@ -1,16 +1,15 @@
 <template>
-  <section class="above">
-    <p class="above__hashtag">#РАКЛЕЧИТСЯ</p>
-    <section-title class="above__section-title">О проекте</section-title>
-    <div class="above__content">
-      <section-text class="above__section-text"
+  <section class="about">
+    <p class="about__hashtag">#РАКЛЕЧИТСЯ</p>
+    <section-title class="about__section-title">О проекте</section-title>
+    <div class="about__content">
+      <section-text class="about__section-text"
         >Этот проект был создан благотворительным фондом Константина Хабенского.
       </section-text>
-      <main-tabs :tabsData="tabs" :theme="'above'" />
+      <main-tabs :tabsData="tabs" :theme="'about'" />
     </div>
   </section>
 </template>
-
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
@@ -45,7 +44,7 @@ export default {
 </script>
 
 <style scoped>
-.above {
+.about {
   width: 100%;
   min-height: 650px;
   background: #613a93;
@@ -53,7 +52,7 @@ export default {
   flex-direction: column;
   padding: 100px 60px 0;
 }
-.above__hashtag {
+.about__hashtag {
   font-style: normal;
   font-weight: 800;
   font-size: 64px;
@@ -61,14 +60,14 @@ export default {
   color: #ffffff;
   margin: 0 auto 70px;
 }
-.above__content {
+.about__content {
   display: flex;
-  justify-content: spa ce-between;
+  justify-content: space-between;
 }
-.above__section-title {
+.about__section-title {
   color: #ffffff;
 }
-.above__section-text {
+.about__section-text {
   color: #dedede;
 }
 </style>

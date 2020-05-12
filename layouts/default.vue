@@ -14,6 +14,9 @@ export default {
     'page-header': Header,
     'page-footer': Footer,
   },
+  head: {
+    title: 'РАКЛЕЧИТСЯ.РФ - истории людей, победивших рак, но не свои привычки',
+  },
 };
 </script>
 

@@ -1,3 +1,5 @@
+<!--TODO: удалить ArrowButton файл, так как стрелку вставили в основной Cover-->
+
 <template>
   <button class="arrow-button">
     <img src="@/static/arrows/arrow.png" alt="" />

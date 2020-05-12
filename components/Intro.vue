@@ -79,7 +79,8 @@
 
 <style scoped>
   .intro {
-    padding: 100px 60px;
+    margin: 0 auto;
+    padding: 100px 0;
     display: flex;
     flex-direction: column;
   }
@@ -135,7 +136,7 @@
     }
 
     .intro {
-      padding: 90px 50px;
+      padding: 90px 0;
     }
 
     .intro__title {
@@ -160,7 +161,7 @@
 
   @media (max-width: 1024px) {
     .intro {
-      padding: 80px 50px;
+      padding: 80px 0;
     }
 
     .intro__content {

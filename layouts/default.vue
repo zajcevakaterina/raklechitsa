@@ -33,12 +33,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  max-width: 1440px;
   margin: 0 auto;
 }
 
 .root__section {
   width: calc(100% - 120px);
+  max-width: 1440px;
 }
 
 @media screen and (max-width: 1280px) {

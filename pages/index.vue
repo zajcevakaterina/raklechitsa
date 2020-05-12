@@ -197,8 +197,7 @@ export default {
   }
 
   .insta__cards {
-    display: grid;
-    grid-template-columns: repeat(4, 157px);
+    grid-template-columns: repeat(4, 1fr);
     margin: 0;
   }
 }
@@ -206,6 +205,10 @@ export default {
 @media screen and (max-width: 320px) {
   .insta__text {
     margin-top: 16px;
+  }
+  .insta__cards {
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
   }
 }
 </style>

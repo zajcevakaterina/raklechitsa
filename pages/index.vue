@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <!-- TODO: добавить класс к обертке index.vue -->
-
+  <main class="content">
     <cover />
     <intro class="root__section" />
     <stories class="root__section" />
@@ -36,7 +34,7 @@
     <call-to-action />
     <statistics class="root__section" />
     <about />
-  </div>
+  </main>
 </template>
 
 <script>

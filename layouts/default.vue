@@ -1,9 +1,7 @@
 <template>
   <div class="root">
     <page-header class="root__section" />
-    <main>
-      <nuxt />
-    </main>
+    <nuxt />
     <page-footer />
   </div>
 </template>

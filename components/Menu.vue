@@ -39,4 +39,18 @@ export default {};
 .nuxt-link-exact-active {
   border-bottom: solid 2px;
 }
+
+@media screen and (max-width: 1280px) {
+  .menu-link {
+    font-size: 16px;
+  }
+  .header__logo {
+    line-height: 1.12;
+  }
+}
+@media screen and (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+}
 </style>

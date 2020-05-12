@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Button @btnClick="popupToggle" />
-    <Popup v-if="popupShown">
+    <Button />
+    <pop-up>
       <FormStories />
-    </Popup>
+    </pop-up>
   </div>
 </template>
 
@@ -14,21 +14,9 @@ import FormStories from '@@/components/FormStories';
 
 export default {
   components: {
-    Popup,
+    'pop-up': Popup,
     Button,
     FormStories,
-  },
-
-  methods: {
-    popupToggle() {
-      this.popupShown = !this.popupShown;
-    },
-  },
-
-  data() {
-    return {
-      popupShown: false,
-    };
   },
 };
 </script>

@@ -16,5 +16,6 @@ export default {};
   margin: 32px 0 0;
   width: 340px;
   color: #666666;
+  word-break: break-word;
 }
 </style>

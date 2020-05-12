@@ -25,7 +25,6 @@ body {
   margin: 0;
 }
 /* TODO: временное решение, пока не найду способа добраться до body и поставить ему класс */
-
 .root {
   font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
@@ -36,30 +35,25 @@ body {
   box-sizing: border-box;
   margin: 0 auto;
 }
-
 .root__section {
   width: calc(100% - 120px);
   max-width: 1320px;
 }
-
 @media screen and (max-width: 1280px) {
   .root__section {
     width: calc(100% - 100px);
   }
 }
-
 @media screen and (max-width: 1280px) {
   .root__section {
     width: calc(100% - 100px);
   }
 }
-
 @media screen and (max-width: 768px) {
   .root__section {
     width: calc(100% - 80px);
   }
 }
-
 @media screen and (max-width: 320px) {
   .root__section {
     width: calc(100% - 30px);

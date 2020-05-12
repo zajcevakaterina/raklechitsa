@@ -1,9 +1,7 @@
 <template>
   <div class="cover">
     <h1 class="cover__heading">#РАКЛЕЧИТСЯ</h1>
-    <button class="cover__arrow-button">
-      <img src="@/static/arrows/arrow.png" alt="" />
-    </button>
+    <button class="cover__arrow-button" />
   </div>
 </template>
 
@@ -11,7 +9,7 @@
 
 <style scoped>
 .cover {
-  height: 689px;
+  min-height: 689px;
   background-color: #613a93;
   display: flex;
   justify-content: center;
@@ -29,10 +27,14 @@
 }
 
 .cover__arrow-button {
-  background: transparent;
+  background: no-repeat url('/arrows/arrow.png');
+  background-size: cover;
+  width: 36px;
+  height: 14px;
   border: 0;
   cursor: pointer;
   box-sizing: border-box;
+  padding: 0;
   position: absolute;
   bottom: 40px;
   left: auto;
@@ -40,9 +42,9 @@
   margin-top: auto;
 }
 
-@media screen and (max-width: 1439px) {
+@media screen and (max-width: 1280px) {
   .cover {
-    height: 620px;
+    min-height: 620px;
   }
 
   .cover__heading {
@@ -51,15 +53,15 @@
   }
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1024px) {
   .cover {
-    height: 540px;
+    min-height: 540px;
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 768px) {
   .cover {
-    height: 780px;
+    min-height: 780px;
   }
 
   .cover__heading {
@@ -67,9 +69,9 @@
     line-height: 77px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 320px) {
     .cover {
-      height: 480px;
+      min-height: 480px;
     }
 
     .cover__heading {

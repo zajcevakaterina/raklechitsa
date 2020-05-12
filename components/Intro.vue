@@ -94,7 +94,6 @@ export default {
   min-height: 550px;
   max-width: 1320px;
 }
-
 .intro__left {
   display: flex;
   flex-direction: column;

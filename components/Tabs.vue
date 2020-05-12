@@ -52,6 +52,7 @@ export default {
 }
 .tabs__list {
   list-style: none;
+  margin: 0;
 }
 .tabs__link {
   cursor: pointer;
@@ -94,7 +95,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 .tabs__text:last-child {
   margin-bottom: 0;
@@ -106,4 +107,75 @@ export default {
 .tabs__text_about {
   color: #dedede;
 }
+
+@media screen and (max-width: 1280px) {
+  .tabs {
+    margin: 30px 0 0;
+  }
+  .tabs__text {
+    max-width: 570px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .tabs {
+    margin: 20px 0 0;
+  }
+  .tabs__link {
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.27;
+  }
+  .tabs__content {
+    margin-left: 30px;
+  }
+  .tabs__text {
+    max-width: 447px;
+    font-size: 15px;
+    line-height: 1.27;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tabs {
+    margin: 80px 0 0;
+    flex-direction: column;
+    flex: auto;
+  }
+  .tabs__link {
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.27;
+    margin-right: 30px;
+  }
+  .tabs__link:last-child {
+    margin-right: 0px;
+  }
+  .active_call-to-action {
+    border-bottom: #000000 solid 2px;
+  }
+  .active_about {
+    border-bottom: #ffffff solid 2px;
+  }
+  .tabs__content {
+    margin-left: 0px;
+    flex: auto;
+    justify-content: space-between;
+  }
+  .tabs__list {
+    display: flex;
+    padding: 0;
+  }
+  .tabs__text {
+    font-size: 15px;
+    line-height: 1.27;
+    max-width: 380px;
+  }
+}
+/* @media screen and (max-width: 320px) {
+  .section__title  {
+    max-width: 290px;
+    font-size: 16px;
+    line-height: 1.23;
+  } 
+} */
 </style>

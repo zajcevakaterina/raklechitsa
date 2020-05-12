@@ -58,6 +58,7 @@ export default {
   flex-direction: column;
   padding: 100px 0;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .about__hashtag {
   font-style: normal;
@@ -76,5 +77,30 @@ export default {
 }
 .about__section-text {
   color: #dedede;
+}
+
+@media screen and (max-width: 1280px) {
+  .about {
+    min-height: 480px;
+    padding: 90px 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .about {
+    min-height: 436px;
+    padding: 80px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about {
+    min-height: 598px;
+    padding: 80px 0;
+    align-items: center;
+  }
+  .about__content {
+    flex-direction: column;
+    align-items: center;
+    flex: none;
+  }
 }
 </style>

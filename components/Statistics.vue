@@ -93,11 +93,43 @@ export default {
 }
 .statistics__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-columns: repeat(4, 300px);
   column-gap: 40px;
   row-gap: 70px;
   padding: 0;
   list-style: none;
   justify-content: center;
+}
+
+@media screen and (max-width: 1360px) {
+  .statistics__list {
+    grid-template-columns: repeat(4, 280px);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .statistics__list {
+    grid-template-columns: repeat(4, 265px);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .statistics__list {
+    grid-template-columns: repeat(4, 208px);
+    column-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .statistics__list {
+    grid-template-columns: repeat(4, 216px);
+    column-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .statistics__list {
+    column-gap: 10px;
+  }
 }
 </style>

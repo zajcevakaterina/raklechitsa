@@ -18,6 +18,8 @@ export default {
 };
 </script>
 
+<!--TODO подправить по длине последнего бара-->
+
 <style scoped>
 .progress-bar {
   background: #f4f4f4;
@@ -29,5 +31,25 @@ export default {
 .progress-bar__filling {
   background: #613a93;
   height: 100%;
+}
+
+@media screen and (max-width: 1280px) {
+  .progress-bar {
+    width: 229px;
+    height: 36px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .progress-bar {
+    width: 188px;
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .progress-bar {
+    width: 196px;
+  }
 }
 </style>

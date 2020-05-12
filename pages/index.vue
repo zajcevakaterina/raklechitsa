@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <!-- TODO: добавить класс к обертке index.vue -->
-
+  <main class="content">
     <cover />
     <intro class="root__section" />
     <stories class="root__section" />
@@ -15,7 +13,7 @@
         >
           <section-title class="insta__title">Инстаграм</section-title>
         </a>
-        <section-text
+        <section-text class="insta__text"
           >Два раза в неделю мы просматриваем все посты по хештегу
           #этонелечится. Все истории, где нет нецензурных выражений и
           запрещенного контента попадают сюда. Следите за правильным написанием
@@ -36,7 +34,7 @@
     <call-to-action />
     <statistics class="root__section" />
     <about />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -49,8 +47,6 @@ import InstaPhoto from '@/components/InstaPhoto';
 import CallToAction from '@/components/CallToAction';
 import Statistics from '@/components/Statistics';
 import About from '@/components/About';
-
-// TODO: Above переименовать на About
 
 export default {
   components: {
@@ -131,25 +127,33 @@ export default {
 </script>
 
 <style scoped>
+/* TODO: может, эти стили вынести в папку blocks и импортировать css? */
 .insta {
-  display: flex;
+  display: grid;
+  grid-template-columns: fit-content(340px) 1fr;
   justify-content: space-between;
   margin: 0 auto;
 }
 
 .insta__desc {
-  padding-top: 10px;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* TODO: может, эти стили вынести в папку blocks и импортировать css? */
 .insta__title-link {
   color: #000;
   text-decoration: none;
   border-bottom: 2px solid #000;
 }
 
-.insta__title {
-  margin-bottom: 32px;
+.insta__title-link:hover {
+  opacity: 0.8;
+}
+
+.insta__text {
+  margin-top: 32px;
 }
 
 .insta__cards {
@@ -157,8 +161,72 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   list-style: none;
   padding: 0;
-  margin: 0 0 100px 60px;
-  column-gap: 20px;
-  row-gap: 20px;
+  margin: 0 0 100px 110px;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+@media screen and (max-width: 1280px) {
+  .insta__text {
+    margin-top: 30px;
+  }
+
+  .insta__cards {
+    margin-bottom: 90px;
+    column-gap: 27px;
+    row-gap: 27px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .insta__text {
+    margin-top: 20px;
+  }
+
+  .insta__cards {
+    margin-bottom: 80px;
+    margin-left: 60px;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .insta {
+    grid-template-columns: 1fr;
+    grid-template-rows: fit-content(140px) 1fr;
+  }
+
+  .insta__desc {
+    padding-top: 0px;
+    align-items: center;
+  }
+
+  .insta__text {
+    margin-top: 26px;
+  }
+
+  .insta__cards {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 60px 0 80px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .insta__desc {
+    padding-top: 0px;
+    align-items: flex-start;
+  }
+
+  .insta__text {
+    margin-top: 16px;
+  }
+
+  .insta__cards {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 40px 0 50px;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
 }
 </style>

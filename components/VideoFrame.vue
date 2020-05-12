@@ -2,22 +2,26 @@
   <div class="video">
     <iframe
       class="video__frame"
-      src="https://www.youtube.com/embed/coOppM34GtI"
+      :src="url"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
-    ></iframe>
+    >
+    </iframe>
     <p class="video__caption">
       Все видео вы можете найте на нашем
       <a
         href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-        >YouTube канале</a
+      >
+        YouTube канале</a
       >.
     </p>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['url'],
+};
 </script>
 
 <!--TODO доделать адаптив для видео-->
@@ -26,7 +30,7 @@ export default {};
   width: 65.7%;
   max-height: 450px;
   position: relative;
-  padding-bottom: calc(25 * 65, 7% / 48);
+  /*padding-bottom: calc(25 * 65.7% / 48);*/
 }
 
 .video__frame {
@@ -54,6 +58,24 @@ export default {};
 @media screen and (max-width: 1280px) {
   .video {
     max-height: 400px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .video {
+    max-height: 314px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .video {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .video {
+    max-height: 150px;
   }
 }
 </style>

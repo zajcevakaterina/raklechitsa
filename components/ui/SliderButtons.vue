@@ -1,13 +1,13 @@
 <template>
   <div class="slider-buttons">
-    <button class="slider-button">
+    <button class="slider-button" @click="$emit('btnClickLeftIntro')">
       <img
         src="@/static/arrows/leftNactivearrow.png"
         alt="arrow"
         class="arrow"
       />
     </button>
-    <button class="slider-button">
+    <button class="slider-button" @click="$emit('btnClickRightIntro')">
       <img
         src="@/static/arrows/rightActivearrow.png"
         alt="arrow"
@@ -27,10 +27,6 @@ export default {
 </script>
 
 <style scoped>
-.slider-buttons {
-  margin-top: auto;
-}
-
 .slider-button {
   border: 0;
   cursor: pointer;

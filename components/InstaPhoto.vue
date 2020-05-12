@@ -1,10 +1,9 @@
 <template>
   <a class="insta-photo__link" :href="`${instaLink}`" target="blank">
-    <img
-      :src="`${instaImage}`"
-      :alt="`Автор фотографии ${author}`"
+    <div
+      :style="`background-image: url(${instaImage})`"
       class="insta-photo__image"
-    />
+    ></div>
   </a>
 </template>
 
@@ -16,10 +15,10 @@ export default {
 
 <style scoped>
 .insta-photo__image {
-  width: 195px;
-  height: 195px;
-  object-fit: cover;
-  object-position: center;
+  width: 100%;
+  padding-bottom: 100%;
+  background-size: cover;
+  background-position: center;
   display: block;
 }
 </style>

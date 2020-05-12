@@ -58,6 +58,7 @@ export default {
   flex-direction: column;
   padding: 100px 0;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .about__hashtag {
   font-style: normal;
@@ -65,6 +66,7 @@ export default {
   font-size: 64px;
   line-height: 77px;
   color: #ffffff;
+  text-align: center;
   margin: 0 auto 70px;
 }
 .about__content {
@@ -76,5 +78,41 @@ export default {
 }
 .about__section-text {
   color: #dedede;
+}
+
+@media screen and (max-width: 1280px) {
+  .about {
+    min-height: 626px;
+    padding: 80px 0;
+  }
+  .about__hashtag {
+    font-size: 58px;
+    line-height: 70px;
+    margin: 0 auto 60px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .about {
+    min-height: 571px;
+  }
+  .about__hashtag {
+    font-size: 52px;
+    line-height: 63px;
+    margin: 0 auto 46px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about {
+    min-height: 660px;
+    align-items: center;
+  }
+  .about__hashtag {
+    display: none;
+  }
+  .about__content {
+    flex-direction: column;
+    align-items: center;
+    flex: none;
+  }
 }
 </style>

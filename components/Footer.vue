@@ -2,13 +2,16 @@
   <div class="wrapper">
     <footer class="footer root__section">
       <div class="footer__content">
-        <section-title
-          >Спасибо всем, кто помог состояться этому проекту</section-title
-        >
-        <!-- <footer-menu /> -->
-        <div class="footer__menu">
-          <a href="/" class="footer__menu-link">Главная</a>
-          <a href="/stories" class="footer__menu-link">Истории</a>
+        <div class="footer__title-menu">
+          <section-title class="section__title_footer"
+            >Спасибо всем, кто помог состояться этому проекту</section-title
+          >
+          <!-- <footer-menu /> -->
+
+          <div class="footer__menu">
+            <a href="/" class="footer__menu-link">Главная</a>
+            <a href="/stories" class="footer__menu-link">Истории</a>
+          </div>
         </div>
         <div class="footer__social">
           <p class="footer__social-text">Мы в Инстаграме и Youtube</p>
@@ -51,10 +54,16 @@ export default {
   flex-direction: column;
   display: flex;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .footer__content {
   width: 100%;
   display: flex;
+  justify-content: space-between;
+}
+.footer__title-menu {
+  display: flex;
+  width: calc(50% - 20px);
   justify-content: space-between;
 }
 .footer__menu {
@@ -74,7 +83,9 @@ export default {
   color: #000000;
   height: fit-content;
 }
-
+.footer__menu-link:last-child {
+  margin: 0;
+}
 .footer__menu-link:hover {
   color: #121212;
   opacity: 0.8;
@@ -92,6 +103,7 @@ export default {
   font-size: 18px;
   line-height: 24px;
   color: #000000;
+  margin: 0;
 }
 .footer__social_link {
   font-style: normal;
@@ -121,4 +133,104 @@ export default {
   line-height: 18px;
   color: #898989;
 }
+.section__title_footer {
+  max-width: 340px;
+}
+
+@media screen and (max-width: 1280px) {
+  .footer {
+    min-height: 316px;
+    padding: 50px 0;
+  }
+  .section__title_footer {
+    max-width: 305px;
+  }
+  .footer__menu-link {
+    font-size: 16px;
+  }
+  .footer__social-text {
+    font-size: 16px;
+  }
+  .footer__social_link {
+    font-size: 16px;
+  }
+  .footer__copyright-text {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .footer {
+    min-height: 292px;
+    padding: 50px 0;
+  }
+  .section__title_footer {
+    max-width: 288px;
+  }
+  .footer__title-menu {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section__title_footer {
+    max-width: 268px;
+  }
+  .footer__title-menu {
+    width: 60%;
+  }
+  .footer__menu {
+    flex-direction: column;
+  }
+  .footer__social {
+    width: 226px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .section__title_footer {
+    max-width: 290px;
+    font-size: 18px;
+    line-height: 1.17;
+    margin-bottom: 50px;
+  }
+  .footer__content {
+    flex-direction: column;
+  }
+  .footer__title-menu {
+    flex-direction: column;
+  }
+  .footer__title-menu {
+    width: 100%;
+  }
+  .footer__menu-link {
+    font-size: 13px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .footer__menu-link:last-child {
+    margin-bottom: 18px;
+  }
+  .footer__social {
+    min-height: 0;
+  }
+  .footer__social-text {
+    font-size: 13px;
+    line-height: 1.15;
+  }
+  .footer__social_link {
+    font-size: 13px;
+    line-height: 1.15;
+  }
+  .footer__copyright {
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  .footer__copyright-text {
+    font-size: 13px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .footer__copyright-text:last-child {
+    margin: 0;
+  }
+}
 </style>
+footer__section-title

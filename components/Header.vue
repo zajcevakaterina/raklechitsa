@@ -53,4 +53,27 @@ export default {
 .button_header:hover {
   opacity: 0.8;
 }
+@media screen and (max-width: 1280px) {
+  .header {
+    min-height: 72px;
+  }
+  .header__logo {
+    line-height: 1.12;
+  }
+  .button_header {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .button_header {
+    display: none;
+  }
+}
+@media screen and (max-width: 320px) {
+  .header__logo {
+    line-height: 1.17;
+    width: 216px;
+    font-size: 12px;
+  }
+}
 </style>

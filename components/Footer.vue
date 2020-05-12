@@ -41,11 +41,11 @@ export default {
 <style scoped>
 .footer {
   min-height: 356px;
-  width: 100%;
   background-color: #fbfbfb;
-  padding: 60px;
+  padding: 60px 0;
   flex-direction: column;
   display: flex;
+  margin: 0 auto;
 }
 .footer__content {
   width: 100%;

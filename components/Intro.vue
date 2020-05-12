@@ -35,8 +35,8 @@ export default {
   display: flex;
   justify-content: space-between;
   min-height: 650px;
-  max-width: 1440px;
-  padding: 100px 60px;
+  padding: 100px 0;
+  margin: 0 auto;
 }
 
 .intro__left {

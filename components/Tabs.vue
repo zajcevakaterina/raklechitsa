@@ -89,7 +89,7 @@ export default {
 .tabs__text {
   display: flex;
   flex-direction: column;
-  width: 640px;
+  max-width: 640px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

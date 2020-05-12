@@ -3,10 +3,10 @@
     <!-- TODO: добавить класс к обертке index.vue -->
 
     <cover />
-    <intro />
-    <stories />
+    <intro class="root__section" />
+    <stories class="root__section" />
 
-    <section class="insta">
+    <section class="insta root__section">
       <div class="insta__desc">
         <a
           class="insta__title-link"
@@ -33,9 +33,9 @@
         </li>
       </ul>
     </section>
-    <call-to-action />
-    <statistics />
-    <about />
+    <call-to-action class="root__section" />
+    <statistics class="root__section" />
+    <about class="root__section" />
   </div>
 </template>
 
@@ -133,6 +133,7 @@ export default {
 <style scoped>
 .insta {
   display: flex;
+  justify-content: space-between;
   margin: 0 auto;
 }
 
@@ -156,7 +157,7 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   list-style: none;
   padding: 0;
-  margin-left: 60px;
+  margin: 0 0 100px 60px;
   column-gap: 20px;
   row-gap: 20px;
 }

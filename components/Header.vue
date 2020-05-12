@@ -21,14 +21,14 @@ export default {
 
 <style scoped>
 .header {
-  width: 100%;
   min-height: 76px;
   box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 60px;
+  margin: 0 auto;
 }
+
 .header__logo {
   width: 340px;
   font-size: 16px;

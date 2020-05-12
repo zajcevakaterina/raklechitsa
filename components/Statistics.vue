@@ -83,6 +83,11 @@ export default {
 </script>
 
 <style scoped>
+.statistics {
+  margin: 0 auto;
+  padding: 0 0 100px;
+}
+
 .statistics__title {
   margin: 100px 0 70px;
 }

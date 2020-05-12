@@ -95,6 +95,10 @@ export default {
 </script>
 
 <style scoped>
+.stories {
+  margin: 0 auto;
+}
+
 .stories__title {
   margin: 100px 0 70px;
 }
@@ -105,7 +109,7 @@ export default {
   row-gap: 70px;
   padding: 0;
   list-style: none;
-  justify-content: center;
+  /* justify-content: center; */
   margin: 0 0 46px;
 }
 

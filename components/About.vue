@@ -45,12 +45,12 @@ export default {
 
 <style scoped>
 .about {
-  width: 100%;
   min-height: 650px;
   background: #613a93;
   display: flex;
   flex-direction: column;
-  padding: 100px 60px 0;
+  padding: 100px 0;
+  margin: 0 auto;
 }
 .about__hashtag {
   font-style: normal;

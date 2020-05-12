@@ -51,12 +51,12 @@ export default {
 
 <style scoped>
 .call-to-action {
-  width: 100%;
   min-height: 522px;
   background: #f7f7f7;
   display: flex;
   flex-direction: column;
-  padding: 100px 60px 100px;
+  padding: 100px 0;
+  margin: 0 auto;
 }
 .call-to-action__content {
   display: flex;

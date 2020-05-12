@@ -1,14 +1,17 @@
 <template>
-  <section class="about">
-    <p class="about__hashtag">#РАКЛЕЧИТСЯ</p>
-    <section-title class="about__section-title">О проекте</section-title>
-    <div class="about__content">
-      <section-text class="about__section-text"
-        >Этот проект был создан благотворительным фондом Константина Хабенского.
-      </section-text>
-      <main-tabs :tabsData="tabs" :theme="'about'" />
-    </div>
-  </section>
+  <div class="wrapper">
+    <section class="about root__section">
+      <p class="about__hashtag">#РАКЛЕЧИТСЯ</p>
+      <section-title class="about__section-title">О проекте</section-title>
+      <div class="about__content">
+        <section-text class="about__section-text"
+          >Этот проект был создан благотворительным фондом Константина
+          Хабенского.
+        </section-text>
+        <main-tabs :tabsData="tabs" :theme="'about'" />
+      </div>
+    </section>
+  </div>
 </template>
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
@@ -44,9 +47,13 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  background: #613a93;
+  width: 100vw;
+}
+
 .about {
   min-height: 650px;
-  background: #613a93;
   display: flex;
   flex-direction: column;
   padding: 100px 0;

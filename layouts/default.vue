@@ -4,7 +4,7 @@
     <main>
       <nuxt />
     </main>
-    <page-footer class="root__section" />
+    <page-footer />
   </div>
 </template>
 
@@ -38,7 +38,7 @@ body {
 
 .root__section {
   width: calc(100% - 120px);
-  max-width: 1440px;
+  max-width: 1320px;
 }
 
 @media screen and (max-width: 1280px) {

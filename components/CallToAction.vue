@@ -1,19 +1,21 @@
 <template>
-  <section class="call-to-action">
-    <section-title>Расскажите свою историю</section-title>
-    <div class="call-to-action__content">
-      <section-text
-        >Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-        поделиться своей историей неизлечимых привычек, навязчивых идей и
-        болезненных привязанностей.
-      </section-text>
-      <main-tabs :tabsData="tabs" :theme="'call-to-action'">
-        <action-button class="call-to-action__action-button"
-          >Заполнить форму</action-button
-        >
-      </main-tabs>
-    </div>
-  </section>
+  <div class="wrapper">
+    <section class="call-to-action root__section">
+      <section-title>Расскажите свою историю</section-title>
+      <div class="call-to-action__content">
+        <section-text
+          >Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
+          поделиться своей историей неизлечимых привычек, навязчивых идей и
+          болезненных привязанностей.
+        </section-text>
+        <main-tabs :tabsData="tabs" :theme="'call-to-action'">
+          <action-button class="call-to-action__action-button"
+            >Заполнить форму</action-button
+          >
+        </main-tabs>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -50,9 +52,13 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  background: #f7f7f7;
+  width: 100vw;
+}
+
 .call-to-action {
   min-height: 522px;
-  background: #f7f7f7;
   display: flex;
   flex-direction: column;
   padding: 100px 0;

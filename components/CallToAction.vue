@@ -57,6 +57,7 @@ export default {
   flex-direction: column;
   padding: 100px 0;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .call-to-action__content {
   display: flex;
@@ -66,5 +67,29 @@ export default {
 .call-to-action__action-button {
   margin: auto 0 0;
   width: 280px;
+}
+
+@media screen and (max-width: 1280px) {
+  .call-to-action {
+    min-height: 480px;
+    padding: 90px 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .call-to-action {
+    min-height: 436px;
+    padding: 80px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .call-to-action {
+    min-height: 598px;
+    padding: 80px 0;
+    align-items: center;
+  }
+  .call-to-action__content {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>

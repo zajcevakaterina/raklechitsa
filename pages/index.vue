@@ -48,8 +48,6 @@ import CallToAction from '@/components/CallToAction';
 import Statistics from '@/components/Statistics';
 import About from '@/components/About';
 
-// TODO: Above переименовать на About
-
 export default {
   components: {
     'section-title': SectionTitle,
@@ -139,17 +137,15 @@ export default {
 
 .insta__desc {
   padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .insta__title-link {
   color: #000;
   text-decoration: none;
-  display: inline;
   border-bottom: 2px solid #000;
-}
-
-.insta__title {
-  display: inline;
 }
 
 .insta__title-link:hover {
@@ -165,14 +161,20 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   list-style: none;
   padding: 0;
-  margin: 0 0 100px 60px;
-  column-gap: 20px;
-  row-gap: 20px;
+  margin: 0 0 100px 110px;
+  column-gap: 30px;
+  row-gap: 30px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
   .insta__text {
     margin-top: 30px;
+  }
+
+  .insta__cards {
+    margin-bottom: 90px;
+    column-gap: 27px;
+    row-gap: 27px;
   }
 }
 
@@ -180,16 +182,24 @@ export default {
   .insta__text {
     margin-top: 20px;
   }
+
+  .insta__cards {
+    margin-bottom: 80px;
+    margin-left: 60px;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .insta {
     grid-template-columns: 1fr;
-    justify-items: center;
+    grid-template-rows: fit-content(140px) 1fr;
   }
 
   .insta__desc {
     padding-top: 0px;
+    align-items: center;
   }
 
   .insta__text {
@@ -198,17 +208,19 @@ export default {
 
   .insta__cards {
     grid-template-columns: repeat(4, 1fr);
-    margin: 0;
+    margin: 60px 0 80px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 475px) {
   .insta__text {
     margin-top: 16px;
   }
   .insta__cards {
-    grid-template-columns: 1fr 1fr;
-    margin: 0;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 40px 0 50px;
+    column-gap: 10px;
+    row-gap: 10px;
   }
 }
 </style>

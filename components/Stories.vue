@@ -56,7 +56,7 @@ export default {
 }
 
 .stories__title {
-  margin: 100px 0 70px;
+  margin: 0 0 70px;
 }
 
 .stories__list {
@@ -102,7 +102,7 @@ export default {
   }
 
   .stories__title {
-    margin: 90px 0 60px;
+    margin: 0 0 60px;
   }
 }
 
@@ -114,7 +114,7 @@ export default {
   }
 
   .stories__title {
-    margin: 80px 0 46px;
+    margin: 0 0 46px;
   }
 
   .stories__button {
@@ -133,7 +133,8 @@ export default {
   }
 
   .stories__title {
-    margin-bottom: 60px;
+    text-align: center;
+    margin: 0 auto 60px;
   }
 }
 
@@ -145,6 +146,7 @@ export default {
 
   .stories__title {
     margin: 50px 0 40px;
+    text-align: left;
   }
 }
 </style>

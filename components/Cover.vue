@@ -1,16 +1,13 @@
 <template>
   <div class="cover">
     <h1 class="cover__heading">#РАКЛЕЧИТСЯ</h1>
-    <arrow class="cover__arrow" />
+    <button class="cover__arrow-button">
+      <img src="@/static/arrows/arrow.png" alt="" />
+    </button>
   </div>
 </template>
 
-<script>
-import ArrowButton from '@/components/ui/ArrowButton';
-export default {
-  arrow: ArrowButton,
-};
-</script>
+<script></script>
 
 <style scoped>
 .cover {
@@ -19,6 +16,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  position: relative;
 }
 
 .cover__heading {
@@ -29,9 +28,58 @@ export default {
   color: #ffffff;
 }
 
-.cover__arrow {
+.cover__arrow-button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  box-sizing: border-box;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 40px;
+  left: auto;
+  right: auto;
+  margin-top: auto;
+}
+
+@media screen and (max-width: 1439px) {
+  .cover {
+    height: 620px;
+  }
+
+  .cover__heading {
+    font-size: 78px;
+    line-height: 94px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .cover {
+    height: 540px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .cover {
+    height: 780px;
+  }
+
+  .cover__heading {
+    font-size: 64px;
+    line-height: 77px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .cover {
+      height: 480px;
+    }
+
+    .cover__heading {
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    .cover__arrow-button {
+      bottom: 30px;
+    }
+  }
 }
 </style>

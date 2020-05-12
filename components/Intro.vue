@@ -78,6 +78,7 @@
 </script>
 
 <style scoped>
+
   .intro {
     margin: 0 auto;
     padding: 100px 0;
@@ -103,7 +104,6 @@
     margin-top: auto;
     margin-bottom: 95px;
   }
-
 
   .intro__cover {
     width: 100%;

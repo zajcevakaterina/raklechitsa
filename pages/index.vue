@@ -213,9 +213,15 @@ export default {
 }
 
 @media screen and (max-width: 475px) {
+  .insta__desc {
+    padding-top: 0px;
+    align-items: flex-start;
+  }
+
   .insta__text {
     margin-top: 16px;
   }
+
   .insta__cards {
     grid-template-columns: repeat(2, 1fr);
     margin: 40px 0 50px;

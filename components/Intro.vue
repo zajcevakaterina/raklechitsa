@@ -16,6 +16,12 @@
       </div>
       <youtube-video :url="introVideo[i].url" />
     </div>
+
+    <div class="intro__cover">
+      <p class="intro__cover-quote">
+        И В ОТЛИЧИЕ ОТ РАКА, <span class="quote">#ЭТОНЕЛЕЧИТСЯ</span>
+      </p>
+    </div>
     <tag-lead class="intro__cover">и в отличие от рака, </tag-lead>
   </div>
 </template>
@@ -107,6 +113,30 @@ export default {
   margin-bottom: 95px;
 }
 
+.intro__cover {
+  width: 100%;
+  height: 86px;
+  background: #613a93;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro__cover-quote {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 46px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.quote {
+  font-weight: 600;
+  font-size: 40px;
+}
+
 @media (max-width: 1280px) {
   .intro__content {
     min-height: 495px;
@@ -132,6 +162,9 @@ export default {
   /*.slider-buttons {*/
   /*  margin-top: 124px;*/
   /*}*/
+  .intro__cover-quote {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 1024px) {

@@ -4,7 +4,12 @@
       >Истории неизлечимых привычек</section-title
     >
     <ul class="stories__list">
-      <li class="stories__item" v-for="story in stories" :key="story.id">
+      <li
+        class="stories__item"
+        v-for="story in stories"
+        :key="story.id"
+        @storyClick="goToStory(story.id)"
+      >
         <story-item
           :author="story.author"
           :text="story.text"
@@ -28,68 +33,17 @@ export default {
     'story-item': StoryItem,
     'stories-button': Button,
   },
-  data() {
-    return {
-      stories: [
-        {
-          id: 1,
-          photoUrl: '/images/stories/story-photo1.jpg',
-          // TODO: уменьшить размеры фотографий
-          author: 'Владимир Тен',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-        {
-          id: 2,
-          photoUrl:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-          author: 'Владимир Познер',
-          text: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-        },
-        {
-          id: 3,
-          photoUrl:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-          author: 'Александр Тарханов',
-          text: 'Я не могу победить свою пунктуальность в отличии от рака.',
-        },
-        {
-          id: 4,
-          photoUrl:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-          author: 'Александр Тарханов',
-          text: 'Я не могу победить свою пунктуальность в отличии от рака.',
-        },
-        {
-          id: 5,
-          photoUrl:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-          author: 'Александр Тарханов',
-          text: 'Я не могу победить свою пунктуальность в отличии от рака.',
-        },
-        {
-          id: 6,
-          photoUrl:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-          author: 'Александр Тарханов',
-          text: 'Я не могу победить свою пунктуальность в отличии от рака.',
-        },
-        {
-          id: 7,
-          photoUrl:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-          author: 'Александр Тарханов',
-          text: 'Я не могу победить свою пунктуальность в отличии от рака.',
-        },
-        {
-          id: 8,
-          photoUrl:
-            'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
-          author: 'Александр Тарханов',
-          text: 'Я не могу победить свою пунктуальность в отличии от рака.',
-        },
-      ],
-    };
+
+  methods: {
+    goToStory(id) {
+      this.$router.push(`/stories/${id}`);
+    },
+  },
+
+  computed: {
+    stories() {
+      return this.$store.getters['stories/getStories'];
+    },
   },
 };
 </script>
@@ -102,15 +56,16 @@ export default {
 .stories__title {
   margin: 100px 0 70px;
 }
+
 .stories__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 40px;
   row-gap: 70px;
   padding: 0;
   list-style: none;
-  /* justify-content: center; */
-  margin: 0 0 46px;
+  justify-content: center;
+  margin: 0 0 70px;
 }
 
 .stories__button {
@@ -133,20 +88,28 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .stories__list {
-    grid-template-columns: repeat(auto-fit, 265px);
     row-gap: 60px;
+    margin-bottom: 60px;
   }
 
   .stories__button {
     height: 86px;
   }
+
+  .stories__title {
+    margin: 90px 0 60px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .stories__list {
-    grid-template-columns: repeat(auto-fit, 208px);
     column-gap: 30px;
     row-gap: 46px;
+    margin-bottom: 46px;
+  }
+
+  .stories__title {
+    margin: 80px 0 46px;
   }
 
   .stories__button {
@@ -158,16 +121,25 @@ export default {
 
 @media screen and (max-width: 768px) {
   .stories__list {
-    grid-template-columns: repeat(auto-fit, 216px);
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
     row-gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .stories__title {
+    margin-bottom: 60px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 475px) {
   .stories__list {
     grid-template-columns: 1fr;
     row-gap: 30px;
+  }
+
+  .stories__title {
+    margin: 50px 0 40px;
   }
 }
 </style>

@@ -1,7 +1,5 @@
 <template>
-  <div>
-    здесь будет страница с историей по id
-  </div>
+  <div>здесь будет страница с историей по id# {{ $route.params.id }}</div>
 </template>
 
 <script>

@@ -73,6 +73,52 @@ export default {
 .call-to-action__action-button {
   margin: auto 0 0;
   width: 280px;
+  height: 52px;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+@media screen and (max-width: 1280px) {
+  .call-to-action {
+    min-height: 480px;
+    padding: 90px 0;
+  }
+  .call-to-action__action-button {
+    width: 230px;
+    height: 48px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .call-to-action {
+    min-height: 436px;
+    padding: 80px 0;
+  }
+  .call-to-action__action-button {
+    width: 230px;
+    height: 46px;
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .call-to-action {
+    min-height: 598px;
+    padding: 80px 0;
+    align-items: center;
+  }
+  .call-to-action__content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 320px) {
+  .call-to-action__action-button {
+    width: 290px;
+    height: 40px;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 1280px) {

@@ -26,6 +26,7 @@ import SectionText from '@/components/ui/SectionText';
 import SliderButtons from '@/components/ui/SliderButtons';
 import VideoFrame from '@/components/VideoFrame';
 import TagLead from '@/components/TagLead';
+
 export default {
   components: {
     'title-text': SectionTitle,
@@ -47,6 +48,7 @@ export default {
       }
     },
   },
+
   data() {
     return {
       width: 0,
@@ -85,6 +87,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .intro__content {
   display: flex;
   justify-content: space-between;
@@ -97,55 +100,68 @@ export default {
   padding-top: 12px;
   min-height: 100%;
 }
+
 .slider-buttons {
   margin-top: auto;
   margin-bottom: 95px;
 }
+
 @media (max-width: 1280px) {
   .intro__content {
     min-height: 495px;
     max-width: 1180px;
   }
+
   .intro {
     padding: 90px 0;
   }
+
   .intro__title {
     max-width: 367px;
     font-size: 28px;
     line-height: 32px;
   }
+
   .intro__text {
     max-width: 305px;
     font-size: 16px;
     line-height: 20px;
   }
+
   /*.slider-buttons {*/
   /*  margin-top: 124px;*/
   /*}*/
 }
+
 @media (max-width: 1024px) {
   .intro {
     padding: 80px 0;
   }
+
   .intro__content {
     min-height: 396px;
     max-width: 924px;
   }
+
   .intro__title {
     max-width: 288px;
     font-size: 24px;
     line-height: 28px;
   }
+
   .intro__text {
     max-width: 260px;
     font-size: 13px;
     line-height: 16px;
     margin: 20px 0 0;
   }
+
   .slider-buttons {
     margin-bottom: 79px;
   }
 }
+
 /* @media (max-width: 768px) {
-    } */
+
+  } */
 </style>

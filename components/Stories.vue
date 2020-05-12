@@ -18,7 +18,9 @@
         />
       </li>
     </ul>
-    <stories-button class="stories__button">Больше статей</stories-button>
+    <a class="stories__button-link" href="stories">
+      <stories-button class="stories__button">Больше статей</stories-button>
+    </a>
   </section>
 </template>
 
@@ -84,6 +86,9 @@ export default {
 
 .stories__button:hover {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.stories__button-link {
 }
 
 @media screen and (max-width: 1280px) {

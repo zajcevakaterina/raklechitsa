@@ -1,28 +1,30 @@
 <template>
-  <footer class="footer">
-    <div class="footer__content">
-      <section-title
-        >Спасибо всем, кто помог состояться этому проекту</section-title
-      >
-      <!-- <footer-menu /> -->
-      <div class="footer__menu">
-        <a href="/" class="footer__menu-link">Главная</a>
-        <a href="/stories" class="footer__menu-link">Истории</a>
+  <div class="wrapper">
+    <footer class="footer root__section">
+      <div class="footer__content">
+        <section-title
+          >Спасибо всем, кто помог состояться этому проекту</section-title
+        >
+        <!-- <footer-menu /> -->
+        <div class="footer__menu">
+          <a href="/" class="footer__menu-link">Главная</a>
+          <a href="/stories" class="footer__menu-link">Истории</a>
+        </div>
+        <div class="footer__social">
+          <p class="footer__social-text">Мы в Инстаграме и Youtube</p>
+          <footer-button class="footer__social_link"
+            >Поделитесь &#8599;</footer-button
+          >
+        </div>
       </div>
-      <div class="footer__social">
-        <p class="footer__social-text">Мы в Инстаграме и Youtube</p>
-        <footer-button class="footer__social_link"
-          >Поделитесь &#8599;</footer-button
+      <div class="footer__copyright">
+        <span class="footer__copyright-text">Рак Лечится 2020</span>
+        <span class="footer__copyright-text"
+          >Сделано студентами Яндекс Практикум</span
         >
       </div>
-    </div>
-    <div class="footer__copyright">
-      <span class="footer__copyright-text">Рак Лечится 2020</span>
-      <span class="footer__copyright-text"
-        >Сделано студентами Яндекс Практикум</span
-      >
-    </div>
-  </footer>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -39,9 +41,12 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  background-color: #fbfbfb;
+  width: 100vw;
+}
 .footer {
   min-height: 356px;
-  background-color: #fbfbfb;
   padding: 60px 0;
   flex-direction: column;
   display: flex;

@@ -33,9 +33,9 @@
         </li>
       </ul>
     </section>
-    <call-to-action class="root__section" />
+    <call-to-action />
     <statistics class="root__section" />
-    <about class="root__section" />
+    <about />
   </div>
 </template>
 

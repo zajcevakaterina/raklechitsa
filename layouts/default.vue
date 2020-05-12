@@ -6,23 +6,7 @@
   </div>
 </template>
 
-<<<<<<< HEAD
 <script></script>
-=======
-<script>
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-export default {
-  components: {
-    'page-header': Header,
-    'page-footer': Footer,
-  },
-  head: {
-    title: 'РАКЛЕЧИТСЯ.РФ - истории людей, победивших рак, но не свои привычки',
-  },
-};
-</script>
->>>>>>> 206569bf9ea9c0f556909faeef10bac5f03ac44e
 
 <style>
 body {

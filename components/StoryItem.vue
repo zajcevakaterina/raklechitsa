@@ -1,10 +1,10 @@
 <template>
-  <a class="story-item__link" :href="link">
-    <img
-      :src="photoUrl"
-      :alt="`Фотография автора ${author}`"
+  <a class="story-item__link" :href="link" @click="$emit('storyClick')">
+    <div
+      :style="`background-image: url(${photoUrl})`"
       class="story-item__photo"
     />
+
     <h3 class="story-item__author">{{ author }}</h3>
     <p class="story-item__text">{{ text }}</p>
   </a>
@@ -24,9 +24,9 @@ export default {
 
 .story-item__photo {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: center;
+  padding-bottom: 100%;
+  background-position: center;
+  background-size: cover;
   display: block;
   margin: 0 0 20px;
 }
@@ -47,10 +47,20 @@ export default {
   padding: 0;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1024px) {
   .story-item__photo {
-    height: 265px;
-    /* TODO: подумать, мб height сделать как-то поумнее */
+    margin-bottom: 16px;
+  }
+
+  .story-item__author {
+    font-size: 18px;
+    line-height: 1.22;
+    margin-bottom: 16px;
+  }
+
+  .story-item__text {
+    font-size: 13px;
+    line-height: 1.23;
   }
 }
 </style>

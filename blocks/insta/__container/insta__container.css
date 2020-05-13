@@ -1,0 +1,13 @@
+.insta__container {
+  display: grid;
+  grid-template-columns: fit-content(340px) 1fr;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .insta__container {
+    grid-template-columns: 1fr;
+    grid-template-rows: fit-content(140px) 1fr;
+  }
+}

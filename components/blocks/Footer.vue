@@ -9,13 +9,19 @@
           <!-- <footer-menu /> -->
 
           <div class="footer__menu">
-            <a href="/" class="footer__menu-link">Главная</a>
-            <a href="/stories" class="footer__menu-link">Истории</a>
+            <a href="/" class="footer__link footer__link_type_menu">Главная</a>
+            <a href="/stories" class="footer__link footer__link_type_menu"
+              >Истории</a
+            >
           </div>
         </div>
         <div class="footer__social">
-          <p class="footer__social-text">Мы в Инстаграме и Youtube</p>
-          <footer-button class="footer__social_link"
+          <p class="footer__social-text">
+            Мы в
+            <a class="footer__link footer__link_type_social">Инстаграме</a> и
+            <a class="footer__link footer__link_type_social">Youtube</a>
+          </p>
+          <footer-button class="footer__link footer__link_type_share"
             >Поделитесь &#8599;</footer-button
           >
         </div>
@@ -73,20 +79,26 @@ export default {
   font-size: 18px;
   line-height: 24px;
 }
-.footer__menu-link {
-  margin-right: 40px;
-  font-style: normal;
-  font-weight: normal;
+
+.footer__link {
   font-size: 18px;
   line-height: 24px;
-  text-decoration: none;
   color: #000000;
   height: fit-content;
+  cursor: pointer;
+  text-decoration: none;
 }
-.footer__menu-link:last-child {
+
+.footer__link_type_menu {
+  margin-right: 40px;
+  text-decoration: none;
+}
+
+.footer__link_type_menu:last-child {
   margin: 0;
 }
-.footer__menu-link:hover {
+
+.footer__link_type_menu:hover {
   color: #121212;
   opacity: 0.8;
   transition: opacity 0.3 linear;
@@ -99,6 +111,7 @@ export default {
   min-height: 88px;
   justify-content: space-between;
 }
+
 .footer__social-text {
   font-style: normal;
   font-weight: normal;
@@ -107,22 +120,25 @@ export default {
   color: #000000;
   margin: 0;
 }
-.footer__social_link {
-  font-style: normal;
+.footer__link_type_share {
   background-color: transparent;
-  font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  cursor: pointer;
   text-align: left;
   color: #121212;
   padding: 0;
   outline: 0;
 }
-.footer__social_link:hover {
+
+.footer__link_type_social {
+  border-bottom: 1px solid #000;
+}
+
+.footer__link:hover {
   opacity: 0.8;
   transition: opacity 0.3 linear;
 }
+
 .footer__copyright {
   display: flex;
   width: 100%;
@@ -148,13 +164,10 @@ export default {
   .section__title_footer {
     max-width: 305px;
   }
-  .footer__menu-link {
+  .footer__link {
     font-size: 16px;
   }
   .footer__social-text {
-    font-size: 16px;
-  }
-  .footer__social_link {
     font-size: 16px;
   }
   .footer__copyright-text {
@@ -203,25 +216,25 @@ export default {
   .footer__title-menu {
     width: 100%;
   }
-  .footer__menu-link {
+  .footer__link {
     font-size: 13px;
     line-height: 1.15;
     margin-bottom: 18px;
   }
-  .footer__menu-link:last-child {
+  .footer__link_type_menu:last-child {
     margin-bottom: 18px;
   }
   .footer__social {
     min-height: 0;
   }
+  .footer__social_link {
+    font-size: 13px;
+    line-height: 1.15;
+  }
   .footer__social-text {
     font-size: 13px;
     line-height: 1.15;
     margin-bottom: 18px;
-  }
-  .footer__social_link {
-    font-size: 13px;
-    line-height: 1.15;
   }
   .footer__copyright {
     flex-direction: column;

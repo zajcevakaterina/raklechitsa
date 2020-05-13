@@ -4,7 +4,12 @@
       Проект Благотворительного Фонда Константина Хабенского
     </p>
     <main-menu />
-    <button-header class="button_header">Расскажи историю</button-header>
+    <button-header class="button_header">Рассказать историю</button-header>
+    <button-header class="button_header-mobile">
+      <span class="button_header-mobile-body"></span>
+      <span class="button_header-mobile-body"></span>
+      <span class="button_header-mobile-body"></span>
+    </button-header>
   </header>
 </template>
 
@@ -49,8 +54,27 @@ export default {
   padding: 0;
   outline: 0;
 }
-
 .button_header:hover {
+  opacity: 0.8;
+}
+.button_header-mobile {
+  flex-direction: column;
+  background-color: transparent;
+  cursor: pointer;
+  color: #121212;
+  padding: 0;
+  outline: 0;
+  display: none;
+}
+.button_header-mobile-body {
+  border-top: solid #000 3px;
+  width: 32px;
+  margin-bottom: 9px;
+}
+.button_header-mobile-body:last-child {
+  margin-bottom: 0;
+}
+.button_header-mobile:hover {
   opacity: 0.8;
 }
 @media screen and (max-width: 1280px) {
@@ -67,6 +91,9 @@ export default {
 @media screen and (max-width: 768px) {
   .button_header {
     display: none;
+  }
+  .button_header-mobile {
+    display: flex;
   }
 }
 @media screen and (max-width: 320px) {

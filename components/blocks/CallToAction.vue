@@ -54,7 +54,7 @@ export default {
 <style scoped>
 .wrapper {
   background: #f7f7f7;
-  width: 100vw;
+  width: 100%;
 }
 
 .call-to-action {

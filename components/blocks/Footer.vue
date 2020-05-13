@@ -46,7 +46,7 @@ export default {
 <style scoped>
 .wrapper {
   background-color: #fbfbfb;
-  width: 100vw;
+  width: 100%;
 }
 .footer {
   min-height: 356px;

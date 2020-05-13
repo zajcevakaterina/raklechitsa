@@ -49,7 +49,7 @@ export default {
 <style scoped>
 .wrapper {
   background: #613a93;
-  width: 100vw;
+  width: 100%;
 }
 
 .about {

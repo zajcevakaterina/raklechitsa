@@ -16,5 +16,12 @@ export default {};
   background-color: #714dbd;
   padding: 20px 103px;
   color: #ffffff;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.button:hover {
+  opacity: 0.9;
+  transition: opacity 0.3s linear;
 }
 </style>

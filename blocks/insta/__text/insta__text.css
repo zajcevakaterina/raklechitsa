@@ -1,0 +1,28 @@
+.insta__text {
+  margin-top: 32px;
+}
+
+@media screen and (max-width: 1280px) {
+  .insta__text {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .insta__text {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .insta__text {
+    margin-top: 26px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+
+  .insta__text {
+    margin-top: 16px;
+  }
+}

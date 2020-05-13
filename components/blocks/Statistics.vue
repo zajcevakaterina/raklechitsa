@@ -86,6 +86,7 @@ export default {
 .statistics {
   margin: 0 auto;
   padding: 0 0 100px;
+  overflow: hidden;
 }
 
 .statistics__title {

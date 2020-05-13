@@ -69,7 +69,7 @@
     line-height: 77px;
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 540px) {
     .cover {
       min-height: 480px;
     }

@@ -68,6 +68,7 @@ export default {
 }
 .tabs__link_call-to-action:hover {
   color: #000000;
+  transition: color 0.3s linear;
 }
 .active_call-to-action {
   color: #000000;
@@ -78,6 +79,7 @@ export default {
 }
 .tabs__link_about:hover {
   color: #ffffff;
+  transition: color 0.3s linear;
 }
 .active_about {
   color: #ffffff;
@@ -151,7 +153,7 @@ export default {
     margin-right: 0px;
   }
   .active_call-to-action {
-    border-bottom: #000000 solid 2px;
+    border-bottom: #613a93 solid 2px;
   }
   .active_about {
     border-bottom: #ffffff solid 2px;
@@ -171,7 +173,7 @@ export default {
     max-width: 380px;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
   .tabs {
     margin: 40px 0 0;
     flex-direction: column;

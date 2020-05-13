@@ -56,6 +56,7 @@ export default {
 }
 .button_header:hover {
   opacity: 0.8;
+  transition: opacity 0.3s linear;
 }
 .button_header-mobile {
   flex-direction: column;
@@ -76,6 +77,7 @@ export default {
 }
 .button_header-mobile:hover {
   opacity: 0.8;
+  transition: opacity 0.3s linear;
 }
 @media screen and (max-width: 1280px) {
   .header {

@@ -1,11 +1,23 @@
 <template>
-  <div>
-    Здесь будет страница с историями
+  <div class="root__section">
+    <stories class="stories">
+      Сюда еще добавим инпут и поиск
+    </stories>
+    А сюда кнопки :)
   </div>
 </template>
 
 <script>
-export default {};
+import Stories from '@/components/blocks/Stories';
+export default {
+  components: {
+    stories: Stories,
+  },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.stories {
+  padding-top: 98px;
+}
+</style>

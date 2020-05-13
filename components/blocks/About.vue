@@ -49,7 +49,7 @@ export default {
 <style scoped>
 .wrapper {
   background: #613a93;
-  width: 100vw;
+  width: 100%;
 }
 
 .about {
@@ -105,6 +105,7 @@ export default {
   .about {
     min-height: 660px;
     padding: 50px 0;
+    align-items: center;
   }
   .about__hashtag {
     display: none;
@@ -115,10 +116,10 @@ export default {
     flex: none;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
   .about {
     min-height: 628px;
-    align-items: center;
+    align-items: start;
   }
   .about__hashtag {
     display: none;

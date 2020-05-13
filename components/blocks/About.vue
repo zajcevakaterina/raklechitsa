@@ -105,6 +105,7 @@ export default {
   .about {
     min-height: 660px;
     padding: 50px 0;
+    align-items: center;
   }
   .about__hashtag {
     display: none;
@@ -118,7 +119,7 @@ export default {
 @media screen and (max-width: 320px) {
   .about {
     min-height: 628px;
-    align-items: center;
+    align-items: start;
   }
   .about__hashtag {
     display: none;

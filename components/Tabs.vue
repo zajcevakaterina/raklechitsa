@@ -171,7 +171,7 @@ export default {
     max-width: 380px;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
   .tabs {
     margin: 40px 0 0;
     flex-direction: column;

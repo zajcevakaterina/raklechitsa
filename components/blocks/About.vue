@@ -116,7 +116,7 @@ export default {
     flex: none;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
   .about {
     min-height: 628px;
     align-items: start;

@@ -170,7 +170,7 @@ export default {
     width: 50%;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
   .section__title_footer {
     max-width: 268px;
   }
@@ -184,7 +184,7 @@ export default {
     width: 226px;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 660px) {
   .section__title_footer {
     max-width: 290px;
     font-size: 18px;

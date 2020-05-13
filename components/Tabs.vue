@@ -171,11 +171,15 @@ export default {
     max-width: 380px;
   }
 }
-/* @media screen and (max-width: 320px) {
-  .section__title  {
-    max-width: 290px;
-    font-size: 16px;
+@media screen and (max-width: 320px) {
+  .tabs {
+    margin: 40px 0 0;
+    flex-direction: column;
+    flex: auto;
+  }
+  .tabs__text_call-to-action {
+    font-size: 13px;
     line-height: 1.23;
-  } 
-} */
+  }
+}
 </style>

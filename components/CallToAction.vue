@@ -9,7 +9,8 @@
           болезненных привязанностей.
         </section-text>
         <main-tabs :tabsData="tabs" :theme="'call-to-action'">
-          <action-button class="call-to-action__action-button">Заполнить форму</action-button
+          <action-button class="call-to-action__action-button"
+            >Заполнить форму</action-button
           >
         </main-tabs>
       </div>
@@ -112,36 +113,16 @@ export default {
   }
 }
 @media screen and (max-width: 320px) {
+  .call-to-action {
+    min-height: 436px;
+    padding: 50px 0;
+  }
   .call-to-action__action-button {
     width: 290px;
     height: 40px;
     font-size: 13px;
     line-height: 16px;
     padding: 0;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .call-to-action {
-    min-height: 480px;
-    padding: 90px 0;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .call-to-action {
-    min-height: 436px;
-    padding: 80px 0;
-  }
-}
-@media screen and (max-width: 768px) {
-  .call-to-action {
-    min-height: 598px;
-    padding: 80px 0;
-    align-items: center;
-  }
-  .call-to-action__content {
-    flex-direction: column;
-    align-items: center;
   }
 }
 </style>

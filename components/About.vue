@@ -104,6 +104,20 @@ export default {
 @media screen and (max-width: 768px) {
   .about {
     min-height: 660px;
+    padding: 50px 0;
+  }
+  .about__hashtag {
+    display: none;
+  }
+  .about__content {
+    flex-direction: column;
+    align-items: center;
+    flex: none;
+  }
+}
+@media screen and (max-width: 320px) {
+  .about {
+    min-height: 628px;
     align-items: center;
   }
   .about__hashtag {

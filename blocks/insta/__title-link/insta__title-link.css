@@ -6,4 +6,5 @@
 
 .insta__title-link:hover {
   opacity: 0.8;
+  transition: opacity .3s linear;
 }

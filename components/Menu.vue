@@ -31,6 +31,7 @@ export default {};
 .menu-link:hover {
   color: #121212;
   opacity: 0.8;
+  transition: opacity 0.3s linear;
 }
 
 .nuxt-link-active {

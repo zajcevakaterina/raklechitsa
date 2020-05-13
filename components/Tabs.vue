@@ -68,6 +68,7 @@ export default {
 }
 .tabs__link_call-to-action:hover {
   color: #000000;
+  transition: color 0.3s linear;
 }
 .active_call-to-action {
   color: #000000;
@@ -78,6 +79,7 @@ export default {
 }
 .tabs__link_about:hover {
   color: #ffffff;
+  transition: color 0.3s linear;
 }
 .active_about {
   color: #ffffff;
@@ -90,7 +92,7 @@ export default {
 .tabs__text {
   display: flex;
   flex-direction: column;
-  max-width: 640px;
+  max-width: 632px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

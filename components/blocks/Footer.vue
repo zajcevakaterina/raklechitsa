@@ -89,7 +89,9 @@ export default {
 .footer__menu-link:hover {
   color: #121212;
   opacity: 0.8;
+  transition: opacity 0.3 linear;
 }
+
 .footer__social {
   display: flex;
   flex-direction: column;
@@ -119,6 +121,7 @@ export default {
 }
 .footer__social_link:hover {
   opacity: 0.8;
+  transition: opacity 0.3 linear;
 }
 .footer__copyright {
   display: flex;

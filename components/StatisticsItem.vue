@@ -1,6 +1,5 @@
 <template>
   <div class="stat-item">
-    test
     <p class="stat-item__text">{{ statText }}</p>
     <progress-bar
       v-if="diagramType === 'progressBar'"

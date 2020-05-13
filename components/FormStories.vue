@@ -1,24 +1,23 @@
 <template>
-  <div class="form">
+  <div>
     <h2 class="form__steps">{{ step }}</h2>
+    <div></div>
     <h3 class="form__question">{{ question }}</h3>
-    <InputForm class="form__input" />
+    <inputform class="form__input" />
     <div class="form__buttons">
-      <FormButtonPrev class="form__button-back" />
-      <FormButtonNext class="form__button-next" />
+      <button class="form__button-back">Назад</button>
+      <button class="form__button-next">Далее</button>
     </div>
   </div>
 </template>
 
 <script>
-import FormButtonNext from '@@/components/ui/FormButtonNext';
-import FormButtonPrev from '@@/components/ui/FormButtonPrev';
+import Button from '@@/components/ui/Button';
 import InputForm from '@@/components/ui/InputForm';
 export default {
   components: {
-    FormButtonNext,
-    FormButtonPrev,
-    InputForm,
+    'button': Button,
+    'inputform': InputForm,
   },
 
   props: {
@@ -35,12 +34,13 @@ export default {
 </script>
 
 <style scoped>
-.form-steps {
+.form__steps {
   font-family: Inter;
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
+  margin: 0;
 }
 .form__question {
   font-family: Inter;
@@ -49,6 +49,7 @@ export default {
   font-size: 20px;
   line-height: 24px;
   margin-top: 40px;
+  margin-bottom: 0;
 }
 
 .form__buttons {
@@ -61,15 +62,31 @@ export default {
 }
 
 .form__button-back {
-  margin-top: 15px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  border: none;
+  background: none;
+  color: #c0c0c0;
 }
 
 .form__button-next {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  border: none;
+  background: #714dbd;
+  padding: 16px 80px;
+  color: #ffffff;
   margin-left: 30px;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .form-steps {
+  .form__steps {
     font-size: 28px;
     line-height: 32px;
   }
@@ -87,8 +104,13 @@ export default {
     margin-top: 100px;
   }
 
+  .form__button-next {
+  padding: 14px 67px;
+}
+
   .form__button-back {
-    margin-top: 10px;
+    font-size: 16px;
+    line-height: 19px;
   }
 }
 
@@ -111,8 +133,15 @@ export default {
     margin-top: 100px;
   }
 
+  .form__button-next {
+  font-size: 15px;
+    line-height: 18px;
+    padding: 13px 67px;
+}
+
   .form__button-back {
-    margin-top: 10px;
+    font-size: 15px;
+    line-height: 18px;
   }
 }
 
@@ -135,8 +164,15 @@ export default {
     margin-top: 100px;
   }
 
+  .form__button-next {
+  font-size: 15px;
+    line-height: 18px;
+    padding: 13px 67px;
+}
+
   .form__button-back {
-    margin-top: 10px;
+    font-size: 15px;
+    line-height: 18px;
   }
 }
 
@@ -160,11 +196,15 @@ export default {
   }
 
   .form__button-back {
-    margin-top: 10px;
+    font-size: 13px;
+    line-height: 16px;
   }
 
   .form__button-next {
     margin-left: 15px;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 12px 82px;
   }
 }
 </style>

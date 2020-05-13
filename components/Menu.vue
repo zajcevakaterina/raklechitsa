@@ -37,8 +37,14 @@ export default {};
 .nuxt-link-active {
   border-bottom: 0px;
 }
+
 .nuxt-link-exact-active {
   border-bottom: solid 2px;
+}
+
+.nuxt-link-exact-active:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s linear;
 }
 
 @media screen and (max-width: 1280px) {

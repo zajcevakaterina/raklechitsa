@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+    <popup v-if="popupActive">
+      <form-stories/>
+    </popup>
     <section class="call-to-action root__section">
       <section-title>Расскажите свою историю</section-title>
       <div class="call-to-action__content">
@@ -9,7 +12,7 @@
           болезненных привязанностей.
         </section-text>
         <main-tabs :tabsData="tabs" :theme="'call-to-action'">
-          <action-button class="call-to-action__action-button"
+          <action-button @btnClick="popupToggle" class="call-to-action__action-button"
             >Заполнить форму</action-button
           >
         </main-tabs>
@@ -23,15 +26,27 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import Button from '@/components/ui/Button';
 import Tabs from '@/components/Tabs';
+import Popup from '@@/components/Popup';
+import FormStories from '@@/components/FormStories';
 export default {
   components: {
     'section-title': SectionTitle,
     'section-text': SectionText,
     'main-tabs': Tabs,
     'action-button': Button,
+    'popup': Popup,
+    'form-stories': FormStories,
   },
+
+  methods: {
+    popupToggle() {
+      this.popupActive = !this.popupActive;
+    },
+  },
+
   data() {
     return {
+       popupActive: false,
       tabs: [
         {
           id: '1',

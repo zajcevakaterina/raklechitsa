@@ -1,6 +1,6 @@
 <template>
   <div class="tag-lead">
-    <p class="tag-lead__text">
+    <p :class="['tag-lead__text', `tag-lead__text_theme_${theme}`]">
       <slot></slot>
       <span class="tag-lead__tag">#этонелечится</span>
     </p>
@@ -8,26 +8,32 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['theme'],
+};
 </script>
 
 <style scoped>
 .tag-lead {
   width: 100%;
-  height: 86px;
+  min-height: 86px;
   background: #613a93;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  padding: 20px 5px;
 }
 
 .tag-lead__text {
   text-transform: uppercase;
   font-size: 30px;
-  line-height: 1.53;
+  line-height: 1.33;
   margin: 0;
   color: #fff;
+  max-width: 750px;
+  text-align: center;
 }
 
 .tag-lead__tag {
@@ -38,7 +44,7 @@ export default {};
 @media (max-width: 1280px) {
   .tag-lead__text {
     font-size: 28px;
-    line-height: 1.64;
+    line-height: 1.4;
   }
   .tag-lead__tag {
     font-size: 36px;
@@ -47,20 +53,25 @@ export default {};
 
 @media (max-width: 1024px) {
   .tag-lead {
-    height: 80px;
+    min-height: 80px;
   }
 }
 
 @media (max-width: 768px) {
   .tag-lead {
-    height: 100px;
+    min-height: 100px;
+    padding: 12px 0;
   }
   .tag-lead__text {
     font-size: 22px;
     line-height: 1.24;
-    max-width: 500px;
     text-align: center;
   }
+
+  .tag-lead__text_theme_thin {
+    max-width: 450px;
+  }
+
   .tag-lead__tag {
     font-size: 32px;
   }
@@ -68,16 +79,18 @@ export default {};
 
 @media (max-width: 475px) {
   .tag-lead {
-    height: 100px;
+    min-height: 80px;
+    padding: 15px 0;
   }
   .tag-lead__text {
-    font-size: 22px;
-    line-height: 1.24;
-    max-width: 500px;
+    font-size: 16px;
+    line-height: 1.12;
     text-align: center;
+    max-width: 220px;
   }
+
   .tag-lead__tag {
-    font-size: 32px;
+    font-size: 20px;
   }
 }
 </style>

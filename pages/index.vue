@@ -3,6 +3,13 @@
     <cover />
     <intro class="root__section" />
     <stories class="root__section" />
+    <!-- <a class="more-stories__link" href="stories">
+      <stories-button class="more-stories__button root__section">Больше статей</stories-button>
+    </a> -->
+
+    <a class="more-stories-link root__section" href="stories"
+      ><p class="more-stories-link__text">Больше статей</p></a
+    >
 
     <section class="insta root__section">
       <tag-lead class="insta__cover"
@@ -54,6 +61,7 @@ import CallToAction from '@/components/CallToAction';
 import Statistics from '@/components/Statistics';
 import About from '@/components/About';
 import TagLead from '@/components/TagLead';
+import Button from '@/components/ui/Button';
 
 export default {
   components: {
@@ -67,6 +75,7 @@ export default {
     statistics: Statistics,
     about: About,
     'tag-lead': TagLead,
+    'stories-button': Button,
   },
 
   data() {
@@ -135,6 +144,39 @@ export default {
 </script>
 
 <style scoped>
+.more-stories-link {
+  background: #fbfbfb;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #000;
+  text-decoration: none;
+  border: none;
+  font-family: inherit;
+  height: 82px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.more-stories-link:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1280px) {
+  .more-stories-link {
+    height: 78px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .more-stories-link {
+    height: 50px;
+    font-size: 13px;
+    line-height: 1.54;
+  }
+}
+
 /* TODO: может, эти стили вынести в папку blocks и импортировать css? */
 
 .insta {

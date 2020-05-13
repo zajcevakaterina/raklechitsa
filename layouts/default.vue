@@ -38,6 +38,7 @@ body {
 .root__section {
   width: calc(100% - 120px);
   max-width: 1320px;
+  margin: 0 auto;
 }
 @media screen and (max-width: 1280px) {
   .root__section {

@@ -1,0 +1,42 @@
+.insta__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 100px 110px;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+@media screen and (max-width: 1280px) {
+  .insta__cards {
+    margin-bottom: 90px;
+    column-gap: 27px;
+    row-gap: 27px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .insta__cards {
+    margin-bottom: 80px;
+    margin-left: 60px;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .insta__cards {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 60px 0 80px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .insta__cards {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 40px 0 50px;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+}

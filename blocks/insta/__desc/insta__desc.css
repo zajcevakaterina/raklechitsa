@@ -1,0 +1,20 @@
+.insta__desc {
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .insta__desc {
+    padding-top: 0px;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .insta__desc {
+    padding-top: 0px;
+    align-items: flex-start;
+  }
+}

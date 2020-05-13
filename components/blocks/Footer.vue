@@ -18,8 +18,20 @@
         <div class="footer__social">
           <p class="footer__social-text">
             Мы в
-            <a class="footer__link footer__link_type_social">Инстаграме</a> и
-            <a class="footer__link footer__link_type_social">Youtube</a>
+            <a
+              class="footer__link footer__link_type_social"
+              href="https://www.instagram.com/raklechitsa/"
+              target="_blank"
+            >
+              Инстаграме</a
+            >
+            и
+            <a
+              class="footer__link footer__link_type_social"
+              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+              target="_blank"
+              >Youtube</a
+            >
           </p>
           <footer-button class="footer__link footer__link_type_share"
             >Поделитесь &#8599;</footer-button

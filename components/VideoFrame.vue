@@ -9,7 +9,7 @@
     </iframe>
     <p class="video__caption">
       Все видео вы можете найте на нашем
-      <a
+      <a class="video__link"
         href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
       >
         YouTube канале</a
@@ -52,6 +52,10 @@ export default {
   left: 0;
   bottom: 0;
   position: absolute;
+  color: #666666;
+}
+
+.video__link {
   color: #666666;
 }
 

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Stories from '@/components/Stories';
+import Stories from '@/components/blocks/Stories';
 export default {
   components: {
     stories: Stories,

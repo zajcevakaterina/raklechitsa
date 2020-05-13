@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2 class="form__steps">{{ step }}</h2>
+  <div></div>
     <h3 class="form__question">{{ question }}</h3>
     <InputForm class="form__input" />
     <div class="form__buttons">

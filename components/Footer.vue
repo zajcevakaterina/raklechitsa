@@ -214,6 +214,7 @@ export default {
   .footer__social-text {
     font-size: 13px;
     line-height: 1.15;
+    margin-bottom: 18px;
   }
   .footer__social_link {
     font-size: 13px;
@@ -233,4 +234,3 @@ export default {
   }
 }
 </style>
-footer__section-title

@@ -47,7 +47,7 @@ export default {};
 @media screen and (max-width: 320px) {
   .section__text {
     max-width: 290px;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1.23;
   }
 }

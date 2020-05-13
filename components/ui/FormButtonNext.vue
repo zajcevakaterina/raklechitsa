@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="button">Далее</button>
+    <button class="form__button">Далее</button>
   </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {};
 </script>
 
 <style scoped>
-.button {
+.form__button {
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -22,13 +22,13 @@ export default {};
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .button {
+  .form__button {
     padding: 14px 67px;
   }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
-  .button {
+  .form__button {
     font-size: 15px;
     line-height: 18px;
     padding: 13px 67px;
@@ -36,7 +36,7 @@ export default {};
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .button {
+  .form__button {
     font-size: 15px;
     line-height: 18px;
     padding: 13px 67px;
@@ -44,7 +44,7 @@ export default {};
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  .button {
+  .form__button {
     font-size: 13px;
     line-height: 16px;
     padding: 12px 82px;

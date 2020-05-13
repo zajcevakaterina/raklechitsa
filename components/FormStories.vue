@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div>
     <h2 class="form__steps">{{ step }}</h2>
     <h3 class="form__question">{{ question }}</h3>
     <InputForm class="form__input" />
@@ -35,12 +35,13 @@ export default {
 </script>
 
 <style scoped>
-.form-steps {
+.form__steps {
   font-family: Inter;
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
+  margin: 0;
 }
 .form__question {
   font-family: Inter;
@@ -49,6 +50,7 @@ export default {
   font-size: 20px;
   line-height: 24px;
   margin-top: 40px;
+  margin-bottom: 0;
 }
 
 .form__buttons {

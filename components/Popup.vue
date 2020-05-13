@@ -2,7 +2,11 @@
   <div>
     <Overlay @overlayClick="popupToggle" v-if="popupActive"></Overlay>
     <form v-if="popupActive" class="form">
-      <button @click="popupToggle" class="form-button-close">+</button>
+      <img
+        src="../static/closepopup.png"
+        @click="popupToggle"
+        class="form-button-close"
+      />
       <slot></slot>
     </form>
   </div>
@@ -31,7 +35,7 @@ export default {
 
 <style scoped>
 .form {
-  width: 920px;
+  width: auto;
   height: auto;
   margin: auto;
   position: fixed;
@@ -46,60 +50,41 @@ export default {
 .form-button-close {
   border: none;
   background: none;
-  transform: rotate(-45deg);
-  font-size: 45px;
   position: absolute;
-  top: 25px;
-  right: 30px;
+  top: 33px;
+  right: 33px;
   z-index: 3;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .form {
-    width: 800px;
-  }
-
   .form-button-close {
-    font-size: 35px;
-    top: 5px;
-    right: 6px;
+    top: 33px;
+    right: 33px;
   }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
-  .form {
-    width: 800px;
-  }
-
   .form-button-close {
-    font-size: 35px;
-    top: 5px;
-    right: 6px;
+    top: 33px;
+    right: 33px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .form {
-    width: 580px;
-  }
-
   .form-button-close {
-    font-size: 35px;
-    top: 5px;
-    right: 6px;
+    top: 33px;
+    right: 33px;
   }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .form {
-    width: 290px;
     padding: 15px;
   }
 
   .form-button-close {
-    font-size: 40px;
-    top: 2px;
-    right: 6px;
+    top: 8px;
+    right: 8px;
   }
 }
 </style>

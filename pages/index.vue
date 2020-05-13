@@ -5,31 +5,37 @@
     <stories class="root__section" />
 
     <section class="insta root__section">
-      <div class="insta__desc">
-        <a
-          class="insta__title-link"
-          href="https://www.instagram.com/raklechitsa/"
-          target="blank"
-        >
-          <section-title class="insta__title">Инстаграм</section-title>
-        </a>
-        <section-text class="insta__text"
-          >Два раза в неделю мы просматриваем все посты по хештегу
-          #этонелечится. Все истории, где нет нецензурных выражений и
-          запрещенного контента попадают сюда. Следите за правильным написанием
-          хештега, чтобы мы не пропустили вашу историю.</section-text
-        >
-      </div>
+      <tag-lead class="insta__cover"
+        >рассказывайте ваши истории в&nbsp;инстаграм</tag-lead
+      >
+      <div class="insta__container">
+        <div class="insta__desc">
+          <a
+            class="insta__title-link"
+            href="https://www.instagram.com/raklechitsa/"
+            target="blank"
+          >
+            <section-title class="insta__title">Инстаграм</section-title>
+          </a>
+          <section-text class="insta__text"
+            >Два раза в неделю мы просматриваем все посты по хештегу
+            #этонелечится. Все истории, где нет нецензурных выражений и
+            запрещенного контента попадают сюда. Следите за правильным
+            написанием хештега, чтобы мы не пропустили вашу
+            историю.</section-text
+          >
+        </div>
 
-      <ul class="insta__cards">
-        <li class="insta__card" v-for="photo in photos" :key="photo.id">
-          <insta-photo
-            :author="photo.author"
-            :instaLink="photo.instaLink"
-            :instaImage="photo.instaImage"
-          />
-        </li>
-      </ul>
+        <ul class="insta__cards">
+          <li class="insta__card" v-for="photo in photos" :key="photo.id">
+            <insta-photo
+              :author="photo.author"
+              :instaLink="photo.instaLink"
+              :instaImage="photo.instaImage"
+            />
+          </li>
+        </ul>
+      </div>
     </section>
     <call-to-action />
     <statistics class="root__section" />
@@ -47,6 +53,7 @@ import InstaPhoto from '@/components/InstaPhoto';
 import CallToAction from '@/components/CallToAction';
 import Statistics from '@/components/Statistics';
 import About from '@/components/About';
+import TagLead from '@/components/TagLead';
 
 export default {
   components: {
@@ -59,6 +66,7 @@ export default {
     'call-to-action': CallToAction,
     statistics: Statistics,
     about: About,
+    'tag-lead': TagLead,
   },
 
   data() {
@@ -128,7 +136,16 @@ export default {
 
 <style scoped>
 /* TODO: может, эти стили вынести в папку blocks и импортировать css? */
+
 .insta {
+  margin: auto;
+}
+
+.insta__cover {
+  margin-bottom: 100px;
+}
+
+.insta__container {
   display: grid;
   grid-template-columns: fit-content(340px) 1fr;
   justify-content: space-between;
@@ -192,7 +209,7 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-  .insta {
+  .insta__container {
     grid-template-columns: 1fr;
     grid-template-rows: fit-content(140px) 1fr;
   }
@@ -209,6 +226,10 @@ export default {
   .insta__cards {
     grid-template-columns: repeat(4, 1fr);
     margin: 60px 0 80px;
+  }
+
+  .tag-lead {
+    margin-bottom: 80px;
   }
 }
 
@@ -227,6 +248,10 @@ export default {
     margin: 40px 0 50px;
     column-gap: 10px;
     row-gap: 10px;
+  }
+
+  .insta__tag-lead {
+    margin-bottom: 50px;
   }
 }
 </style>

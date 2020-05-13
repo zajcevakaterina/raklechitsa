@@ -16,7 +16,9 @@
       </div>
       <youtube-video :url="introVideo[i].url" />
     </div>
-    <tag-lead class="intro__cover">и в отличие от рака, </tag-lead>
+    <tag-lead :theme="'thin'" class="intro__cover"
+      >и в отличие от рака,
+    </tag-lead>
   </div>
 </template>
 
@@ -161,7 +163,6 @@ export default {
   }
 }
 
-/* @media (max-width: 768px) {
-
-  } */
+@media (max-width: 768px) {
+}
 </style>

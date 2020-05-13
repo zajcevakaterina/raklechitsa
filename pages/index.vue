@@ -53,13 +53,13 @@
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
-import Cover from '@/components/Cover';
-import Intro from '@/components/Intro';
-import Stories from '@/components/Stories';
+import Cover from '@/components/blocks/Cover';
+import Intro from '@/components/blocks/Intro';
+import Stories from '@/components/blocks/Stories';
 import InstaPhoto from '@/components/InstaPhoto';
-import CallToAction from '@/components/CallToAction';
-import Statistics from '@/components/Statistics';
-import About from '@/components/About';
+import CallToAction from '@/components/blocks/CallToAction';
+import Statistics from '@/components/blocks/Statistics';
+import About from '@/components/blocks/About';
 import TagLead from '@/components/TagLead';
 import Button from '@/components/ui/Button';
 

@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+    <popup v-if="popupActive">
+      <form-social/>
+    </popup>
     <footer class="footer root__section">
       <div class="footer__content">
         <div class="footer__title-menu">
@@ -33,7 +36,7 @@
               >Youtube</a
             >
           </p>
-          <footer-button class="footer__link footer__link_type_share"
+          <footer-button @btnClick="popupToggle" class="footer__link footer__link_type_share"
             >Поделитесь &#8599;</footer-button
           >
         </div>
@@ -52,11 +55,27 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
+import Popup from '@@/components/Popup';
+import FormSocial from '@@/components/FormSocial';
 export default {
   components: {
     'section-title': SectionTitle,
     'footer-menu': Menu,
     'footer-button': Button,
+    'popup': Popup,
+    'form-social': FormSocial,
+  },
+
+   methods: {
+    popupToggle() {
+      this.popupActive = !this.popupActive;
+    },
+  },
+
+  data() {
+    return {
+      popupActive: false,
+    };
   },
 };
 </script>

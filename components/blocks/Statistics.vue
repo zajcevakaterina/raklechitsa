@@ -100,6 +100,7 @@ export default {
   padding: 0;
   list-style: none;
   justify-content: center;
+  margin: 0;
 }
 
 @media screen and (max-width: 1360px) {

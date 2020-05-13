@@ -151,7 +151,7 @@ export default {
     margin-right: 0px;
   }
   .active_call-to-action {
-    border-bottom: #000000 solid 2px;
+    border-bottom: #613a93 solid 2px;
   }
   .active_about {
     border-bottom: #ffffff solid 2px;

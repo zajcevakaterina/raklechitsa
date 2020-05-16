@@ -16,8 +16,8 @@ import Button from '@@/components/ui/Button';
 import InputForm from '@@/components/ui/InputForm';
 export default {
   components: {
-    'button': Button,
-    'inputform': InputForm,
+    button: Button,
+    inputform: InputForm,
   },
 
   props: {
@@ -105,8 +105,8 @@ export default {
   }
 
   .form__button-next {
-  padding: 14px 67px;
-}
+    padding: 14px 67px;
+  }
 
   .form__button-back {
     font-size: 16px;
@@ -134,10 +134,10 @@ export default {
   }
 
   .form__button-next {
-  font-size: 15px;
+    font-size: 15px;
     line-height: 18px;
     padding: 13px 67px;
-}
+  }
 
   .form__button-back {
     font-size: 15px;
@@ -165,10 +165,10 @@ export default {
   }
 
   .form__button-next {
-  font-size: 15px;
+    font-size: 15px;
     line-height: 18px;
     padding: 13px 67px;
-}
+  }
 
   .form__button-back {
     font-size: 15px;

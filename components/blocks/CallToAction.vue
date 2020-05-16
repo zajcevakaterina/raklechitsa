@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <popup v-if="popupActive">
-      <form-stories/>
+      <form-stories />
     </popup>
     <section class="call-to-action root__section">
       <section-title>Расскажите свою историю</section-title>
@@ -12,7 +12,9 @@
           болезненных привязанностей.
         </section-text>
         <main-tabs :tabsData="tabs" :theme="'call-to-action'">
-          <action-button @btnClick="popupToggle" class="call-to-action__action-button"
+          <action-button
+            @btnClick="popupToggle"
+            class="call-to-action__action-button"
             >Заполнить форму</action-button
           >
         </main-tabs>
@@ -34,7 +36,7 @@ export default {
     'section-text': SectionText,
     'main-tabs': Tabs,
     'action-button': Button,
-    'popup': Popup,
+    popup: Popup,
     'form-stories': FormStories,
   },
 
@@ -46,7 +48,7 @@ export default {
 
   data() {
     return {
-       popupActive: false,
+      popupActive: false,
       tabs: [
         {
           id: '1',

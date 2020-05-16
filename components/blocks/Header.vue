@@ -1,13 +1,15 @@
 <template>
   <header class="header">
     <popup v-if="popupActive">
-      <form-stories/>
+      <form-stories />
     </popup>
     <p class="header__logo">
       Проект Благотворительного Фонда Константина Хабенского
     </p>
     <main-menu />
-    <button-header @btnClick="popupToggle" class="button_header">Рассказать историю</button-header>
+    <button-header @btnClick="popupToggle" class="button_header"
+      >Рассказать историю</button-header
+    >
     <button-header class="button_header-mobile">
       <span class="button_header-mobile-body"></span>
       <span class="button_header-mobile-body"></span>
@@ -25,7 +27,7 @@ export default {
   components: {
     'main-menu': Menu,
     'button-header': Button,
-    'popup': Popup,
+    popup: Popup,
     'form-stories': FormStories,
   },
 

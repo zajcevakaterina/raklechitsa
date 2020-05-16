@@ -9,7 +9,7 @@
 
 <style scoped>
 .cover {
-  min-height: 689px;
+  min-height: calc(100vh - 76px);
   background-color: #613a93;
   display: flex;
   justify-content: center;
@@ -37,14 +37,14 @@
   padding: 0;
   position: absolute;
   bottom: 40px;
-  left: auto;
-  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
   margin-top: auto;
 }
 
 @media screen and (max-width: 1280px) {
   .cover {
-    min-height: 620px;
+    min-height: calc(100vh - 72px);
   }
 
   .cover__heading {
@@ -53,17 +53,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .cover {
-    min-height: 540px;
-  }
-}
-
 @media screen and (max-width: 768px) {
-  .cover {
-    min-height: 780px;
-  }
-
   .cover__heading {
     font-size: 64px;
     line-height: 77px;
@@ -71,7 +61,7 @@
 
   @media screen and (max-width: 540px) {
     .cover {
-      min-height: 480px;
+      min-height: calc(100vh - 64px);
     }
 
     .cover__heading {

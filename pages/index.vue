@@ -34,8 +34,8 @@
           <li class="insta__card" v-for="photo in photos" :key="photo.id">
             <insta-photo
               :author="photo.author"
-              :instaLink="photo.instaLink"
-              :instaImage="photo.instaImage"
+              :link="photo.instaLink"
+              :urlPhotoImage="photo.instaImage"
             />
           </li>
         </ul>

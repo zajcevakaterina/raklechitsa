@@ -1,20 +1,20 @@
 <template>
-  <a class="insta-photo__link" :href="`${instaLink}`" target="blank">
+  <a class="photo-link" :href="`${link}`" target="blank">
     <div
-      :style="`background-image: url(${instaImage})`"
-      class="insta-photo__image"
+      :style="`background-image: url(${urlPhotoImage})`"
+      class="photo-link__image"
     ></div>
   </a>
 </template>
 
 <script>
 export default {
-  props: ['author', 'instaLink', 'instaImage'],
+  props: ['author', 'link', 'urlPhotoImage'],
 };
 </script>
 
 <style scoped>
-.insta-photo__image {
+.photo-link__image {
   width: 100%;
   padding-bottom: 100%;
   background-size: cover;

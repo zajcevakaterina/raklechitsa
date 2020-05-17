@@ -1,57 +1,77 @@
 <template>
-  <input class="input" placeholder="Напишите тут" />
+  <label class="input">
+    {{ labelText }}
+    <input
+      :class="['input__item', `input__item_border-theme_{{borderTheme}}`]"
+      :type="type"
+      :placeholder="placeholder || 'Напишите тут'"
+      :name="name"
+      :required="required"
+    />
+  </label>
 </template>
 
 <script>
-export default {};
+export default {
+  props: [
+    'labelText',
+    'type',
+    'name',
+    'required',
+    'placeholder',
+    'borderTheme',
+  ],
+};
 </script>
 
 <style scoped>
 .input {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
+  display: block;
+}
+
+.input__item {
+  display: block;
+  width: 100%;
+  font-family: inherit;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 1.33;
   color: #666666;
   border: none;
-  border-bottom: 1px solid #e7e7e7;
   resize: none;
-  width: 840px;
-  padding: 0;
-  padding-bottom: 10px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #e7e7e7;
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .input {
+.input__item_border-theme_full {
+  border: 1px solid #e7e7e7;
+}
+
+@media screen and (max-width: 1280px) {
+  .input__item {
     font-size: 16px;
-    line-height: 24px;
-    width: 720px;
+    line-height: 1.37;
   }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1279px) {
-  .input {
+@media screen and (max-width: 1024px) {
+  .input__item {
     font-size: 15px;
-    line-height: 24px;
-    width: 720px;
+    line-height: 1.47;
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .input {
-    font-size: 15px;
-    line-height: 24px;
-    width: 500px;
+@media screen and (max-width: 768px) {
+  .input__item {
+    line-height: 1.27;
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .input {
+@media screen and (max-width: 768px) {
+  .input__item {
     font-size: 13px;
-    line-height: 16px;
-    width: 260px;
-    padding-bottom: 2px;
+    line-height: 1.23;
+    /* width: 260px; */
+    /* padding-bottom: 2px; */
   }
 }
 </style>

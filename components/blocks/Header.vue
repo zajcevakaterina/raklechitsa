@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <popup v-if="popupActive">
+    <popup v-if="popupActive" @closePopup="popupToggle">
       <form-stories />
     </popup>
     <p class="header__logo">

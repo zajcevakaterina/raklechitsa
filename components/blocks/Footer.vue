@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <popup v-if="popupActive">
-      <form-social />
+      <social-share />
     </popup>
     <footer class="footer root__section">
       <div class="footer__content">
@@ -57,15 +57,15 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
-import Popup from '@@/components/Popup';
-import FormSocial from '@@/components/FormSocial';
+import Popup from '@/components/Popup';
+import SocialShare from '@/components/SocialShare';
 export default {
   components: {
     'section-title': SectionTitle,
     'footer-menu': Menu,
     'footer-button': Button,
     popup: Popup,
-    'form-social': FormSocial,
+    'social-share': SocialShare,
   },
 
   methods: {

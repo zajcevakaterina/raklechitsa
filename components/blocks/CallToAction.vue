@@ -6,12 +6,12 @@
     <section class="call-to-action root__section">
       <section-title>Расскажите свою историю</section-title>
       <div class="call-to-action__content">
-        <section-text
+        <section-text class="call-to-action__section-text"
           >Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
           поделиться своей историей неизлечимых привычек, навязчивых идей и
           болезненных привязанностей.
         </section-text>
-        <main-tabs :tabsData="tabs" :theme="'call-to-action'">
+        <main-tabs :tabsData="actions" :theme="'call-to-action'">
           <action-button
             @btnClick="popupToggle"
             class="call-to-action__action-button"
@@ -45,24 +45,15 @@ export default {
       this.popupActive = !this.popupActive;
     },
   },
+  computed: {
+    actions() {
+      return this.$store.getters['call-to-action/getAction'];
+    },
+  },
 
   data() {
     return {
       popupActive: false,
-      tabs: [
-        {
-          id: '1',
-          name: '1-й вариант',
-          content:
-            'Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю после проверки. Пожалуйста, заполняйте все пункты корректно, если вы испытаете какие-то сложности, воспользуйтесь 2&#8209;м&nbsp;вариантом.',
-        },
-        {
-          id: '2',
-          name: '2-й вариант',
-          content:
-            'Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.',
-        },
-      ],
     };
   },
 };
@@ -128,10 +119,13 @@ export default {
     flex-direction: column;
     align-items: center;
   }
+  .call-to-action__section-text {
+    margin: 26px 0 0;
+  }
 }
 @media screen and (max-width: 320px) {
   .call-to-action {
-    min-height: 436px;
+    min-height: 462px;
     padding: 50px 0;
   }
   .call-to-action__action-button {
@@ -140,6 +134,9 @@ export default {
     font-size: 13px;
     line-height: 16px;
     padding: 0;
+  }
+  .call-to-action__section-text {
+    margin: 16px 0 0;
   }
 }
 </style>

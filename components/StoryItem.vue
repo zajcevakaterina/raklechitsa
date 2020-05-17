@@ -1,5 +1,5 @@
 <template>
-  <a class="story-item__link" :href="link" @click="$emit('storyClick')">
+  <a class="story-item" :href="link">
     <div
       :style="`background-image: url(${photoUrl})`"
       class="story-item__photo"
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style scoped>
-.story-item__link {
+.story-item {
   text-decoration: none;
   color: #000;
 }

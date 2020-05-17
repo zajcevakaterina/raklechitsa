@@ -5,12 +5,7 @@
     >
     <slot></slot>
     <ul class="stories__list">
-      <li
-        class="stories__item"
-        v-for="story in stories"
-        :key="story.id"
-        @storyClick="goToStory(story.id)"
-      >
+      <li class="stories__item" v-for="story in stories" :key="story.id">
         <story-item
           :author="story.author"
           :text="story.text"
@@ -30,12 +25,6 @@ export default {
   components: {
     'section-title': SectionTitle,
     'story-item': StoryItem,
-  },
-
-  methods: {
-    goToStory(id) {
-      this.$router.push(`/stories/${id}`);
-    },
   },
 
   computed: {

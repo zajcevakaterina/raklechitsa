@@ -72,7 +72,8 @@ export default {
   min-height: 522px;
   display: flex;
   flex-direction: column;
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
   margin: 0 auto;
   box-sizing: border-box;
 }

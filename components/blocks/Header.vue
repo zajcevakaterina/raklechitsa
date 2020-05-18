@@ -3,14 +3,16 @@
     <popup v-if="popupActive" @closePopup="popupToggle">
       <form-stories />
     </popup>
-    <p class="header__logo">
-      Проект Благотворительного Фонда Константина Хабенского
-    </p>
-    <main-menu />
-    <button-header @btnClick="popupToggle" class="header__button"
-      >Рассказать историю</button-header
-    >
-    <mobile-button class="header__mobile-button" />
+    <container class="header__container">
+      <p class="header__logo">
+        Проект Благотворительного Фонда Константина Хабенского
+      </p>
+      <main-menu />
+      <button-header @btnClick="popupToggle" class="header__button"
+        >Рассказать историю</button-header
+      >
+      <mobile-button class="header__mobile-button" />
+    </container>
   </header>
 </template>
 
@@ -51,11 +53,14 @@ export default {
 .header {
   min-height: 76px;
   box-sizing: border-box;
+  margin: 0 auto;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.header__container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 0 auto;
-  border-bottom: 1px solid #e8e8e8;
 }
 
 .header__logo {
@@ -65,6 +70,7 @@ export default {
   font-weight: 600;
   margin-right: auto;
 }
+
 .header__button {
   font-style: normal;
   font-weight: normal;

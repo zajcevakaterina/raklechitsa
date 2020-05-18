@@ -1,24 +1,26 @@
 <template>
-  <div class="wrapper">
+  <section class="call-to-action">
     <popup v-if="popupActive">
-      <form-stories/>
+      <form-stories />
     </popup>
-    <section class="call-to-action root__section">
+    <container class="call-to-action__container">
       <section-title>Расскажите свою историю</section-title>
       <div class="call-to-action__content">
-        <section-text
+        <section-text class="call-to-action__section-text"
           >Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
           поделиться своей историей неизлечимых привычек, навязчивых идей и
           болезненных привязанностей.
         </section-text>
-        <main-tabs :tabsData="tabs" :theme="'call-to-action'">
-          <action-button @btnClick="popupToggle" class="call-to-action__action-button"
+        <main-tabs :tabsData="actions" :theme="'call-to-action'">
+          <action-button
+            @btnClick="popupToggle"
+            class="call-to-action__action-button"
             >Заполнить форму</action-button
           >
         </main-tabs>
       </div>
-    </section>
-  </div>
+    </container>
+  </section>
 </template>
 
 <script>
@@ -26,16 +28,19 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import Button from '@/components/ui/Button';
 import Tabs from '@/components/Tabs';
-import Popup from '@@/components/Popup';
-import FormStories from '@@/components/FormStories';
+import Popup from '@/components/Popup';
+import FormStories from '@/components/FormStories';
+import Container from '@/components/Container';
+
 export default {
   components: {
     'section-title': SectionTitle,
     'section-text': SectionText,
     'main-tabs': Tabs,
     'action-button': Button,
-    'popup': Popup,
+    popup: Popup,
     'form-stories': FormStories,
+    container: Container,
   },
 
   methods: {
@@ -43,40 +48,32 @@ export default {
       this.popupActive = !this.popupActive;
     },
   },
+  computed: {
+    actions() {
+      return this.$store.getters['call-to-action/getAction'];
+    },
+  },
 
   data() {
     return {
-       popupActive: false,
-      tabs: [
-        {
-          id: '1',
-          name: '1-й вариант',
-          content:
-            'Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю после проверки. Пожалуйста, заполняйте все пункты корректно, если вы испытаете какие-то сложности, воспользуйтесь 2&#8209;м&nbsp;вариантом.',
-        },
-        {
-          id: '2',
-          name: '2-й вариант',
-          content:
-            'Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, уточним детали вашей истории.',
-        },
-      ],
+      popupActive: false,
     };
   },
 };
 </script>
 
 <style scoped>
-.wrapper {
+.call-to-action {
   background: #f7f7f7;
   width: 100%;
 }
 
-.call-to-action {
+.call-to-action__container {
   min-height: 522px;
   display: flex;
   flex-direction: column;
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -95,7 +92,7 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .call-to-action {
+  .call-to-action__container {
     min-height: 480px;
     padding: 90px 0;
   }
@@ -105,7 +102,7 @@ export default {
   }
 }
 @media screen and (max-width: 1024px) {
-  .call-to-action {
+  .call-to-action__container {
     min-height: 436px;
     padding: 80px 0;
   }
@@ -117,7 +114,7 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
-  .call-to-action {
+  .call-to-action__container {
     min-height: 598px;
     padding: 80px 0;
     align-items: center;
@@ -126,10 +123,13 @@ export default {
     flex-direction: column;
     align-items: center;
   }
+  .call-to-action__section-text {
+    margin: 26px 0 0;
+  }
 }
 @media screen and (max-width: 320px) {
-  .call-to-action {
-    min-height: 436px;
+  .call-to-action__container {
+    min-height: 462px;
     padding: 50px 0;
   }
   .call-to-action__action-button {
@@ -138,6 +138,9 @@ export default {
     font-size: 13px;
     line-height: 16px;
     padding: 0;
+  }
+  .call-to-action__section-text {
+    margin: 16px 0 0;
   }
 }
 </style>

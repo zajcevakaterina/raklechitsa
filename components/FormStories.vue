@@ -1,23 +1,36 @@
 <template>
-  <div>
-    <h2 class="form__steps">{{ step }}</h2>
-    <div></div>
-    <h3 class="form__question">{{ question }}</h3>
-    <inputform class="form__input" />
-    <div class="form__buttons">
-      <button class="form__button-back">Назад</button>
-      <button class="form__button-next">Далее</button>
+  <form class="stories-form">
+    <form-title class="stories-form__steps">{{ step }}</form-title>
+    <p class="stories-form__question">{{ question }}</p>
+    <inputform
+      class="stories-form__input"
+      :type="'text'"
+      :name="question"
+      :required="'required'"
+    />
+    <div class="stories-form__buttons">
+      <button-form
+        class="stories-form__button stories-form__button_direction_back"
+        >Назад</button-form
+      >
+      <button-form
+        class="stories-form__button stories-form__button_direction_next"
+        >Далее</button-form
+      >
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
-import Button from '@@/components/ui/Button';
-import InputForm from '@@/components/ui/InputForm';
+import Button from '@/components/ui/Button';
+import InputForm from '@/components/ui/InputForm';
+import SectionTitle from '@/components/ui/SectionTitle';
+
 export default {
   components: {
-    'button': Button,
-    'inputform': InputForm,
+    'button-form': Button,
+    inputform: InputForm,
+    'form-title': SectionTitle,
   },
 
   props: {
@@ -34,177 +47,84 @@ export default {
 </script>
 
 <style scoped>
-.form__steps {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  margin: 0;
+.stories-form__steps {
+  margin: 0 0 40px;
 }
-.form__question {
-  font-family: Inter;
-  font-style: normal;
+.stories-form__question {
   font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  margin-top: 40px;
-  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 1.33;
+  margin: 40px 0 0;
+  min-height: 72px;
 }
 
-.form__buttons {
+.stories-form__input {
+  margin: 86px 0 0;
+}
+
+.stories-form__buttons {
   display: flex;
-  margin-top: 200px;
+  margin-top: 210px;
 }
 
-.form__input {
-  margin-top: 135px;
-}
-
-.form__button-back {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  border: none;
+.stories-form__button_direction_back {
   background: none;
   color: #c0c0c0;
+  padding: 0;
 }
 
-.form__button-next {
-  font-family: Inter;
-  font-style: normal;
+.stories-form__button_direction_next {
   font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  border: none;
-  background: #714dbd;
-  padding: 16px 80px;
+  width: 226px;
+  padding: 16px 0;
   color: #ffffff;
   margin-left: 30px;
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .form__steps {
-    font-size: 28px;
-    line-height: 32px;
-  }
-  .form__question {
-    font-size: 16px;
-    line-height: 24px;
-    margin-top: 40px;
+@media screen and (max-width: 1280px) {
+  .stories-form__steps {
+    line-height: 1.14;
   }
 
-  .form__buttons {
+  .stories-form__buttons {
+    margin-top: 170px;
+  }
+
+  .stories-form__button_direction_next {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .stories-form__buttons {
     margin-top: 174px;
   }
-
-  .form__input {
-    margin-top: 100px;
-  }
-
-  .form__button-next {
-  padding: 14px 67px;
 }
 
-  .form__button-back {
-    font-size: 16px;
-    line-height: 19px;
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1279px) {
-  .form-steps {
-    font-size: 26px;
-    line-height: 30px;
-  }
-  .form__question {
+@media screen and (max-width: 768px) {
+  .stories-form__question {
     font-size: 15px;
-    line-height: 24px;
-    margin-top: 40px;
+    line-height: 1.27;
+    margin: 40px 0 0;
+    min-height: 68px;
   }
 
-  .form__buttons {
-    margin-top: 174px;
-  }
-
-  .form__input {
-    margin-top: 100px;
-  }
-
-  .form__button-next {
-  font-size: 15px;
-    line-height: 18px;
-    padding: 13px 67px;
-}
-
-  .form__button-back {
-    font-size: 15px;
-    line-height: 18px;
+  .stories-form__input {
+    margin: 30px 0 0;
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .form-steps {
-    font-size: 26px;
-    line-height: 30px;
-  }
-  .form__question {
-    font-size: 15px;
-    line-height: 24px;
-    margin-top: 40px;
+@media screen and (max-width: 320px) {
+  .stories-form__steps {
+    margin: 0 0 30px;
   }
 
-  .form__buttons {
-    margin-top: 174px;
+  .stories-form__buttons {
+    margin-top: 257px;
   }
 
-  .form__input {
-    margin-top: 100px;
-  }
-
-  .form__button-next {
-  font-size: 15px;
-    line-height: 18px;
-    padding: 13px 67px;
-}
-
-  .form__button-back {
-    font-size: 15px;
-    line-height: 18px;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .form-steps {
-    font-size: 18px;
-    line-height: 21px;
-  }
-  .form__question {
-    font-size: 13px;
-    line-height: 16px;
-    margin-top: 30px;
-  }
-
-  .form__buttons {
-    margin-top: 258px;
-  }
-
-  .form__input {
-    margin-top: 100px;
-  }
-
-  .form__button-back {
-    font-size: 13px;
-    line-height: 16px;
-  }
-
-  .form__button-next {
-    margin-left: 15px;
-    font-size: 13px;
-    line-height: 16px;
-    padding: 12px 82px;
+  .stories-form__button_direction_next {
+    width: 206px;
   }
 }
 </style>

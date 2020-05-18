@@ -5,7 +5,10 @@
         class="tabs__link"
         v-for="(tab, index) in tabsData"
         :key="tab.id"
-        :class="[{ ['active_' + theme]: show == index }, `tabs__link_${theme}`]"
+        :class="[
+          { ['tabs__link_' + theme + '_active']: show == index },
+          `tabs__link_${theme}`,
+        ]"
         @click.prevent="show = index"
       >
         {{ tab.name }}
@@ -17,7 +20,7 @@
         :class="`tabs__text_${theme}`"
         v-for="(tab, index) in tabsData"
         v-if="show === index"
-        :key="index"
+        :key="tab.id"
         v-html="tab.content"
       ></p>
       <p
@@ -25,7 +28,7 @@
         :class="`tabs__text_${theme}`"
         v-for="(tab, index) in tabsData"
         v-if="show === index && tab.content2"
-        :key="tab.id"
+        :key="tab.name"
         v-html="tab.content2"
       ></p>
       <slot></slot>
@@ -70,7 +73,7 @@ export default {
   color: #000000;
   transition: color 0.3s linear;
 }
-.active_call-to-action {
+.tabs__link_call-to-action_active {
   color: #000000;
 }
 
@@ -81,7 +84,7 @@ export default {
   color: #ffffff;
   transition: color 0.3s linear;
 }
-.active_about {
+.tabs__link_about_active {
   color: #ffffff;
 }
 .tabs__content {
@@ -97,7 +100,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
 }
 .tabs__text:last-child {
   margin-bottom: 0;
@@ -145,17 +148,16 @@ export default {
   }
   .tabs__link {
     margin-bottom: 24px;
-    font-size: 15px;
-    line-height: 1.27;
     margin-right: 30px;
+    padding-bottom: 6px;
   }
   .tabs__link:last-child {
     margin-right: 0px;
   }
-  .active_call-to-action {
+  .tabs__link_call-to-action_active {
     border-bottom: #613a93 solid 2px;
   }
-  .active_about {
+  .tabs__link_about_active {
     border-bottom: #ffffff solid 2px;
   }
   .tabs__content {
@@ -168,20 +170,32 @@ export default {
     padding: 0;
   }
   .tabs__text {
-    font-size: 15px;
-    line-height: 1.27;
     max-width: 380px;
   }
 }
 @media screen and (max-width: 350px) {
   .tabs {
     margin: 40px 0 0;
-    flex-direction: column;
-    flex: auto;
   }
   .tabs__text_call-to-action {
     font-size: 13px;
     line-height: 1.23;
+  }
+  .tabs__text {
+    max-width: 290px;
+    font-size: 13px;
+    line-height: 1.23;
+    margin-bottom: 20px;
+  }
+  .tabs__link {
+    font-size: 13px;
+    line-height: 1.46;
+    margin-bottom: 16px;
+    padding-bottom: 4px;
+  }
+  .tabs__text_about {
+    font-size: 15px;
+    line-height: 1.27;
   }
 }
 </style>

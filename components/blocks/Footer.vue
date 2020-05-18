@@ -1,23 +1,25 @@
 <template>
-  <div class="wrapper">
+  <footer class="footer">
     <popup v-if="popupActive">
-      <form-social/>
+      <social-share />
     </popup>
-    <footer class="footer root__section">
+    <container class="footer__container">
       <div class="footer__content">
         <div class="footer__title-menu">
-          <section-title class="section__title_footer"
+          <section-title class="section__title_place_footer"
             >Спасибо всем, кто помог состояться этому проекту</section-title
           >
           <!-- <footer-menu /> -->
 
-          <div class="footer__menu">
-            <a href="/" class="footer__link footer__link_type_menu">Главная</a>
-            <a href="/stories" class="footer__link footer__link_type_menu"
-              >Истории</a
-            >
-          </div>
+          <!--          старый код-->
+          <!--          <div class="footer__menu">-->
+          <!--            <a href="/" class="footer__link footer__link_type_menu">Главная</a>-->
+          <!--            <a href="/stories" class="footer__link footer__link_type_menu"-->
+          <!--              >Истории</a-->
+          <!--            >-->
+          <!--          </div>-->
         </div>
+        <footer-menu class="footer__menu" />
         <div class="footer__social">
           <p class="footer__social-text">
             Мы в
@@ -36,37 +38,47 @@
               >Youtube</a
             >
           </p>
-          <footer-button @btnClick="popupToggle" class="footer__link footer__link_type_share"
+          <footer-button
+            @btnClick="popupToggle"
+            class="footer__link footer__link_type_share"
             >Поделитесь &#8599;</footer-button
           >
         </div>
       </div>
       <div class="footer__copyright">
-        <span class="footer__copyright-text">Рак Лечится 2020</span>
         <span class="footer__copyright-text"
-          >Сделано студентами Яндекс Практикум</span
+          >Рак Лечится {{ new Date().getFullYear() }}</span
+        >
+        <span class="footer__copyright-text"
+          >Сделано студентами
+          <a href="https://praktikum.yandex.ru/" class="footer__praktikum-link"
+            >Яндекс Практикум</a
+          ></span
         >
       </div>
-    </footer>
-  </div>
+    </container>
+  </footer>
 </template>
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
-import Popup from '@@/components/Popup';
-import FormSocial from '@@/components/FormSocial';
+import Popup from '@/components/Popup';
+import SocialShare from '@/components/SocialShare';
+import Container from '@/components/Container';
+
 export default {
   components: {
     'section-title': SectionTitle,
     'footer-menu': Menu,
     'footer-button': Button,
-    'popup': Popup,
-    'form-social': FormSocial,
+    popup: Popup,
+    'social-share': SocialShare,
+    container: Container,
   },
 
-   methods: {
+  methods: {
     popupToggle() {
       this.popupActive = !this.popupActive;
     },
@@ -81,11 +93,11 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
+.footer {
   background-color: #fbfbfb;
   width: 100%;
 }
-.footer {
+.footer__container {
   min-height: 356px;
   padding: 60px 0;
   flex-direction: column;
@@ -100,8 +112,9 @@ export default {
 }
 .footer__title-menu {
   display: flex;
-  width: calc(50% - 20px);
+  /*width: calc(50% - 20px);*/
   justify-content: space-between;
+  max-width: 700px;
 }
 .footer__menu {
   display: flex;
@@ -109,6 +122,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
+  padding-right: 20%;
 }
 
 .footer__link {
@@ -120,6 +134,7 @@ export default {
   text-decoration: none;
 }
 
+/*TODO проверить наличие в разметке классов, которые указаны ниже*/
 .footer__link_type_menu {
   margin-right: 40px;
   text-decoration: none;
@@ -183,17 +198,24 @@ export default {
   line-height: 18px;
   color: #898989;
 }
-.section__title_footer {
+.section__title_place_footer {
   max-width: 340px;
+}
+.footer__praktikum-link {
+  text-decoration: none;
+  color: #898989;
 }
 
 @media screen and (max-width: 1280px) {
-  .footer {
+  .footer__container {
     min-height: 316px;
     padding: 50px 0;
   }
-  .section__title_footer {
+  .section__title_place_footer {
     max-width: 305px;
+  }
+  .footer__menu {
+    padding-right: 17%;
   }
   .footer__link {
     font-size: 16px;
@@ -206,11 +228,14 @@ export default {
   }
 }
 @media screen and (max-width: 1024px) {
-  .footer {
+  .footer__container {
     min-height: 292px;
     padding: 50px 0;
   }
-  .section__title_footer {
+  .footer__menu {
+    padding-right: 23%;
+  }
+  .section__title_place_footer {
     max-width: 288px;
   }
   .footer__title-menu {
@@ -218,7 +243,7 @@ export default {
   }
 }
 @media screen and (max-width: 950px) {
-  .section__title_footer {
+  .section__title_place_footer {
     max-width: 268px;
   }
   .footer__title-menu {
@@ -226,17 +251,24 @@ export default {
   }
   .footer__menu {
     flex-direction: column;
+    padding-right: 20%;
   }
   .footer__social {
     width: 226px;
   }
+  ::v-deep .menu__links {
+    flex-direction: column;
+  }
+  ::v-deep .menu__link-wrapper {
+    margin-bottom: 16px;
+  }
 }
 @media screen and (max-width: 660px) {
-  .section__title_footer {
+  .section__title_place_footer {
     max-width: 290px;
     font-size: 18px;
     line-height: 1.17;
-    margin-bottom: 50px;
+    margin-bottom: 42px;
   }
   .footer__content {
     flex-direction: column;
@@ -258,10 +290,6 @@ export default {
   .footer__social {
     min-height: 0;
   }
-  .footer__social_link {
-    font-size: 13px;
-    line-height: 1.15;
-  }
   .footer__social-text {
     font-size: 13px;
     line-height: 1.15;
@@ -269,7 +297,7 @@ export default {
   }
   .footer__copyright {
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 40px;
   }
   .footer__copyright-text {
     font-size: 13px;

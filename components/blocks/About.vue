@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <section class="about root__section">
+  <section class="about">
+    <container class="about__container">
       <p class="about__hashtag">#РАКЛЕЧИТСЯ</p>
       <section-title class="about__section-title">О проекте</section-title>
       <div class="about__content">
@@ -8,51 +8,38 @@
           >Этот проект был создан благотворительным фондом Константина
           Хабенского.
         </section-text>
-        <main-tabs :tabsData="tabs" :theme="'about'" />
+        <main-tabs :tabsData="about" :theme="'about'" />
       </div>
-    </section>
-  </div>
+    </container>
+  </section>
 </template>
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import Tabs from '@/components/Tabs';
+import Container from '@/components/Container';
 export default {
   components: {
     'section-title': SectionTitle,
     'section-text': SectionText,
     'main-tabs': Tabs,
+    container: Container,
   },
-  data() {
-    return {
-      tabs: [
-        {
-          id: '1',
-          name: 'Рак лечится',
-          content:
-            'Есть вещи, которые не лечатся. Особенности характера, страстные увлечения, привычки, ставшие частью нашего «я», фобии, которые мы приобрели в детстве. Список можно продолжать до бесконечности, но одна болезнь в него точно не войдет. Эта болезнь — рак. Рак лечится, и лучшее доказательство — люди с их неизлечимыми особенностями, которые сумели победить рак.',
-          content2:
-            'Рак лечится — проект Благотворительного Фонда Константина Хабенского и Leo Burnett Moscow. С его помощью мы надеемся изменить отношение людей к раку и заставить каждого поверить: онкологическое заболевание — это не приговор.',
-        },
-        {
-          id: '2',
-          name: 'Фонд Хабенского',
-          content:
-            'Благотворительный Фонд Константина Хабенского с 2008 года помогает детям с онкологическими и другими тяжелыми заболеваниями головного мозга. Фонд не только поддерживает семью заболевшего ребенка в самый сложный момент, оплачивая обследования, лечение и медицинские препараты, но и в целом меняет систему оказания помощи детям с опухолями мозга в России.',
-        },
-      ],
-    };
+  computed: {
+    about() {
+      return this.$store.getters['about/getAbout'];
+    },
   },
 };
 </script>
 
 <style scoped>
-.wrapper {
+.about {
   background: #613a93;
   width: 100%;
 }
 
-.about {
+.about__container {
   min-height: 650px;
   display: flex;
   flex-direction: column;
@@ -81,7 +68,7 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .about {
+  .about__container {
     min-height: 626px;
     padding: 80px 0;
   }
@@ -92,7 +79,7 @@ export default {
   }
 }
 @media screen and (max-width: 1024px) {
-  .about {
+  .about__container {
     min-height: 571px;
   }
   .about__hashtag {
@@ -102,13 +89,16 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
-  .about {
+  .about__container {
     min-height: 660px;
     padding: 50px 0;
     align-items: center;
   }
   .about__hashtag {
     display: none;
+  }
+  .about__section-text {
+    margin: 26px 0 0;
   }
   .about__content {
     flex-direction: column;
@@ -117,7 +107,7 @@ export default {
   }
 }
 @media screen and (max-width: 350px) {
-  .about {
+  .about__container {
     min-height: 628px;
     align-items: start;
   }
@@ -128,6 +118,9 @@ export default {
     flex-direction: column;
     align-items: center;
     flex: none;
+  }
+  .about__section-text {
+    margin: 16px 0 0;
   }
 }
 </style>

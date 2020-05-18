@@ -1,6 +1,7 @@
 <template>
   <div class="root">
-    <page-header class="root__section" />
+    <page-header />
+
     <nuxt />
     <page-footer />
   </div>
@@ -36,30 +37,4 @@ body {
   margin: 0 auto;
 }
 
-.root__section {
-  width: calc(100% - 120px);
-  max-width: 1320px;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 1280px) {
-  .root__section {
-    width: calc(100% - 100px);
-  }
-}
-@media screen and (max-width: 1280px) {
-  .root__section {
-    width: calc(100% - 100px);
-  }
-}
-@media screen and (max-width: 768px) {
-  .root__section {
-    width: calc(100% - 80px);
-  }
-}
-@media screen and (max-width: 320px) {
-  .root__section {
-    width: calc(100% - 30px);
-  }
-}
 </style>

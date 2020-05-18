@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <section class="about root__section">
+  <section class="about">
+    <container class="about__container">
       <p class="about__hashtag">#РАКЛЕЧИТСЯ</p>
       <section-title class="about__section-title">О проекте</section-title>
       <div class="about__content">
@@ -10,18 +10,20 @@
         </section-text>
         <main-tabs :tabsData="about" :theme="'about'" />
       </div>
-    </section>
-  </div>
+    </container>
+  </section>
 </template>
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import Tabs from '@/components/Tabs';
+import Container from '@/components/Container';
 export default {
   components: {
     'section-title': SectionTitle,
     'section-text': SectionText,
     'main-tabs': Tabs,
+    container: Container,
   },
   computed: {
     about() {
@@ -32,12 +34,12 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
+.about {
   background: #613a93;
   width: 100%;
 }
 
-.about {
+.about__container {
   min-height: 650px;
   display: flex;
   flex-direction: column;
@@ -66,7 +68,7 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .about {
+  .about__container {
     min-height: 626px;
     padding: 80px 0;
   }
@@ -77,7 +79,7 @@ export default {
   }
 }
 @media screen and (max-width: 1024px) {
-  .about {
+  .about__container {
     min-height: 571px;
   }
   .about__hashtag {
@@ -87,7 +89,7 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
-  .about {
+  .about__container {
     min-height: 660px;
     padding: 50px 0;
     align-items: center;
@@ -105,7 +107,7 @@ export default {
   }
 }
 @media screen and (max-width: 350px) {
-  .about {
+  .about__container {
     min-height: 628px;
     align-items: start;
   }

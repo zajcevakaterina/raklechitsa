@@ -17,9 +17,12 @@
 <script>
 import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
+
 import MobileMenuButton from '@/components/ui/MobileMenuButton';
 import Popup from '@/components/Popup';
 import FormStories from '@/components/FormStories';
+import Container from '@/components/Container';
+
 export default {
   components: {
     'main-menu': Menu,
@@ -27,6 +30,7 @@ export default {
     'mobile-button': MobileMenuButton,
     popup: Popup,
     'form-stories': FormStories,
+    container: Container,
   },
 
   methods: {

@@ -100,7 +100,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
 }
 .tabs__text:last-child {
   margin-bottom: 0;

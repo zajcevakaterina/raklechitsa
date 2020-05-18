@@ -1,7 +1,6 @@
 <template>
   <div class="root">
     <page-header class="root__section" />
-    <hr class="header-border-bottom" />
     <nuxt />
     <page-footer />
   </div>
@@ -36,16 +35,11 @@ body {
   box-sizing: border-box;
   margin: 0 auto;
 }
+
 .root__section {
   width: calc(100% - 120px);
   max-width: 1320px;
   margin: 0 auto;
-}
-.header-border-bottom {
-  height: 1px;
-  margin: 0;
-  border: 0;
-  background-color: #e8e8e8;
 }
 
 @media screen and (max-width: 1280px) {

@@ -253,6 +253,12 @@ export default {
   .footer__social {
     width: 226px;
   }
+  ::v-deep .menu__links {
+    flex-direction: column;
+  }
+  ::v-deep .menu__link-wrapper {
+    margin-bottom: 16px;
+  }
 }
 @media screen and (max-width: 660px) {
   .section__title_place_footer {

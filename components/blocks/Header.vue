@@ -10,15 +10,13 @@
     <button-header @btnClick="popupToggle" class="header__button"
       >Рассказать историю</button-header
     >
-    <mobile-button class="header__mobile-button" />
+    <button-header class="header__mobile-button" />
   </header>
 </template>
 
 <script>
 import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
-
-import MobileMenuButton from '@/components/ui/MobileMenuButton';
 import Popup from '@/components/Popup';
 import FormStories from '@/components/FormStories';
 import Container from '@/components/Container';
@@ -27,7 +25,6 @@ export default {
   components: {
     'main-menu': Menu,
     'button-header': Button,
-    'mobile-button': MobileMenuButton,
     popup: Popup,
     'form-stories': FormStories,
     container: Container,
@@ -85,6 +82,15 @@ export default {
 }
 .header__mobile-button {
   display: none;
+  background: url('../../static/mobile-menu.svg') no-repeat;
+  background-color: transparent;
+  background-size: cover;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  outline: 0;
+  width: 32px;
+  height: 27px;
 }
 
 .header__mobile-button:hover {
@@ -119,6 +125,10 @@ export default {
     line-height: 1.17;
     width: 216px;
     font-size: 12px;
+  }
+  .header__mobile-button {
+    width: 26px;
+    height: 23px;
   }
 }
 </style>

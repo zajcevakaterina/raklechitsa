@@ -64,14 +64,14 @@ export default {};
   }
 }
 
-@media screen and (max-width: 950px) {
-  .menu__links {
-    flex-direction: column;
-  }
-  .menu__link-wrapper {
-    margin-bottom: 16px;
-  }
-}
+/*@media screen and (max-width: 950px) {*/
+/*  .menu__links {*/
+/*    flex-direction: column;*/
+/*  }*/
+/*  .menu__link-wrapper {*/
+/*    margin-bottom: 16px;*/
+/*  }*/
+/*}*/
 
 @media screen and (max-width: 768px) {
   .menu {

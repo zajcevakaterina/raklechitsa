@@ -1,9 +1,9 @@
 <template>
-  <div class="wrapper">
+  <section class="call-to-action">
     <popup v-if="popupActive">
       <form-stories />
     </popup>
-    <section class="call-to-action root__section">
+    <container class="call-to-action__container">
       <section-title>Расскажите свою историю</section-title>
       <div class="call-to-action__content">
         <section-text class="call-to-action__section-text"
@@ -19,8 +19,8 @@
           >
         </main-tabs>
       </div>
-    </section>
-  </div>
+    </container>
+  </section>
 </template>
 
 <script>
@@ -28,8 +28,10 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import Button from '@/components/ui/Button';
 import Tabs from '@/components/Tabs';
-import Popup from '@@/components/Popup';
-import FormStories from '@@/components/FormStories';
+import Popup from '@/components/Popup';
+import FormStories from '@/components/FormStories';
+import Container from '@/components/Container';
+
 export default {
   components: {
     'section-title': SectionTitle,
@@ -38,6 +40,7 @@ export default {
     'action-button': Button,
     popup: Popup,
     'form-stories': FormStories,
+    container: Container,
   },
 
   methods: {
@@ -60,12 +63,12 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
+.call-to-action {
   background: #f7f7f7;
   width: 100%;
 }
 
-.call-to-action {
+.call-to-action__container {
   min-height: 522px;
   display: flex;
   flex-direction: column;
@@ -88,7 +91,7 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .call-to-action {
+  .call-to-action__container {
     min-height: 480px;
     padding: 90px 0;
   }
@@ -98,7 +101,7 @@ export default {
   }
 }
 @media screen and (max-width: 1024px) {
-  .call-to-action {
+  .call-to-action__container {
     min-height: 436px;
     padding: 80px 0;
   }
@@ -110,7 +113,7 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
-  .call-to-action {
+  .call-to-action__container {
     min-height: 598px;
     padding: 80px 0;
     align-items: center;
@@ -124,7 +127,7 @@ export default {
   }
 }
 @media screen and (max-width: 320px) {
-  .call-to-action {
+  .call-to-action__container {
     min-height: 462px;
     padding: 50px 0;
   }

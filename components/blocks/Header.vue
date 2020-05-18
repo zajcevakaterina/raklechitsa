@@ -23,12 +23,15 @@ import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
 import Popup from '@@/components/Popup';
 import FormStories from '@@/components/FormStories';
+import Container from '@/components/Container';
+
 export default {
   components: {
     'main-menu': Menu,
     'button-header': Button,
     popup: Popup,
     'form-stories': FormStories,
+    container: Container,
   },
 
   methods: {

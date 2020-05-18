@@ -34,7 +34,7 @@ export default {};
   font-size: 18px;
   line-height: 24px;
   text-decoration: none;
-  color: #000000;
+  color: #000;
   height: fit-content;
 }
 

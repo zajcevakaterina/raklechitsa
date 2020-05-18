@@ -7,28 +7,27 @@
       Проект Благотворительного Фонда Константина Хабенского
     </p>
     <main-menu />
-    <button-header @btnClick="popupToggle" class="button_header"
+    <button-header @btnClick="popupToggle" class="header__button"
       >Рассказать историю</button-header
     >
-    <button-header class="button_header-mobile">
-      <span class="button_header-mobile-body"></span>
-      <span class="button_header-mobile-body"></span>
-      <span class="button_header-mobile-body"></span>
-    </button-header>
+    <mobile-button class="header__mobile-button" />
   </header>
 </template>
 
 <script>
 import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
-import Popup from '@@/components/Popup';
-import FormStories from '@@/components/FormStories';
+
+import MobileMenuButton from '@/components/ui/MobileMenuButton';
+import Popup from '@/components/Popup';
+import FormStories from '@/components/FormStories';
 import Container from '@/components/Container';
 
 export default {
   components: {
     'main-menu': Menu,
     'button-header': Button,
+    'mobile-button': MobileMenuButton,
     popup: Popup,
     'form-stories': FormStories,
     container: Container,
@@ -56,6 +55,7 @@ export default {
   justify-content: flex-end;
   align-items: center;
   margin: 0 auto;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .header__logo {
@@ -65,7 +65,7 @@ export default {
   font-weight: 600;
   margin-right: auto;
 }
-.button_header {
+.header__button {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -78,31 +78,23 @@ export default {
   padding: 0;
   outline: 0;
 }
-.button_header:hover {
+
+.header__button:hover {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
-.button_header-mobile {
-  flex-direction: column;
-  background-color: transparent;
-  cursor: pointer;
-  color: #121212;
-  padding: 0;
-  outline: 0;
+.header__mobile-button {
   display: none;
 }
-.button_header-mobile-body {
-  border-top: solid #000 3px;
-  width: 32px;
-  margin-bottom: 9px;
-}
-.button_header-mobile-body:last-child {
-  margin-bottom: 0;
-}
-.button_header-mobile:hover {
+
+.header__mobile-button:hover {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
+::v-deep .nuxt-link-exact-active {
+  border-bottom: solid 2px;
+}
+
 @media screen and (max-width: 1280px) {
   .header {
     min-height: 72px;
@@ -110,15 +102,15 @@ export default {
   .header__logo {
     line-height: 1.12;
   }
-  .button_header {
+  .header__button {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 768px) {
-  .button_header {
+  .header__button {
     display: none;
   }
-  .button_header-mobile {
+  .header__mobile-button {
     display: flex;
   }
 }

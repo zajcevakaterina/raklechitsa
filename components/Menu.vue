@@ -1,7 +1,13 @@
 <template>
   <nav class="menu">
-    <nuxt-link to="/" class="menu-link">Главная</nuxt-link>
-    <nuxt-link to="/stories" class="menu-link">Истории</nuxt-link>
+    <ul class="menu__links">
+      <li class="menu__link-wrapper">
+        <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
+      </li>
+      <li class="menu__link-wrapper">
+        <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -10,14 +16,18 @@ export default {};
 </script>
 
 <style scoped>
-.menu {
+.menu__links {
   display: flex;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
+  margin: 0;
 }
-.menu-link {
+.menu__link-wrapper {
+  list-style-type: none;
+}
+.menu__link {
   margin-right: 40px;
   font-style: normal;
   font-weight: normal;
@@ -28,7 +38,7 @@ export default {};
   height: fit-content;
 }
 
-.menu-link:hover {
+.menu__link:hover {
   color: #121212;
   opacity: 0.8;
   transition: opacity 0.3s linear;
@@ -38,26 +48,47 @@ export default {};
   border-bottom: 0px;
 }
 
-.nuxt-link-exact-active {
-  border-bottom: solid 2px;
-}
-
+/*TODO нет ли дублирования с menu-link выше?*/
 .nuxt-link-exact-active:hover {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
 
 @media screen and (max-width: 1280px) {
-  .menu-link {
+  .menu__link {
     font-size: 16px;
   }
+  /*TODO нужен ли этот класс??*/
   .header__logo {
     line-height: 1.12;
   }
 }
+
+@media screen and (max-width: 950px) {
+  .menu__links {
+    flex-direction: column;
+  }
+  .menu__link-wrapper {
+    margin-bottom: 16px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .menu {
     display: none;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .menu__links {
+    padding: 0 0 8px;
+  }
+  .menu__link-wrapper {
+    margin-bottom: 8px;
+  }
+  .menu__link {
+    font-size: 13px;
+    line-height: 15px;
   }
 }
 </style>

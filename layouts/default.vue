@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <page-header />
-    <hr class="header-border-bottom" />
+
     <nuxt />
     <page-footer />
   </div>
@@ -37,10 +37,4 @@ body {
   margin: 0 auto;
 }
 
-.header-border-bottom {
-  height: 1px;
-  margin: 0;
-  border: 0;
-  background-color: #e8e8e8;
-}
 </style>

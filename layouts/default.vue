@@ -1,5 +1,6 @@
 <template>
   <div class="root">
+    <mobile-menu v-if="isMobileMenuOpened" />
     <page-header />
     <popup
       v-if="popupQuizShown"
@@ -8,7 +9,6 @@
     >
       <quiz />
     </popup>
-
     <nuxt />
     <page-footer />
     <popup
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import MobileMenu from '@/components/MobileMenu';
 import Header from '@/components/blocks/Header';
 import Footer from '@/components/blocks/Footer';
 import Popup from '@/components/ui/Popup';
@@ -29,13 +30,18 @@ import Qiuz from '@/components/Quiz';
 import SocialShare from '@/components/SocialShare';
 export default {
   components: {
+    'mobile-menu': MobileMenu,
     'page-header': Header,
     'page-footer': Footer,
     popup: Popup,
     quiz: Qiuz,
     'social-share': SocialShare,
   },
-
+  computed: {
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
+  },
   head: {
     title: 'РАКЛЕЧИТСЯ.РФ - истории людей, победивших рак, но не свои привычки',
   },

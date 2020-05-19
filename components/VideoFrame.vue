@@ -76,6 +76,7 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .video {
+    max-width: 600px;
     max-height: 314px;
   }
 }

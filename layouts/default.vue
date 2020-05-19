@@ -1,22 +1,60 @@
 <template>
   <div class="root">
     <page-header />
+    <popup
+      v-if="popupQuizShown"
+      @closePopup="closeQuizPopup"
+      @overlayClick="closeQuizPopup"
+    >
+      <quiz />
+    </popup>
 
     <nuxt />
     <page-footer />
+    <popup
+      v-if="popupShareShown"
+      @closePopup="closeSharePopup"
+      @overlayClick="closeSharePopup"
+    >
+      <social-share />
+    </popup>
   </div>
 </template>
 
 <script>
 import Header from '@/components/blocks/Header';
 import Footer from '@/components/blocks/Footer';
+import Popup from '@/components/ui/Popup';
+import Qiuz from '@/components/Quiz';
+import SocialShare from '@/components/SocialShare';
 export default {
   components: {
     'page-header': Header,
     'page-footer': Footer,
+    popup: Popup,
+    quiz: Qiuz,
+    'social-share': SocialShare,
   },
+
   head: {
     title: 'РАКЛЕЧИТСЯ.РФ - истории людей, победивших рак, но не свои привычки',
+  },
+
+  computed: {
+    popupQuizShown() {
+      return this.$store.getters['popup/getPopupQuizShown'];
+    },
+    popupShareShown() {
+      return this.$store.getters['popup/getPopupShareShown'];
+    },
+  },
+  methods: {
+    closeQuizPopup() {
+      this.$store.commit('popup/closeQuizPopup');
+    },
+    closeSharePopup() {
+      this.$store.commit('popup/closeSharePopup');
+    },
   },
 };
 </script>

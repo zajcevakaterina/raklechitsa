@@ -1,8 +1,5 @@
 <template>
   <section class="call-to-action">
-    <popup v-if="popupActive">
-      <form-stories />
-    </popup>
     <container class="call-to-action__container">
       <section-title>Расскажите свою историю</section-title>
       <div class="call-to-action__content">
@@ -13,7 +10,7 @@
         </section-text>
         <main-tabs :tabsData="actions" :theme="'call-to-action'">
           <action-button
-            @btnClick="popupToggle"
+            @btnClick="openQuizPopup"
             class="call-to-action__action-button"
             >Заполнить форму</action-button
           >
@@ -28,8 +25,6 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import Button from '@/components/ui/Button';
 import Tabs from '@/components/Tabs';
-import Popup from '@/components/Popup';
-import FormStories from '@/components/FormStories';
 import Container from '@/components/Container';
 
 export default {
@@ -38,26 +33,18 @@ export default {
     'section-text': SectionText,
     'main-tabs': Tabs,
     'action-button': Button,
-    popup: Popup,
-    'form-stories': FormStories,
     container: Container,
   },
 
   methods: {
-    popupToggle() {
-      this.popupActive = !this.popupActive;
+    openQuizPopup() {
+      this.$store.commit('popup/openQuizPopup');
     },
   },
   computed: {
     actions() {
       return this.$store.getters['call-to-action/getAction'];
     },
-  },
-
-  data() {
-    return {
-      popupActive: false,
-    };
   },
 };
 </script>

@@ -1,8 +1,5 @@
 <template>
   <nav class="mobile-menu">
-    <popup v-if="popupActive" @closePopup="popupToggle">
-      <form-stories />
-    </popup>
     <container class="mobile-menu__container">
       <ul class="mobile-menu__links">
         <li class="mobile-menu__link-wrapper">
@@ -12,7 +9,7 @@
           <nuxt-link to="/stories" class="mobile-menu__link">Истории</nuxt-link>
         </li>
       </ul>
-      <menu-button @btnClick="popupToggle" class="mobile-menu__button"
+      <menu-button @btnClick="openQuizPopup" class="mobile-menu__button"
         >Рассказать историю</menu-button
       >
     </container>
@@ -22,27 +19,17 @@
 <script>
 import Button from '@/components/ui/Button';
 import Container from '@/components/Container';
-import Popup from '@/components/Popup';
-import FormStories from '@/components/FormStories';
 
 export default {
   components: {
     'menu-button': Button,
     container: Container,
-    popup: Popup,
-    'form-stories': FormStories,
   },
 
   methods: {
-    popupToggle() {
-      this.popupActive = !this.popupActive;
+    openQuizPopup() {
+      this.$store.commit('popup/openQuizPopup');
     },
-  },
-
-  data() {
-    return {
-      popupActive: false,
-    };
   },
 };
 </script>

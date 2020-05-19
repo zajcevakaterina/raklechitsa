@@ -38,20 +38,14 @@ export default {
     'social-share': SocialShare,
   },
   computed: {
-    isMobileMenuOpened() {
-      return this.$store.getters['mobile-menu/getMobileMenuState'];
-    },
-  },
-  head: {
-    title: 'РАКЛЕЧИТСЯ.РФ - истории людей, победивших рак, но не свои привычки',
-  },
-
-  computed: {
     popupQuizShown() {
       return this.$store.getters['popup/getPopupQuizShown'];
     },
     popupShareShown() {
       return this.$store.getters['popup/getPopupShareShown'];
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
   },
   methods: {

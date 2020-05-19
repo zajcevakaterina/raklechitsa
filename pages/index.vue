@@ -3,7 +3,7 @@
     <cover />
     <container>
       <intro />
-      <stories />
+      <stories :stories="itemsToLoop" />
 
       <a class="more-stories-link" href="stories">
         <p class="more-stories-link__text">Больше статей</p>
@@ -86,6 +86,20 @@ export default {
   computed: {
     photos() {
       return this.$store.getters['insta/getPhotos'];
+    },
+    stories() {
+      return this.$store.getters['stories/getStories'];
+    },
+    itemsToLoop() {
+      if (process.browser) {
+        if (window.innerWidth <= 768 && window.innerWidth > 475) {
+          return this.stories.filter((item, index) => index < 9);
+        } else if (window.innerWidth <= 475) {
+          return this.stories.filter((item, index) => index < 6);
+        } else {
+          return this.stories.filter((item, index) => index < 8);
+        }
+      }
     },
   },
 };

@@ -22,15 +22,10 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import StoryItem from '@/components/StoryItem';
 
 export default {
+  props: ['stories'],
   components: {
     'section-title': SectionTitle,
     'story-item': StoryItem,
-  },
-
-  computed: {
-    stories() {
-      return this.$store.getters['stories/getStories'];
-    },
   },
 };
 </script>

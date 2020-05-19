@@ -1,29 +1,11 @@
 <template>
-  <div class="slider-buttons">
-    <button class="slider-button" @click="$emit('btnClickLeftIntro')">
-      <img
-        src="@/static/arrows/leftNactivearrow.png"
-        alt="arrow"
-        class="arrow"
-      />
-    </button>
-    <button class="slider-button" @click="$emit('btnClickRightIntro')">
-      <img
-        src="@/static/arrows/rightActivearrow.png"
-        alt="arrow"
-        class="arrow"
-      />
-    </button>
-  </div>
+  <button class="slider-button" @click="$emit('btnClickLeftIntro')">
+    <img src="@/static/arrows/leftNactivearrow.png" alt="arrow" class="arrow" />
+  </button>
 </template>
 
 <script>
-export default {
-  //TODO сделать обработчик активности кнопки
-  methods: {
-    buttonHandler() {},
-  },
-};
+export default {};
 </script>
 
 <style scoped>

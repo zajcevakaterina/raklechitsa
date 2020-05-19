@@ -8,16 +8,39 @@
         <regular-text class="intro__text">
           {{ introVideo[i].text }}
         </regular-text>
-        <sliderB
-          class="slider-buttons"
-          @btnClickRightIntro="buttonHandler(true)"
-          @btnClickLeftIntro="buttonHandler(false)"
-        />
+        <div class="slider-buttons">
+          <sliderB @btnClickLeftIntro="buttonHandler(false)" />
+          <sliderB
+            class="slider-buttons_right"
+            @btnClickLeftIntro="buttonHandler(true)"
+          />
+        </div>
       </div>
       <youtube-video :url="introVideo[i].url" />
     </div>
-    <tag-lead :theme="'thin'" class="intro__cover"
-      >и в отличие от рака,
+
+    <div class="middle-container">
+      <title-text class="intro__title">
+        {{ introVideo[i].title }}
+      </title-text>
+      <regular-text class="intro__text">
+        {{ introVideo[i].text }}
+      </regular-text>
+      <div class="intro__middle">
+        <sliderB
+          class="slider-buttons"
+          @btnClickLeftIntro="buttonHandler(false)"
+        />
+        <youtube-video class="youtube-video" :url="introVideo[i].url" />
+        <sliderB
+          class="slider-buttons slider-buttons_right"
+          @btnClickLeftIntro="buttonHandler(true)"
+        />
+      </div>
+    </div>
+
+    <tag-lead :theme="'thin'">
+      и в отличие от рака,
     </tag-lead>
   </div>
 </template>
@@ -83,6 +106,14 @@ export default {
 </script>
 
 <style scoped>
+.middle-container {
+  display: none;
+}
+
+.slider-buttons_right {
+  transform: rotate(180deg);
+}
+
 .intro {
   margin: 0 auto;
   padding: 100px 0;
@@ -96,6 +127,7 @@ export default {
   min-height: 550px;
   max-width: 1320px;
 }
+
 .intro__left {
   display: flex;
   flex-direction: column;
@@ -110,7 +142,7 @@ export default {
 
 @media (max-width: 1280px) {
   .intro__content {
-    min-height: 495px;
+    min-height: 490px;
     max-width: 1180px;
   }
 
@@ -137,7 +169,7 @@ export default {
 
 @media (max-width: 1024px) {
   .intro {
-    padding: 80px 0;
+    padding: 85px 0 80px;
   }
 
   .intro__content {
@@ -164,5 +196,41 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .intro__content {
+    display: none;
+  }
+
+  .middle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro__title {
+    max-width: 380px;
+    text-align: center;
+  }
+
+  .intro__text {
+    max-width: 380px;
+    margin: 26px 0 0;
+  }
+
+  .youtube-video {
+    margin: 60px 14px 77px;
+  }
+
+  .slider-buttons {
+    margin: 0;
+  }
+
+  .intro__middle {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 300px;
+    max-width: 688px;
+    align-items: center;
+  }
 }
 </style>

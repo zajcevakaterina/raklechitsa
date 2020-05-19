@@ -1,8 +1,14 @@
 .insta__desc {
-  padding-top: 12px;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+@media screen and (max-width: 1280px) {
+  .insta__desc {
+    padding-top: 10px;
+  }
 }
 
 @media screen and (max-width: 768px) {

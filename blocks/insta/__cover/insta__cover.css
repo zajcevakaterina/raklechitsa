@@ -1,7 +1,15 @@
 .insta__cover {
   margin-bottom: 100px;
+  min-height: 130px;
+  padding-top: 17px;
 }
 
+@media screen and (max-width: 1280px) {
+  .insta__cover {
+    padding-top: 0;
+    min-height: 114px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .insta__cover {

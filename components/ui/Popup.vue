@@ -1,35 +1,30 @@
 <template>
-  <overlay @overlayClick="popupToggle" v-if="popupActive">
-    <div class="popup">
+  <div class="popup">
+    <div class="popup__overlay" @click="$emit('overlayClick')"></div>
+    <div class="popup__content">
       <slot></slot>
       <div @click="$emit('closePopup')" class="popup__close-button"></div>
     </div>
-  </overlay>
+  </div>
 </template>
 
 <script>
-import Overlay from '@@/components/ui/Overlay';
-export default {
-  components: {
-    overlay: Overlay,
-  },
-
-  methods: {
-    popupToggle() {
-      this.popupActive = !this.popupActive;
-    },
-  },
-
-  data() {
-    return {
-      popupActive: true,
-    };
-  },
-};
+export default {};
 </script>
 
 <style scoped>
-.popup {
+.popup__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.popup__content {
   width: 90%;
   max-width: 920px;
   margin: auto;
@@ -50,7 +45,6 @@ export default {
   position: absolute;
   top: 33px;
   right: 33px;
-  /* z-index: 3; */
   background-image: url(/popup/closepopup.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -58,19 +52,19 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .popup {
+  .popup__content {
     max-width: 800px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .popup {
+  .popup__content {
     max-width: 580px;
   }
 }
 
 @media screen and (max-width: 580px) {
-  .popup {
+  .popup__content {
     max-width: 290px;
     padding: 15px;
   }

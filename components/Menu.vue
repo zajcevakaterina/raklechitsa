@@ -48,6 +48,10 @@ export default {};
   border-bottom: 0px;
 }
 
+.nuxt-link-exact-active {
+  border-bottom: solid 2px;
+}
+
 /*TODO нет ли дублирования с menu-link выше?*/
 .nuxt-link-exact-active:hover {
   opacity: 0.8;
@@ -63,15 +67,6 @@ export default {};
     line-height: 1.12;
   }
 }
-
-/*@media screen and (max-width: 950px) {*/
-/*  .menu__links {*/
-/*    flex-direction: column;*/
-/*  }*/
-/*  .menu__link-wrapper {*/
-/*    margin-bottom: 16px;*/
-/*  }*/
-/*}*/
 
 @media screen and (max-width: 768px) {
   .menu {

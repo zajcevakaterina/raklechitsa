@@ -256,6 +256,9 @@ export default {
   ::v-deep .menu__links {
     flex-direction: column;
   }
+  ::v-deep .nuxt-link-exact-active {
+    border-bottom: none;
+  }
   ::v-deep .menu__link-wrapper {
     margin-bottom: 16px;
   }

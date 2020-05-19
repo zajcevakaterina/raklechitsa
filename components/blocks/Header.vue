@@ -3,6 +3,7 @@
     <popup v-if="popupActive" @closePopup="popupToggle">
       <form-stories />
     </popup>
+    <mobile-menu class="header__mobile-menu" />
     <p class="header__logo">
       Проект Благотворительного Фонда Константина Хабенского
     </p>
@@ -16,6 +17,7 @@
 
 <script>
 import Menu from '@/components/Menu';
+import MobileMenu from '@/components/MobileMenu';
 import Button from '@/components/ui/Button';
 import Popup from '@/components/Popup';
 import FormStories from '@/components/FormStories';
@@ -24,6 +26,7 @@ import Container from '@/components/Container';
 export default {
   components: {
     'main-menu': Menu,
+    'mobile-menu': MobileMenu,
     'button-header': Button,
     popup: Popup,
     'form-stories': FormStories,
@@ -80,6 +83,9 @@ export default {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
+.header__mobile-menu {
+  display: none;
+}
 .header__mobile-button {
   display: none;
   background: url('../../static/mobile-menu.svg') no-repeat;
@@ -97,9 +103,6 @@ export default {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
-::v-deep .nuxt-link-exact-active {
-  border-bottom: solid 2px;
-}
 
 @media screen and (max-width: 1280px) {
   .header {
@@ -113,6 +116,14 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header__mobile-menu {
+    display: flex;
+  }
+
   .header__button {
     display: none;
   }

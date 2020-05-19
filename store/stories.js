@@ -57,6 +57,34 @@ export const state = () => ({
       author: 'Александр Тарханов',
       text: 'Я не могу победить свою пунктуальность в отличии от рака.',
     },
+    {
+      id: 9,
+      photoUrl:
+        'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
+      author: 'Александр Тарханов',
+      text: 'Я не могу победить свою пунктуальность в отличии от рака.',
+    },
+    {
+      id: 10,
+      photoUrl:
+        'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
+      author: 'Александр Тарханов',
+      text: 'Я не могу победить свою пунктуальность в отличии от рака.',
+    },
+    {
+      id: 11,
+      photoUrl:
+        'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
+      author: 'Александр Тарханов',
+      text: 'Я не могу победить свою пунктуальность в отличии от рака.',
+    },
+    {
+      id: 12,
+      photoUrl:
+        'https://static.tildacdn.com/tild6232-6166-4435-b066-393234336532/galleryFullImage-1-1.jpg',
+      author: 'Александр Тарханов',
+      text: 'Я не могу победить свою пунктуальность в отличии от рака.',
+    },
   ],
 });
 

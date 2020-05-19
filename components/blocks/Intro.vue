@@ -162,9 +162,6 @@ export default {
     line-height: 20px;
   }
 
-  /*.slider-buttons {*/
-  /*  margin-top: 124px;*/
-  /*}*/
 }
 
 @media (max-width: 1024px) {
@@ -172,8 +169,12 @@ export default {
     padding: 85px 0 80px;
   }
 
+  .intro__left {
+    padding-top: 4px;
+  }
+
   .intro__content {
-    min-height: 396px;
+    min-height: 389px;
     max-width: 924px;
   }
 

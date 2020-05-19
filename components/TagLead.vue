@@ -55,6 +55,10 @@ export default {
   .tag-lead {
     min-height: 80px;
   }
+  .tag-lead__text {
+    font-size: 24px;
+    line-height: 40px;
+  }
 }
 
 @media (max-width: 768px) {

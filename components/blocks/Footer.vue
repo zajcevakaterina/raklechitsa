@@ -1,9 +1,9 @@
 <template>
-  <div class="wrapper">
+  <footer class="footer">
     <popup v-if="popupActive">
       <social-share />
     </popup>
-    <footer class="footer root__section">
+    <container class="footer__container">
       <div class="footer__content">
         <div class="footer__title-menu">
           <section-title class="section__title_place_footer"
@@ -56,8 +56,8 @@
           ></span
         >
       </div>
-    </footer>
-  </div>
+    </container>
+  </footer>
 </template>
 
 <script>
@@ -66,6 +66,8 @@ import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
 import Popup from '@/components/Popup';
 import SocialShare from '@/components/SocialShare';
+import Container from '@/components/Container';
+
 export default {
   components: {
     'section-title': SectionTitle,
@@ -73,6 +75,7 @@ export default {
     'footer-button': Button,
     popup: Popup,
     'social-share': SocialShare,
+    container: Container,
   },
 
   methods: {
@@ -90,11 +93,11 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
+.footer {
   background-color: #fbfbfb;
   width: 100%;
 }
-.footer {
+.footer__container {
   min-height: 356px;
   padding: 60px 0;
   flex-direction: column;
@@ -204,7 +207,7 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .footer {
+  .footer__container {
     min-height: 316px;
     padding: 50px 0;
   }
@@ -225,7 +228,7 @@ export default {
   }
 }
 @media screen and (max-width: 1024px) {
-  .footer {
+  .footer__container {
     min-height: 292px;
     padding: 50px 0;
   }

@@ -1,19 +1,26 @@
 <template>
   <div class="root">
+    <mobile-menu v-if="isMobileMenuOpened" />
     <page-header />
-
     <nuxt />
     <page-footer />
   </div>
 </template>
 
 <script>
+import MobileMenu from '@/components/MobileMenu';
 import Header from '@/components/blocks/Header';
 import Footer from '@/components/blocks/Footer';
 export default {
   components: {
+    'mobile-menu': MobileMenu,
     'page-header': Header,
     'page-footer': Footer,
+  },
+  computed: {
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
   },
   head: {
     title: 'РАКЛЕЧИТСЯ.РФ - истории людей, победивших рак, но не свои привычки',

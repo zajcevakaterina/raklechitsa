@@ -23,7 +23,7 @@ export default {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 20px 5px;
+  padding: 10px 5px;
 }
 
 .tag-lead__text {

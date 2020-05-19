@@ -143,7 +143,7 @@
 
   @media (max-width: 1280px) {
     .intro__content {
-      min-height: 495px;
+      min-height: 490px;
       max-width: 1180px;
     }
 

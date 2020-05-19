@@ -30,7 +30,8 @@
 <!--TODO доделать адаптив для видео-->
 <style scoped>
   .video {
-    width: 65.7%;
+    max-width: 867px;
+    width: 100%;
   }
 
   .video__container {
@@ -68,6 +69,7 @@
 
   @media screen and (max-width: 1280px) {
     .video {
+      max-width: 773px;
       max-height: 400px;
     }
   }

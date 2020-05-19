@@ -1,21 +1,33 @@
 <template>
-  <form class="stories-form">
-    <form-title class="stories-form__steps">{{ step }}</form-title>
-    <p class="stories-form__question">{{ question }}</p>
-    <inputform
-      class="stories-form__input"
-      :type="'text'"
-      :name="question"
-      :required="'required'"
-    />
-    <div class="stories-form__buttons">
-      <button-form
-        class="stories-form__button stories-form__button_direction_back"
-        >Назад</button-form
+  <form class="quiz">
+    <h3 class="quiz__title">{{ currentQuestion.title }}</h3>
+    <p class="quiz__question">
+      {{ currentQuestion.questionMain }}
+      <span
+        class="quiz__question_type_additional"
+        v-if="currentQuestion.questionAdditional"
       >
-      <button-form
-        class="stories-form__button stories-form__button_direction_next"
-        >Далее</button-form
+        {{ currentQuestion.questionAdditional }}</span
+      >
+    </p>
+    <quiz-input
+      class="quiz__input"
+      :type="'text'"
+      v-model="answer"
+      placeholder="Напишите тут"
+    />
+    <div class="quiz__buttons">
+      <quiz-button
+        @btnClick="prevQuestion"
+        class="quiz__button quiz__button_direction_back"
+        type="button"
+        >Назад</quiz-button
+      >
+      <quiz-button
+        @btnClick="nextQuestion"
+        class="quiz__button quiz__button_direction_next"
+        type="button"
+        >Далее</quiz-button
       >
     </div>
   </form>
@@ -23,57 +35,87 @@
 
 <script>
 import Button from '@/components/ui/Button';
-import InputForm from '@/components/ui/InputForm';
-import SectionTitle from '@/components/ui/SectionTitle';
+import Input from '@/components/ui/Input';
 
 export default {
   components: {
-    'button-form': Button,
-    inputform: InputForm,
-    'form-title': SectionTitle,
+    'quiz-button': Button,
+    'quiz-input': Input,
   },
 
-  props: {
-    step: {
-      type: String,
-      default: 'Шаг 1 из 12',
+  data() {
+    return {
+      answer: '',
+    };
+  },
+
+  computed: {
+    currentQuestion() {
+      const { quiz } = this.$store.state;
+      const { currentQuestion, questions } = quiz;
+      return questions[currentQuestion];
     },
-    question: {
-      type: String,
-      default: 'Как вас зовут?',
+
+    initialAnswer() {
+      const { quiz } = this.$store.state;
+      const { currentQuestion, answers } = quiz;
+      console.log(answers);
+      console.log(answers[currentQuestion]);
+      return answers[currentQuestion] || '';
+    },
+  },
+
+  methods: {
+    async nextQuestion() {
+      await this.$store.dispatch('quiz/NEXT_QUESTION', {
+        answer: this.answer,
+      });
+      this.answer = this.initialAnswer;
+    },
+    async prevQuestion() {
+      await this.$store.dispatch('quiz/PREV_QUESTION');
+      this.answer = this.initialAnswer;
     },
   },
 };
 </script>
 
 <style scoped>
-.stories-form__steps {
+.quiz__title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.12;
   margin: 0 0 40px;
 }
-.stories-form__question {
-  font-weight: 500;
+.quiz__question {
   font-size: 18px;
   line-height: 1.33;
   margin: 40px 0 0;
   min-height: 72px;
+  font-weight: 500;
 }
 
-.stories-form__input {
+.quiz__question_type_additional {
+  font-weight: 400;
+  color: #666666;
+}
+
+.quiz__input {
   margin: 86px 0 0;
 }
 
-.stories-form__buttons {
+.quiz__buttons {
   display: flex;
   margin-top: 210px;
 }
 
-.stories-form__button_direction_back {
+.quiz__button_direction_back {
   background: none;
   color: #c0c0c0;
   padding: 0;
 }
 
-.stories-form__button_direction_next {
+.quiz__button_direction_next {
   font-weight: 500;
   width: 226px;
   padding: 16px 0;
@@ -82,48 +124,55 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .stories-form__steps {
+  .quiz__title {
+    font-size: 28px;
     line-height: 1.14;
   }
 
-  .stories-form__buttons {
+  .quiz__buttons {
     margin-top: 170px;
   }
 
-  .stories-form__button_direction_next {
+  .quiz__button_direction_next {
     width: 200px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .stories-form__buttons {
+  .quiz__title {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+  .quiz__buttons {
     margin-top: 174px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .stories-form__question {
+  .quiz__question {
     font-size: 15px;
     line-height: 1.27;
     margin: 40px 0 0;
     min-height: 68px;
   }
 
-  .stories-form__input {
+  .quiz__input {
     margin: 30px 0 0;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .stories-form__steps {
+  .quiz__title {
+    font-size: 18px;
+    line-height: 1.17;
     margin: 0 0 30px;
   }
 
-  .stories-form__buttons {
+  .quiz__buttons {
     margin-top: 257px;
   }
 
-  .stories-form__button_direction_next {
+  .quiz__button_direction_next {
     width: 206px;
   }
 }

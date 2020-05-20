@@ -6,7 +6,7 @@
     />
 
     <h3 class="story-item__author">{{ author }}</h3>
-    <p class="story-item__text">{{ text }}</p>
+    <p class="story-item__text">{{ text }}{{ link }}</p>
   </a>
 </template>
 

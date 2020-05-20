@@ -66,7 +66,7 @@ export default {};
 
 @media screen and (max-width: 580px) {
   .popup__content {
-    max-width: 290px;
+    max-width: 90%;
     padding: 15px;
   }
 

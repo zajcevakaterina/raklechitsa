@@ -3,22 +3,24 @@
     <section-title class="statistics__title"
       >Статистика по онкозаболеваниям</section-title
     >
-    <ul class="statistics__list">
-      <li
-        class="statistics__item"
-        v-for="infoItem in statInfo"
-        :key="infoItem.id"
-      >
-        <stat-item
-          :statText="infoItem.text"
-          :statCurrentValue="infoItem.currentValue"
-          :statMaxValue="infoItem.maxValue"
-          :statTitle="infoItem.title"
-          :statSource="infoItem.source"
-          :diagramType="infoItem.diagramType"
-        ></stat-item>
-      </li>
-    </ul>
+    <div class="statistics__container">
+      <ul class="statistics__list">
+        <li
+          class="statistics__item"
+          v-for="infoItem in statInfo"
+          :key="infoItem.id"
+        >
+          <stat-item
+            :statText="infoItem.text"
+            :statCurrentValue="infoItem.currentValue"
+            :statMaxValue="infoItem.maxValue"
+            :statTitle="infoItem.title"
+            :statSource="infoItem.source"
+            :diagramType="infoItem.diagramType"
+          ></stat-item>
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
 
@@ -86,7 +88,6 @@ export default {
 .statistics {
   margin: 0 auto;
   padding: 0 0 100px;
-  overflow: hidden;
 }
 
 .statistics__title {
@@ -101,6 +102,11 @@ export default {
   list-style: none;
   justify-content: center;
   margin: 0;
+}
+
+.statistics__container {
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 @media screen and (max-width: 1360px) {
@@ -119,6 +125,7 @@ export default {
   .statistics__list {
     grid-template-columns: repeat(4, 208px);
     column-gap: 30px;
+    width: 944px;
   }
 }
 

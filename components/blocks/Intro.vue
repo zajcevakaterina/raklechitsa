@@ -1,6 +1,6 @@
 <template>
   <div class="intro">
-    <div class="intro__content">
+    <div class="intro__container">
       <div class="intro__left">
         <title-text class="intro__title">
           {{ introVideo[i].title }}
@@ -19,7 +19,7 @@
       <youtube-video :url="introVideo[i].url"/>
     </div>
 
-    <div class="middle-container">
+    <div class="intro__middle-container">
       <title-text class="intro__title">
         {{ introVideo[i].title }}
       </title-text>
@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="mini-container">
+    <div class="intro__mini-container">
       <title-text class="intro__title">
         {{ introVideo[i].title }}
       </title-text>
@@ -100,20 +100,20 @@
         i: 0,
         introVideo: [
           {
-            id: '01',
+            id: 1,
             title: 'Истории людей, победивших рак, но не свои привычки',
             text:
               'Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
             url: 'https://www.youtube.com/embed/coOppM34GtI',
           },
           {
-            id: '02',
+            id: 2,
             title: 'Какая-то другая история .......',
             text: 'Основное содержание другой истории......',
             url: 'https://www.youtube.com/embed/ZKWilQnPovg',
           },
           {
-            id: '03',
+            id: 3,
             title: 'Ещё история под номером 3 .......',
             text:
               'Основное содержание очень интересной истории под номером 3...... ',
@@ -126,11 +126,11 @@
 </script>
 
 <style scoped>
-  .mini-container {
+  .intro__mini-container {
     display: none;
   }
 
-  .middle-container {
+  .intro__middle-container {
     display: none;
   }
 
@@ -145,7 +145,7 @@
     flex-direction: column;
   }
 
-  .intro__content {
+  .intro__container {
     display: flex;
     justify-content: space-between;
     min-height: 550px;
@@ -165,7 +165,7 @@
   }
 
   @media (max-width: 1280px) {
-    .intro__content {
+    .intro__container {
       min-height: 490px;
       max-width: 1180px;
     }
@@ -196,7 +196,7 @@
       padding-top: 4px;
     }
 
-    .intro__content {
+    .intro__container {
       min-height: 389px;
       max-width: 924px;
     }
@@ -220,11 +220,11 @@
   }
 
   @media (max-width: 768px) {
-    .intro__content {
+    .intro__container{
       display: none;
     }
 
-    .middle-container {
+    .intro__middle-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -259,7 +259,7 @@
   }
 
   @media (max-width: 475px) {
-    .mini-container {
+    .intro__mini-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -270,7 +270,7 @@
       padding-bottom: 24px;
     }
 
-    .middle-container {
+    .intro__middle-container {
       display: none;
     }
 

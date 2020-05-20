@@ -96,6 +96,7 @@ export default {
 .statistics__list {
   display: grid;
   grid-template-columns: repeat(4, 300px);
+  width: max-content;
   column-gap: 40px;
   row-gap: 70px;
   padding: 0;
@@ -107,6 +108,8 @@ export default {
 .statistics__container {
   overflow-x: scroll;
   overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 @media screen and (max-width: 1360px) {
@@ -125,7 +128,6 @@ export default {
   .statistics__list {
     grid-template-columns: repeat(4, 208px);
     column-gap: 30px;
-    width: 944px;
   }
 }
 

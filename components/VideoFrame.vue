@@ -95,6 +95,12 @@
     }
   }
 
+  @media (max-width: 475px) {
+    .video__caption {
+      display: none;
+    }
+  }
+
   @media (max-width: 425px) {
     .video {
       max-width: 290px;
@@ -104,9 +110,7 @@
       max-height: 150px;
     }
 
-    .video__caption {
-      display: none;
-    }
+
   }
 
 </style>

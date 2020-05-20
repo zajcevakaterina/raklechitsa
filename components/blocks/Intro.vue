@@ -258,12 +258,13 @@
     }
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 475px) {
     .mini-container {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
     .intro {
       padding-top: 49px;
       padding-bottom: 24px;
@@ -273,24 +274,25 @@
       display: none;
     }
 
-      .intro__title {
-      max-width: 290px;
+    .intro__title {
+      max-width: 310px;
       font-size: 18px;
       line-height: 21px;
       text-align: left;
-        min-height: 42px;
+      min-height: 42px;
     }
 
     .intro__text {
-      max-width: 290px;
+      max-width: 360px;
       margin-top: 17px;
       min-height: 64px;
     }
+
     .intro__middle {
       margin: 42px 0 25px;
       position: relative;
-      min-height: 150px;
-      max-width: 290px;
+      min-height: 200px;
+      /*max-width: 290px;*/
     }
 
     .youtube-video {
@@ -304,6 +306,22 @@
       z-index: 2;
       background-color: transparent;
       width: 20px;
+    }
+  }
+
+  @media (max-width: 425px) {
+    .intro__title {
+      max-width: 290px;
+    }
+
+    .intro__text {
+      max-width: 290px;
+    }
+
+    .intro__middle {
+      position: relative;
+      min-height: 150px;
+      max-width: 290px;
     }
   }
 </style>

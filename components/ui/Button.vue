@@ -20,8 +20,7 @@ export default {
   line-height: 19px;
   border: none;
   background-color: #714dbd;
-  padding: 20px 103px;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
   font-family: inherit;
 }

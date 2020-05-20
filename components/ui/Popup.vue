@@ -35,6 +35,7 @@ export default {};
   z-index: 2;
   background-color: #fff;
   padding: 40px;
+  box-sizing: border-box;
 }
 
 .popup__close-button {

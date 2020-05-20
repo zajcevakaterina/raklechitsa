@@ -50,6 +50,13 @@
     </container>
 
     <about />
+    <popup
+      v-if="popupContactsShown"
+      @closePopup="closeContactsPopup"
+      @overlayClick="closeContactsPopup"
+    >
+      <contacts />
+    </popup>
   </main>
 </template>
 
@@ -66,6 +73,8 @@ import Statistics from '@/components/blocks/Statistics';
 import About from '@/components/blocks/About';
 import TagLead from '@/components/TagLead';
 import Button from '@/components/ui/Button';
+import Popup from '@/components/ui/Popup';
+import Contacts from '@/components/Contacts';
 
 export default {
   components: {
@@ -81,6 +90,8 @@ export default {
     'tag-lead': TagLead,
     'stories-button': Button,
     container: Container,
+    popup: Popup,
+    contacts: Contacts,
   },
 
   computed: {
@@ -100,6 +111,15 @@ export default {
           return this.stories.filter((item, index) => index < 8);
         }
       }
+    },
+    popupContactsShown() {
+      return this.$store.getters['popup/getPopupContactsShown'];
+    },
+  },
+
+  methods: {
+    closeContactsPopup() {
+      this.$store.commit('popup/closeContactsPopup');
     },
   },
 };

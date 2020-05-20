@@ -161,7 +161,6 @@ export default {
     font-size: 16px;
     line-height: 20px;
   }
-
 }
 
 @media (max-width: 1024px) {

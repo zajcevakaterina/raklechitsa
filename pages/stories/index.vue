@@ -1,5 +1,5 @@
 <template>
-  <div class="root__section">
+  <container class="container">
     <stories :stories="renderStories" class="stories">
       Сюда еще добавим инпут и поиск
     </stories>
@@ -8,12 +8,14 @@
       :itemsPerPage="itemsPerPage"
       @onPageChanged="changeStartIndex"
     />
-  </div>
+  </container>
 </template>
 
 <script>
 import Stories from '@/components/blocks/Stories';
 import Pagination from '@/components/ui/Pagination';
+import Container from '@/components/Container';
+
 export default {
   data() {
     return {
@@ -24,6 +26,7 @@ export default {
   components: {
     stories: Stories,
     pagination: Pagination,
+    container: Container,
   },
   computed: {
     renderStories() {

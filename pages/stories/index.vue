@@ -120,6 +120,7 @@ export default {
   width: 226px;
   height: 52px;
   padding: 0;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 1280px) {

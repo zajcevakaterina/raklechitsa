@@ -108,12 +108,18 @@ export default {
     font-size: 16px;
     line-height: 1.37;
   }
+  .input__item_border-theme_stories {
+    height: 48px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .input__item {
     font-size: 15px;
     line-height: 1.47;
+  }
+  .input__item_border-theme_stories {
+    height: 46px;
   }
 }
 

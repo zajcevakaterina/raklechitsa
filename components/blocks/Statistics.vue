@@ -112,6 +112,10 @@ export default {
   -ms-overflow-style: none;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 1360px) {
   .statistics__list {
     grid-template-columns: repeat(4, 280px);

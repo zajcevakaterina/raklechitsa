@@ -37,6 +37,7 @@
           </p>
           <footer-button
             @btnClick="openSharePopup"
+            :theme="'share'"
             class="footer__link footer__link_type_share"
             >Поделитесь &#8599;</footer-button
           >
@@ -98,7 +99,6 @@ export default {
 }
 .footer__title-menu {
   display: flex;
-  /*width: calc(50% - 20px);*/
   justify-content: space-between;
   max-width: 700px;
 }
@@ -153,13 +153,9 @@ export default {
   margin: 0;
 }
 .footer__link_type_share {
-  background-color: transparent;
   font-size: 18px;
   line-height: 24px;
   text-align: left;
-  color: #121212;
-  padding: 0;
-  outline: 0;
 }
 
 .footer__link_type_social {

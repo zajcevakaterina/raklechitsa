@@ -20,13 +20,11 @@
       <quiz-button
         @btnClick="prevQuestion"
         class="quiz__button quiz__button_direction_back"
-        type="button"
         >Назад</quiz-button
       >
       <quiz-button
         @btnClick="nextQuestion"
         class="quiz__button quiz__button_direction_next"
-        type="button"
         >Далее</quiz-button
       >
     </div>

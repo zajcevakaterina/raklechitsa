@@ -1,6 +1,8 @@
 <template>
   <section class="stories">
-    <section-title class="stories__title"
+    <section-title
+      v-if="$route.path === '/' || $route.path === '/stories'"
+      class="stories__title"
       >Истории неизлечимых привычек</section-title
     >
     <slot></slot>
@@ -8,7 +10,7 @@
       <li class="stories__item" v-for="story in stories" :key="story.id">
         <story-item
           :author="story.author"
-          :text="story.text"
+          :quote="story.quote"
           :photoUrl="story.photoUrl"
           :link="`/stories/${story.id}`"
         />
@@ -55,7 +57,6 @@ export default {
     row-gap: 60px;
     margin-bottom: 60px;
   }
-
   .stories__title {
     margin: 0 0 60px;
   }

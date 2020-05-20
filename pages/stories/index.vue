@@ -101,7 +101,7 @@ export default {
 
 <style scoped>
 .stories {
-  padding-top: 98px;
+  padding-top: 100px;
 }
 .stories__form {
   display: flex;
@@ -117,5 +117,23 @@ export default {
   width: 226px;
   height: 52px;
   padding: 0;
+}
+
+@media screen and (max-width: 1280px) {
+  .stories {
+    padding-top: 90px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .stories {
+    padding-top: 80px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .stories {
+    padding-top: 50px;
+  }
 }
 </style>

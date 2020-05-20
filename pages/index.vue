@@ -3,6 +3,7 @@
     <cover />
     <container>
       <intro />
+
       <stories :stories="itemsToLoop" />
 
       <a class="more-stories-link" href="stories">
@@ -22,13 +23,12 @@
             >
               <section-title class="insta__title">Инстаграм</section-title>
             </a>
-            <section-text class="insta__text"
-              >Два раза в неделю мы просматриваем все посты по хештегу
+            <section-text class="insta__text">
+              Два раза в неделю мы просматриваем все посты по хештегу
               #этонелечится. Все истории, где нет нецензурных выражений и
               запрещенного контента попадают сюда. Следите за правильным
-              написанием хештега, чтобы мы не пропустили вашу
-              историю.</section-text
-            >
+              написанием хештега, чтобы мы не пропустили вашу историю.
+            </section-text>
           </div>
 
           <ul class="insta__cards">

@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import SectionTitle from '@/components/ui/SectionTitle';
 import Stories from '@/components/blocks/Stories';
 import Pagination from '@/components/ui/Pagination';
 import Container from '@/components/Container';
@@ -27,6 +28,7 @@ export default {
     stories: Stories,
     pagination: Pagination,
     container: Container,
+    'stories-title': SectionTitle,
   },
   computed: {
     renderStories() {

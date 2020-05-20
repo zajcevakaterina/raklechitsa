@@ -52,11 +52,11 @@
 
 <script>
 import ArticleTitle from '@/components/ui/ArticleTitle';
-import ArticleText from '@/components/ui/ArticleText';
+import ArticleColumn from '@/components/ui/ArticleColumn';
 export default {
   components: {
     'policy-title': ArticleTitle,
-    'policy-text': ArticleText,
+    'policy-text': ArticleColumn,
   },
 };
 </script>

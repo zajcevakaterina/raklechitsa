@@ -2,7 +2,7 @@
   <label class="input">
     {{ labelText }}
     <input
-      :class="['input__item', `input__item_border-theme_{{borderTheme}}`]"
+      :class="['input__item', `input__item_border-theme_${borderTheme}`]"
       :type="type"
       :placeholder="placeholder"
       :name="name"

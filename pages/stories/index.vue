@@ -8,7 +8,10 @@
           :borderTheme="'stories'"
         >
         </stories-input>
-        <stories-button class="stories__button" :disabled="!searchText.length"
+        <stories-button
+          type="submit"
+          class="stories__button"
+          :disabled="!searchText.length"
           >Поиск</stories-button
         >
       </form>

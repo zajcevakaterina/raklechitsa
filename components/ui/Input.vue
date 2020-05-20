@@ -2,7 +2,7 @@
   <label class="input">
     {{ labelText }}
     <input
-      :class="['input__item', `input__item_border-theme_{{borderTheme}}`]"
+      :class="['input__item', `input__item_border-theme_${borderTheme}`]"
       :type="type"
       :placeholder="placeholder"
       :name="name"
@@ -89,7 +89,11 @@ export default {
 .input__item_border-theme_full {
   border: 1px solid #e7e7e7;
 }
-
+.input__item_border-theme_stories {
+  border: 1px solid #e7e7e7;
+  height: 52px;
+  box-sizing: border-box;
+}
 @media screen and (max-width: 1280px) {
   .input__item {
     font-size: 16px;

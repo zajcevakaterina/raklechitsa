@@ -62,7 +62,7 @@ export default {
         const newTotalItems = stories.stories.filter(
           item =>
             item.author.toLowerCase().includes(this.texts) ||
-            item.text.toLowerCase().includes(this.texts)
+            item.quote.toLowerCase().includes(this.texts)
         );
         return newTotalItems.filter(
           (item, idx) =>
@@ -88,7 +88,7 @@ export default {
       const newTotalItems = stories.stories.filter(
         item =>
           item.author.toLowerCase().includes(this.texts) ||
-          item.text.toLowerCase().includes(this.texts)
+          item.quote.toLowerCase().includes(this.texts)
       );
       this.totalItems = newTotalItems.length;
       //event.target.reset();

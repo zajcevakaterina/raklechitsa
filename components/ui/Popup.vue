@@ -1,7 +1,7 @@
 <template>
   <div class="popup">
     <div class="popup__overlay" @click="$emit('overlayClick')"></div>
-    <div class="popup__content">
+    <div class="popup__content" :class="[marginTopToSet]">
       <slot></slot>
       <div @click="$emit('closePopup')" class="popup__close-button"></div>
     </div>
@@ -9,7 +9,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    marginTopToSet() {
+      if (process.browser) {
+        if (window.innerHeight <= 710 && window.innerWidth >= 476) {
+          return 'popup__content_type_wide-screens';
+        } else if (window.innerHeight <= 666 && window.innerWidth <= 475) {
+          return 'popup__content_type_thin-screens';
+        }
+      }
+      // Вычисляет значение верхнего margin на устройствах с маленькой высотой экрана. Включается скролл, но сверху над попапом имеем отступ
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -27,6 +40,8 @@ export default {};
 .popup__content {
   width: 90%;
   max-width: 920px;
+  max-height: 100vh;
+  overflow: scroll;
   margin: auto;
   position: fixed;
   top: 50%;
@@ -36,6 +51,15 @@ export default {};
   background-color: #fff;
   padding: 40px;
   box-sizing: border-box;
+}
+
+.popup__content_type_wide-screens {
+  margin: 90px auto 0;
+}
+
+.popup__content_type_thin-screens {
+  overflow: scroll;
+  margin: 17px auto 0;
 }
 
 .popup__close-button {

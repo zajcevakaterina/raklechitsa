@@ -167,8 +167,6 @@ export default {
   .stories__button {
     height: 46px;
     width: 208px;
-    font-size: 15px;
-    line-height: 18px;
   }
 }
 

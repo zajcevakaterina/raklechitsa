@@ -116,7 +116,7 @@ export default {
 .quiz__question {
   font-size: 18px;
   line-height: 1.33;
-  margin: 40px 0 0;
+  margin: 0;
   min-height: 72px;
   font-weight: 500;
 }
@@ -183,6 +183,14 @@ export default {
     line-height: 1.14;
   }
 
+  .quiz__question {
+    font-size: 16px;
+    line-height: 1.37;
+  }
+
+  .quiz__submit {
+    margin-top: 170px;
+  }
   .quiz__buttons {
     margin-top: 170px;
   }
@@ -197,6 +205,12 @@ export default {
     font-size: 26px;
     line-height: 1.15;
   }
+
+  .quiz__question {
+    font-size: 15px;
+    line-height: 1.47;
+  }
+
   .quiz__buttons {
     margin-top: 174px;
   }
@@ -204,30 +218,42 @@ export default {
 
 @media screen and (max-width: 768px) {
   .quiz__question {
-    font-size: 15px;
-    line-height: 1.27;
-    margin: 40px 0 0;
-    min-height: 68px;
+    min-height: 96px;
   }
 
+  .quiz__submit {
+    margin-top: 174px;
+  }
   .quiz__input {
     margin: 30px 0 0;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .quiz__title {
     font-size: 18px;
     line-height: 1.17;
     margin: 0 0 30px;
   }
 
+  .quiz__question {
+    font-size: 13px;
+    line-height: 1.23;
+    min-height: 120px;
+  }
+
   .quiz__buttons {
-    margin-top: 257px;
+    margin-top: 250px;
+  }
+
+  .quiz__button {
+    font-size: 13px;
+    line-height: 1.23;
   }
 
   .quiz__button_direction_next {
     width: 206px;
+    padding: 12px 0;
   }
 }
 </style>

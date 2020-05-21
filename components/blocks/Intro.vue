@@ -3,23 +3,33 @@
     <div class="intro__container">
       <div class="intro__left">
         <title-text class="intro__title">
-          {{ introVideo[i].title }}
+          Истории людей, победивших рак, но не свои привычки
         </title-text>
         <regular-text class="intro__text">
-          {{ introVideo[i].text }}
+          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
+          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
+          с их историями
         </regular-text>
-        <div class="slider-buttons">
-          <sliderB @btnClickLeftIntro="buttonHandler(false)" />
-          <sliderB
-            class="slider-buttons_right"
-            @btnClickLeftIntro="buttonHandler(true)"
-          />
+        <div class="slider-buttons-container">
+          <sliderB class="slider-buttons swiper-buttons-prev" />
+          <sliderB class="slider-buttons_right swiper-buttons-next " />
         </div>
       </div>
-      <youtube-video :url="introVideo[i].url" />
+      <div class="intro__slider-container">
+        <slider-intro />
+        <p class="video__caption">
+          Все видео вы можете найте на нашем
+          <a
+            class="video__link"
+            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+          >
+            YouTube канале</a
+          >
+        </p>
+      </div>
     </div>
 
-    <div class="intro__middle-container">
+    <!-- <div class="intro__middle-container">
       <title-text class="intro__title">
         {{ introVideo[i].title }}
       </title-text>
@@ -57,7 +67,7 @@
           @btnClickLeftIntro="buttonHandler(true)"
         />
       </div>
-    </div>
+    </div> -->
 
     <tag-lead class="intro__cover" :theme="'thin'">
       и в отличие от рака,
@@ -71,6 +81,7 @@ import SectionText from '@/components/ui/SectionText';
 import SliderButtons from '@/components/ui/SliderButtons';
 import VideoFrame from '@/components/VideoFrame';
 import TagLead from '@/components/TagLead';
+import Slider from '@/components/Slider';
 
 export default {
   components: {
@@ -79,6 +90,7 @@ export default {
     sliderB: SliderButtons,
     'youtube-video': VideoFrame,
     'tag-lead': TagLead,
+    'slider-intro': Slider,
   },
   methods: {
     buttonHandler(right) {
@@ -133,9 +145,12 @@ export default {
 .intro__middle-container {
   display: none;
 }
-
 .slider-buttons_right {
   transform: rotate(180deg);
+}
+
+.slider-buttons-container {
+  margin-top: auto;
 }
 
 .intro {
@@ -159,9 +174,21 @@ export default {
   min-height: 100%;
 }
 
+.intro__slider-container {
+  max-width: 867px;
+  width: 100%;
+}
+
 .slider-buttons {
   margin-top: auto;
-  margin-bottom: 95px;
+  margin-bottom: 100px;
+}
+.video__caption {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #666666;
 }
 
 @media (max-width: 1280px) {
@@ -184,6 +211,9 @@ export default {
     max-width: 305px;
     font-size: 16px;
     line-height: 20px;
+  }
+  .intro__slider-container {
+    max-width: 773px;
   }
 }
 
@@ -212,6 +242,9 @@ export default {
     font-size: 13px;
     line-height: 16px;
     margin: 20px 0 0;
+  }
+  .intro__slider-container {
+    max-width: 606px;
   }
 
   .slider-buttons {
@@ -246,6 +279,9 @@ export default {
 
   .slider-buttons {
     margin: 0;
+  }
+  .intro__slider-container {
+    max-width: 580px;
   }
 
   .intro__middle {
@@ -321,6 +357,9 @@ export default {
   .intro__middle {
     position: relative;
     min-height: 150px;
+    max-width: 290px;
+  }
+  .intro__slider-container {
     max-width: 290px;
   }
 }

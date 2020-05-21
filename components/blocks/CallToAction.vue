@@ -10,13 +10,19 @@
           поделиться своей историей неизлечимых привычек, навязчивых идей и
           болезненных привязанностей.
         </section-text>
-        <main-tabs :tabsData="actions" :theme="'call-to-action'">
+        <main-tabs
+          v-on:tab-changed="tabIndex = $event"
+          :tabsData="actions"
+          :theme="'call-to-action'"
+        >
           <action-button
+            v-if="tabIndex === 0"
             @btnClick="openQuizPopup"
             class="call-to-action__action-button"
             >Заполнить форму</action-button
           >
           <action-button
+            v-else
             @btnClick="openContactsPopup"
             class="call-to-action__action-button"
             >Оставить контакт</action-button
@@ -42,7 +48,11 @@ export default {
     'action-button': Button,
     container: Container,
   },
-
+  data() {
+    return {
+      tabIndex: 0,
+    };
+  },
   methods: {
     openQuizPopup() {
       this.$store.commit('popup/openQuizPopup');

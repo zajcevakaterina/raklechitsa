@@ -1,5 +1,5 @@
 <template>
-  <button class="slider-button" :class='[side]' @click="$emit('method')">
+  <button class="slider-button" :class="[side]" @click="$emit('method')">
     <img src="@/static/arrows/leftNactivearrow.png" alt="arrow" class="arrow" />
   </button>
 </template>
@@ -20,7 +20,7 @@ export default {
   padding: 0;
 }
 
-  .slider-button_right .arrow {
-    transform: rotate(180deg);
-  }
+.slider-button_right .arrow {
+  transform: rotate(180deg);
+}
 </style>

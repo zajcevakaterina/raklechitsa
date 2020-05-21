@@ -1,15 +1,13 @@
 <template>
-
-    <swiper class="swiper" :options="swiperOption">
-      <swiper-slide
-        class="swiper-slide"
-        v-for="video in introVideo"
-        :key="video.id"
-      >
-        <youtube-video :url="video.url"></youtube-video>
-      </swiper-slide>
-    </swiper>
-
+  <swiper class="swiper" :options="swiperOption">
+    <swiper-slide
+      class="swiper-slide"
+      v-for="video in introVideo"
+      :key="video.id"
+    >
+      <youtube-video :url="video.url"></youtube-video>
+    </swiper-slide>
+  </swiper>
 </template>
 
 <script>

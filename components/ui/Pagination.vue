@@ -1,5 +1,8 @@
 <template>
   <div class="pagination">
+    <div class="pagnation__item-first" @click="setActive(1)">
+      Первая
+    </div>
     <div
       v-for="index in pagesCount"
       :key="index"
@@ -10,8 +13,12 @@
           pagination__item_active: index === active,
         },
       ]"
+      v-if="index >= page - 2 && index <= page + 2"
     >
       {{ index }}
+    </div>
+    <div class="pagnation__item-last" @click="setActive(pagesCount)">
+      Последняя
     </div>
   </div>
 </template>
@@ -31,6 +38,7 @@ export default {
   data() {
     return {
       active: 1,
+      page: 3,
     };
   },
   computed: {
@@ -41,6 +49,22 @@ export default {
   methods: {
     setActive(index) {
       this.active = index;
+      if (
+        index > 2 &&
+        index < Math.ceil(this.totalItems / this.itemsPerPage) - 1
+      ) {
+        this.page = index;
+        console.log(this.page);
+
+        console.log(Math.ceil(this.totalItems / this.itemsPerPage));
+      } else if (index <= 2) {
+        this.page = 3;
+        console.log(this.page);
+      } else {
+        this.page = Math.ceil(this.totalItems / this.itemsPerPage) - 2;
+        console.log(this.page);
+      }
+      console.log(this.page);
       this.$emit('onPageChanged', index);
     },
   },
@@ -73,6 +97,14 @@ export default {
 }
 .pagination__item:last-child {
   margin-right: 0px;
+}
+
+.pagnation__item-first {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.pagnation__item-last {
+  cursor: pointer;
 }
 .pagination__item_active,
 .pagination__item:hover {

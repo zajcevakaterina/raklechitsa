@@ -1,9 +1,11 @@
 <template>
   <div class="policy">
-    <policy-title class="policy__title"
-      >Политика проекта в отношении обработки персональных данных.</policy-title
-    >
-    <ol class="policy__list">
+    <policy-title class="policy__title">{{ policy.title }}</policy-title>
+
+    <article class="policy__text" v-html="policy.text"></article>
+
+    <!-- ниже вариант, если захардкодить. а вообще начала стилизовать теги потихоньку. маркеры все портят ))) -->
+    <!-- <ol class="policy__list">
       <li class="policy__item">
         <h2 class="policy__item-title">1. Общие положения</h2>
         <policy-text class="policy__text">
@@ -33,20 +35,18 @@
         </li>
       </ol>
       <li class="policy__item">
-        <h2 class="policy__item-title">
-          2. Основные понятия, используемые в Политике
-        </h2>
+        <h2 class="policy__item-title">2. Основные понятия, используемые в Политике</h2>
       </li>
       <ol class="policy__item-list">
         <li class="policy__item-list-point">
-          <policy-text class="policy__text"
-            >Автоматизированная обработка персональных данных – обработка
+          <policy-text class="policy__text">
+            Автоматизированная обработка персональных данных – обработка
             персональных данных с помощью средств вычислительной
-            техники;</policy-text
-          >
+            техники;
+          </policy-text>
         </li>
       </ol>
-    </ol>
+    </ol> -->
   </div>
 </template>
 
@@ -57,6 +57,12 @@ export default {
   components: {
     'policy-title': ArticleTitle,
     'policy-text': ArticleColumn,
+  },
+
+  computed: {
+    policy() {
+      return this.$store.getters['policy/getPolicy'];
+    },
   },
 };
 </script>
@@ -75,31 +81,39 @@ export default {
   border-bottom: 1px solid #efefef;
 }
 
-.policy__list {
+/* .policy__list */
+.policy__text >>> ol {
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
-.policy__item-title {
+h2:first-of-type {
+  margin-top: 100px;
+}
+
+/* .policy__item-title  */
+.policy__text >>> h2 {
   font-weight: 600;
   font-size: 22px;
   line-height: 1.36;
-  margin: 40px 0;
+  margin: 90px 0 40px;
 }
 
-.policy__text {
+.policy__text >>> li,
+.policy__text >>> p {
   margin: 0 0 30px;
 }
 
-.policy__item-list {
+/* .policy__item-list  */
+ol >>> ol {
   margin-left: 24px;
   padding: 0;
   font-size: 22px;
   line-height: 1.36;
 }
 
-.policy__item-list-point {
+/* .policy__item-list-point */
+.policy__text >>> li {
   padding-left: 14px;
 }
 

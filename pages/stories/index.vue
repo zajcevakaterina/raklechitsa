@@ -58,12 +58,16 @@ export default {
   computed: {
     renderStories() {
       const { stories } = this.$store.state;
-      if (this.texts.toLowerCase() !== '') {
+      console.log(this.texts.toLowerCase());
+
+      if (this.texts !== '') {
+        this.texts = this.texts.toLowerCase();
         const newTotalItems = stories.stories.filter(
           item =>
             item.author.toLowerCase().includes(this.texts) ||
             item.quote.toLowerCase().includes(this.texts)
         );
+
         return newTotalItems.filter(
           (item, idx) =>
             idx >= this.startIndex &&

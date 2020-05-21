@@ -81,9 +81,6 @@ export default {
   margin: auto 0 0;
   width: 280px;
   height: 52px;
-  font-size: 16px;
-  line-height: 19px;
-  padding: 0;
 }
 
 @media screen and (max-width: 1280px) {
@@ -104,8 +101,6 @@ export default {
   .call-to-action__action-button {
     width: 230px;
     height: 46px;
-    font-size: 15px;
-    line-height: 18px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -130,9 +125,6 @@ export default {
   .call-to-action__action-button {
     width: 290px;
     height: 40px;
-    font-size: 13px;
-    line-height: 16px;
-    padding: 0;
   }
   .call-to-action__section-text {
     margin: 16px 0 0;

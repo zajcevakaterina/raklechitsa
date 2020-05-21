@@ -35,18 +35,21 @@
         {{text}}
       </regular-text>
       <div class="intro__middle">
-                <sliderB class="slider-buttons swiper-buttons-prev"/>
+        <sliderB class="slider-buttons swiper-buttons-prev"/>
         <div class="intro__slider-container">
           <slider-intro/>
+          <p class="video__caption">
+            Все видео вы можете найте на нашем
+            <a
+              class="video__link"
+              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+            >
+              YouTube канале</a
+            >.
+          </p>
         </div>
         <sliderB class="swiper-buttons-next " side="slider-button_right"/>
       </div>
-      <p class="video__caption">Все видео вы можете найте на нашем
-        <a
-          class="video__link"
-          href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-        >YouTube канале</a>
-      </p>
     </div>
 
     <div class="intro__mini-container">
@@ -57,16 +60,9 @@
         {{text}}
       </regular-text>
       <div class="intro__middle">
-        <sliderB
-          class="slider-buttons"
-          @btnClickLeftIntro="buttonHandler(false)"
-        />
-        <youtube-video class="youtube-video" :url="introVideo[i].url"/>
-        <sliderB
-          class="slider-buttons"
-          side="slider-button_right"
-          @btnClickLeftIntro="buttonHandler(true)"
-        />
+        <sliderB class="slider-buttons swiper-buttons-prev"/>
+        <slider-intro class="intro__slider-container youtube-video"/>
+        <sliderB class="slider-buttons swiper-buttons-next " side="slider-button_right"/>
       </div>
     </div>
 
@@ -166,6 +162,7 @@
   }
 
   .intro__slider-container {
+    position: relative;
     max-width: 867px;
     width: 100%;
   }
@@ -176,10 +173,14 @@
   }
 
   .video__caption {
+    margin-bottom: -24px;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 16px;
+    left: 0;
+    bottom: 0;
+    position: absolute;
     color: #666666;
   }
 
@@ -247,6 +248,10 @@
   }
 
   @media (max-width: 768px) {
+    .video__caption {
+      margin-bottom: -36px;
+    }
+
     .intro__container {
       display: none;
     }
@@ -264,11 +269,7 @@
 
     .intro__text {
       max-width: 380px;
-      margin: 26px 0 60px;
-    }
-
-    .youtube-video {
-      margin: 60px 14px 77px;
+      margin: 26px 0 0;
     }
 
     .slider-buttons {
@@ -286,6 +287,7 @@
       min-height: 300px;
       max-width: 688px;
       align-items: center;
+      margin: 60px 14px 80px;
     }
   }
 
@@ -323,7 +325,6 @@
       margin: 42px 0 25px;
       position: relative;
       min-height: 200px;
-      /*max-width: 290px;*/
     }
 
     .youtube-video {
@@ -355,8 +356,8 @@
       max-width: 290px;
     }
 
-    .intro__slider-container {
-      max-width: 290px;
-    }
+    /*.intro__slider-container {*/
+    /*  max-width: 290px;*/
+    /*}*/
   }
 </style>

@@ -18,8 +18,8 @@ export default {
 };
 </script>
 
-<!--TODO доделать адаптив для видео-->
 <style scoped>
+
 .video {
   max-width: 867px;
   width: 100%;

@@ -100,6 +100,10 @@
 </script>
 
 <style scoped>
+  .video__link {
+    color: #666666;
+  }
+
   .intro__mini-container {
     display: none;
   }
@@ -137,6 +141,7 @@
     position: relative;
     max-width: 867px;
     width: 100%;
+    max-height: 450px;
   }
 
   .slider-buttons {
@@ -180,6 +185,7 @@
 
     .intro__slider-container {
       max-width: 773px;
+      max-height: 400px;
     }
   }
 
@@ -212,6 +218,7 @@
 
     .intro__slider-container {
       max-width: 606px;
+      max-height: 314px;
     }
 
     .slider-buttons {

@@ -9,7 +9,10 @@
           { ['tabs__link_' + theme + '_active']: show == index },
           `tabs__link_${theme}`,
         ]"
-        @click.prevent="show = index"
+        @click.prevent="
+          show = index;
+          $emit('tab-changed', index);
+        "
       >
         {{ tab.name }}
       </li>

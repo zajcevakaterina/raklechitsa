@@ -2,10 +2,10 @@
   <div class="policy">
     <policy-title class="policy__title">{{ policy.title }}</policy-title>
 
-    <article class="policy__text" v-html="policy.text"></article>
+    <!-- <article class="policy__text" v-html="policy.text"></article> -->
 
-    <!-- ниже вариант, если захардкодить. а вообще начала стилизовать теги потихоньку. маркеры все портят ))) -->
-    <!-- <ol class="policy__list">
+    <!-- нb;t готовый адаптивный вариант, если захардкодить. а вообще (выше) начала стилизовать теги потихоньку, если брать информацию из стора. остались маркеры )) -->
+    <ol class="policy__list">
       <li class="policy__item">
         <h2 class="policy__item-title">1. Общие положения</h2>
         <policy-text class="policy__text">
@@ -35,18 +35,19 @@
         </li>
       </ol>
       <li class="policy__item">
-        <h2 class="policy__item-title">2. Основные понятия, используемые в Политике</h2>
+        <h2 class="policy__item-title">
+          2. Основные понятия, используемые в Политике
+        </h2>
       </li>
       <ol class="policy__item-list">
         <li class="policy__item-list-point">
           <policy-text class="policy__text">
             Автоматизированная обработка персональных данных – обработка
-            персональных данных с помощью средств вычислительной
-            техники;
+            персональных данных с помощью средств вычислительной техники;
           </policy-text>
         </li>
       </ol>
-    </ol> -->
+    </ol>
   </div>
 </template>
 
@@ -80,40 +81,40 @@ export default {
   border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
 }
-
-/* .policy__list */
-.policy__text >>> ol {
+/* .policy__text >>> ol */
+.policy__list {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-h2:first-of-type {
+/* h2:first-of-type {
   margin-top: 100px;
-}
+} */
 
-/* .policy__item-title  */
-.policy__text >>> h2 {
+/* .policy__text >>> h2 */
+.policy__item-title {
   font-weight: 600;
   font-size: 22px;
   line-height: 1.36;
   margin: 90px 0 40px;
 }
 
-.policy__text >>> li,
-.policy__text >>> p {
+/* .policy__text >>> li,
+.policy__text >>> p */
+.policy__text {
   margin: 0 0 30px;
 }
 
-/* .policy__item-list  */
-ol >>> ol {
+.policy__item-list {
   margin-left: 24px;
   padding: 0;
   font-size: 22px;
   line-height: 1.36;
 }
 
-/* .policy__item-list-point */
-.policy__text >>> li {
+/* .policy__text >>> li  */
+.policy__item-list-point {
   padding-left: 14px;
 }
 

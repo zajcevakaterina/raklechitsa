@@ -7,6 +7,7 @@
 
     <h3 class="story-item__author">{{ author }}</h3>
     <p class="story-item__quote">{{ quote }}.{{ link }}</p>
+    <!-- link добавлен на время, чтобы различать картинки и понимать, что все работает верно :) -->
   </a>
 </template>
 

@@ -37,7 +37,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/route.js' }],
+  plugins: [
+    { src: '~/plugins/route.js' },
+    { src: '@/plugins/swiper.js', ssr: false },
+  ],
   /*
    ** Nuxt.js dev-modules
    */

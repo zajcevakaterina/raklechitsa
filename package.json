@@ -13,7 +13,9 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.12.2"
+    "nuxt": "^2.12.2",
+    "swiper": "^5.4.1",
+    "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.10.0",

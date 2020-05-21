@@ -12,7 +12,7 @@
         </regular-text>
         <div class="slider-buttons-container">
           <sliderB class="slider-buttons swiper-buttons-prev" />
-          <sliderB class="slider-buttons_right swiper-buttons-next " />
+          <sliderB class="swiper-buttons-next " side="slider-button_right" />
         </div>
       </div>
       <div class="intro__slider-container">
@@ -43,7 +43,8 @@
         />
         <youtube-video class="youtube-video" :url="introVideo[i].url" />
         <sliderB
-          class="slider-buttons slider-buttons_right"
+          class="slider-buttons"
+          side="slider-button_right"
           @btnClickLeftIntro="buttonHandler(true)"
         />
       </div>
@@ -63,7 +64,8 @@
         />
         <youtube-video class="youtube-video" :url="introVideo[i].url" />
         <sliderB
-          class="slider-buttons slider-buttons_right"
+          class="slider-buttons"
+          side="slider-button_right"
           @btnClickLeftIntro="buttonHandler(true)"
         />
       </div>
@@ -144,9 +146,6 @@ export default {
 
 .intro__middle-container {
   display: none;
-}
-.slider-buttons_right {
-  transform: rotate(180deg);
 }
 
 .slider-buttons-container {

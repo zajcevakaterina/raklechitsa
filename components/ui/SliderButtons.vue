@@ -1,5 +1,5 @@
 <template>
-  <button class="slider-button" :class='[side]' @click="$emit('btnClickLeftIntro')">
+  <button class="slider-button" :class='[side]' @click="$emit('method')">
     <img src="@/static/arrows/leftNactivearrow.png" alt="arrow" class="arrow" />
   </button>
 </template>

@@ -89,39 +89,11 @@
       'tag-lead': TagLead,
       'slider-intro': Slider,
     },
-    methods: {
-      buttonHandler(right) {
-        if (right) {
-          if (this.i < this.introVideo.length - 1) {
-            this.i++;
-          } else this.i = 0;
-        } else {
-          if (this.i >= 1) {
-            this.i--;
-          } else this.i = this.introVideo.length - 1;
-        }
-      },
-    },
 
     data() {
       return {
         title: 'Истории людей, победивших рак, но не свои привычки',
         text: 'Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
-        i: 0,
-        introVideo: [
-          {
-            id: 1,
-            url: 'https://www.youtube.com/embed/coOppM34GtI',
-          },
-          {
-            id: 2,
-            url: 'https://www.youtube.com/embed/ZKWilQnPovg',
-          },
-          {
-            id: 3,
-            url: 'https://www.youtube.com/embed/FFrioIZ65q0',
-          },
-        ],
       };
     },
   };

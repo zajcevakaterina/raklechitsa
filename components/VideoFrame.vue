@@ -42,10 +42,6 @@ export default {
   height: 100%;
 }
 
-.video__link {
-  color: #666666;
-}
-
 @media screen and (max-width: 1280px) {
   .video {
     max-width: 773px;

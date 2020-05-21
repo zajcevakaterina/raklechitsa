@@ -38,7 +38,6 @@ export default {};
     max-width: 380px;
     font-size: 24px;
     line-height: 1.17;
-    text-align: сenter;
   }
 }
 

@@ -1,18 +1,14 @@
 <template>
   <header class="header">
-    <popup v-if="popupActive" @closePopup="popupToggle">
-      <form-stories />
-    </popup>
-
     <container class="header__container">
       <p class="header__logo">
         Проект Благотворительного Фонда Константина Хабенского
       </p>
       <main-menu />
-      <button-header @btnClick="popupToggle" class="header__button"
+      <button-header @btnClick="openQuizPopup" class="header__button"
         >Рассказать историю</button-header
       >
-      <button-header class="header__mobile-button" />
+      <mobile-icon class="header__mobile-icon" />
     </container>
   </header>
 </template>
@@ -20,29 +16,20 @@
 <script>
 import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
-import Popup from '@/components/Popup';
-import FormStories from '@/components/FormStories';
 import Container from '@/components/Container';
+import MobileIcon from '@/components/ui/MobileIcon';
 
 export default {
   components: {
     'main-menu': Menu,
     'button-header': Button,
-    popup: Popup,
-    'form-stories': FormStories,
     container: Container,
+    'mobile-icon': MobileIcon,
   },
-
   methods: {
-    popupToggle() {
-      this.popupActive = !this.popupActive;
+    openQuizPopup() {
+      this.$store.commit('popup/openQuizPopup');
     },
-  },
-
-  data() {
-    return {
-      popupActive: false,
-    };
   },
 };
 </script>
@@ -87,25 +74,11 @@ export default {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
-.header__mobile-button {
-  display: none;
-  background: url('../../static/mobile-menu.svg') no-repeat;
-  background-color: transparent;
-  background-size: cover;
-  border: 0;
-  cursor: pointer;
-  padding: 0;
-  outline: 0;
-  width: 32px;
-  height: 27px;
-}
 
-.header__mobile-button:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s linear;
-}
-::v-deep .nuxt-link-exact-active {
-  border-bottom: solid 2px;
+.header__mobile-icon {
+  display: none;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1280px) {
@@ -120,22 +93,28 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
   .header__button {
     display: none;
   }
-  .header__mobile-button {
+
+  .header__mobile-icon {
     display: flex;
   }
 }
+
 @media screen and (max-width: 320px) {
+  .header {
+    min-height: 64px;
+  }
+
   .header__logo {
     line-height: 1.17;
     width: 216px;
     font-size: 12px;
-  }
-  .header__mobile-button {
-    width: 26px;
-    height: 23px;
   }
 }
 </style>

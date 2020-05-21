@@ -1,8 +1,5 @@
 <template>
   <footer class="footer">
-    <popup v-if="popupActive">
-      <social-share />
-    </popup>
     <container class="footer__container">
       <div class="footer__content">
         <div class="footer__title-menu">
@@ -39,7 +36,8 @@
             >
           </p>
           <footer-button
-            @btnClick="popupToggle"
+            @btnClick="openSharePopup"
+            :theme="'share'"
             class="footer__link footer__link_type_share"
             >Поделитесь &#8599;</footer-button
           >
@@ -64,8 +62,6 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import Menu from '@/components/Menu';
 import Button from '@/components/ui/Button';
-import Popup from '@/components/Popup';
-import SocialShare from '@/components/SocialShare';
 import Container from '@/components/Container';
 
 export default {
@@ -73,21 +69,12 @@ export default {
     'section-title': SectionTitle,
     'footer-menu': Menu,
     'footer-button': Button,
-    popup: Popup,
-    'social-share': SocialShare,
     container: Container,
   },
-
   methods: {
-    popupToggle() {
-      this.popupActive = !this.popupActive;
+    openSharePopup() {
+      this.$store.commit('popup/openSharePopup');
     },
-  },
-
-  data() {
-    return {
-      popupActive: false,
-    };
   },
 };
 </script>
@@ -112,7 +99,6 @@ export default {
 }
 .footer__title-menu {
   display: flex;
-  /*width: calc(50% - 20px);*/
   justify-content: space-between;
   max-width: 700px;
 }
@@ -167,13 +153,9 @@ export default {
   margin: 0;
 }
 .footer__link_type_share {
-  background-color: transparent;
   font-size: 18px;
   line-height: 24px;
   text-align: left;
-  color: #121212;
-  padding: 0;
-  outline: 0;
 }
 
 .footer__link_type_social {
@@ -258,6 +240,9 @@ export default {
   }
   ::v-deep .menu__links {
     flex-direction: column;
+  }
+  ::v-deep .nuxt-link-exact-active {
+    border-bottom: none;
   }
   ::v-deep .menu__link-wrapper {
     margin-bottom: 16px;

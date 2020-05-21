@@ -23,7 +23,7 @@ export default {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 20px 5px;
+  padding: 10px 5px;
 }
 
 .tag-lead__text {
@@ -54,6 +54,10 @@ export default {
 @media (max-width: 1024px) {
   .tag-lead {
     min-height: 80px;
+  }
+  .tag-lead__text {
+    font-size: 24px;
+    line-height: 40px;
   }
 }
 

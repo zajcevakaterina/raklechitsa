@@ -3,7 +3,8 @@
     <cover />
     <container>
       <intro />
-      <stories />
+
+      <stories :stories="itemsToLoop" />
 
       <a class="more-stories-link" href="stories">
         <p class="more-stories-link__text">Больше статей</p>
@@ -22,13 +23,12 @@
             >
               <section-title class="insta__title">Инстаграм</section-title>
             </a>
-            <section-text class="insta__text"
-              >Два раза в неделю мы просматриваем все посты по хештегу
+            <section-text class="insta__text">
+              Два раза в неделю мы просматриваем все посты по хештегу
               #этонелечится. Все истории, где нет нецензурных выражений и
               запрещенного контента попадают сюда. Следите за правильным
-              написанием хештега, чтобы мы не пропустили вашу
-              историю.</section-text
-            >
+              написанием хештега, чтобы мы не пропустили вашу историю.
+            </section-text>
           </div>
 
           <ul class="insta__cards">
@@ -50,6 +50,13 @@
     </container>
 
     <about />
+    <popup
+      v-if="popupContactsShown"
+      @closePopup="closeContactsPopup"
+      @overlayClick="closeContactsPopup"
+    >
+      <contacts />
+    </popup>
   </main>
 </template>
 
@@ -66,6 +73,8 @@ import Statistics from '@/components/blocks/Statistics';
 import About from '@/components/blocks/About';
 import TagLead from '@/components/TagLead';
 import Button from '@/components/ui/Button';
+import Popup from '@/components/ui/Popup';
+import Contacts from '@/components/Contacts';
 
 export default {
   components: {
@@ -81,11 +90,36 @@ export default {
     'tag-lead': TagLead,
     'stories-button': Button,
     container: Container,
+    popup: Popup,
+    contacts: Contacts,
   },
 
   computed: {
     photos() {
       return this.$store.getters['insta/getPhotos'];
+    },
+    stories() {
+      return this.$store.getters['stories/getStories'];
+    },
+    itemsToLoop() {
+      if (process.browser) {
+        if (window.innerWidth <= 768 && window.innerWidth > 475) {
+          return this.stories.filter((item, index) => index < 9);
+        } else if (window.innerWidth <= 475) {
+          return this.stories.filter((item, index) => index < 6);
+        } else {
+          return this.stories.filter((item, index) => index < 8);
+        }
+      }
+    },
+    popupContactsShown() {
+      return this.$store.getters['popup/getPopupContactsShown'];
+    },
+  },
+
+  methods: {
+    closeContactsPopup() {
+      this.$store.commit('popup/closeContactsPopup');
     },
   },
 };

@@ -6,13 +6,14 @@
     />
 
     <h3 class="story-item__author">{{ author }}</h3>
-    <p class="story-item__text">{{ text }}</p>
+    <p class="story-item__quote">{{ quote }}.{{ link }}</p>
+    <!-- link добавлен на время, чтобы различать картинки и понимать, что все работает верно :) -->
   </a>
 </template>
 
 <script>
 export default {
-  props: ['photoUrl', 'author', 'text', 'link'],
+  props: ['photoUrl', 'author', 'quote', 'link'],
 };
 </script>
 
@@ -39,7 +40,7 @@ export default {
   padding: 0;
 }
 
-.story-item__text {
+.story-item__quote {
   font-size: 14px;
   line-height: 1.29;
   color: #666666;
@@ -58,7 +59,7 @@ export default {
     margin-bottom: 16px;
   }
 
-  .story-item__text {
+  .story-item__quote {
     font-size: 13px;
     line-height: 1.23;
   }

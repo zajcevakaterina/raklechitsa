@@ -1,5 +1,5 @@
 <template>
-  <div>
+
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide
         class="swiper-slide"
@@ -9,7 +9,7 @@
         <youtube-video :url="video.url"></youtube-video>
       </swiper-slide>
     </swiper>
-  </div>
+
 </template>
 
 <script>

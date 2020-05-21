@@ -1,10 +1,12 @@
 <template>
   <section class="call-to-action">
     <container class="call-to-action__container">
-      <section-title>Расскажите свою историю</section-title>
+      <section-title class="call-to-action__title"
+        >Расскажите свою историю</section-title
+      >
       <div class="call-to-action__content">
-        <section-text class="call-to-action__section-text"
-          >Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
+        <section-text class="call-to-action__section-text">
+          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
           поделиться своей историей неизлечимых привычек, навязчивых идей и
           болезненных привязанностей.
         </section-text>
@@ -117,13 +119,19 @@ export default {
     margin: 26px 0 0;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .call-to-action__container {
     min-height: 462px;
     padding: 50px 0;
+    align-items: flex-start;
   }
+
+  .call-to-action__title {
+    text-align: left;
+  }
+
   .call-to-action__action-button {
-    width: 290px;
+    width: 100%;
     height: 40px;
   }
   .call-to-action__section-text {

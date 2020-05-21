@@ -40,8 +40,9 @@ export default {
 .popup__content {
   width: 90%;
   max-width: 920px;
-  max-height: 100vh;
-  overflow: scroll;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   margin: auto;
   position: fixed;
   top: 50%;
@@ -53,12 +54,14 @@ export default {
   box-sizing: border-box;
 }
 
+/* TODO: доделать логику со скроллами */
 .popup__content_type_wide-screens {
   margin: 90px auto 0;
+  height: calc(100vh - 90px);
 }
 
 .popup__content_type_thin-screens {
-  overflow: scroll;
+  height: calc(100vh - 17px);
   margin: 17px auto 0;
 }
 

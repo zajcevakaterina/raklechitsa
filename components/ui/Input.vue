@@ -104,6 +104,7 @@ export default {
   box-sizing: border-box;
 }
 @media screen and (max-width: 1280px) {
+  .input,
   .input__item {
     font-size: 16px;
     line-height: 1.37;
@@ -114,6 +115,7 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
+  .input,
   .input__item {
     font-size: 15px;
     line-height: 1.47;
@@ -124,17 +126,21 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .input,
   .input__item {
     line-height: 1.27;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
+  .input,
   .input__item {
     font-size: 13px;
     line-height: 1.23;
-    /* width: 260px; */
-    /* padding-bottom: 2px; */
+  }
+
+  .input__item_theme_contacts {
+    margin: 20px 0;
   }
 }
 </style>

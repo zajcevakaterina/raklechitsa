@@ -130,4 +130,79 @@ export default {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
+
+@media screen and (max-width: 1280px) {
+  .contacts__title {
+    font-size: 28px;
+    line-height: 1.14;
+  }
+
+  .contacts__subtitle {
+    font-size: 16px;
+    line-height: 1.37;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contacts__title {
+    font-size: 26px;
+    line-height: 1.15;
+    margin: 0 0 50px;
+  }
+
+  .contacts__subtitle {
+    font-size: 15px;
+    line-height: 1.27;
+    margin: 0 0 40px;
+  }
+
+  .contacts__submit-button {
+    padding: 13px 0;
+    width: 200px;
+  }
+
+  .contacts__policy {
+    font-size: 11px;
+    line-height: 1.18;
+    max-width: 270px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .contacts__title {
+    font-size: 18px;
+    line-height: 1.17;
+    margin: 0 0 35px;
+  }
+
+  .contacts__subtitle {
+    font-size: 13px;
+    line-height: 1.23;
+    margin: 0 0 30px;
+  }
+
+  .contacts__input-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contacts__input_type_contacts {
+    width: 100%;
+  }
+
+  .contacts__submit {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contacts__submit-button {
+    padding: 13px 0;
+    width: 100%;
+    margin: 0 0 10px;
+  }
+
+  .contacts__policy {
+    width: 100%;
+  }
+}
 </style>

@@ -6,8 +6,7 @@
       <span
         class="quiz__question_type_additional"
         v-if="currentQuestion.questionAdditional"
-      >
-        {{ currentQuestion.questionAdditional }}</span
+        >{{ currentQuestion.questionAdditional }}</span
       >
     </p>
     <quiz-input
@@ -16,17 +15,28 @@
       v-model="answer"
       placeholder="Напишите тут"
     />
-    <div class="quiz__buttons">
+
+    <div class="quiz__submit">
       <quiz-button
         @btnClick="prevQuestion"
         class="quiz__button quiz__button_direction_back"
-        >Назад</quiz-button
+        :disabled="isFirstQuestion"
       >
+        Назад</quiz-button
+      >
+
       <quiz-button
         @btnClick="nextQuestion"
         class="quiz__button quiz__button_direction_next"
-        >Далее</quiz-button
+        >{{ isLastQuestion ? 'Отправить' : 'Далее' }}</quiz-button
       >
+
+      <p class="quiz__policy" v-if="isLastQuestion">
+        Нажимая на кнопку «отправить», вы даете согласие на
+        <a class="quiz__policy-link" href="/policy"
+          >обработку персональных данных</a
+        >
+      </p>
     </div>
   </form>
 </template>
@@ -57,9 +67,27 @@ export default {
     initialAnswer() {
       const { quiz } = this.$store.state;
       const { currentQuestion, answers } = quiz;
-      console.log(answers);
-      console.log(answers[currentQuestion]);
       return answers[currentQuestion] || '';
+    },
+
+    isFirstQuestion() {
+      const { quiz } = this.$store.state;
+      const { currentQuestion } = quiz;
+      if (currentQuestion === 1) {
+        return true;
+      }
+      return false;
+    },
+
+    isLastQuestion() {
+      const { quiz } = this.$store.state;
+      const { questions, currentQuestion } = quiz;
+      const questionsLength = Object.keys(questions).length;
+      console.log(currentQuestion);
+      if (currentQuestion === questionsLength) {
+        return true;
+      }
+      return false;
     },
   },
 
@@ -102,15 +130,23 @@ export default {
   margin: 86px 0 0;
 }
 
-.quiz__buttons {
+.quiz__submit {
   display: flex;
   margin-top: 210px;
+  align-items: center;
 }
 
 .quiz__button_direction_back {
   background: none;
+  color: #666666;
+  padding: 0;
+}
+
+.quiz__button_direction_back:disabled {
+  background: none;
   color: #c0c0c0;
   padding: 0;
+  pointer-events: none;
 }
 
 .quiz__button_direction_next {
@@ -119,6 +155,26 @@ export default {
   padding: 16px 0;
   color: #ffffff;
   margin-left: 30px;
+}
+
+.quiz__policy {
+  font-size: 14px;
+  line-height: 1.21;
+  margin: 0 0 0 30px;
+  max-width: 378px;
+  color: #666666;
+}
+
+.quiz__policy-link {
+  cursor: pointer;
+  color: #666666;
+  text-decoration: none;
+  border-bottom: 1px solid #666666;
+}
+
+.quiz__policy-link:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s linear;
 }
 
 @media screen and (max-width: 1280px) {

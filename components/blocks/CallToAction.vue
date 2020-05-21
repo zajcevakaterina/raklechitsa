@@ -9,11 +9,11 @@
           болезненных привязанностей.
         </section-text>
         <main-tabs :tabsData="actions" :theme="'call-to-action'">
-          <!-- <action-button
+          <action-button
             @btnClick="openQuizPopup"
             class="call-to-action__action-button"
             >Заполнить форму</action-button
-          > -->
+          >
           <action-button
             @btnClick="openContactsPopup"
             class="call-to-action__action-button"

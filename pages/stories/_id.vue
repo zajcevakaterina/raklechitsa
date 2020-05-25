@@ -3,16 +3,18 @@
     <article class="individual-story">
       <div class="individual-story__lead">
         <story-title class="individual-story__title">
-          {{ stories[storyId].author }}:
+          {{ story.author }}:
           <span class="individual-story__quote"
-            >&laquo;{{ stories[storyId].quote }}&raquo;</span
+            >&laquo;{{ story.title }}&raquo;</span
           >
         </story-title>
 
         <div class="individual-story__image-wrapper">
           <div
             class="individual-story__image"
-            :style="`background-image: url(${stories[storyId].photoUrl})`"
+            :style="
+              `background-image: url( https://strapi.kruzhok.io${story.ImageUrl[0].url})`
+            "
           ></div>
         </div>
 
@@ -21,16 +23,13 @@
             class="individual-story__link"
             :theme="'share'"
             @btnClick="openSharePopup"
-            >Поделитесь &#8599;</share-button
-          >
-          <p class="individual-story__date">{{ stories[storyId].date }}</p>
+            >Поделитесь &#8599;
+          </share-button>
+          <p class="individual-story__date">{{ story.date }}</p>
         </div>
       </div>
 
-      <story-column
-        class="individual-story__text"
-        v-html="stories[storyId].text"
-      >
+      <story-column class="individual-story__text" v-html="story.text">
       </story-column>
 
       <div class="individual-story__conclusion">
@@ -45,9 +44,9 @@
     </article>
 
     <stories :stories="itemsToLoop" />
-    <a class="more-stories-link" href="stories">
+    <nuxt-link to="/stories" class="more-stories-link">
       <p class="more-stories-link__text">Больше статей</p>
-    </a>
+    </nuxt-link>
   </container>
 </template>
 
@@ -68,14 +67,13 @@ export default {
   },
 
   computed: {
-    storyId() {
-      return this.$route.params.id - 1;
-    },
-
     stories() {
       return this.$store.getters['stories/getStories'];
     },
 
+    story() {
+      return this.$store.getters['stories/getCarrentsStory'];
+    },
     itemsToLoop() {
       if (process.browser) {
         if (window.innerWidth <= 768 && window.innerWidth > 475) {
@@ -93,6 +91,10 @@ export default {
     openSharePopup() {
       this.$store.commit('popup/openSharePopup');
     },
+  },
+  async fetch({ store, route }) {
+    await store.dispatch('stories/fetchStories');
+    await store.dispatch('stories/fetchStoriesWithId', { id: route.params.id });
   },
 };
 </script>

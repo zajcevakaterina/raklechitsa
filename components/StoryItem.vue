@@ -1,19 +1,19 @@
 <template>
   <a class="story-item" :href="link">
     <div
-      :style="`background-image: url(${photoUrl})`"
+      :style="`background-image: url(https://strapi.kruzhok.io${ImageUrl})`"
       class="story-item__photo"
     />
 
     <h3 class="story-item__author">{{ author }}</h3>
-    <p class="story-item__quote">{{ quote }}.{{ link }}</p>
+    <p class="story-item__quote">{{ title }} {{ link }}</p>
     <!-- link добавлен на время, чтобы различать картинки и понимать, что все работает верно :) -->
   </a>
 </template>
 
 <script>
 export default {
-  props: ['photoUrl', 'author', 'quote', 'link'],
+  props: ['ImageUrl', 'author', 'title', 'link'],
 };
 </script>
 

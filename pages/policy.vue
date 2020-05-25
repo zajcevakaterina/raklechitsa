@@ -1,8 +1,10 @@
 <template>
   <div class="policy">
-    <policy-title class="policy__title"
-      >Политика проекта в отношении обработки персональных данных.</policy-title
-    >
+    <policy-title class="policy__title">{{ policy.title }}</policy-title>
+
+    <!-- <article class="policy__text" v-html="policy.text"></article> -->
+
+    <!-- нb;t готовый адаптивный вариант, если захардкодить. а вообще (выше) начала стилизовать теги потихоньку, если брать информацию из стора. остались маркеры )) -->
     <ol class="policy__list">
       <li class="policy__item">
         <h2 class="policy__item-title">1. Общие положения</h2>
@@ -39,11 +41,10 @@
       </li>
       <ol class="policy__item-list">
         <li class="policy__item-list-point">
-          <policy-text class="policy__text"
-            >Автоматизированная обработка персональных данных – обработка
-            персональных данных с помощью средств вычислительной
-            техники;</policy-text
-          >
+          <policy-text class="policy__text">
+            Автоматизированная обработка персональных данных – обработка
+            персональных данных с помощью средств вычислительной техники;
+          </policy-text>
         </li>
       </ol>
     </ol>
@@ -57,6 +58,12 @@ export default {
   components: {
     'policy-title': ArticleTitle,
     'policy-text': ArticleColumn,
+  },
+
+  computed: {
+    policy() {
+      return this.$store.getters['policy/getPolicy'];
+    },
   },
 };
 </script>
@@ -74,20 +81,27 @@ export default {
   border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
 }
-
+/* .policy__text >>> ol */
 .policy__list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* h2:first-of-type {
+  margin-top: 100px;
+} */
+
+/* .policy__text >>> h2 */
 .policy__item-title {
   font-weight: 600;
   font-size: 22px;
   line-height: 1.36;
-  margin: 40px 0;
+  margin: 90px 0 40px;
 }
 
+/* .policy__text >>> li,
+.policy__text >>> p */
 .policy__text {
   margin: 0 0 30px;
 }
@@ -99,6 +113,7 @@ export default {
   line-height: 1.36;
 }
 
+/* .policy__text >>> li  */
 .policy__item-list-point {
   padding-left: 14px;
 }

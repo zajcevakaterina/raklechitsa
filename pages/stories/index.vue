@@ -14,6 +14,11 @@
           :disabled="!searchText.length"
           >Поиск</stories-button
         >
+        <stories-button
+          type="submit"
+          class="stories__button-mobile"
+          :disabled="!searchText.length"
+        ></stories-button>
       </form>
     </stories>
     <pagination
@@ -53,10 +58,11 @@ export default {
   computed: {
     renderStories() {
       const { stories } = this.$store.state;
-      if (this.texts !== '') {
+      if (this.texts.toLowerCase() !== '') {
         const newTotalItems = stories.stories.filter(
           item =>
-            item.author.includes(this.texts) || item.text.includes(this.texts)
+            item.author.toLowerCase().includes(this.texts) ||
+            item.quote.toLowerCase().includes(this.texts)
         );
         return newTotalItems.filter(
           (item, idx) =>
@@ -81,11 +87,11 @@ export default {
       const { stories } = this.$store.state;
       const newTotalItems = stories.stories.filter(
         item =>
-          item.author.includes(this.texts) || item.text.includes(this.texts)
+          item.author.toLowerCase().includes(this.texts) ||
+          item.quote.toLowerCase().includes(this.texts)
       );
-
       this.totalItems = newTotalItems.length;
-      event.target.reset();
+      //event.target.reset();
     },
   },
   mounted() {
@@ -120,11 +126,31 @@ export default {
   width: 226px;
   height: 52px;
   padding: 0;
+  background-color: #613a93;
+}
+.stories__button-mobile {
+  background-color: #613a93;
+  height: 46px;
+  width: 46px;
+  background-image: url(/button/magnifier.svg);
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: none;
 }
 
 @media screen and (max-width: 1280px) {
   .stories {
     padding-top: 90px;
+  }
+  .stories__form {
+    margin-bottom: 60px;
+  }
+  .stories__input {
+    height: 48px;
+  }
+  .stories__button {
+    height: 48px;
   }
 }
 
@@ -132,11 +158,42 @@ export default {
   .stories {
     padding-top: 80px;
   }
+  .stories__form {
+    margin-bottom: 46px;
+  }
+  .stories__input {
+    height: 46px;
+  }
+  .stories__button {
+    height: 46px;
+    width: 208px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stories__form {
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .stories__button {
+    display: none;
+  }
+  .stories__input {
+    margin-right: 6px;
+  }
+  .stories__button-mobile {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 320px) {
   .stories {
     padding-top: 50px;
+  }
+  .stories__form {
+    margin-bottom: 30px;
   }
 }
 </style>

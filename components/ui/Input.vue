@@ -2,7 +2,11 @@
   <label class="input">
     {{ labelText }}
     <input
-      :class="['input__item', `input__item_border-theme_${borderTheme}`]"
+      :class="[
+        'input__item',
+        `input__item_border-theme_${borderTheme}`,
+        `input__item_theme_${theme}`,
+      ]"
       :type="type"
       :placeholder="placeholder"
       :name="name"
@@ -29,6 +33,7 @@ export default {
     required: Boolean,
     placeholder: String,
     borderTheme: String,
+    theme: String,
   },
 
   data() {
@@ -56,6 +61,9 @@ export default {
 <style scoped>
 .input {
   display: block;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33;
 }
 
 .input::-webkit-input-placeholder {
@@ -82,44 +90,57 @@ export default {
   line-height: 1.33;
   border: none;
   resize: none;
-  padding: 10px 0 10px 4px;
+  padding: 10px 0 10px 1px;
   border-bottom: 1px solid #e7e7e7;
 }
 
-.input__item_border-theme_full {
-  border: 1px solid #e7e7e7;
+.input__item_theme_contacts {
+  margin: 40px 0;
 }
+
 .input__item_border-theme_stories {
   border: 1px solid #e7e7e7;
   height: 52px;
   box-sizing: border-box;
 }
 @media screen and (max-width: 1280px) {
+  .input,
   .input__item {
     font-size: 16px;
     line-height: 1.37;
   }
+  .input__item_border-theme_stories {
+    height: 48px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
+  .input,
   .input__item {
     font-size: 15px;
     line-height: 1.47;
   }
+  .input__item_border-theme_stories {
+    height: 46px;
+  }
 }
 
 @media screen and (max-width: 768px) {
+  .input,
   .input__item {
     line-height: 1.27;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
+  .input,
   .input__item {
     font-size: 13px;
     line-height: 1.23;
-    /* width: 260px; */
-    /* padding-bottom: 2px; */
+  }
+
+  .input__item_theme_contacts {
+    margin: 20px 0;
   }
 }
 </style>

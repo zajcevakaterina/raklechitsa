@@ -1,11 +1,13 @@
 <template>
-  <button class="slider-button" @click="$emit('btnClickLeftIntro')">
+  <button class="slider-button" :class="[side]" @click="$emit('method')">
     <img src="@/static/arrows/leftNactivearrow.png" alt="arrow" class="arrow" />
   </button>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['side'],
+};
 </script>
 
 <style scoped>
@@ -16,5 +18,9 @@ export default {};
   height: 40px;
   background-color: #fbfbfb;
   padding: 0;
+}
+
+.slider-button_right .arrow {
+  transform: rotate(180deg);
 }
 </style>

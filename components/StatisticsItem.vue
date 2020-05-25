@@ -1,36 +1,41 @@
 <template>
   <div class="stat-item">
-    <p class="stat-item__text">{{ statText }}</p>
+    <p class="stat-item__text">{{ statDescription }}</p>
+
     <progress-bar
-      v-if="diagramType === 'progressBar'"
+      v-if="!statOldValue"
       :currentValue="statCurrentValue"
       :maxValue="statMaxValue"
     />
 
-    <double-progress-bar v-else :currentValue="statCurrentValue">
+    <double-progress-bar
+      v-else
+      :currentValue="statCurrentValue"
+      :oldValue="statOldValue"
+      :maxValue="statMaxValue"
+    >
     </double-progress-bar>
 
-    <h3 class="stat-item__title" v-html="statTitle"></h3>
+    <h3 class="stat-item__title" v-html="statSummary"></h3>
     <p class="stat-item__source">{{ statSource }}</p>
   </div>
 </template>
 
 <script>
-import ProgressBar from '@/components/ProgressBar';
-import DoubleProgressBar from '@/components/DoubleProgressBar';
+import ProgressBar from '@/components/ui/ProgressBar';
+import DoubleProgressBar from '@/components/ui/DoubleProgressBar';
 
-// TODO: убрать эти компоненты в ui
 export default {
   components: {
     'progress-bar': ProgressBar,
     'double-progress-bar': DoubleProgressBar,
   },
   props: [
-    'statText',
-    'diagramType',
+    'statDescription',
     'statCurrentValue',
+    'statOldValue',
     'statMaxValue',
-    'statTitle',
+    'statSummary',
     'statSource',
   ],
 };
@@ -40,7 +45,6 @@ export default {
 .stat-item {
   border: 1px solid #efefef;
   padding: 20px;
-  height: 300px;
   box-sizing: border-box;
 }
 
@@ -64,11 +68,12 @@ export default {
   line-height: 1.33;
   text-align: right;
   color: #666666;
+  margin: 0;
 }
 
 @media screen and (max-width: 1280px) {
   .stat-item {
-    height: 265px;
+    max-height: 265px;
     padding: 18px;
   }
 
@@ -79,7 +84,7 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .stat-item {
-    height: 208px;
+    max-height: 208px;
     padding: 10px;
   }
 
@@ -91,13 +96,13 @@ export default {
 
   .stat-item__title {
     font-size: 26px;
-    line-height: 30px;
+    line-height: 1.15;
     margin: 10px 0;
   }
 
   .stat-item__source {
     font-size: 10px;
-    line-height: 14px;
+    line-height: 1.4;
   }
 }
 
@@ -107,7 +112,7 @@ export default {
   }
 
   .stat-item__text {
-    margin: 0 0 56px;
+    margin: 0 0 48px;
   }
 }
 </style>

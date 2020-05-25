@@ -1,6 +1,7 @@
 export const state = () => ({
   popupQuizShown: false,
   popupShareShown: false,
+  popupContactsShown: false,
 });
 
 export const mutations = {
@@ -16,6 +17,12 @@ export const mutations = {
   closeSharePopup(state) {
     return (state.popupShareShown = false);
   },
+  openContactsPopup(state) {
+    return (state.popupContactsShown = true);
+  },
+  closeContactsPopup(state) {
+    return (state.popupContactsShown = false);
+  },
 };
 
 export const getters = {
@@ -24,5 +31,8 @@ export const getters = {
   },
   getPopupShareShown(state) {
     return state.popupShareShown;
+  },
+  getPopupContactsShown(state) {
+    return state.popupContactsShown;
   },
 };

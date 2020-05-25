@@ -17,11 +17,10 @@ export default {
 <style scoped>
 .button {
   font-size: 16px;
-  line-height: 19px;
+  line-height: 1.18;
   border: none;
   background-color: #714dbd;
-  padding: 20px 103px;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
   font-family: inherit;
 }
@@ -40,5 +39,24 @@ export default {
 
 .button_theme_share:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 1280px) {
+  .button {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .button {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .button {
+    font-size: 13px;
+    line-height: 1.23;
+  }
 }
 </style>

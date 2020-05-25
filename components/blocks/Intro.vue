@@ -3,58 +3,68 @@
     <div class="intro__container">
       <div class="intro__left">
         <title-text class="intro__title">
-          {{ introVideo[i].title }}
+          {{ title }}
         </title-text>
         <regular-text class="intro__text">
-          {{ introVideo[i].text }}
+          {{ text }}
         </regular-text>
-        <div class="slider-buttons">
-          <sliderB @btnClickLeftIntro="buttonHandler(false)" />
-          <sliderB
-            class="slider-buttons_right"
-            @btnClickLeftIntro="buttonHandler(true)"
-          />
+        <div class="slider-buttons-container">
+          <sliderB class="slider-buttons swiper-buttons-prev" />
+          <sliderB class="swiper-buttons-next " side="slider-button_right" />
         </div>
       </div>
-      <youtube-video :url="introVideo[i].url" />
+      <div class="intro__slider-container">
+        <slider-intro />
+        <p class="video__caption">
+          Все видео вы можете найте на нашем
+          <a
+            class="video__link"
+            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+          >
+            YouTube канале</a
+          >
+        </p>
+      </div>
     </div>
 
     <div class="intro__middle-container">
       <title-text class="intro__title">
-        {{ introVideo[i].title }}
+        {{ title }}
       </title-text>
       <regular-text class="intro__text">
-        {{ introVideo[i].text }}
+        {{ text }}
       </regular-text>
       <div class="intro__middle">
-        <sliderB
-          class="slider-buttons"
-          @btnClickLeftIntro="buttonHandler(false)"
-        />
-        <youtube-video class="youtube-video" :url="introVideo[i].url" />
-        <sliderB
-          class="slider-buttons slider-buttons_right"
-          @btnClickLeftIntro="buttonHandler(true)"
-        />
+        <sliderB class="slider-buttons swiper-buttons-prev" />
+        <div class="intro__slider-container">
+          <slider-intro />
+          <p class="video__caption">
+            Все видео вы можете найте на нашем
+            <a
+              class="video__link"
+              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+            >
+              YouTube канале</a
+            >.
+          </p>
+        </div>
+        <sliderB class="swiper-buttons-next " side="slider-button_right" />
       </div>
     </div>
 
     <div class="intro__mini-container">
       <title-text class="intro__title">
-        {{ introVideo[i].title }}
+        {{ title }}
       </title-text>
       <regular-text class="intro__text">
-        {{ introVideo[i].text }}
+        {{ text }}
       </regular-text>
       <div class="intro__middle">
+        <sliderB class="slider-buttons swiper-buttons-prev" />
+        <slider-intro class="intro__slider-container youtube-video" />
         <sliderB
-          class="slider-buttons"
-          @btnClickLeftIntro="buttonHandler(false)"
-        />
-        <youtube-video class="youtube-video" :url="introVideo[i].url" />
-        <sliderB
-          class="slider-buttons slider-buttons_right"
-          @btnClickLeftIntro="buttonHandler(true)"
+          class="slider-buttons swiper-buttons-next "
+          side="slider-button_right"
         />
       </div>
     </div>
@@ -71,6 +81,7 @@ import SectionText from '@/components/ui/SectionText';
 import SliderButtons from '@/components/ui/SliderButtons';
 import VideoFrame from '@/components/VideoFrame';
 import TagLead from '@/components/TagLead';
+import Slider from '@/components/Slider';
 
 export default {
   components: {
@@ -79,53 +90,24 @@ export default {
     sliderB: SliderButtons,
     'youtube-video': VideoFrame,
     'tag-lead': TagLead,
-  },
-  methods: {
-    buttonHandler(right) {
-      if (right) {
-        if (this.i < this.introVideo.length - 1) {
-          this.i++;
-        } else this.i = 0;
-      } else {
-        if (this.i >= 1) {
-          this.i--;
-        } else this.i = this.introVideo.length - 1;
-      }
-    },
+    'slider-intro': Slider,
   },
 
   data() {
     return {
-      width: 0,
-      i: 0,
-      introVideo: [
-        {
-          id: 1,
-          title: 'Истории людей, победивших рак, но не свои привычки',
-          text:
-            'Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
-          url: 'https://www.youtube.com/embed/coOppM34GtI',
-        },
-        {
-          id: 2,
-          title: 'Какая-то другая история .......',
-          text: 'Основное содержание другой истории......',
-          url: 'https://www.youtube.com/embed/ZKWilQnPovg',
-        },
-        {
-          id: 3,
-          title: 'Ещё история под номером 3 .......',
-          text:
-            'Основное содержание очень интересной истории под номером 3...... ',
-          url: 'https://www.youtube.com/embed/FFrioIZ65q0',
-        },
-      ],
+      title: 'Истории людей, победивших рак, но не свои привычки',
+      text:
+        'Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
     };
   },
 };
 </script>
 
 <style scoped>
+.video__link {
+  color: #666666;
+}
+
 .intro__mini-container {
   display: none;
 }
@@ -134,8 +116,8 @@ export default {
   display: none;
 }
 
-.slider-buttons_right {
-  transform: rotate(180deg);
+.slider-buttons-container {
+  margin-top: auto;
 }
 
 .intro {
@@ -159,9 +141,28 @@ export default {
   min-height: 100%;
 }
 
+.intro__slider-container {
+  position: relative;
+  max-width: 867px;
+  width: 100%;
+  max-height: 450px;
+}
+
 .slider-buttons {
   margin-top: auto;
-  margin-bottom: 95px;
+  margin-bottom: 100px;
+}
+
+.video__caption {
+  margin-bottom: -24px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  color: #666666;
 }
 
 @media (max-width: 1280px) {
@@ -184,6 +185,11 @@ export default {
     max-width: 305px;
     font-size: 16px;
     line-height: 20px;
+  }
+
+  .intro__slider-container {
+    max-width: 773px;
+    max-height: 400px;
   }
 }
 
@@ -214,12 +220,21 @@ export default {
     margin: 20px 0 0;
   }
 
+  .intro__slider-container {
+    max-width: 606px;
+    max-height: 314px;
+  }
+
   .slider-buttons {
     margin-bottom: 79px;
   }
 }
 
 @media (max-width: 768px) {
+  .video__caption {
+    margin-bottom: -36px;
+  }
+
   .intro__container {
     display: none;
   }
@@ -240,12 +255,12 @@ export default {
     margin: 26px 0 0;
   }
 
-  .youtube-video {
-    margin: 60px 14px 77px;
-  }
-
   .slider-buttons {
     margin: 0;
+  }
+
+  .intro__slider-container {
+    max-width: 580px;
   }
 
   .intro__middle {
@@ -255,6 +270,7 @@ export default {
     min-height: 300px;
     max-width: 688px;
     align-items: center;
+    margin: 60px 14px 80px;
   }
 }
 
@@ -292,7 +308,6 @@ export default {
     margin: 42px 0 25px;
     position: relative;
     min-height: 200px;
-    /*max-width: 290px;*/
   }
 
   .youtube-video {
@@ -323,5 +338,9 @@ export default {
     min-height: 150px;
     max-width: 290px;
   }
+
+  /*.intro__slider-container {*/
+  /*  max-width: 290px;*/
+  /*}*/
 }
 </style>

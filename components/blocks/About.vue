@@ -106,7 +106,7 @@ export default {
     flex: none;
   }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 425px) {
   .about__container {
     min-height: 628px;
     align-items: start;

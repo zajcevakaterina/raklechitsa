@@ -52,7 +52,7 @@ export default {
   font-weight: 800;
   font-size: 64px;
   line-height: 77px;
-  color: #ffffff;
+  color: #fff;
   text-align: center;
   margin: 0 auto 70px;
 }
@@ -61,7 +61,7 @@ export default {
   justify-content: space-between;
 }
 .about__section-title {
-  color: #ffffff;
+  color: #fff;
 }
 .about__section-text {
   color: #dedede;

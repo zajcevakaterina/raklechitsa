@@ -114,7 +114,7 @@ export default {
 .footer__link {
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
+  color: #000;
   height: fit-content;
   cursor: pointer;
   text-decoration: none;
@@ -149,7 +149,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
+  color: #000;
   margin: 0;
 }
 .footer__link_type_share {

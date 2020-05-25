@@ -116,14 +116,14 @@ export default {
   line-height: 1.21;
   margin: 0;
   max-width: 378px;
-  color: #666666;
+  color: #666;
 }
 
 .contacts__policy-link {
   cursor: pointer;
-  color: #666666;
+  color: #666;
   text-decoration: none;
-  border-bottom: 1px solid #666666;
+  border-bottom: 1px solid #666;
 }
 
 .contacts__policy-link:hover {

@@ -13,7 +13,7 @@
         <main-tabs
           v-on:tab-changed="tabIndex = $event"
           :tabsData="actions"
-          :theme="'call-to-action'"
+          theme="call-to-action"
         >
           <action-button
             v-if="tabIndex === 0"

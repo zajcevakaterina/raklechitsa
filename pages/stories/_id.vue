@@ -13,7 +13,7 @@
           <div
             class="individual-story__image"
             :style="
-              `background-image: url( https://strapi.kruzhok.io${story.ImageUrl[0].url})`
+              `background-image: url(${publicPath}${story.ImageUrl[0].url})`
             "
           ></div>
         </div>
@@ -65,7 +65,11 @@ export default {
     'share-button': Button,
     stories: Stories,
   },
-
+  data() {
+    return {
+      publicPath: process.env.BASE_URL,
+    };
+  },
   computed: {
     stories() {
       return this.$store.getters['stories/getStories'];

@@ -13,7 +13,7 @@ export const mutations = {
 
 export const actions = {
   async fetchStories({ commit }) {
-    const stories = await this.$axios.$get('https://strapi.kruzhok.io/stories');
+    const stories = await this.$axios.$get(process.env.BASE_URL + '/stories');
     commit('setState', {
       name: 'stories',
       value: stories,
@@ -21,7 +21,7 @@ export const actions = {
   },
   fetchStoriesWithId(state, payload) {
     return axios
-      .get(`https://strapi.kruzhok.io/stories/${payload.id}`)
+      .get(process.env.BASE_URL + `/stories/${payload.id}`)
       .then(response => {
         return state.commit('setState', {
           name: 'carrentStory',

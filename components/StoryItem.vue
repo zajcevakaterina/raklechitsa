@@ -1,7 +1,7 @@
 <template>
   <a class="story-item" :href="link">
     <div
-      :style="`background-image: url(https://strapi.kruzhok.io${ImageUrl})`"
+      :style="`background-image: url(${publicPath}${ImageUrl})`"
       class="story-item__photo"
     />
 
@@ -14,6 +14,11 @@
 <script>
 export default {
   props: ['ImageUrl', 'author', 'title', 'link'],
+  data() {
+    return {
+      publicPath: process.env.BASE_URL,
+    };
+  },
 };
 </script>
 

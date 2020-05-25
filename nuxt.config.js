@@ -57,8 +57,10 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    baseURL: 'https://strapi.kruzhok.io/',
+  axios: {},
+
+  env: {
+    BASE_URL: 'https://strapi.kruzhok.io',
   },
   /*
    ** Build configuration

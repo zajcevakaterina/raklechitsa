@@ -58,14 +58,13 @@ export default {
   computed: {
     renderStories() {
       const { stories } = this.$store.state;
-      console.log(this.texts.toLowerCase());
 
       if (this.texts !== '') {
         this.texts = this.texts.toLowerCase();
         const newTotalItems = stories.stories.filter(
           item =>
             item.author.toLowerCase().includes(this.texts) ||
-            item.quote.toLowerCase().includes(this.texts)
+            item.title.toLowerCase().includes(this.texts)
         );
 
         return newTotalItems.filter(
@@ -92,10 +91,9 @@ export default {
       const newTotalItems = stories.stories.filter(
         item =>
           item.author.toLowerCase().includes(this.texts) ||
-          item.quote.toLowerCase().includes(this.texts)
+          item.title.toLowerCase().includes(this.texts)
       );
       this.totalItems = newTotalItems.length;
-      //event.target.reset();
     },
   },
   mounted() {
@@ -108,6 +106,10 @@ export default {
         this.itemsPerPage = 16;
       }
     }
+  },
+  fetchOnServer: false,
+  async fetch({ store }) {
+    await store.dispatch('stories/fetchStories');
   },
 };
 </script>

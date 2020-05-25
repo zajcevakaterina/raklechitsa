@@ -4,7 +4,7 @@
     <p class="quiz__question">
       {{ currentQuestion.questionMain }}
       <span
-        class="quiz__question_type_additional"
+        class=" quiz__question quiz__question_type_additional"
         v-if="currentQuestion.questionAdditional"
         >{{ currentQuestion.questionAdditional }}</span
       >
@@ -123,7 +123,7 @@ export default {
 
 .quiz__question_type_additional {
   font-weight: 400;
-  color: #666666;
+  color: #666;
 }
 
 .quiz__input {
@@ -138,7 +138,7 @@ export default {
 
 .quiz__button_direction_back {
   background: none;
-  color: #666666;
+  color: #666;
   padding: 0;
 }
 
@@ -153,7 +153,7 @@ export default {
   font-weight: 500;
   width: 226px;
   padding: 16px 0;
-  color: #ffffff;
+  color: #fff;
   margin-left: 30px;
 }
 
@@ -162,14 +162,14 @@ export default {
   line-height: 1.21;
   margin: 0 0 0 30px;
   max-width: 378px;
-  color: #666666;
+  color: #666;
 }
 
 .quiz__policy-link {
   cursor: pointer;
-  color: #666666;
+  color: #666;
   text-decoration: none;
-  border-bottom: 1px solid #666666;
+  border-bottom: 1px solid #666;
 }
 
 .quiz__policy-link:hover {

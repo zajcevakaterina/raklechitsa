@@ -1,4 +1,6 @@
 <template>
+  <!-- TODO: разобраться с отступом внизу от "поделиться в социальных сетях в зависимости от контента истории и тегов в ней" -->
+  <!-- TODO: добавить год истории в дату -->
   <container class="container">
     <article class="individual-story">
       <div class="individual-story__lead">
@@ -23,23 +25,25 @@
             class="individual-story__link"
             :theme="'share'"
             @btnClick="openSharePopup"
-            >Поделитесь &#8599;
-          </share-button>
-          <p class="individual-story__date">{{ story.date }}</p>
+            >Поделитесь &#8599;</share-button
+          >
+          <p class="individual-story__date">{{ storyDate }}</p>
         </div>
       </div>
 
-      <story-column class="individual-story__text" v-html="story.text">
-      </story-column>
+      <story-column
+        class="individual-story__text"
+        v-html="story.text"
+      ></story-column>
 
       <div class="individual-story__conclusion">
         <share-button
           class="individual-story__link individual-story__link_place_bottom"
           :theme="'share'"
           @btnClick="openSharePopup"
-          >Поделитесь этой статьей в своих социальных сетях
-          &#8599;</share-button
         >
+          Поделитесь этой статьей в своих социальных сетях &#8599;
+        </share-button>
       </div>
     </article>
 
@@ -88,6 +92,32 @@ export default {
           return this.stories.filter((item, index) => index < 4);
         }
       }
+    },
+    storyDate() {
+      const month = [
+        'Января',
+        'Февраля',
+        'Марта',
+        'Апреля',
+        'Мая',
+        'Июня',
+        'Июля',
+        'Августа',
+        'Сентября',
+        'Октября',
+        'Ноября',
+        'Декабря',
+      ];
+
+      const date = new Date(this.story.date);
+      const storyDate =
+        date
+          .getDate()
+          .toString()
+          .padStart(2, '0') +
+        ' ' +
+        month[date.getMonth()];
+      return storyDate;
     },
   },
 
@@ -160,12 +190,9 @@ export default {
   margin: 0 0 36px;
 }
 
-.individual-story__text >>> p:last-of-type {
-  margin-bottom: 70px;
-}
-
-.individual-story__text >>> strong {
+.individual-story__text >>> blockquote {
   font-weight: 600;
+  margin: 0;
 }
 
 .individual-story__conclusion {
@@ -183,10 +210,6 @@ export default {
   .individual-story__lead {
     grid-template-columns: 1fr fit-content(602px);
     margin-bottom: 120px;
-  }
-
-  .individual-story__text >>> p:last-of-type {
-    margin-bottom: 60px;
   }
 }
 
@@ -206,10 +229,6 @@ export default {
   .individual-story__date {
     font-size: 16px;
     line-height: 1.5;
-  }
-
-  .individual-story__text >>> p:last-of-type {
-    margin-bottom: 46px;
   }
 
   .individual-story__conclusion {
@@ -247,9 +266,6 @@ export default {
     background-size: cover;
     display: block;
   }
-  .individual-story__text >>> p:last-of-type {
-    margin-bottom: 80px;
-  }
 }
 
 @media screen and (max-width: 475px) {
@@ -267,10 +283,6 @@ export default {
   .individual-story__date {
     font-size: 13px;
     line-height: 1.23;
-  }
-
-  .individual-story__text >>> p:last-of-type {
-    margin-bottom: 40px;
   }
 
   .individual-story__conclusion {

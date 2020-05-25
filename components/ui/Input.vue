@@ -67,19 +67,19 @@ export default {
 }
 
 .input::-webkit-input-placeholder {
-  color: #666666;
+  color: #666;
 }
 
 .input::-moz-placeholder {
-  color: #666666;
+  color: #666;
 }
 
 .input:-moz-placeholder {
-  color: #666666;
+  color: #666;
 }
 
 .input:-ms-input-placeholder {
-  color: #666666;
+  color: #666;
 }
 
 .input__item {

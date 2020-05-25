@@ -38,7 +38,7 @@ export default {
   font-size: 92px;
   line-height: 111px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
 }
 
 .cover__arrow-button {

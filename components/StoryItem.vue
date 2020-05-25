@@ -48,7 +48,7 @@ export default {
 .story-item__quote {
   font-size: 14px;
   line-height: 1.29;
-  color: #666666;
+  color: #666;
   margin: 0;
   padding: 0;
 }

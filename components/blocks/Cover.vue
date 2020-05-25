@@ -1,11 +1,26 @@
 <template>
-  <div class="cover">
+  <div class="cover" ref="cover">
     <h1 class="cover__heading">#РАКЛЕЧИТСЯ</h1>
-    <button class="cover__arrow-button" />
+    <arrow @scrollToCoverClick="scrollToIntro" class="cover__arrow-button" />
   </div>
 </template>
 
-<script></script>
+<script>
+import ArrowButton from '@/components/ui/ArrowButton';
+export default {
+  components: {
+    arrow: ArrowButton,
+  },
+  methods: {
+    scrollToIntro() {
+      this.$refs.cover.nextElementSibling.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
+    },
+  },
+};
+</script>
 
 <style scoped>
 .cover {
@@ -27,13 +42,6 @@
 }
 
 .cover__arrow-button {
-  background: no-repeat url('/arrows/arrow.png');
-  background-size: cover;
-  width: 36px;
-  height: 14px;
-  border: 0;
-  cursor: pointer;
-  box-sizing: border-box;
   padding: 0;
   position: absolute;
   bottom: 40px;

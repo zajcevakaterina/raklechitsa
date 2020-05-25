@@ -10,8 +10,8 @@
       <li class="stories__item" v-for="story in stories" :key="story.id">
         <story-item
           :author="story.author"
-          :quote="story.quote"
-          :photoUrl="story.photoUrl"
+          :title="story.title"
+          :ImageUrl="story.ImageUrl[0].url"
           :link="`/stories/${story.id}`"
         />
       </li>

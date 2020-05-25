@@ -122,6 +122,9 @@ export default {
       this.$store.commit('popup/closeContactsPopup');
     },
   },
+  async fetch({ store }) {
+    await store.dispatch('stories/fetchStories');
+  },
 };
 </script>
 

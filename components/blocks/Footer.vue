@@ -197,7 +197,10 @@ export default {
     max-width: 305px;
   }
   .footer__menu {
-    padding-right: 17%;
+    padding-right: 20%;
+  }
+  .footer__social {
+    width: 264px;
   }
   .footer__link {
     font-size: 16px;

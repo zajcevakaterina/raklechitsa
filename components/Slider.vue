@@ -14,7 +14,6 @@
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
 import VideoFrame from '@/components/VideoFrame';
-import SliderButtons from '@/components/ui/SliderButtons';
 
 export default {
   name: 'swiper-example-navigation',
@@ -23,7 +22,6 @@ export default {
     Swiper,
     SwiperSlide,
     'youtube-video': VideoFrame,
-    sliderB: SliderButtons,
   },
   data() {
     return {

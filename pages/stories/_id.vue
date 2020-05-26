@@ -80,7 +80,7 @@ export default {
     },
 
     story() {
-      return this.$store.getters['stories/getCarrentsStory'];
+      return this.$store.getters['stories/getCurrentsStory'];
     },
     itemsToLoop() {
       if (process.browser) {

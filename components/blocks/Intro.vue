@@ -235,7 +235,7 @@
     }
 
   }
-  @media (max-width: 1024px) {
+  @media (max-width: 900px) {
     .intro__slider-container {
       max-width: 500px;
       max-height: 254px;

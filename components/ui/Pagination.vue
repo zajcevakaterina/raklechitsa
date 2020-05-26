@@ -112,7 +112,7 @@ export default {
 }
 @media screen and (max-width: 1280px) {
   .pagination {
-    margin: 130px 0 90px 0;
+    margin: 113px 0 90px 0;
   }
   .pagination__item {
     width: 56px;

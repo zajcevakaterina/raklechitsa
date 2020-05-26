@@ -9,7 +9,14 @@
 
 <script>
 export default {
-  props: ['currentValue', 'maxValue'],
+  props: {
+    currentValue: {
+      type: Number,
+    },
+    maxValue: {
+      type: Number,
+    },
+  },
   computed: {
     progressBarFillingWidth() {
       return ((this.currentValue / this.maxValue) * 100).toFixed(2);

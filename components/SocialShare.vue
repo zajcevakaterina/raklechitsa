@@ -1,12 +1,12 @@
 <template>
   <div class="social">
     <h2 class="social__title">Поделитесь</h2>
-    <ul class="icons__list">
-      <li class="icons__item" v-for="link in links" :key="link.id">
-        <a :href="link.url" class="icons__link" target="_blank"
+    <ul class="social__list">
+      <li class="social__item" v-for="link in links" :key="link.id">
+        <a :href="link.url" class="social__link" target="_blank"
           ><img
             :src="`/social-icons/${link.name}.svg`"
-            class="icons__image"
+            class="social__image"
             target="blank"
             alt="#"
         /></a>
@@ -69,7 +69,7 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.icons__list {
+.social__list {
   padding: 0;
   list-style: none;
   margin: 108px auto 68px;
@@ -77,16 +77,16 @@ export default {
   align-items: center;
 }
 
-.icons__link:hover {
+.social__link:hover {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
 
-.icons__item {
+.social__item {
   margin-left: 42px;
 }
 
-.icons__item:first-child {
+.social__item:first-child {
   margin-left: 0px;
 }
 
@@ -104,14 +104,14 @@ export default {
     font-size: 18px;
     line-height: 1.17;
   }
-  .icons__image {
+  .social__image {
     width: 23px;
     height: 23px;
   }
-  .icons__item {
+  .social__item {
     margin: 0;
   }
-  .icons__list {
+  .social__list {
     width: 100%;
     justify-content: space-between;
     margin: 65px auto 50px;

@@ -38,14 +38,14 @@ export default {
 }
 
 .stories__title {
-  margin: 0 0 70px;
+  margin: 0 0 62px;
 }
 
 .stories__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 40px;
-  row-gap: 56px;
+  row-gap: 52px;
   padding: 0;
   list-style: none;
   justify-content: center;
@@ -54,11 +54,11 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .stories__list {
-    row-gap: 45px;
+    row-gap: 42px;
     margin-bottom: 41px;
   }
   .stories__title {
-    margin: 0 0 60px;
+    margin: 0 0 50px;
   }
 }
 

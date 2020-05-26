@@ -47,7 +47,7 @@ export default {
     line-height: 1.4;
   }
   .tag-lead__tag {
-    font-size: 36px;
+    font-size: 38px;
   }
 }
 

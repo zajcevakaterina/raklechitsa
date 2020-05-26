@@ -54,8 +54,8 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .stories__list {
-    row-gap: 60px;
-    margin-bottom: 60px;
+    row-gap: 45px;
+    margin-bottom: 41px;
   }
   .stories__title {
     margin: 0 0 60px;

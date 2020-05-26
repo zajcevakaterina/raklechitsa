@@ -110,13 +110,10 @@ export default {
       ];
 
       const date = new Date(this.story.date);
-      const storyDate =
-        date
-          .getDate()
-          .toString()
-          .padStart(2, '0') +
-        ' ' +
-        month[date.getMonth()];
+      const storyDay = date.getDate();
+      const storyMonth = month[date.getMonth()];
+      const storyYear = date.getFullYear();
+      const storyDate = `${storyDay} ${storyMonth} ${storyYear}`;
       return storyDate;
     },
   },

@@ -43,7 +43,7 @@ export default {
 
 <style scoped>
 .statistics {
-  padding: 100px 0;
+  padding: 100px 0 105px;
 }
 
 .statistics__title {

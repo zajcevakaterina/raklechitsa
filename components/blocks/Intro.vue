@@ -15,10 +15,11 @@
       </div>
       <div class="intro__slider-container">
         <slider-intro />
-        <p class="video__caption">
+        <p class="intro__video-caption">
           Все видео вы можете найте на нашем
           <a
-            class="video__link"
+            class="intro__video-link"
+            target='_blank'
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
           >
             YouTube канале</a
@@ -38,10 +39,10 @@
         <sliderB class="slider-buttons swiper-buttons-prev" />
         <div class="intro__slider-container">
           <slider-intro />
-          <p class="video__caption">
+          <p class="intro__video-caption">
             Все видео вы можете найте на нашем
             <a
-              class="video__link"
+              class="intro__video-link"
               href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
             >
               YouTube канале</a
@@ -104,7 +105,7 @@ export default {
 </script>
 
 <style scoped>
-.video__link {
+.intro__video-link {
   color: #666;
 }
 
@@ -153,7 +154,7 @@ export default {
   margin-bottom: 100px;
 }
 
-.video__caption {
+.intro__video-caption {
   margin-bottom: -24px;
   font-style: normal;
   font-weight: normal;
@@ -231,7 +232,7 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .video__caption {
+  .intro__video-caption {
     margin-bottom: -36px;
   }
 

@@ -43,7 +43,7 @@ export default {
   min-height: 650px;
   display: flex;
   flex-direction: column;
-  padding: 100px 0;
+  padding: 90px 0 100px;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -65,6 +65,7 @@ export default {
 }
 .about__section-text {
   color: #dedede;
+  margin-top: 37px;
 }
 
 @media screen and (max-width: 1280px) {

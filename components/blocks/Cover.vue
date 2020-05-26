@@ -1,6 +1,6 @@
 <template>
-  <div class="cover" ref="cover">
-    <h1 class="cover__heading">#РАКЛЕЧИТСЯ</h1>
+  <div class="cover" :cover="findCurrentBlock('cover')" ref="cover">
+    <h1 class="cover__heading" v-html="findCurrentBlock('cover').hashtag"></h1>
     <button @click="scrollToIntro" class="cover__arrow-button" />
   </div>
 </template>
@@ -13,6 +13,17 @@ export default {
         block: 'start',
         behavior: 'smooth',
       });
+    },
+    findCurrentBlock(blockToFind) {
+      const blocks = this.$store.getters['blocks/getBlocks'];
+      const currentBlock = blocks.find(block => block.block === blockToFind);
+      console.log(currentBlock);
+      return currentBlock;
+    },
+  },
+  computed: {
+    blocks() {
+      return this.$store.getters['blocks/getBlocks'];
     },
   },
 };

@@ -125,6 +125,9 @@ export default {
   async fetch({ store }) {
     await store.dispatch('stories/fetchStories');
   },
+  async fetch({ store }) {
+    await store.dispatch('statistics/fetchStats');
+  },
 };
 </script>
 

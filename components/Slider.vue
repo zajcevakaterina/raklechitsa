@@ -58,4 +58,9 @@ export default {
 .swiper-slide {
   width: 100%;
 }
+@media (max-width: 900px) {
+  .swiper-slide {
+    width: 500px;
+  }
+}
 </style>

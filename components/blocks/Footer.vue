@@ -217,8 +217,11 @@ export default {
     min-height: 292px;
     padding: 50px 0;
   }
+  .footer__social {
+    width: 381px;
+  }
   .footer__menu {
-    padding-right: 23%;
+    padding-right: 20%;
   }
   .section__title_place_footer {
     max-width: 288px;

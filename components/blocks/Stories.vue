@@ -66,7 +66,7 @@ export default {
   .stories__list {
     column-gap: 30px;
     row-gap: 46px;
-    margin-bottom: 46px;
+    margin-bottom: 28px;
   }
 
   .stories__title {

@@ -128,7 +128,7 @@ export default {
 }
 @media screen and (max-width: 1024px) {
   .tabs {
-    margin: 20px 0 0;
+    margin: 27px 0 0;
   }
   .tabs__link {
     margin-bottom: 8px;

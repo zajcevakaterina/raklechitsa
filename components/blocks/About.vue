@@ -83,6 +83,9 @@ export default {
   .about__container {
     min-height: 571px;
   }
+  .about__section-text {
+    margin-top: 29px;
+  }
   .about__hashtag {
     font-size: 52px;
     line-height: 63px;

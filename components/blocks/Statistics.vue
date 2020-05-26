@@ -43,12 +43,19 @@ export default {
       const statcopy = this.statistics;
       const hardCodeStat = statcopy.map(function(stat) {
         if (stat.id === 3) {
-          stat.oldValue = stat.oldValue ? stat.oldValue : 60;
-          stat.currentValue = stat.currentValue ? stat.currentValue : 88;
+          return {
+            ...stat,
+            oldValue: stat.oldValue ? stat.oldValue : 60,
+            currentValue: stat.currentValue ? stat.currentValue : 88,
+          };
         } else if (stat.id === 4) {
-          stat.oldValue = stat.oldValue ? stat.oldValue : 80;
-          stat.currentValue = stat.currentValue ? stat.currentValue : 55;
+          return {
+            ...stat,
+            oldValue: stat.oldValue ? stat.oldValue : 80,
+            currentValue: stat.currentValue ? stat.currentValue : 55,
+          };
         }
+
         return stat;
       });
       return hardCodeStat;

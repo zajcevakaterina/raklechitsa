@@ -11,7 +11,7 @@
         <story-item
           :author="story.author"
           :title="story.title"
-          :ImageUrl="story.ImageUrl[0].url"
+          :ImageUrl="isSmallImageToSet(story)"
           :link="`/stories/${story.id}`"
         />
       </li>
@@ -28,6 +28,16 @@ export default {
   components: {
     'section-title': SectionTitle,
     'story-item': StoryItem,
+  },
+
+  methods: {
+    isSmallImageToSet: story => {
+      const imageFormats = story.ImageUrl[0].formats;
+      if (imageFormats.hasOwnProperty('small')) {
+        return imageFormats.small.url;
+      }
+      return story.ImageUrl[0].url;
+    },
   },
 };
 </script>

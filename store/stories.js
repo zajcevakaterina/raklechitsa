@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const state = () => ({
   stories: [],
-  carrentStory: {},
+  currentStory: {},
 });
 
 export const mutations = {
@@ -24,7 +24,7 @@ export const actions = {
       .get(process.env.BASE_URL + `/stories/${payload.id}`)
       .then(response => {
         return state.commit('setState', {
-          name: 'carrentStory',
+          name: 'currentStory',
           value: response.data,
         });
       });
@@ -34,7 +34,7 @@ export const getters = {
   getStories(state) {
     return state.stories;
   },
-  getCarrentsStory(state) {
-    return state.carrentStory;
+  getCurrentsStory(state) {
+    return state.currentStory;
   },
 };

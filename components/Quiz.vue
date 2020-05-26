@@ -1,6 +1,7 @@
 <template>
   <form class="quiz">
     <h3 class="quiz__title">{{ currentQuestion.title }}</h3>
+
     <p class="quiz__question">
       {{ currentQuestion.questionMain }}
       <span
@@ -26,10 +27,12 @@
       >
 
       <quiz-button
+        :disabled="isAnswerEmpty"
         @btnClick="nextQuestion"
         class="quiz__button quiz__button_direction_next"
         >{{ isLastQuestion ? 'Отправить' : 'Далее' }}</quiz-button
       >
+      <!-- на потом подумать - @btnClick="isLastQuestion ? отправить или nextQuestion" -->
 
       <p class="quiz__policy" v-if="isLastQuestion">
         Нажимая на кнопку «отправить», вы даете согласие на
@@ -88,6 +91,12 @@ export default {
         return true;
       }
       return false;
+    },
+
+    isAnswerEmpty() {
+      if (this.answer === '') {
+        return true;
+      }
     },
   },
 

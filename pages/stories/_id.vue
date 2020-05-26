@@ -14,7 +14,7 @@
         <div class="individual-story__image-wrapper">
           <div
             class="individual-story__image"
-            :style="`background-image: url(${baseurl}${story.ImageUrl[0].url})`"
+            :style="`background-image: url('${baseurl}${isLargeImageToSet}')`"
           ></div>
         </div>
 
@@ -80,6 +80,15 @@ export default {
     story() {
       return this.$store.getters['stories/getCurrentsStory'];
     },
+
+    isLargeImageToSet() {
+      const imageFormats = this.story.ImageUrl[0].formats;
+      if (imageFormats.hasOwnProperty('large')) {
+        return imageFormats.large.url;
+      }
+      return this.story.ImageUrl[0].url;
+    },
+
     itemsToLoop() {
       if (process.browser) {
         if (window.innerWidth <= 768 && window.innerWidth > 475) {

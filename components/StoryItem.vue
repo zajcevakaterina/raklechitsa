@@ -1,7 +1,7 @@
 <template>
   <a class="story-item" :href="link">
     <div
-      :style="`background-image: url(${baseurl}${ImageUrl})`"
+      :style="`background-image: url('${baseurl}${ImageUrl}')`"
       class="story-item__photo"
     />
 

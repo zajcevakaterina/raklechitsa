@@ -19,7 +19,7 @@
           Все видео вы можете найте на нашем
           <a
             class="intro__video-link"
-            target='_blank'
+            target="_blank"
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
           >
             YouTube канале</a
@@ -231,17 +231,12 @@
       max-height: 314px;
     }
 
-    .slider-buttons-container {
-      margin-top: auto;
-      margin-bottom: 80px;
+    .slider-buttons {
+      margin-bottom: 79px;
     }
   }
 
   @media (max-width: 768px) {
-    .intro {
-      padding: 80px 0;
-    }
-
     .intro__video-caption {
       margin-bottom: -36px;
     }
@@ -264,6 +259,10 @@
     .intro__text {
       max-width: 380px;
       margin: 26px 0 0;
+    }
+
+    .slider-buttons {
+      margin: 0;
     }
 
     .intro__slider-container {
@@ -323,31 +322,5 @@
       top: 0;
       left: 0;
     }
-
-    .slider-buttons {
-      z-index: 2;
-      background-color: transparent;
-      width: 20px;
-    }
-  }
-
-  @media (max-width: 425px) {
-    .intro__title {
-      max-width: 290px;
-    }
-
-    .intro__text {
-      max-width: 290px;
-    }
-
-    .intro__middle {
-      position: relative;
-      min-height: 150px;
-      max-width: 290px;
-    }
-
-    /*.intro__slider-container {*/
-    /*  max-width: 290px;*/
-    /*}*/
   }
 </style>

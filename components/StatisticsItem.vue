@@ -3,7 +3,7 @@
     <p class="stat-item__text">{{ statDescription }}</p>
 
     <progress-bar
-      v-if="!statOldValue"
+      v-if="statOldValue === 0"
       :currentValue="statCurrentValue"
       :maxValue="statMaxValue"
     />

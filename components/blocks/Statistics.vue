@@ -38,7 +38,7 @@ export default {
     statistics() {
       return this.$store.getters['statistics/getStatistics'];
     },
-    // функции для того, чтобы захардкодить значения в doubleProgressBar вместо null из api
+    // функция для того, чтобы захардкодить значения в doubleProgressBar вместо null из api
     hardcodeStatistics() {
       const statcopy = this.statistics;
       const hardCodeStat = statcopy.map(function(stat) {
@@ -62,6 +62,12 @@ export default {
   padding: 100px 0;
 }
 
+.statistics__container {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 .statistics__title {
   margin: 0 0 70px;
 }
@@ -71,7 +77,7 @@ export default {
   column-gap: 40px;
   padding: 0;
   list-style: none;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
 }
 
@@ -122,12 +128,6 @@ export default {
   .statistics__title {
     margin: 0 auto 60px;
     text-align: center;
-  }
-
-  .statistics__container {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
   }
 
   .statistics__list {

@@ -29,6 +29,11 @@ import StatisticsItem from '@/components/StatisticsItem';
 import SectionTitle from '@/components/ui/SectionTitle';
 
 export default {
+  data() {
+    return {
+      publicPath: process.env.BASE_URL,
+    };
+  },
   components: {
     'stat-item': StatisticsItem,
     'section-title': SectionTitle,
@@ -38,6 +43,13 @@ export default {
       return this.$store.getters['statistics/getStatistics'];
     },
   },
+  async fetch({ store }) {
+    console.log('fetchfunction');
+    await store.dispatch('statistics/fetchStats');
+  },
+  // beforeMount() {
+  //   this.$store.dispatch('statistics/fetchStats');
+  // },
 };
 </script>
 

@@ -1,11 +1,22 @@
 <template>
-  <div class="cover">
+  <div class="cover" ref="cover">
     <h1 class="cover__heading">#РАКЛЕЧИТСЯ</h1>
-    <button class="cover__arrow-button" />
+    <button @click="scrollToIntro" class="cover__arrow-button" />
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  methods: {
+    scrollToIntro() {
+      this.$refs.cover.nextElementSibling.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
+    },
+  },
+};
+</script>
 
 <style scoped>
 .cover {
@@ -23,7 +34,7 @@
   font-size: 92px;
   line-height: 111px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
 }
 
 .cover__arrow-button {

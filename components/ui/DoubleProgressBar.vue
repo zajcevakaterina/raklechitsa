@@ -17,7 +17,18 @@
 
 <script>
 export default {
-  props: ['currentValue', 'oldValue', 'maxValue'],
+  props: {
+    oldValue: {
+      type: Number,
+    },
+    currentValue: {
+      type: Number,
+    },
+    maxValue: {
+      type: Number,
+      default: 100,
+    },
+  },
 
   computed: {
     dProgressBarOldFillingWidth() {

@@ -15,7 +15,7 @@ export default {};
   line-height: 22px;
   margin: 32px 0 0;
   max-width: 340px;
-  color: #666666;
+  color: #666;
   word-break: break-word;
 }
 @media screen and (max-width: 1280px) {

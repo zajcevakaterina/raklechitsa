@@ -43,7 +43,7 @@ export default {
   min-height: 650px;
   display: flex;
   flex-direction: column;
-  padding: 100px 0;
+  padding: 90px 0 100px;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -52,7 +52,7 @@ export default {
   font-weight: 800;
   font-size: 64px;
   line-height: 77px;
-  color: #ffffff;
+  color: #fff;
   text-align: center;
   margin: 0 auto 70px;
 }
@@ -61,10 +61,11 @@ export default {
   justify-content: space-between;
 }
 .about__section-title {
-  color: #ffffff;
+  color: #fff;
 }
 .about__section-text {
   color: #dedede;
+  margin-top: 37px;
 }
 
 @media screen and (max-width: 1280px) {

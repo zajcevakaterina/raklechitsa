@@ -10,7 +10,12 @@
 
 <script>
 export default {
-  props: ['theme'],
+  props: {
+    theme: {
+      type: String,
+      default: 'default',
+    },
+  },
 };
 </script>
 
@@ -23,6 +28,10 @@ export default {
   color: #fff;
   cursor: pointer;
   font-family: inherit;
+}
+
+.button:disabled {
+  background: #666;
 }
 
 .button:hover {

@@ -63,6 +63,10 @@ export default {
   margin-right: 0;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 1360px) {
   .statistics__list {
     grid-template-columns: repeat(4, 280px);

@@ -1,18 +1,22 @@
 <template>
+  <!-- TODO: разобраться с отступом внизу от "поделиться в социальных сетях в зависимости от контента истории и тегов в ней" -->
+  <!-- TODO: добавить год истории в дату -->
   <container class="container">
     <article class="individual-story">
       <div class="individual-story__lead">
         <story-title class="individual-story__title">
-          {{ stories[storyId].author }}:
+          {{ story.author }}:
           <span class="individual-story__quote"
-            >&laquo;{{ stories[storyId].quote }}&raquo;</span
+            >&laquo;{{ story.title }}&raquo;</span
           >
         </story-title>
 
         <div class="individual-story__image-wrapper">
           <div
             class="individual-story__image"
-            :style="`background-image: url(${stories[storyId].photoUrl})`"
+            :style="
+              `background-image: url(${publicPath}${story.ImageUrl[0].url})`
+            "
           ></div>
         </div>
 
@@ -23,31 +27,30 @@
             @btnClick="openSharePopup"
             >Поделитесь &#8599;</share-button
           >
-          <p class="individual-story__date">{{ stories[storyId].date }}</p>
+          <p class="individual-story__date">{{ storyDate }}</p>
         </div>
       </div>
 
       <story-column
         class="individual-story__text"
-        v-html="stories[storyId].text"
-      >
-      </story-column>
+        v-html="story.text"
+      ></story-column>
 
       <div class="individual-story__conclusion">
         <share-button
           class="individual-story__link individual-story__link_place_bottom"
           :theme="'share'"
           @btnClick="openSharePopup"
-          >Поделитесь этой статьей в своих социальных сетях
-          &#8599;</share-button
         >
+          Поделитесь этой статьей в своих социальных сетях &#8599;
+        </share-button>
       </div>
     </article>
 
     <stories :stories="itemsToLoop" />
-    <a class="more-stories-link" href="stories">
+    <nuxt-link to="/stories" class="more-stories-link">
       <p class="more-stories-link__text">Больше статей</p>
-    </a>
+    </nuxt-link>
   </container>
 </template>
 
@@ -66,16 +69,19 @@ export default {
     'share-button': Button,
     stories: Stories,
   },
-
+  data() {
+    return {
+      publicPath: process.env.BASE_URL,
+    };
+  },
   computed: {
-    storyId() {
-      return this.$route.params.id - 1;
-    },
-
     stories() {
       return this.$store.getters['stories/getStories'];
     },
 
+    story() {
+      return this.$store.getters['stories/getCurrentsStory'];
+    },
     itemsToLoop() {
       if (process.browser) {
         if (window.innerWidth <= 768 && window.innerWidth > 475) {
@@ -87,12 +93,39 @@ export default {
         }
       }
     },
+    storyDate() {
+      const month = [
+        'Января',
+        'Февраля',
+        'Марта',
+        'Апреля',
+        'Мая',
+        'Июня',
+        'Июля',
+        'Августа',
+        'Сентября',
+        'Октября',
+        'Ноября',
+        'Декабря',
+      ];
+
+      const date = new Date(this.story.date);
+      const storyDay = date.getDate();
+      const storyMonth = month[date.getMonth()];
+      const storyYear = date.getFullYear();
+      const storyDate = `${storyDay} ${storyMonth} ${storyYear}`;
+      return storyDate;
+    },
   },
 
   methods: {
     openSharePopup() {
       this.$store.commit('popup/openSharePopup');
     },
+  },
+  async fetch({ store, route }) {
+    await store.dispatch('stories/fetchStories');
+    await store.dispatch('stories/fetchStoriesWithId', { id: route.params.id });
   },
 };
 </script>
@@ -154,12 +187,9 @@ export default {
   margin: 0 0 36px;
 }
 
-.individual-story__text >>> p:last-of-type {
-  margin-bottom: 70px;
-}
-
-.individual-story__text >>> strong {
+.individual-story__text >>> blockquote {
   font-weight: 600;
+  margin: 0;
 }
 
 .individual-story__conclusion {
@@ -177,10 +207,6 @@ export default {
   .individual-story__lead {
     grid-template-columns: 1fr fit-content(602px);
     margin-bottom: 120px;
-  }
-
-  .individual-story__text >>> p:last-of-type {
-    margin-bottom: 60px;
   }
 }
 
@@ -200,10 +226,6 @@ export default {
   .individual-story__date {
     font-size: 16px;
     line-height: 1.5;
-  }
-
-  .individual-story__text >>> p:last-of-type {
-    margin-bottom: 46px;
   }
 
   .individual-story__conclusion {
@@ -241,9 +263,6 @@ export default {
     background-size: cover;
     display: block;
   }
-  .individual-story__text >>> p:last-of-type {
-    margin-bottom: 80px;
-  }
 }
 
 @media screen and (max-width: 475px) {
@@ -261,10 +280,6 @@ export default {
   .individual-story__date {
     font-size: 13px;
     line-height: 1.23;
-  }
-
-  .individual-story__text >>> p:last-of-type {
-    margin-bottom: 40px;
   }
 
   .individual-story__conclusion {

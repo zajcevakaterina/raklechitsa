@@ -54,11 +54,12 @@ export default {
 .tabs {
   display: flex;
   justify-content: space-between;
-  margin: 32px 0 0;
+  margin: 37px 0 0;
 }
 .tabs__list {
   list-style: none;
   margin: 0;
+  text-align: right;
 }
 .tabs__link {
   cursor: pointer;
@@ -73,22 +74,22 @@ export default {
   color: #a2a2a2;
 }
 .tabs__link_call-to-action:hover {
-  color: #000000;
+  color: #000;
   transition: color 0.3s linear;
 }
 .tabs__link_call-to-action_active {
-  color: #000000;
+  color: #000;
 }
 
 .tabs__link_about {
   color: #c9c9c9;
 }
 .tabs__link_about:hover {
-  color: #ffffff;
+  color: #fff;
   transition: color 0.3s linear;
 }
 .tabs__link_about_active {
-  color: #ffffff;
+  color: #fff;
 }
 .tabs__content {
   display: flex;
@@ -110,10 +111,11 @@ export default {
 }
 
 .tabs__text_call-to-action {
-  color: #666666;
+  color: #666;
 }
 .tabs__text_about {
   color: #dedede;
+  margin-bottom: 22px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -161,7 +163,7 @@ export default {
     border-bottom: #613a93 solid 2px;
   }
   .tabs__link_about_active {
-    border-bottom: #ffffff solid 2px;
+    border-bottom: #fff solid 2px;
   }
   .tabs__content {
     margin-left: 0px;

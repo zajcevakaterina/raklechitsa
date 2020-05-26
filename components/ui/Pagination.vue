@@ -1,6 +1,6 @@
 <template>
   <div class="pagination">
-    <div class="pagnation__item-first" @click="setActive(1)">
+    <div class="pagination__item-first" @click="setActive(1)">
       Первая
     </div>
     <div
@@ -17,7 +17,7 @@
     >
       {{ index }}
     </div>
-    <div class="pagnation__item-last" @click="setActive(pagesCount)">
+    <div class="pagination__item-last" @click="setActive(pagesCount)">
       Последняя
     </div>
   </div>
@@ -99,11 +99,11 @@ export default {
   margin-right: 0px;
 }
 
-.pagnation__item-first {
+.pagination__item-first {
   margin-right: 10px;
   cursor: pointer;
 }
-.pagnation__item-last {
+.pagination__item-last {
   cursor: pointer;
 }
 .pagination__item_active,

@@ -14,9 +14,7 @@
         <div class="individual-story__image-wrapper">
           <div
             class="individual-story__image"
-            :style="
-              `background-image: url(${publicPath}${story.ImageUrl[0].url})`
-            "
+            :style="`background-image: url(${baseurl}${story.ImageUrl[0].url})`"
           ></div>
         </div>
 
@@ -71,7 +69,7 @@ export default {
   },
   data() {
     return {
-      publicPath: process.env.BASE_URL,
+      baseurl: process.env.BASE_URL,
     };
   },
   computed: {

@@ -7,9 +7,10 @@
       <ul class="statistics__list">
         <li
           class="statistics__item"
-          v-for="statItem in statistics"
+          v-for="statItem in hardcodeStatistics"
           :key="statItem.id"
         >
+          <!-- TODO: поменять hardcodeStatistics на statistics, если изменятся данные по null в апи-->
           <stat-item
             :statDescription="statItem.description"
             :statCurrentValue="statItem.currentValue"
@@ -36,6 +37,21 @@ export default {
   computed: {
     statistics() {
       return this.$store.getters['statistics/getStatistics'];
+    },
+    // функции для того, чтобы захардкодить значения в doubleProgressBar вместо null из api
+    hardcodeStatistics() {
+      const statcopy = this.statistics;
+      const hardCodeStat = statcopy.map(function(stat) {
+        if (stat.id === 3) {
+          stat.oldValue = stat.oldValue ? stat.oldValue : 60;
+          stat.currentValue = stat.currentValue ? stat.currentValue : 88;
+        } else if (stat.id === 4) {
+          stat.oldValue = stat.oldValue ? stat.oldValue : 80;
+          stat.currentValue = stat.currentValue ? stat.currentValue : 55;
+        }
+        return stat;
+      });
+      return hardCodeStat;
     },
   },
 };

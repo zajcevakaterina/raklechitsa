@@ -1,17 +1,21 @@
 <template>
   <nav class="mobile-menu">
     <container class="mobile-menu__container">
-      <ul class="mobile-menu__links">
-        <li class="mobile-menu__link-wrapper">
-          <nuxt-link to="/" class="mobile-menu__link">Главная</nuxt-link>
-        </li>
-        <li class="mobile-menu__link-wrapper">
-          <nuxt-link to="/stories" class="mobile-menu__link">Истории</nuxt-link>
-        </li>
-      </ul>
-      <menu-button @btnClick="openQuizPopup" class="mobile-menu__button"
-        >Рассказать историю</menu-button
-      >
+      <nav class="mobile-menu__wrapper">
+        <ul class="mobile-menu__links">
+          <li class="mobile-menu__link-wrapper">
+            <nuxt-link to="/" class="mobile-menu__link">Главная</nuxt-link>
+          </li>
+          <li class="mobile-menu__link-wrapper">
+            <nuxt-link to="/stories" class="mobile-menu__link"
+              >Истории</nuxt-link
+            >
+          </li>
+        </ul>
+        <menu-button @btnClick="openQuizPopup" class="mobile-menu__button"
+          >Рассказать историю</menu-button
+        >
+      </nav>
     </container>
   </nav>
 </template>
@@ -40,7 +44,7 @@ export default {
   border-bottom: 1px solid #e8e8e8;
 }
 
-.mobile-menu__container {
+.mobile-menu__wrapper {
   display: flex;
 }
 
@@ -77,7 +81,7 @@ export default {
 }
 
 @media screen and (max-width: 400px) {
-  .mobile-menu__container {
+  .mobile-menu__wrapper {
     flex-direction: column;
   }
 

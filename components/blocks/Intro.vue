@@ -231,12 +231,17 @@
       max-height: 314px;
     }
 
-    .slider-buttons {
-      margin-bottom: 79px;
+    .slider-buttons-container {
+      margin-top: auto;
+      margin-bottom: 80px;
     }
   }
 
   @media (max-width: 768px) {
+    .intro {
+      padding: 80px 0;
+    }
+
     .intro__video-caption {
       margin-bottom: -36px;
     }
@@ -259,10 +264,6 @@
     .intro__text {
       max-width: 380px;
       margin: 26px 0 0;
-    }
-
-    .slider-buttons {
-      margin: 0;
     }
 
     .intro__slider-container {

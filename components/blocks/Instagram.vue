@@ -2,21 +2,64 @@
   <section class="insta">
     <div class="insta__cover">
       <p class="insta__cover-text">
-        {{ tagLeadInstaTitle }}
-        <span class="insta__hashtag">{{ tagLeadInstaHashtag }}</span>
+        {{ tagLeadInstaBlock.title }}
+        <span class="insta__hashtag">{{ tagLeadInstaBlock.hashtag }}</span>
       </p>
+    </div>
+
+    <div class="insta__container">
+      <div class="insta__desc">
+        <a
+          class="insta__title-link"
+          href="https://www.instagram.com/raklechitsa/"
+          target="blank"
+        >
+          <section-title class="insta__title">
+            {{ instagramBlock.title }}
+          </section-title>
+        </a>
+        <section-text
+          class="insta__text"
+          v-html="instagramBlock.text"
+        ></section-text>
+      </div>
+
+      <ul class="insta__cards">
+        <li class="insta__card" v-for="photo in instagram" :key="photo.id">
+          <insta-photo
+            :author="photo.author"
+            :link="photo.url"
+            :urlPhotoImage="photo.display_url"
+          />
+        </li>
+      </ul>
     </div>
   </section>
 </template>
 
 <script>
+import InstaPhoto from '@/components/InstaPhoto';
+import SectionTitle from '@/components/ui/SectionTitle';
+import SectionText from '@/components/ui/SectionText';
+
 export default {
-  props: {
-    tagLeadInstaTitle: {
-      type: String,
+  components: {
+    'section-title': SectionTitle,
+    'section-text': SectionText,
+    'insta-photo': InstaPhoto,
+  },
+
+  computed: {
+    instagram() {
+      return this.$store.getters['insta/getPhotos'].filter(
+        (item, index) => index < 8
+      );
     },
-    tagLeadInstaHashtag: {
-      type: String,
+    instagramBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('instagram');
+    },
+    tagLeadInstaBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('note-2');
     },
   },
 };

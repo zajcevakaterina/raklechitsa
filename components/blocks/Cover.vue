@@ -14,6 +14,18 @@ export default {
         behavior: 'smooth',
       });
     },
+    findBlock(blockToFind) {
+      this.$store.commit('blocks/findCurrentBlock', blockToFind);
+    },
+  },
+  computed: {
+    // blocks() {
+    //   return this.$store.getters['blocks/getBlocks'];
+    // },
+
+    cover() {
+      return this.$store.getters['blocks/getCurrentBlock']('cover');
+    },
   },
   computed: {
     cover() {

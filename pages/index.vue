@@ -13,36 +13,35 @@
         <p class="more-stories-link__text">Больше статей</p>
       </a>
 
-      <section class="insta">
-        <tag-lead class="insta__cover" :hashtag="tagLeadInsta.hashtag">{{
-          tagLeadInsta.title
-        }}</tag-lead>
-        <div class="insta__container">
-          <div class="insta__desc">
-            <a
-              class="insta__title-link"
-              href="https://www.instagram.com/raklechitsa/"
-              target="blank"
-            >
-              <section-title class="insta__title">{{
-                instagramBlock.title
-              }}</section-title>
-            </a>
-            <section-text class="insta__text" v-html="instagramBlock.text">
-            </section-text>
-          </div>
-
-          <ul class="insta__cards">
-            <li class="insta__card" v-for="photo in photos" :key="photo.id">
-              <insta-photo
-                :author="photo.author"
-                :link="photo.instaLink"
-                :urlPhotoImage="photo.instaImage"
-              />
-            </li>
-          </ul>
+      <instagram
+        :tagLeadInstaTitle="tagLeadInstaBlock.title"
+        :tagLeadInstaHashtag="tagLeadInstaBlock.hashtag"
+      />
+      <div class="insta__container">
+        <div class="insta__desc">
+          <a
+            class="insta__title-link"
+            href="https://www.instagram.com/raklechitsa/"
+            target="blank"
+          >
+            <section-title class="insta__title">{{
+              instagramBlock.title
+            }}</section-title>
+          </a>
+          <section-text class="insta__text" v-html="instagramBlock.text">
+          </section-text>
         </div>
-      </section>
+
+        <ul class="insta__cards">
+          <li class="insta__card" v-for="photo in photos" :key="photo.id">
+            <insta-photo
+              :author="photo.author"
+              :link="photo.instaLink"
+              :urlPhotoImage="photo.instaImage"
+            />
+          </li>
+        </ul>
+      </div>
     </container>
 
     <call-to-action />
@@ -69,6 +68,7 @@ import Cover from '@/components/blocks/Cover';
 import Intro from '@/components/blocks/Intro';
 import Stories from '@/components/blocks/Stories';
 import InstaPhoto from '@/components/InstaPhoto';
+import Instagram from '@/components/blocks/Instagram';
 import CallToAction from '@/components/blocks/CallToAction';
 import Statistics from '@/components/blocks/Statistics';
 import About from '@/components/blocks/About';
@@ -85,6 +85,7 @@ export default {
     intro: Intro,
     stories: Stories,
     'insta-photo': InstaPhoto,
+    instagram: Instagram,
     'call-to-action': CallToAction,
     statistics: Statistics,
     about: About,
@@ -119,7 +120,7 @@ export default {
     tagLeadIntroBlock() {
       return this.$store.getters['blocks/getCurrentBlock']('note-1');
     },
-    tagLeadInsta() {
+    tagLeadInstaBlock() {
       return this.$store.getters['blocks/getCurrentBlock']('note-2');
     },
     instagramBlock() {

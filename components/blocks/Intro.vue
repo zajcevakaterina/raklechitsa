@@ -2,80 +2,64 @@
   <div class="intro">
     <div class="intro__container">
       <div class="intro__left">
-        <title-text class="intro__title">
-          {{ title }}
-        </title-text>
-        <regular-text class="intro__text">
-          {{ text }}
-        </regular-text>
+        <title-text class="intro__title">{{ intro.title }}</title-text>
+        <regular-text class="intro__text" v-html="intro.text"></regular-text>
         <div class="slider-buttons-container">
           <sliderB class="slider-buttons swiper-buttons-prev" />
-          <sliderB class="swiper-buttons-next " side="slider-button_right" />
+          <sliderB class="swiper-buttons-next" side="slider-button_right" />
         </div>
       </div>
       <div class="intro__slider-container">
         <slider-intro />
         <p class="intro__video-caption">
-          Все видео вы можете найте на нашем
-          <a
+          {{ intro.note }}
+          <!-- <a
             class="intro__video-link"
             target="_blank"
             href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-          >
-            YouTube канале</a
-          >
+          >YouTube канале</a> -->
         </p>
       </div>
     </div>
 
     <div class="intro__middle-container">
-      <title-text class="intro__title">
-        {{ title }}
-      </title-text>
-      <regular-text class="intro__text">
-        {{ text }}
-      </regular-text>
+      <title-text class="intro__title">{{ intro.title }}</title-text>
+      <regular-text class="intro__text" v-html="intro.text"></regular-text>
       <div class="intro__middle">
         <sliderB class="slider-buttons swiper-buttons-prev" />
         <div class="intro__slider-container">
           <slider-intro />
           <p class="intro__video-caption">
-            Все видео вы можете найте на нашем
-            <a
+            {{ intro.note }}
+            <!-- <a
               class="intro__video-link"
               href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-            >
-              YouTube канале</a
-            >.
+            >YouTube канале</a>. -->
           </p>
         </div>
         <sliderB
-          class="slider-buttons swiper-buttons-next "
+          class="slider-buttons swiper-buttons-next"
           side="slider-button_right"
         />
       </div>
     </div>
 
     <div class="intro__mini-container">
-      <title-text class="intro__title">
-        {{ title }}
-      </title-text>
-      <regular-text class="intro__text">
-        {{ text }}
-      </regular-text>
+      <title-text class="intro__title">{{ intro.title }}</title-text>
+      <regular-text class="intro__text" v-html="intro.text"></regular-text>
       <div class="intro__middle">
         <sliderB class="slider-buttons swiper-buttons-prev" />
         <slider-intro class="intro__slider-container youtube-video" />
         <sliderB
-          class="slider-buttons swiper-buttons-next "
+          class="slider-buttons swiper-buttons-next"
           side="slider-button_right"
         />
       </div>
     </div>
 
-    <tag-lead class="intro__cover" :theme="'thin'">
-      и в отличие от рака,
-    </tag-lead>
+    <tag-lead class="intro__cover" :hashtag="tagLeadHashtag" :theme="'thin'">{{
+      tagLeadIntroTitle
+    }}</tag-lead>
   </div>
 </template>
 
@@ -97,12 +81,26 @@ export default {
     'slider-intro': Slider,
   },
 
+  props: {
+    tagLeadIntroTitle: {
+      type: String,
+    },
+    tagLeadHashtag: {
+      type: String,
+    },
+  },
+
   data() {
     return {
-      title: 'Истории людей, победивших рак, но не свои привычки',
       text:
         'Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
     };
+  },
+
+  computed: {
+    intro() {
+      return this.$store.getters['blocks/getCurrentBlock']('videos');
+    },
   },
 };
 </script>

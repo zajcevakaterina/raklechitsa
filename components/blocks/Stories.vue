@@ -3,7 +3,7 @@
     <section-title
       v-if="$route.path === '/' || $route.path === '/stories'"
       class="stories__title"
-      >Истории неизлечимых привычек</section-title
+      >{{ storiesBlock.title }}</section-title
     >
     <slot></slot>
     <ul class="stories__list">
@@ -37,6 +37,12 @@ export default {
         return imageFormats.small.url;
       }
       return story.ImageUrl[0].url;
+    },
+  },
+
+  computed: {
+    storiesBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('stories');
     },
   },
 };

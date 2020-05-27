@@ -109,6 +109,7 @@ export default {
 @media screen and (max-width: 768px) {
   .stat-item {
     height: 216px;
+    max-height: 216px;
   }
 
   .stat-item__text {

@@ -7,9 +7,10 @@
       <ul class="statistics__list">
         <li
           class="statistics__item"
-          v-for="statItem in statistics"
+          v-for="statItem in hardcodeStatistics"
           :key="statItem.id"
         >
+          <!-- TODO: поменять hardcodeStatistics на statistics, если изменятся данные по null в апи-->
           <stat-item
             :statDescription="statItem.description"
             :statCurrentValue="statItem.currentValue"
@@ -37,6 +38,28 @@ export default {
     statistics() {
       return this.$store.getters['statistics/getStatistics'];
     },
+    // функция для того, чтобы захардкодить значения в doubleProgressBar вместо null из api
+    hardcodeStatistics() {
+      const statcopy = this.statistics;
+      const hardCodeStat = statcopy.map(function(stat) {
+        if (stat.id === 3) {
+          return {
+            ...stat,
+            oldValue: stat.oldValue ? stat.oldValue : 60,
+            currentValue: stat.currentValue ? stat.currentValue : 88,
+          };
+        } else if (stat.id === 4) {
+          return {
+            ...stat,
+            oldValue: stat.oldValue ? stat.oldValue : 80,
+            currentValue: stat.currentValue ? stat.currentValue : 55,
+          };
+        }
+
+        return stat;
+      });
+      return hardCodeStat;
+    },
   },
 };
 </script>
@@ -44,6 +67,12 @@ export default {
 <style scoped>
 .statistics {
   padding: 100px 0;
+}
+
+.statistics__container {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .statistics__title {
@@ -55,7 +84,7 @@ export default {
   column-gap: 40px;
   padding: 0;
   list-style: none;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
 }
 
@@ -106,12 +135,6 @@ export default {
   .statistics__title {
     margin: 0 auto 60px;
     text-align: center;
-  }
-
-  .statistics__container {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
   }
 
   .statistics__list {

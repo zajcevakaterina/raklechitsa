@@ -49,7 +49,10 @@
             >.
           </p>
         </div>
-        <sliderB class="swiper-buttons-next " side="slider-button_right" />
+        <sliderB
+          class="slider-buttons swiper-buttons-next "
+          side="slider-button_right"
+        />
       </div>
     </div>
 
@@ -152,6 +155,7 @@ export default {
 
 .slider-buttons {
   margin: 0;
+  z-index: 2;
 }
 
 .intro__video-caption {
@@ -199,17 +203,27 @@ export default {
   }
 }
 
+@media screen and (max-width: 1100px) {
+  .intro__slider-container {
+    max-width: 690px;
+  }
+
+  .intro__video-caption {
+    margin-bottom: 18px;
+  }
+}
+
 @media (max-width: 1024px) {
   .intro {
-    padding: 85px 0 80px;
+    padding: 80px 0;
   }
 
   .intro__left {
-    padding-top: 4px;
+    padding-top: 10px;
   }
 
   .intro__container {
-    min-height: 389px;
+    min-height: 393px;
     max-width: 924px;
   }
 
@@ -231,8 +245,15 @@ export default {
     max-height: 314px;
   }
 
-  .slider-buttons {
+  .slider-buttons-container {
     margin-bottom: 79px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .intro__slider-container {
+    max-width: 500px;
+    max-height: 254px;
   }
 }
 
@@ -243,6 +264,10 @@ export default {
 
   .intro__container {
     display: none;
+  }
+
+  .slider-buttons {
+    min-width: 40px;
   }
 
   .intro__middle-container {
@@ -261,22 +286,22 @@ export default {
     margin: 26px 0 0;
   }
 
-  .slider-buttons {
-    margin: 0;
-  }
-
   .intro__slider-container {
     max-width: 580px;
   }
 
   .intro__middle {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     min-height: 300px;
     max-width: 688px;
     align-items: center;
     margin: 60px 14px 80px;
+  }
+
+  .slider-buttons-container {
+    margin-bottom: 75px;
   }
 }
 
@@ -311,9 +336,10 @@ export default {
   }
 
   .intro__middle {
-    margin: 42px 0 25px;
+    margin: 42px 0 8px;
     position: relative;
     min-height: 200px;
+    justify-content: space-between;
   }
 
   .youtube-video {
@@ -324,29 +350,14 @@ export default {
   }
 
   .slider-buttons {
-    z-index: 2;
-    background-color: transparent;
-    width: 20px;
+    min-width: 20px;
+    background: transparent;
   }
 }
 
-@media (max-width: 425px) {
-  .intro__title {
-    max-width: 290px;
-  }
-
-  .intro__text {
-    max-width: 290px;
-  }
-
+@media (max-width: 400px) {
   .intro__middle {
-    position: relative;
-    min-height: 150px;
-    max-width: 290px;
+    min-height: 165px;
   }
-
-  /*.intro__slider-container {*/
-  /*  max-width: 290px;*/
-  /*}*/
 }
 </style>

@@ -17,19 +17,31 @@
         :tagLeadInstaTitle="tagLeadInstaBlock.title"
         :tagLeadInstaHashtag="tagLeadInstaBlock.hashtag"
       />
-      <div class="insta__container">
-        <div class="insta__desc">
-          <a
-            class="insta__title-link"
-            href="https://www.instagram.com/raklechitsa/"
-            target="blank"
-          >
-            <section-title class="insta__title">{{
-              instagramBlock.title
-            }}</section-title>
-          </a>
-          <section-text class="insta__text" v-html="instagramBlock.text">
-          </section-text>
+        <div class="insta__container">
+          <div class="insta__desc">
+            <a
+              class="insta__title-link"
+              href="https://www.instagram.com/raklechitsa/"
+              target="blank"
+            >
+              <section-title class="insta__title">{{
+                instagramBlock.title
+              }}</section-title>
+            </a>
+            <section-text class="insta__text" v-html="instagramBlock.text">
+            </section-text>
+          </div>
+
+          <ul class="insta__cards">
+            <li class="insta__card" v-for="photo in instagram" :key="photo.id">
+              <insta-photo
+                :author="photo.author"
+                :link="photo.url"
+                :urlPhotoImage="photo.display_url"
+              />
+            </li>
+          </ul>
+
         </div>
 
         <ul class="insta__cards">
@@ -97,7 +109,7 @@ export default {
   },
 
   computed: {
-    photos() {
+    instagram() {
       return this.$store.getters['insta/getPhotos'];
     },
     stories() {
@@ -138,6 +150,7 @@ export default {
     await store.dispatch('statistics/fetchStats');
     await store.dispatch('blocks/fetchBlocks');
     await store.dispatch('video/fetchVideo');
+    await store.dispatch('insta/fetchPhotos');
   },
 };
 </script>

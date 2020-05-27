@@ -23,6 +23,7 @@
 @media screen and (max-width: 768px) {
   .insta__cover {
     margin-bottom: 76px;
+    min-height: 100px;
   }
 }
 

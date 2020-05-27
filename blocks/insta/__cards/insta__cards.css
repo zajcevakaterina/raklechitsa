@@ -35,7 +35,7 @@
 @media screen and (max-width: 475px) {
   .insta__cards {
     grid-template-columns: repeat(2, 1fr);
-    margin: 40px 0 50px;
+    margin: 43px 0 50px;
     column-gap: 10px;
     row-gap: 10px;
   }

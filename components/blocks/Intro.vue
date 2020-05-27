@@ -48,15 +48,11 @@
       </div>
     </div>
 
-    <!-- <tag-lead class="intro__cover" :hashtag="tagLeadHashtag" :theme="'thin'">{{
-      tagLeadIntroTitle
-    }}</tag-lead> -->
-
     <div class="intro__cover">
       <p class="intro__cover-text">
-        {{ tagLeadIntroTitle }}
+        {{ tagLeadIntroBlock.title }}
         <span class="intro__hashtag">
-          {{ tagLeadHashtag }}
+          {{ tagLeadIntroBlock.hashtag }}
         </span>
       </p>
     </div>
@@ -77,29 +73,15 @@ export default {
     'regular-text': SectionText,
     sliderB: SliderButtons,
     'youtube-video': VideoFrame,
-    'tag-lead': TagLead,
     'slider-intro': Slider,
-  },
-
-  props: {
-    tagLeadIntroTitle: {
-      type: String,
-    },
-    tagLeadHashtag: {
-      type: String,
-    },
-  },
-
-  data() {
-    return {
-      text:
-        'Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
-    };
   },
 
   computed: {
     intro() {
       return this.$store.getters['blocks/getCurrentBlock']('videos');
+    },
+    tagLeadIntroBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('note-1');
     },
   },
 };

@@ -33,3 +33,9 @@
     margin-bottom: 80px;
   }
 }
+
+@media (max-width: 425px) {
+  .more-stories-link {
+    margin-bottom: 45px;
+  }
+}

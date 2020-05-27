@@ -230,7 +230,7 @@ export default {
     width: 50%;
   }
 }
-@media screen and (max-width: 950px) {
+@media (max-width: 950px) {
   .section__title_place_footer {
     max-width: 268px;
   }
@@ -239,10 +239,14 @@ export default {
   }
   .footer__menu {
     flex-direction: column;
-    padding-right: 20%;
+    padding-right: 6%;
   }
   .footer__social {
-    width: 226px;
+    /*width: 226px;*/
+    width: 360px;
+  }
+  .footer__link {
+    margin-bottom: 25px;
   }
   ::v-deep .menu__links {
     flex-direction: column;
@@ -254,7 +258,7 @@ export default {
     margin-bottom: 16px;
   }
 }
-@media screen and (max-width: 660px) {
+@media (max-width: 660px) {
   .section__title_place_footer {
     max-width: 290px;
     font-size: 18px;
@@ -299,4 +303,10 @@ export default {
     margin: 0;
   }
 }
+@media (max-width: 425px) {
+  ::v-deep .menu__link-wrapper {
+    margin-bottom: 8px;
+  }
+}
+
 </style>

@@ -134,6 +134,10 @@ export default {
   padding: 0;
   background-color: #613a93;
 }
+.stories__button:disabled {
+  background-color: #613a93;
+}
+
 .stories__button-mobile {
   background-color: #613a93;
   height: 46px;

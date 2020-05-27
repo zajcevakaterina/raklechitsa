@@ -158,7 +158,7 @@ export default {
 
 .quiz__title_type_thanks {
   text-align: center;
-  margin: 0 0 432px;
+  margin: 0 0 452px;
 }
 
 .quiz__question {
@@ -237,6 +237,10 @@ export default {
     line-height: 1.14;
   }
 
+  .quiz__title_type_thanks {
+    margin: 0 0 412px;
+  }
+
   .quiz__question {
     font-size: 16px;
     line-height: 1.37;
@@ -257,6 +261,10 @@ export default {
     line-height: 1.15;
   }
 
+  .quiz__title_type_thanks {
+    margin: 0 0 415px;
+  }
+
   .quiz__question {
     font-size: 15px;
     line-height: 1.47;
@@ -268,19 +276,34 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .quiz__title_type_thanks {
+    margin: 0 0 380px;
+  }
   .quiz__question {
     min-height: 96px;
   }
   .quiz__input {
     margin: 30px 0 0;
   }
-}
 
+  .quiz__submit {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quiz__policy {
+    margin: 10px 0 0;
+  }
+}
 @media screen and (max-width: 425px) {
   .quiz__title {
     font-size: 18px;
     line-height: 1.17;
     margin: 0 0 30px;
+  }
+
+  .quiz__title_type_thanks {
+    margin: 0 0 476px;
   }
 
   .quiz__question {
@@ -291,12 +314,6 @@ export default {
 
   .quiz__submit {
     margin-top: 250px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .quiz__buttons {
-    margin-bottom: 10px;
   }
 
   .quiz__button {
@@ -314,7 +331,6 @@ export default {
   }
 
   .quiz__policy {
-    margin: 0;
     max-width: 350px;
     font-size: 11px;
     line-height: 1.18;

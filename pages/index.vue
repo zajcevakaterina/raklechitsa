@@ -2,10 +2,7 @@
   <main class="content">
     <cover />
     <container>
-      <intro
-        :tagLeadIntroTitle="tagLeadIntroBlock.title"
-        :tagLeadHashtag="tagLeadIntroBlock.hashtag"
-      />
+      <intro />
 
       <stories :stories="itemsToLoop" />
 
@@ -76,9 +73,6 @@ export default {
     },
     popupContactsShown() {
       return this.$store.getters['popup/getPopupContactsShown'];
-    },
-    tagLeadIntroBlock() {
-      return this.$store.getters['blocks/getCurrentBlock']('note-1');
     },
   },
 

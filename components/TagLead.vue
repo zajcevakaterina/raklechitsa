@@ -2,14 +2,24 @@
   <div class="tag-lead">
     <p :class="['tag-lead__text', `tag-lead__text_theme_${theme}`]">
       <slot></slot>
-      <span class="tag-lead__tag">#этонелечится</span>
+      <span class="tag-lead__tag">
+        {{ hashtag }}
+      </span>
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['theme'],
+  props: {
+    theme: {
+      type: String,
+      default: 'default',
+    },
+    hashtag: {
+      type: String,
+    },
+  },
 };
 </script>
 

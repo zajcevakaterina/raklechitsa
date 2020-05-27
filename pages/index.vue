@@ -2,7 +2,10 @@
   <main class="content">
     <cover />
     <container>
-      <intro />
+      <intro
+        :tagLeadIntroTitle="tagLeadIntro.title"
+        :tagLeadHashtag="tagLeadIntro.hashtag"
+      />
 
       <stories :stories="itemsToLoop" />
 
@@ -11,9 +14,9 @@
       </a>
 
       <section class="insta">
-        <tag-lead class="insta__cover"
-          >рассказывайте ваши истории в&nbsp;инстаграм</tag-lead
-        >
+        <tag-lead class="insta__cover" :hashtag="tagLeadInsta.hashtag">{{
+          tagLeadInsta.title
+        }}</tag-lead>
         <div class="insta__container">
           <div class="insta__desc">
             <a
@@ -21,13 +24,11 @@
               href="https://www.instagram.com/raklechitsa/"
               target="blank"
             >
-              <section-title class="insta__title">Инстаграм</section-title>
+              <section-title class="insta__title">{{
+                instagramBlock.title
+              }}</section-title>
             </a>
-            <section-text class="insta__text">
-              Два раза в неделю мы просматриваем все посты по хештегу
-              #этонелечится. Все истории, где нет нецензурных выражений и
-              запрещенного контента попадают сюда. Следите за правильным
-              написанием хештега, чтобы мы не пропустили вашу историю.
+            <section-text class="insta__text" v-html="instagramBlock.text">
             </section-text>
           </div>
 
@@ -114,6 +115,15 @@ export default {
     },
     popupContactsShown() {
       return this.$store.getters['popup/getPopupContactsShown'];
+    },
+    tagLeadIntro() {
+      return this.$store.getters['blocks/getCurrentBlock']('note-1');
+    },
+    tagLeadInsta() {
+      return this.$store.getters['blocks/getCurrentBlock']('note-2');
+    },
+    instagramBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('instagram');
     },
   },
 

@@ -81,7 +81,6 @@ export default {
 }
 
 @media (max-width: 425px) {
-
   .video__container {
     max-height: 150px;
   }

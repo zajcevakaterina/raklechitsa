@@ -90,7 +90,7 @@ export default {
   line-height: 1.33;
   border: none;
   resize: none;
-  padding: 10px 0 10px 1px;
+  padding: 10px 0 10px 4px;
   border-bottom: 1px solid #e7e7e7;
 }
 

@@ -12,7 +12,7 @@
       placeholder="Напишите тут"
       :labelText="'Как вас зовут?'"
       :name="'name'"
-      v-model="name"
+      v-model="fullName"
     />
 
     <div class="contacts__input-container">
@@ -45,7 +45,7 @@
       "
       :theme="'contacts'"
       :name="'message'"
-      v-model="message"
+      v-model="preferred"
     />
 
     <div class="contacts__submit">
@@ -73,10 +73,10 @@ export default {
   },
   data() {
     return {
-      name: '',
+      fullName: '',
       email: '',
       phone: '',
-      message: '',
+      preferred: '',
     };
   },
   methods: {

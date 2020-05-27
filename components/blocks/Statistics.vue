@@ -1,8 +1,6 @@
 <template>
   <section class="statistics">
-    <section-title class="statistics__title"
-      >Статистика по онкозаболеваниям</section-title
-    >
+    <section-title class="statistics__title" v-html="statisticsBlock.title" />
     <div class="statistics__container">
       <ul class="statistics__list">
         <li
@@ -59,6 +57,9 @@ export default {
         return stat;
       });
       return hardCodeStat;
+    },
+    statisticsBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('statistics');
     },
   },
 };

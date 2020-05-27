@@ -3,9 +3,10 @@
     <container class="footer__container">
       <div class="footer__content">
         <div class="footer__title-menu">
-          <section-title class="section__title_place_footer"
-            >Спасибо всем, кто помог состояться этому проекту</section-title
-          >
+          <section-title
+            class="section__title_place_footer"
+            v-html="footerBlock.title"
+          />
           <!-- <footer-menu /> -->
 
           <!--          старый код-->
@@ -44,9 +45,11 @@
         </div>
       </div>
       <div class="footer__copyright">
-        <span class="footer__copyright-text"
-          >Рак Лечится {{ new Date().getFullYear() }}</span
-        >
+        <!--        TODO исправить отступы в копирайте-->
+        <span
+          class="footer__copyright-text"
+          v-html="footerBlock.text + ' ' + currentYear"
+        ></span>
         <span class="footer__copyright-text"
           >Сделано студентами
           <a href="https://praktikum.yandex.ru/" class="footer__praktikum-link"
@@ -76,7 +79,14 @@ export default {
       this.$store.commit('popup/openSharePopup');
     },
   },
-  computed: {},
+  computed: {
+    footerBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('footer');
+    },
+    currentYear() {
+      return new Date().getFullYear();
+    },
+  },
 };
 </script>
 
@@ -175,11 +185,15 @@ export default {
   margin-top: auto;
 }
 .footer__copyright-text {
+  display: flex;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 18px;
   color: #898989;
+}
+.footer__copyright-text p {
+  margin: 0;
 }
 .section__title_place_footer {
   max-width: 340px;

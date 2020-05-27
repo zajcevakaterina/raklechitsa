@@ -1,13 +1,10 @@
 <template>
   <section class="about">
     <container class="about__container">
-      <p class="about__hashtag">#РАКЛЕЧИТСЯ</p>
-      <section-title class="about__section-title">О проекте</section-title>
+      <p class="about__hashtag" v-html="aboutBlock.hashtag" />
+      <section-title class="about__section-title" v-html="aboutBlock.title" />
       <div class="about__content">
-        <section-text class="about__section-text"
-          >Этот проект был создан благотворительным фондом Константина
-          Хабенского.
-        </section-text>
+        <section-text class="about__section-text" v-html="aboutBlock.text" />
         <main-tabs :tabsData="about" :theme="'about'" />
       </div>
     </container>
@@ -28,6 +25,9 @@ export default {
   computed: {
     about() {
       return this.$store.getters['about/getAbout'];
+    },
+    aboutBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('about');
     },
   },
 };

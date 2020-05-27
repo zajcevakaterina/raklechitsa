@@ -39,7 +39,6 @@ export default {
       return story.ImageUrl[0].url;
     },
   },
-
   computed: {
     storiesBlock() {
       return this.$store.getters['blocks/getCurrentBlock']('stories');

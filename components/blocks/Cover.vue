@@ -27,6 +27,11 @@ export default {
       return this.$store.getters['blocks/getCurrentBlock']('cover');
     },
   },
+  computed: {
+    cover() {
+      return this.$store.getters['blocks/getCurrentBlock']('cover');
+    },
+  },
 };
 </script>
 

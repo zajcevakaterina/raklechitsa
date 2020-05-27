@@ -47,6 +47,14 @@ export default {
       show: 0,
     };
   },
+  computed: {
+    callBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('story');
+    },
+    aboutBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('about');
+    },
+  },
 };
 </script>
 

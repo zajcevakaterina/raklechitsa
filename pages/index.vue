@@ -109,7 +109,7 @@ export default {
 
   computed: {
     instagram() {
-      return this.$store.getters['insta/getPhotos'];
+      return this.$store.getters['insta/getPhotos'].filter((item, index) => index < 8);
     },
     stories() {
       return this.$store.getters['stories/getStories'];

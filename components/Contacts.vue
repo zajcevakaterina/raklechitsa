@@ -12,7 +12,7 @@
       placeholder="Напишите тут"
       :labelText="'Как вас зовут?'"
       :name="'name'"
-      v-model="fullName"
+      v-model="contacts.fullName"
     />
 
     <div class="contacts__input-container">
@@ -23,7 +23,7 @@
         :labelText="'Электронная почта'"
         :theme="'contacts'"
         :name="'e-mail'"
-        v-model="email"
+        v-model="contacts.email"
       />
       <contacts-input
         class="contacts__input contacts__input_type_contacts"
@@ -32,7 +32,7 @@
         :labelText="'Телефон'"
         :theme="'contacts'"
         :name="'phone'"
-        v-model="phone"
+        v-model="contacts.phone"
       />
     </div>
 
@@ -45,7 +45,7 @@
       "
       :theme="'contacts'"
       :name="'message'"
-      v-model="preferred"
+      v-model="contacts.preferred"
     />
 
     <div class="contacts__submit">
@@ -73,10 +73,12 @@ export default {
   },
   data() {
     return {
-      fullName: '',
-      email: '',
-      phone: '',
-      preferred: '',
+      contacts: {
+        fullName: '',
+        email: '',
+        phone: '',
+        preferred: '',
+      },
     };
   },
   methods: {
@@ -85,12 +87,9 @@ export default {
     },
 
     submitContactsForm() {
-      console.log(
-        `fullName: ${this.fullName}, email: ${this.email}, phone: ${this.phone}, preferred: ${this.preferred}`
-      );
+      console.log(this.contacts);
       this.closeContactsPopup();
     },
-    // консоль тут временно, пока не ясно, куда и как отправлять данные
   },
 };
 </script>

@@ -86,7 +86,7 @@ export default {
 
     submitContactsForm() {
       console.log(
-        `name: ${this.name}, email: ${this.email}, phone: ${this.phone}, message: ${this.message}`
+        `fullName: ${this.fullName}, email: ${this.email}, phone: ${this.phone}, preferred: ${this.preferred}`
       );
       this.closeContactsPopup();
     },

@@ -33,11 +33,11 @@
           </div>
 
           <ul class="insta__cards">
-            <li class="insta__card" v-for="photo in photos" :key="photo.id">
+            <li class="insta__card" v-for="photo in instagram" :key="photo.id">
               <insta-photo
                 :author="photo.author"
-                :link="photo.instaLink"
-                :urlPhotoImage="photo.instaImage"
+                :link="photo.url"
+                :urlPhotoImage="photo.display_url"
               />
             </li>
           </ul>
@@ -96,7 +96,7 @@ export default {
   },
 
   computed: {
-    photos() {
+    instagram() {
       return this.$store.getters['insta/getPhotos'];
     },
     stories() {
@@ -137,6 +137,7 @@ export default {
     await store.dispatch('statistics/fetchStats');
     await store.dispatch('blocks/fetchBlocks');
     await store.dispatch('video/fetchVideo');
+    await store.dispatch('insta/fetchPhotos');
   },
 };
 </script>

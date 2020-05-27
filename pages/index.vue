@@ -17,33 +17,32 @@
         :tagLeadInstaTitle="tagLeadInstaBlock.title"
         :tagLeadInstaHashtag="tagLeadInstaBlock.hashtag"
       />
-        <div class="insta__container">
-          <div class="insta__desc">
-            <a
-              class="insta__title-link"
-              href="https://www.instagram.com/raklechitsa/"
-              target="blank"
-            >
-              <section-title class="insta__title">{{
-                instagramBlock.title
-              }}</section-title>
-            </a>
-            <section-text class="insta__text" v-html="instagramBlock.text">
-            </section-text>
-          </div>
-
-          <ul class="insta__cards">
-            <li class="insta__card" v-for="photo in instagram" :key="photo.id">
-              <insta-photo
-                :author="photo.author"
-                :link="photo.url"
-                :urlPhotoImage="photo.display_url"
-              />
-            </li>
-          </ul>
-
+      <div class="insta__container">
+        <div class="insta__desc">
+          <a
+            class="insta__title-link"
+            href="https://www.instagram.com/raklechitsa/"
+            target="blank"
+          >
+            <section-title class="insta__title">{{
+              instagramBlock.title
+            }}</section-title>
+          </a>
+          <section-text class="insta__text" v-html="instagramBlock.text">
+          </section-text>
         </div>
 
+        <ul class="insta__cards">
+          <li class="insta__card" v-for="photo in instagram" :key="photo.id">
+            <insta-photo
+              :author="photo.author"
+              :link="photo.url"
+              :urlPhotoImage="photo.display_url"
+            />
+          </li>
+        </ul>
+      </div>
+      <!--
         <ul class="insta__cards">
           <li class="insta__card" v-for="photo in photos" :key="photo.id">
             <insta-photo
@@ -53,7 +52,7 @@
             />
           </li>
         </ul>
-      </div>
+      </div> -->
     </container>
 
     <call-to-action />

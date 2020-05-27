@@ -1,7 +1,7 @@
 @import url(./__container/insta__container.css);
-@import url(./__cover/insta__cover.css);
 @import url(./__cards/insta__cards.css);
 @import url(./__desc/insta__desc.css);
+@import url(./__cover/insta__cover.css);
 @import url(./__text/insta__text.css);
 @import url(./__title-link/insta__title-link.css);
 

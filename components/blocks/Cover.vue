@@ -1,6 +1,6 @@
 <template>
   <div class="cover" ref="cover">
-    <h1 class="cover__heading" v-html="cover"></h1>
+    <h1 class="cover__heading" v-html="cover.hashtag"></h1>
     <button @click="scrollToIntro" class="cover__arrow-button" />
   </div>
 </template>
@@ -19,11 +19,12 @@ export default {
     },
   },
   computed: {
-    blocks() {
-      return this.$store.getters['blocks/getBlocks'];
-    },
+    // blocks() {
+    //   return this.$store.getters['blocks/getBlocks'];
+    // },
+
     cover() {
-      this.findBlock('cover');
+      return this.$store.getters['blocks/getCurrentBlock']('cover');
     },
   },
 };

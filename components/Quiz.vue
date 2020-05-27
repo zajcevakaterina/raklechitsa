@@ -1,11 +1,11 @@
 <template>
-  <form class="quiz">
+  <form class="quiz" v-if="!thanksForSubmit">
     <h3 class="quiz__title">{{ currentQuestion.title }}</h3>
 
     <p class="quiz__question">
       {{ currentQuestion.questionMain }}
       <span
-        class=" quiz__question quiz__question_type_additional"
+        class="quiz__question quiz__question_type_additional"
         v-if="currentQuestion.questionAdditional"
         >{{ currentQuestion.questionAdditional }}</span
       >
@@ -22,17 +22,15 @@
         @btnClick="prevQuestion"
         class="quiz__button quiz__button_direction_back"
         :disabled="isFirstQuestion"
-      >
-        Назад</quiz-button
+        >Назад</quiz-button
       >
 
       <quiz-button
         :disabled="isAnswerEmpty"
-        @btnClick="nextQuestion"
+        @btnClick="btnAction"
         class="quiz__button quiz__button_direction_next"
         >{{ isLastQuestion ? 'Отправить' : 'Далее' }}</quiz-button
       >
-      <!-- на потом подумать - @btnClick="isLastQuestion ? отправить или nextQuestion" -->
 
       <p class="quiz__policy" v-if="isLastQuestion">
         Нажимая на кнопку «отправить», вы даете согласие на
@@ -42,6 +40,16 @@
       </p>
     </div>
   </form>
+  <div v-else class="quiz__thanks">
+    <h3 class="quiz__title quiz__title_type_thanks">
+      Спасибо, что приняли участие!
+    </h3>
+    <quiz-button
+      @btnClick="setNewQuiz"
+      class="quiz__button quiz__button_direction_next"
+      >Закрыть</quiz-button
+    >
+  </div>
 </template>
 
 <script>
@@ -57,6 +65,7 @@ export default {
   data() {
     return {
       answer: '',
+      thanksForSubmit: false,
     };
   },
 
@@ -98,6 +107,13 @@ export default {
         return true;
       }
     },
+
+    btnAction() {
+      if (this.isLastQuestion) {
+        return this.submitQuiz;
+      }
+      return this.nextQuestion;
+    },
   },
 
   methods: {
@@ -111,6 +127,21 @@ export default {
       await this.$store.dispatch('quiz/PREV_QUESTION');
       this.answer = this.initialAnswer;
     },
+
+    submitQuiz() {
+      this.nextQuestion();
+      this.$store.dispatch('quiz/GET_RESULT');
+      this.thanksForSubmit = true;
+    },
+
+    setNewQuiz() {
+      this.closeQuizPopup();
+      this.$store.dispatch('quiz/FIRST_STEP');
+    },
+
+    closeQuizPopup() {
+      this.$store.commit('popup/closeQuizPopup');
+    },
   },
 };
 </script>
@@ -122,6 +153,12 @@ export default {
   line-height: 1.12;
   margin: 0 0 40px;
 }
+
+.quiz__title_type_thanks {
+  text-align: center;
+  margin: 0 0 432px;
+}
+
 .quiz__question {
   font-size: 18px;
   line-height: 1.33;
@@ -149,6 +186,7 @@ export default {
   background: none;
   color: #666;
   padding: 0;
+  margin-right: 30px;
 }
 
 .quiz__button_direction_back:disabled {
@@ -163,7 +201,6 @@ export default {
   width: 226px;
   padding: 16px 0;
   color: #fff;
-  margin-left: 30px;
 }
 
 .quiz__policy {
@@ -184,6 +221,12 @@ export default {
 .quiz__policy-link:hover {
   opacity: 0.8;
   transition: opacity 0.3s linear;
+}
+
+.quiz__thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (max-width: 1280px) {

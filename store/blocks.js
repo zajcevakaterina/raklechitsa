@@ -8,6 +8,9 @@ export const mutations = {
   setState(state, { name, value }) {
     return (state[name] = value);
   },
+  findCurrentBlock(state, blockToFind) {
+    return state.blocks.find(block => block.block === blockToFind);
+  },
 };
 
 export const actions = {

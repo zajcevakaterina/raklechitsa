@@ -133,6 +133,7 @@ export default {
   async fetch({ store, route }) {
     await store.dispatch('stories/fetchStories');
     await store.dispatch('stories/fetchStoriesWithId', { id: route.params.id });
+    await store.dispatch('blocks/fetchBlocks');
   },
 };
 </script>

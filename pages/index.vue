@@ -13,46 +13,7 @@
         <p class="more-stories-link__text">Больше статей</p>
       </a>
 
-      <instagram
-        :tagLeadInstaTitle="tagLeadInstaBlock.title"
-        :tagLeadInstaHashtag="tagLeadInstaBlock.hashtag"
-      />
-      <div class="insta__container">
-        <div class="insta__desc">
-          <a
-            class="insta__title-link"
-            href="https://www.instagram.com/raklechitsa/"
-            target="blank"
-          >
-            <section-title class="insta__title">{{
-              instagramBlock.title
-            }}</section-title>
-          </a>
-          <section-text class="insta__text" v-html="instagramBlock.text">
-          </section-text>
-        </div>
-
-        <ul class="insta__cards">
-          <li class="insta__card" v-for="photo in instagram" :key="photo.id">
-            <insta-photo
-              :author="photo.author"
-              :link="photo.url"
-              :urlPhotoImage="photo.display_url"
-            />
-          </li>
-        </ul>
-      </div>
-      <!--
-        <ul class="insta__cards">
-          <li class="insta__card" v-for="photo in photos" :key="photo.id">
-            <insta-photo
-              :author="photo.author"
-              :link="photo.instaLink"
-              :urlPhotoImage="photo.instaImage"
-            />
-          </li>
-        </ul>
-      </div> -->
+      <instagram />
     </container>
 
     <call-to-action />
@@ -73,8 +34,6 @@
 
 <script>
 import Container from '@/components/Container';
-import SectionTitle from '@/components/ui/SectionTitle';
-import SectionText from '@/components/ui/SectionText';
 import Cover from '@/components/blocks/Cover';
 import Intro from '@/components/blocks/Intro';
 import Stories from '@/components/blocks/Stories';
@@ -83,34 +42,24 @@ import Instagram from '@/components/blocks/Instagram';
 import CallToAction from '@/components/blocks/CallToAction';
 import Statistics from '@/components/blocks/Statistics';
 import About from '@/components/blocks/About';
-import TagLead from '@/components/TagLead';
-import Button from '@/components/ui/Button';
 import Popup from '@/components/ui/Popup';
 import Contacts from '@/components/Contacts';
 
 export default {
   components: {
-    'section-title': SectionTitle,
-    'section-text': SectionText,
     cover: Cover,
     intro: Intro,
     stories: Stories,
-    'insta-photo': InstaPhoto,
     instagram: Instagram,
     'call-to-action': CallToAction,
     statistics: Statistics,
     about: About,
-    'tag-lead': TagLead,
-    'stories-button': Button,
     container: Container,
     popup: Popup,
     contacts: Contacts,
   },
 
   computed: {
-    instagram() {
-      return this.$store.getters['insta/getPhotos'].filter((item, index) => index < 8);
-    },
     stories() {
       return this.$store.getters['stories/getStories'];
     },
@@ -131,12 +80,6 @@ export default {
     tagLeadIntroBlock() {
       return this.$store.getters['blocks/getCurrentBlock']('note-1');
     },
-    tagLeadInstaBlock() {
-      return this.$store.getters['blocks/getCurrentBlock']('note-2');
-    },
-    instagramBlock() {
-      return this.$store.getters['blocks/getCurrentBlock']('instagram');
-    },
   },
 
   methods: {
@@ -156,5 +99,4 @@ export default {
 
 <style scoped>
 @import url(@/blocks/more-stories-link/more-stories-link.css);
-@import url(@/blocks/insta/insta.css);
 </style>

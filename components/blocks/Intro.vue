@@ -57,9 +57,18 @@
       </div>
     </div>
 
-    <tag-lead class="intro__cover" :hashtag="tagLeadHashtag" :theme="'thin'">{{
+    <!-- <tag-lead class="intro__cover" :hashtag="tagLeadHashtag" :theme="'thin'">{{
       tagLeadIntroTitle
-    }}</tag-lead>
+    }}</tag-lead> -->
+
+    <div class="intro__cover">
+      <p class="intro__cover-text">
+        {{ tagLeadIntroTitle }}
+        <span class="intro__hashtag">
+          {{ tagLeadHashtag }}
+        </span>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -168,6 +177,33 @@ export default {
   color: #666;
 }
 
+.intro__cover {
+  width: 100%;
+  min-height: 86px;
+  background: #613a93;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px 5px;
+}
+
+.intro__cover-text {
+  text-transform: uppercase;
+  font-size: 30px;
+  line-height: 1.33;
+  margin: 0;
+  color: #fff;
+  max-width: 750px;
+  text-align: center;
+}
+
+.intro__hashtag {
+  font-weight: 800;
+  font-size: 40px;
+}
+
 @media (max-width: 1280px) {
   .intro__container {
     min-height: 490px;
@@ -198,6 +234,15 @@ export default {
   .intro__slider-container {
     max-width: 773px;
     max-height: 400px;
+  }
+
+  .intro__cover-text {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .intro__hashtag {
+    font-size: 38px;
   }
 }
 
@@ -246,9 +291,22 @@ export default {
   .slider-buttons-container {
     margin-bottom: 79px;
   }
+
+  .intro__cover {
+    min-height: 80px;
+  }
+
+  .intro__hashtag {
+    font-size: 34px;
+  }
+
+  .intro__cover-text {
+    font-size: 24px;
+    line-height: 40px;
+  }
 }
 
-@media (min-width: 769px) and (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .intro__slider-container {
     max-width: 500px;
     max-height: 254px;
@@ -301,6 +359,22 @@ export default {
   .slider-buttons-container {
     margin-bottom: 75px;
   }
+
+  .intro__cover {
+    min-height: 100px;
+    padding: 12px 0;
+  }
+
+  .intro__cover-text {
+    font-size: 22px;
+    line-height: 1.24;
+    text-align: center;
+    max-width: 450px;
+  }
+
+  .intro__hashtag {
+    font-size: 32px;
+  }
 }
 
 @media (max-width: 475px) {
@@ -350,6 +424,22 @@ export default {
   .slider-buttons {
     min-width: 20px;
     background: transparent;
+  }
+
+  .intro__cover {
+    min-height: 80px;
+    padding: 15px 0;
+  }
+
+  .intro__cover-text {
+    font-size: 16px;
+    line-height: 1.12;
+    text-align: center;
+    max-width: 220px;
+  }
+
+  .intro__hashtag {
+    font-size: 20px;
   }
 }
 

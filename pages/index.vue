@@ -3,8 +3,8 @@
     <cover />
     <container>
       <intro
-        :tagLeadIntroTitle="tagLeadIntro.title"
-        :tagLeadHashtag="tagLeadIntro.hashtag"
+        :tagLeadIntroTitle="tagLeadIntroBlock.title"
+        :tagLeadHashtag="tagLeadIntroBlock.hashtag"
       />
 
       <stories :stories="itemsToLoop" />
@@ -116,7 +116,7 @@ export default {
     popupContactsShown() {
       return this.$store.getters['popup/getPopupContactsShown'];
     },
-    tagLeadIntro() {
+    tagLeadIntroBlock() {
       return this.$store.getters['blocks/getCurrentBlock']('note-1');
     },
     tagLeadInsta() {

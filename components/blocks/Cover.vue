@@ -1,6 +1,6 @@
 <template>
   <div class="cover" ref="cover">
-    <h1 class="cover__heading">#РАКЛЕЧИТСЯ</h1>
+    <h1 class="cover__heading" v-html="cover"></h1>
     <button @click="scrollToIntro" class="cover__arrow-button" />
   </div>
 </template>
@@ -13,6 +13,17 @@ export default {
         block: 'start',
         behavior: 'smooth',
       });
+    },
+    findBlock(blockToFind) {
+      this.$store.commit('blocks/findCurrentBlock', blockToFind);
+    },
+  },
+  computed: {
+    blocks() {
+      return this.$store.getters['blocks/getBlocks'];
+    },
+    cover() {
+      this.findBlock('cover');
     },
   },
 };

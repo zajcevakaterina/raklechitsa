@@ -18,22 +18,23 @@
     />
 
     <div class="quiz__submit">
-      <quiz-button
-        @btnClick="prevQuestion"
-        class="quiz__button quiz__button_direction_back"
-        :disabled="isFirstQuestion"
-        >Назад</quiz-button
-      >
-
-      <quiz-button
-        :disabled="isAnswerEmpty"
-        @btnClick="btnAction"
-        class="quiz__button quiz__button_direction_next"
-        >{{ isLastQuestion ? 'Отправить' : 'Далее' }}</quiz-button
-      >
+      <div class="quiz__buttons">
+        <quiz-button
+          @btnClick="prevQuestion"
+          class="quiz__button quiz__button_direction_back"
+          :disabled="isFirstQuestion"
+          >Назад</quiz-button
+        >
+        <quiz-button
+          :disabled="isAnswerEmpty"
+          @btnClick="btnAction"
+          class="quiz__button quiz__button_direction_next"
+          >{{ isLastQuestion ? 'Отправить' : 'Далее' }}</quiz-button
+        >
+      </div>
 
       <p class="quiz__policy" v-if="isLastQuestion">
-        Нажимая на кнопку «отправить», вы даете согласие на
+        Нажимая на кнопку «Отправить», вы даете согласие на
         <a class="quiz__policy-link" href="/policy"
           >обработку персональных данных</a
         >
@@ -73,6 +74,7 @@ export default {
     currentQuestion() {
       const { quiz } = this.$store.state;
       const { currentQuestion, questions } = quiz;
+      console.log(questions[currentQuestion]);
       return questions[currentQuestion];
     },
 
@@ -243,9 +245,6 @@ export default {
   .quiz__submit {
     margin-top: 170px;
   }
-  .quiz__buttons {
-    margin-top: 170px;
-  }
 
   .quiz__button_direction_next {
     width: 200px;
@@ -263,7 +262,7 @@ export default {
     line-height: 1.47;
   }
 
-  .quiz__buttons {
+  .quiz__submit {
     margin-top: 174px;
   }
 }
@@ -271,10 +270,6 @@ export default {
 @media screen and (max-width: 768px) {
   .quiz__question {
     min-height: 96px;
-  }
-
-  .quiz__submit {
-    margin-top: 174px;
   }
   .quiz__input {
     margin: 30px 0 0;
@@ -294,8 +289,14 @@ export default {
     min-height: 120px;
   }
 
-  .quiz__buttons {
+  .quiz__submit {
     margin-top: 250px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quiz__buttons {
+    margin-bottom: 10px;
   }
 
   .quiz__button {
@@ -303,9 +304,20 @@ export default {
     line-height: 1.23;
   }
 
+  .quiz__button_direction_back {
+    margin-right: 15px;
+  }
+
   .quiz__button_direction_next {
-    width: 206px;
+    width: 180px;
     padding: 12px 0;
+  }
+
+  .quiz__policy {
+    margin: 0;
+    max-width: 350px;
+    font-size: 11px;
+    line-height: 1.18;
   }
 }
 </style>

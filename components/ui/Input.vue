@@ -34,6 +34,7 @@ export default {
     placeholder: String,
     borderTheme: String,
     theme: String,
+    disabled: Boolean,
   },
 
   data() {

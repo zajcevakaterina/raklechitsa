@@ -1,13 +1,12 @@
 <template>
   <a class="story-item" :href="link">
     <div
-      :style="`background-image: url(${publicPath}${ImageUrl})`"
+      :style="`background-image: url('${baseurl}${ImageUrl}')`"
       class="story-item__photo"
     />
 
     <h3 class="story-item__author">{{ author }}</h3>
-    <p class="story-item__quote">{{ title }} {{ link }}</p>
-    <!-- link добавлен на время, чтобы различать картинки и понимать, что все работает верно :) -->
+    <p class="story-item__quote">{{ title }}</p>
   </a>
 </template>
 
@@ -16,7 +15,7 @@ export default {
   props: ['ImageUrl', 'author', 'title', 'link'],
   data() {
     return {
-      publicPath: process.env.BASE_URL,
+      baseurl: process.env.BASE_URL,
     };
   },
 };

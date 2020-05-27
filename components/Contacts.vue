@@ -1,5 +1,5 @@
 <template>
-  <form class="contacts">
+  <form class="contacts" v-on:submit.prevent="submitContactsForm">
     <h3 class="contacts__title">Оставьте контакт для связи</h3>
     <p class="contacts__subtitle">
       Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
@@ -12,6 +12,7 @@
       placeholder="Напишите тут"
       :labelText="'Как вас зовут?'"
       :name="'name'"
+      v-model="contacts.fullName"
     />
 
     <div class="contacts__input-container">
@@ -22,6 +23,7 @@
         :labelText="'Электронная почта'"
         :theme="'contacts'"
         :name="'e-mail'"
+        v-model="contacts.email"
       />
       <contacts-input
         class="contacts__input contacts__input_type_contacts"
@@ -30,6 +32,7 @@
         :labelText="'Телефон'"
         :theme="'contacts'"
         :name="'phone'"
+        v-model="contacts.phone"
       />
     </div>
 
@@ -41,7 +44,8 @@
         'Напишите, если есть предпочтительный способ связи и удобное время'
       "
       :theme="'contacts'"
-      :name="'info'"
+      :name="'message'"
+      v-model="contacts.preferred"
     />
 
     <div class="contacts__submit">
@@ -66,6 +70,26 @@ export default {
   components: {
     'contacts-input': Input,
     'contacts-button': Button,
+  },
+  data() {
+    return {
+      contacts: {
+        fullName: '',
+        email: '',
+        phone: '',
+        preferred: '',
+      },
+    };
+  },
+  methods: {
+    closeContactsPopup() {
+      this.$store.commit('popup/closeContactsPopup');
+    },
+
+    submitContactsForm() {
+      console.log(this.contacts);
+      this.closeContactsPopup();
+    },
   },
 };
 </script>

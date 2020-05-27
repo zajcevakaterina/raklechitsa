@@ -47,6 +47,11 @@ export default {
     max-height: 400px;
   }
 }
+@media screen and (max-width: 1100px) {
+  .video {
+    max-width: 690px;
+  }
+}
 
 @media screen and (max-width: 1024px) {
   .video {
@@ -76,10 +81,6 @@ export default {
 }
 
 @media (max-width: 425px) {
-  .video {
-    max-width: 290px;
-  }
-
   .video__container {
     max-height: 150px;
   }

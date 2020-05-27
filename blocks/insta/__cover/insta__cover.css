@@ -12,9 +12,18 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .insta__cover {
+    padding-top: 18px;
+    min-height: 117px;
+    margin-bottom: 80px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .insta__cover {
     margin-bottom: 76px;
+    min-height: 100px;
   }
 }
 

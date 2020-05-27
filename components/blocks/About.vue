@@ -83,6 +83,9 @@ export default {
   .about__container {
     min-height: 571px;
   }
+  .about__section-text {
+    margin-top: 29px;
+  }
   .about__hashtag {
     font-size: 52px;
     line-height: 63px;
@@ -92,7 +95,7 @@ export default {
 @media screen and (max-width: 768px) {
   .about__container {
     min-height: 660px;
-    padding: 50px 0;
+    padding: 82px 0 50px;
     align-items: center;
   }
   .about__hashtag {
@@ -111,6 +114,7 @@ export default {
   .about__container {
     min-height: 628px;
     align-items: start;
+    padding-top: 52px;
   }
   .about__hashtag {
     display: none;

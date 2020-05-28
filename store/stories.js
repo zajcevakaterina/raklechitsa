@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export const state = () => ({
   stories: [],
-  // currentStory: {},
 });
 
 export const mutations = {
@@ -19,16 +18,6 @@ export const actions = {
       value: stories,
     });
   },
-  // fetchStoriesWithId(state, payload) {
-  //   return axios
-  //     .get(process.env.BASE_URL + `/stories/${payload.id}`)
-  //     .then(response => {
-  //       return state.commit('setState', {
-  //         name: 'currentStory',
-  //         value: response.data,
-  //       });
-  //     });
-  // },
 };
 export const getters = {
   getStories(state) {
@@ -37,7 +26,4 @@ export const getters = {
   getCurrentStory: state => storyId => {
     return state.stories.find(story => story.id === Number(storyId));
   },
-  // getCurrentsStory(state) {
-  //   return state.currentStory;
-  // },
 };

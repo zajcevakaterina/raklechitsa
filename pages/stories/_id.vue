@@ -1,6 +1,5 @@
 <template>
-  <!-- TODO: разобраться с отступом внизу от "поделиться в социальных сетях в зависимости от контента истории и тегов в ней" -->
-  <container class="container">
+  <container class="container" v-if="story">
     <article class="individual-story">
       <div class="individual-story__lead">
         <story-title class="individual-story__title">
@@ -81,15 +80,12 @@ export default {
     },
 
     story() {
-      // const storyFound = this.$store.getters['stories/getCurrentStory'](this.storyId);
-      const storyFound = this.stories.find(
-        story => story.id === Number(this.storyId)
+      const storyFound = this.$store.getters['stories/getCurrentStory'](
+        this.storyId
       );
-      console.log(storyFound);
       if (!storyFound) {
-        console.log(storyFound);
-        return this.$router.push('/404');
-        // return null;
+        this.$router.push('/404');
+        return null;
       }
       return storyFound;
     },

@@ -5,7 +5,7 @@
       <section-title class="about__section-title" v-html="aboutBlock.title" />
       <div class="about__content">
         <section-text class="about__section-text" v-html="aboutBlock.text" />
-        <main-tabs :tabsData="about" :theme="'about'" />
+        <main-tabs :tabsData="tabsAboutData" :theme="'about'" />
       </div>
     </container>
   </section>
@@ -23,11 +23,11 @@ export default {
     container: Container,
   },
   computed: {
-    about() {
-      return this.$store.getters['about/getAbout'];
-    },
     aboutBlock() {
       return this.$store.getters['blocks/getCurrentBlock']('about');
+    },
+    tabsAboutData() {
+      return this.aboutBlock.extraTexts;
     },
   },
 };

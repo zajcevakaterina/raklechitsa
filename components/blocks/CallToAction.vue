@@ -9,7 +9,7 @@
         />
         <main-tabs
           v-on:tab-changed="tabIndex = $event"
-          :tabsData="actions"
+          :tabsData="tabsDataActions"
           theme="call-to-action"
         >
           <action-button
@@ -59,11 +59,13 @@ export default {
     },
   },
   computed: {
-    actions() {
-      return this.$store.getters['call-to-action/getAction'];
-    },
     callBlock() {
+      console.log(this.$store.getters['blocks/getCurrentBlock']('story'));
       return this.$store.getters['blocks/getCurrentBlock']('story');
+    },
+    tabsDataActions() {
+      console.log(this.callBlock.extraTexts);
+      return this.callBlock.extraTexts;
     },
   },
 };

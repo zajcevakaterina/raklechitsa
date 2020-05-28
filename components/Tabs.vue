@@ -14,7 +14,7 @@
           $emit('tab-changed', index);
         "
       >
-        {{ tab.name }}
+        {{ tab.title }}
       </li>
     </ul>
     <div class="tabs__content">
@@ -24,15 +24,7 @@
         v-for="(tab, index) in tabsData"
         v-if="show === index"
         :key="tab.id"
-        v-html="tab.content"
-      ></p>
-      <p
-        class="tabs__text"
-        :class="`tabs__text_${theme}`"
-        v-for="(tab, index) in tabsData"
-        v-if="show === index && tab.content2"
-        :key="tab.name"
-        v-html="tab.content2"
+        v-html="tab.text"
       ></p>
       <slot></slot>
     </div>
@@ -46,14 +38,6 @@ export default {
     return {
       show: 0,
     };
-  },
-  computed: {
-    callBlock() {
-      return this.$store.getters['blocks/getCurrentBlock']('story');
-    },
-    aboutBlock() {
-      return this.$store.getters['blocks/getCurrentBlock']('about');
-    },
   },
 };
 </script>
@@ -116,6 +100,10 @@ export default {
 }
 .tabs__text:last-child {
   margin-bottom: 0;
+}
+
+.tabs__text >>> p {
+  margin: 0;
 }
 
 .tabs__text_call-to-action {

@@ -12,20 +12,16 @@
 
         <sliderB
           class="slider-buttons swiper-buttons-prev swiper-buttons_size_small"
+          side="slider-button_left"
         />
-        <sliderB
-          class="swiper-buttons-next swiper-buttons_size_small"
-          side="slider-button_right"
-        />
+        <sliderB class="swiper-buttons-next swiper-buttons_size_small" />
       </div>
 
       <sliderB
         class="slider-buttons swiper-buttons-prev swiper-buttons_size_big"
+        side="slider-button_left"
       />
-      <sliderB
-        class="swiper-buttons-next swiper-buttons_size_big"
-        side="slider-button_right"
-      />
+      <sliderB class="swiper-buttons-next swiper-buttons_size_big" />
     </div>
 
     <div class="intro__cover">

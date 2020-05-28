@@ -54,11 +54,12 @@ export default {
 .tabs {
   display: flex;
   justify-content: space-between;
-  margin: 32px 0 0;
+  margin: 37px 0 0;
 }
 .tabs__list {
   list-style: none;
   margin: 0;
+  text-align: right;
 }
 .tabs__link {
   cursor: pointer;
@@ -114,6 +115,7 @@ export default {
 }
 .tabs__text_about {
   color: #dedede;
+  margin-bottom: 22px;
 }
 
 @media screen and (max-width: 1280px) {

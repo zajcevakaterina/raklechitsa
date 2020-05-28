@@ -97,7 +97,7 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .call-to-action__container {
-    min-height: 480px;
+    min-height: 487px;
     padding: 90px 0;
   }
   .call-to-action__action-button {

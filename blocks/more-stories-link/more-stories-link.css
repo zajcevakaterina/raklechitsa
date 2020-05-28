@@ -21,6 +21,7 @@
 @media screen and (max-width: 1280px) {
   .more-stories-link {
     height: 78px;
+    margin-bottom: 90px;
   }
 }
 

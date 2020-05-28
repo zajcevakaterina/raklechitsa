@@ -45,17 +45,17 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 40px;
-  row-gap: 70px;
+  row-gap: 56px;
   padding: 0;
   list-style: none;
   justify-content: center;
-  margin: 0 0 70px;
+  margin: 0 0 51px;
 }
 
 @media screen and (max-width: 1280px) {
   .stories__list {
-    row-gap: 60px;
-    margin-bottom: 60px;
+    row-gap: 45px;
+    margin-bottom: 41px;
   }
   .stories__title {
     margin: 0 0 60px;

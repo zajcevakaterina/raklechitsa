@@ -1,4 +1,19 @@
-.more-stories-link {
+<template>
+  <nuxt-link :to="whereToGo" class="more-link">
+    <slot></slot>
+  </nuxt-link>
+</template>
+
+<script>
+export default {
+  props: {
+    whereToGo: String,
+  },
+};
+</script>
+
+<style scoped>
+.more-link {
   background: #fbfbfb;
   font-size: 16px;
   line-height: 1.25;
@@ -13,20 +28,20 @@
   align-items: center;
 }
 
-.more-stories-link:hover {
+.more-link:hover {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  transition: box-shadow .3s linear;
+  transition: box-shadow 0.3s linear;
 }
 
 @media screen and (max-width: 1280px) {
-  .more-stories-link {
+  .more-link {
     height: 78px;
     margin-bottom: 90px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .more-stories-link {
+  .more-link {
     height: 50px;
     font-size: 13px;
     line-height: 1.54;
@@ -35,7 +50,8 @@
 }
 
 @media (max-width: 425px) {
-  .more-stories-link {
+  .more-link {
     margin-bottom: 45px;
   }
 }
+</style>

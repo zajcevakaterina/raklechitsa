@@ -44,9 +44,7 @@
     </article>
 
     <stories :stories="itemsToLoop" />
-    <nuxt-link to="/stories" class="more-stories-link">
-      <p class="more-stories-link__text">Больше статей</p>
-    </nuxt-link>
+    <more-link :whereToGo="'/stories'">Больше статей</more-link>
   </container>
 </template>
 
@@ -56,6 +54,7 @@ import ArticleTitle from '@/components/ui/ArticleTitle';
 import ArticleColumn from '@/components/ui/ArticleColumn';
 import Button from '@/components/ui/Button';
 import Stories from '@/components/blocks/Stories';
+import MoreLink from '@/components/ui/MoreLink';
 
 export default {
   components: {
@@ -64,6 +63,7 @@ export default {
     'story-column': ArticleColumn,
     'share-button': Button,
     stories: Stories,
+    'more-link': MoreLink,
   },
   data() {
     return {
@@ -148,8 +148,6 @@ export default {
 </script>
 
 <style scoped>
-@import url(@/blocks/more-stories-link/more-stories-link.css);
-
 .individual-story {
   padding: 100px 0 160px;
 }

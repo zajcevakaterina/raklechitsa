@@ -121,7 +121,6 @@ export default {
   text-decoration: none;
 }
 
-/*TODO проверить наличие в разметке классов, которые указаны ниже*/
 .footer__link_type_menu {
   margin-right: 40px;
   text-decoration: none;
@@ -191,6 +190,7 @@ export default {
 .footer__praktikum-link {
   text-decoration: none;
   color: #898989;
+  margin-left: 6px;
 }
 
 @media screen and (max-width: 1280px) {

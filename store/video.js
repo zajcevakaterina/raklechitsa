@@ -11,14 +11,6 @@ export const mutations = {
 };
 
 export const actions = {
-  //   async fetchVideo({ commit }) {
-  //     const videos = await this.$axios.$get(process.env.BASE_URL + '/videos');
-  //     commit('setState', {
-  //       name: 'videos',
-  //       value: videos,
-  //     });
-  //   },
-  // };
   fetchVideo(state) {
     return axios.get(process.env.BASE_URL + `/videos`).then(response => {
       return state.commit('setState', {

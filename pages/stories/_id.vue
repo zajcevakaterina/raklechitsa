@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 import ArticleTitle from '@/components/ui/ArticleTitle';
 import ArticleColumn from '@/components/ui/ArticleColumn';
 import Button from '@/components/ui/Button';

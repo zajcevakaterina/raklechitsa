@@ -30,17 +30,16 @@
 </template>
 
 <script>
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 import Cover from '@/components/blocks/Cover';
 import Intro from '@/components/blocks/Intro';
 import Stories from '@/components/blocks/Stories';
-import InstaPhoto from '@/components/InstaPhoto';
 import Instagram from '@/components/blocks/Instagram';
 import CallToAction from '@/components/blocks/CallToAction';
 import Statistics from '@/components/blocks/Statistics';
 import About from '@/components/blocks/About';
 import Popup from '@/components/ui/Popup';
-import Contacts from '@/components/Contacts';
+import Contacts from '@/components/blocks/Contacts';
 
 export default {
   components: {

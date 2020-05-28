@@ -18,6 +18,11 @@ export default {};
   color: #666;
   word-break: break-word;
 }
+
+.section__text >>> p {
+  margin: 0;
+}
+
 @media screen and (max-width: 1280px) {
   .section__text {
     max-width: 305px;

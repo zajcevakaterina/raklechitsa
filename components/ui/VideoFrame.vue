@@ -20,7 +20,6 @@ export default {
 
 <style scoped>
 .video {
-  max-width: 867px;
   width: 100%;
 }
 

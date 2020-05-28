@@ -21,7 +21,7 @@
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
-import StoryItem from '@/components/StoryItem';
+import StoryItem from '@/components/blocks/StoryItem';
 
 export default {
   props: ['stories'],
@@ -110,7 +110,7 @@ export default {
   }
 
   .stories__title {
-    margin: 50px 0 40px;
+    margin: 0 0 40px;
     text-align: left;
   }
 }

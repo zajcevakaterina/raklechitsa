@@ -19,10 +19,6 @@ export default {
     },
   },
   computed: {
-    // blocks() {
-    //   return this.$store.getters['blocks/getBlocks'];
-    // },
-
     cover() {
       return this.$store.getters['blocks/getCurrentBlock']('cover');
     },

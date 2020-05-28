@@ -1,59 +1,37 @@
 <template>
   <div class="intro">
     <div class="intro__container">
-      <div class="intro__left">
+      <div class="intro__desc">
         <title-text class="intro__title">{{ intro.title }}</title-text>
         <regular-text class="intro__text" v-html="intro.text"></regular-text>
-        <div class="slider-buttons-container">
-          <sliderB class="slider-buttons swiper-buttons-prev" />
-          <sliderB class="swiper-buttons-next" side="slider-button_right" />
-        </div>
       </div>
+
       <div class="intro__slider-container">
         <slider-intro />
-        <p class="intro__video-caption">
-          {{ intro.note }}
-        </p>
-      </div>
-    </div>
+        <p class="intro__video-caption">{{ intro.note }}</p>
 
-    <div class="intro__middle-container">
-      <title-text class="intro__title">{{ intro.title }}</title-text>
-      <regular-text class="intro__text" v-html="intro.text"></regular-text>
-      <div class="intro__middle">
-        <sliderB class="slider-buttons swiper-buttons-prev" />
-        <div class="intro__slider-container">
-          <slider-intro />
-          <p class="intro__video-caption">
-            {{ intro.note }}
-          </p>
-        </div>
         <sliderB
-          class="slider-buttons swiper-buttons-next"
+          class="slider-buttons swiper-buttons-prev swiper-buttons_size_small"
+        />
+        <sliderB
+          class="swiper-buttons-next swiper-buttons_size_small"
           side="slider-button_right"
         />
       </div>
-    </div>
 
-    <div class="intro__mini-container">
-      <title-text class="intro__title">{{ intro.title }}</title-text>
-      <regular-text class="intro__text" v-html="intro.text"></regular-text>
-      <div class="intro__middle">
-        <sliderB class="slider-buttons swiper-buttons-prev" />
-        <slider-intro class="intro__slider-container youtube-video" />
-        <sliderB
-          class="slider-buttons swiper-buttons-next"
-          side="slider-button_right"
-        />
-      </div>
+      <sliderB
+        class="slider-buttons swiper-buttons-prev swiper-buttons_size_big"
+      />
+      <sliderB
+        class="swiper-buttons-next swiper-buttons_size_big"
+        side="slider-button_right"
+      />
     </div>
 
     <div class="intro__cover">
       <p class="intro__cover-text">
         {{ tagLeadIntroBlock.title }}
-        <span class="intro__hashtag">
-          {{ tagLeadIntroBlock.hashtag }}
-        </span>
+        <span class="intro__hashtag">{{ tagLeadIntroBlock.hashtag }}</span>
       </p>
     </div>
   </div>
@@ -63,9 +41,8 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import SliderButtons from '@/components/ui/SliderButtons';
-import VideoFrame from '@/components/VideoFrame';
-import TagLead from '@/components/TagLead';
-import Slider from '@/components/Slider';
+import VideoFrame from '@/components/ui/VideoFrame';
+import Slider from '@/components/blocks/Slider';
 
 export default {
   components: {
@@ -88,66 +65,45 @@ export default {
 </script>
 
 <style scoped>
-.intro__video-link {
+/* .intro__video-link {
   color: #666;
-}
-
-.intro__mini-container {
-  display: none;
-}
-
-.intro__middle-container {
-  display: none;
-}
-
-.slider-buttons-container {
-  margin-top: auto;
-  margin-bottom: 99px;
-}
+} */
+/* если вдруг появится ссылка */
 
 .intro {
   margin: 0 auto;
   padding: 100px 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .intro__container {
-  display: flex;
-  justify-content: space-between;
-  min-height: 550px;
-  max-width: 1320px;
+  display: grid;
+  grid-template-columns: 40px 373px 1fr;
+  grid-template-rows: auto;
+  margin-bottom: 74px;
 }
 
-.intro__left {
-  display: flex;
-  flex-direction: column;
-  padding-top: 12px;
-  min-height: 100%;
+.intro__desc {
+  grid-column: 1/3;
+  margin-bottom: 150px;
 }
 
 .intro__slider-container {
+  padding: 0 0 0 40px;
+  grid-column: 3/4;
+  grid-row: 1/3;
+  overflow: hidden;
   position: relative;
-  max-width: 867px;
-  width: 100%;
-  max-height: 450px;
-}
-
-.slider-buttons {
-  margin: 0;
-  z-index: 2;
 }
 
 .intro__video-caption {
-  margin-bottom: -24px;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
-  line-height: 16px;
-  left: 0;
-  bottom: 0;
-  position: absolute;
+  line-height: 1.33;
   color: #666;
+  margin: 10px 0 0;
+}
+
+.swiper-buttons_size_small {
+  display: none;
 }
 
 .intro__cover {
@@ -178,35 +134,17 @@ export default {
 }
 
 @media (max-width: 1280px) {
-  .intro__container {
-    min-height: 490px;
-    max-width: 1180px;
-  }
-
   .intro {
     padding: 90px 0;
   }
 
-  .intro__title {
-    max-width: 367px;
-    font-size: 28px;
-    line-height: 32px;
+  .intro__container {
+    grid-template-columns: 40px 367px 1fr;
+    margin-bottom: 64px;
   }
 
-  .slider-buttons-container {
-    margin-top: auto;
-    margin-bottom: 89px;
-  }
-
-  .intro__text {
-    max-width: 305px;
-    font-size: 16px;
-    line-height: 20px;
-  }
-
-  .intro__slider-container {
-    max-width: 773px;
-    max-height: 400px;
+  .intro__desc {
+    margin-bottom: 124px;
   }
 
   .intro__cover-text {
@@ -219,50 +157,18 @@ export default {
   }
 }
 
-@media screen and (max-width: 1100px) {
-  .intro__slider-container {
-    max-width: 690px;
-  }
-
-  .intro__video-caption {
-    margin-bottom: 18px;
-  }
-}
-
 @media (max-width: 1024px) {
   .intro {
     padding: 80px 0;
   }
 
-  .intro__left {
-    padding-top: 10px;
-  }
-
   .intro__container {
-    min-height: 393px;
-    max-width: 924px;
+    grid-template-columns: 40px 278px 1fr;
+    margin-bottom: 54px;
   }
 
-  .intro__title {
-    max-width: 288px;
-    font-size: 24px;
-    line-height: 28px;
-  }
-
-  .intro__text {
-    max-width: 260px;
-    font-size: 13px;
-    line-height: 16px;
-    margin: 20px 0 0;
-  }
-
-  .intro__slider-container {
-    max-width: 606px;
-    max-height: 314px;
-  }
-
-  .slider-buttons-container {
-    margin-bottom: 79px;
+  .intro__desc {
+    margin-bottom: 80px;
   }
 
   .intro__cover {
@@ -279,58 +185,48 @@ export default {
   }
 }
 
-@media screen and (max-width: 900px) {
-  .intro__slider-container {
-    max-width: 500px;
-    max-height: 254px;
+@media (max-width: 830px) {
+  .intro__desc {
+    margin-bottom: 40px;
   }
 }
 
 @media (max-width: 768px) {
-  .intro__video-caption {
-    margin-bottom: -36px;
-  }
-
   .intro__container {
-    display: none;
+    grid-template-columns: 40px 1fr 40px;
+    margin-bottom: 44px;
   }
 
-  .slider-buttons {
-    min-width: 40px;
-  }
-
-  .intro__middle-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .intro__desc {
+    grid-column: 2/3;
+    margin-bottom: 60px;
+    justify-self: center;
   }
 
   .intro__title {
-    max-width: 380px;
     text-align: center;
   }
 
-  .intro__text {
-    max-width: 380px;
-    margin: 26px 0 0;
-  }
-
   .intro__slider-container {
-    max-width: 580px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding: 0 10px 0;
   }
 
-  .intro__middle {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 300px;
-    max-width: 688px;
-    align-items: center;
-    margin: 60px 14px 80px;
+  .swiper-buttons-prev {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
   }
 
-  .slider-buttons-container {
-    margin-bottom: 75px;
+  .swiper-buttons-next {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    align-self: center;
+  }
+
+  .intro__video-caption {
+    margin: 20px 0 0;
   }
 
   .intro__cover {
@@ -351,52 +247,56 @@ export default {
 }
 
 @media (max-width: 475px) {
-  .intro__mini-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .intro {
-    padding-top: 49px;
-    padding-bottom: 24px;
+    padding: 50px 0;
   }
 
-  .intro__middle-container {
+  .intro__container {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  .intro__desc {
+    margin-bottom: 40px;
+  }
+
+  .swiper-buttons_size_big {
     display: none;
   }
 
-  .intro__title {
-    max-width: 310px;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: left;
-    min-height: 42px;
+  .swiper-buttons_size_small {
+    display: block;
   }
 
-  .intro__text {
-    max-width: 360px;
-    margin-top: 17px;
-    min-height: 64px;
-  }
-
-  .intro__middle {
-    margin: 42px 0 8px;
-    position: relative;
-    min-height: 200px;
-    justify-content: space-between;
-  }
-
-  .youtube-video {
-    margin: 0;
+  .swiper-buttons-prev {
     position: absolute;
-    top: 0;
     left: 0;
+    top: 40%;
+    z-index: 1;
+    width: 20px;
+    background: transparent;
   }
 
-  .slider-buttons {
-    min-width: 20px;
+  .swiper-buttons-next {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    z-index: 1;
+    width: 20px;
     background: transparent;
+  }
+
+  .intro__title {
+    text-align: left;
+  }
+
+  .intro__video-caption {
+    display: none;
+  }
+
+  .intro__slider-container {
+    padding: 0;
+    position: relative;
   }
 
   .intro__cover {
@@ -413,12 +313,6 @@ export default {
 
   .intro__hashtag {
     font-size: 20px;
-  }
-}
-
-@media (max-width: 400px) {
-  .intro__middle {
-    min-height: 165px;
   }
 }
 </style>

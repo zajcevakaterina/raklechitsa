@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import StatisticsItem from '@/components/StatisticsItem';
+import StatisticsItem from '@/components/blocks/StatisticsItem';
 import SectionTitle from '@/components/ui/SectionTitle';
 
 export default {

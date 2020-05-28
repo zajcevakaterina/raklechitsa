@@ -72,17 +72,11 @@ export default {
         index < Math.ceil(this.totalItems / this.itemsPerPage) - 1
       ) {
         this.page = index;
-        console.log(this.page);
-
-        console.log(Math.ceil(this.totalItems / this.itemsPerPage));
       } else if (index <= 2) {
         this.page = 3;
-        console.log(this.page);
       } else {
         this.page = Math.ceil(this.totalItems / this.itemsPerPage) - 2;
-        console.log(this.page);
       }
-      console.log(this.page);
       this.$emit('onPageChanged', index);
     },
     clickArrowsRight(right) {

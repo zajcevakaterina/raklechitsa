@@ -54,7 +54,6 @@ export default {
   box-sizing: border-box;
 }
 
-/* TODO: доделать логику со скроллами */
 .popup__content_type_wide-screens {
   margin: 90px auto 0;
   height: calc(100vh - 90px);

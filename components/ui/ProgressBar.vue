@@ -51,10 +51,4 @@ export default {
     height: 28px;
   }
 }
-
-@media screen and (max-width: 768px) {
-  /* .progress-bar {
-    width: 196px;
-  } */
-}
 </style>

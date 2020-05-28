@@ -83,7 +83,12 @@ export default {
       const storyFound = this.$store.getters['stories/getCurrentStory'](
         this.storyId
       );
-      if (!storyFound) {
+      console.log(this.$route.params.id);
+      if (
+        !storyFound &&
+        this.$route.path.includes('stories') &&
+        this.$route.params.id
+      ) {
         this.$router.push('/404');
         return null;
       }

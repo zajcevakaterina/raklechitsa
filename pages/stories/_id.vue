@@ -46,6 +46,8 @@
     <stories :stories="itemsToLoop" />
     <more-link :whereToGo="'/stories'">Больше статей</more-link>
   </container>
+
+  <error v-else />
 </template>
 
 <script>
@@ -55,6 +57,7 @@ import ArticleColumn from '@/components/ui/ArticleColumn';
 import Button from '@/components/ui/Button';
 import Stories from '@/components/blocks/Stories';
 import MoreLink from '@/components/ui/MoreLink';
+import Error404 from '@/components/blocks/Error404';
 
 export default {
   components: {
@@ -64,12 +67,14 @@ export default {
     'share-button': Button,
     stories: Stories,
     'more-link': MoreLink,
+    error: Error404,
   },
   data() {
     return {
       baseurl: process.env.BASE_URL,
     };
   },
+
   computed: {
     stories() {
       return this.$store.getters['stories/getStories'];
@@ -80,19 +85,7 @@ export default {
     },
 
     story() {
-      const storyFound = this.$store.getters['stories/getCurrentStory'](
-        this.storyId
-      );
-      console.log(this.$route.params.id);
-      if (
-        !storyFound &&
-        this.$route.path.includes('stories') &&
-        this.$route.params.id
-      ) {
-        this.$router.push('/404');
-        return null;
-      }
-      return storyFound;
+      return this.$store.getters['stories/getCurrentStory'](this.storyId);
     },
 
     isLargeImageToSet() {

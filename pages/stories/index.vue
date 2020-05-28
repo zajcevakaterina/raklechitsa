@@ -107,11 +107,6 @@ export default {
       }
     }
   },
-  fetchOnServer: false,
-  async fetch({ store }) {
-    await store.dispatch('stories/fetchStories');
-    await store.dispatch('blocks/fetchBlocks');
-  },
 };
 </script>
 

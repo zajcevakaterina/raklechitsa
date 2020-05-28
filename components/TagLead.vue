@@ -2,14 +2,24 @@
   <div class="tag-lead">
     <p :class="['tag-lead__text', `tag-lead__text_theme_${theme}`]">
       <slot></slot>
-      <span class="tag-lead__tag">#этонелечится</span>
+      <span class="tag-lead__tag">
+        {{ hashtag }}
+      </span>
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['theme'],
+  props: {
+    theme: {
+      type: String,
+      default: 'default',
+    },
+    hashtag: {
+      type: String,
+    },
+  },
 };
 </script>
 
@@ -46,6 +56,7 @@ export default {
     font-size: 28px;
     line-height: 1.4;
   }
+
   .tag-lead__tag {
     font-size: 38px;
   }
@@ -55,6 +66,11 @@ export default {
   .tag-lead {
     min-height: 80px;
   }
+
+  .tag-lead__tag {
+    font-size: 34px;
+  }
+
   .tag-lead__text {
     font-size: 24px;
     line-height: 40px;
@@ -66,6 +82,7 @@ export default {
     min-height: 100px;
     padding: 12px 0;
   }
+
   .tag-lead__text {
     font-size: 22px;
     line-height: 1.24;
@@ -86,6 +103,7 @@ export default {
     min-height: 80px;
     padding: 15px 0;
   }
+
   .tag-lead__text {
     font-size: 16px;
     line-height: 1.12;

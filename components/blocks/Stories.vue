@@ -3,7 +3,7 @@
     <section-title
       v-if="$route.path === '/' || $route.path === '/stories'"
       class="stories__title"
-      >Истории неизлечимых привычек</section-title
+      >{{ storiesBlock.title }}</section-title
     >
     <slot></slot>
     <ul class="stories__list">
@@ -11,7 +11,7 @@
         <story-item
           :author="story.author"
           :title="story.title"
-          :ImageUrl="story.ImageUrl[0].url"
+          :ImageUrl="isSmallImageToSet(story)"
           :link="`/stories/${story.id}`"
         />
       </li>
@@ -29,6 +29,21 @@ export default {
     'section-title': SectionTitle,
     'story-item': StoryItem,
   },
+
+  methods: {
+    isSmallImageToSet: story => {
+      const imageFormats = story.ImageUrl[0].formats;
+      if (imageFormats.hasOwnProperty('small')) {
+        return imageFormats.small.url;
+      }
+      return story.ImageUrl[0].url;
+    },
+  },
+  computed: {
+    storiesBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('stories');
+    },
+  },
 };
 </script>
 
@@ -38,14 +53,14 @@ export default {
 }
 
 .stories__title {
-  margin: 0 0 70px;
+  margin: 0 0 62px;
 }
 
 .stories__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 40px;
-  row-gap: 56px;
+  row-gap: 52px;
   padding: 0;
   list-style: none;
   justify-content: center;
@@ -54,11 +69,11 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .stories__list {
-    row-gap: 45px;
+    row-gap: 42px;
     margin-bottom: 41px;
   }
   .stories__title {
-    margin: 0 0 60px;
+    margin: 0 0 50px;
   }
 }
 
@@ -66,7 +81,7 @@ export default {
   .stories__list {
     column-gap: 30px;
     row-gap: 46px;
-    margin-bottom: 46px;
+    margin-bottom: 28px;
   }
 
   .stories__title {

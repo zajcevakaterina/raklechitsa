@@ -2,77 +2,60 @@
   <div class="intro">
     <div class="intro__container">
       <div class="intro__left">
-        <title-text class="intro__title">
-          {{ title }}
-        </title-text>
-        <regular-text class="intro__text">
-          {{ text }}
-        </regular-text>
+        <title-text class="intro__title">{{ intro.title }}</title-text>
+        <regular-text class="intro__text" v-html="intro.text"></regular-text>
         <div class="slider-buttons-container">
           <sliderB class="slider-buttons swiper-buttons-prev" />
-          <sliderB class="swiper-buttons-next " side="slider-button_right" />
+          <sliderB class="swiper-buttons-next" side="slider-button_right" />
         </div>
       </div>
       <div class="intro__slider-container">
         <slider-intro />
         <p class="intro__video-caption">
-          Все видео вы можете найте на нашем
-          <a
-            class="intro__video-link"
-            target="_blank"
-            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-          >
-            YouTube канале</a
-          >
+          {{ intro.note }}
         </p>
       </div>
     </div>
 
     <div class="intro__middle-container">
-      <title-text class="intro__title">
-        {{ title }}
-      </title-text>
-      <regular-text class="intro__text">
-        {{ text }}
-      </regular-text>
+      <title-text class="intro__title">{{ intro.title }}</title-text>
+      <regular-text class="intro__text" v-html="intro.text"></regular-text>
       <div class="intro__middle">
         <sliderB class="slider-buttons swiper-buttons-prev" />
         <div class="intro__slider-container">
           <slider-intro />
           <p class="intro__video-caption">
-            Все видео вы можете найте на нашем
-            <a
-              class="intro__video-link"
-              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-            >
-              YouTube канале</a
-            >.
+            {{ intro.note }}
           </p>
         </div>
-        <sliderB class="swiper-buttons-next " side="slider-button_right" />
-      </div>
-    </div>
-
-    <div class="intro__mini-container">
-      <title-text class="intro__title">
-        {{ title }}
-      </title-text>
-      <regular-text class="intro__text">
-        {{ text }}
-      </regular-text>
-      <div class="intro__middle">
-        <sliderB class="slider-buttons swiper-buttons-prev" />
-        <slider-intro class="intro__slider-container youtube-video" />
         <sliderB
-          class="slider-buttons swiper-buttons-next "
+          class="slider-buttons swiper-buttons-next"
           side="slider-button_right"
         />
       </div>
     </div>
 
-    <tag-lead class="intro__cover" :theme="'thin'">
-      и в отличие от рака,
-    </tag-lead>
+    <div class="intro__mini-container">
+      <title-text class="intro__title">{{ intro.title }}</title-text>
+      <regular-text class="intro__text" v-html="intro.text"></regular-text>
+      <div class="intro__middle">
+        <sliderB class="slider-buttons swiper-buttons-prev" />
+        <slider-intro class="intro__slider-container youtube-video" />
+        <sliderB
+          class="slider-buttons swiper-buttons-next"
+          side="slider-button_right"
+        />
+      </div>
+    </div>
+
+    <div class="intro__cover">
+      <p class="intro__cover-text">
+        {{ tagLeadIntroBlock.title }}
+        <span class="intro__hashtag">
+          {{ tagLeadIntroBlock.hashtag }}
+        </span>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -90,16 +73,16 @@ export default {
     'regular-text': SectionText,
     sliderB: SliderButtons,
     'youtube-video': VideoFrame,
-    'tag-lead': TagLead,
     'slider-intro': Slider,
   },
 
-  data() {
-    return {
-      title: 'Истории людей, победивших рак, но не свои привычки',
-      text:
-        'Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
-    };
+  computed: {
+    intro() {
+      return this.$store.getters['blocks/getCurrentBlock']('videos');
+    },
+    tagLeadIntroBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('note-1');
+    },
   },
 };
 </script>
@@ -152,6 +135,7 @@ export default {
 
 .slider-buttons {
   margin: 0;
+  z-index: 2;
 }
 
 .intro__video-caption {
@@ -164,6 +148,33 @@ export default {
   bottom: 0;
   position: absolute;
   color: #666;
+}
+
+.intro__cover {
+  width: 100%;
+  min-height: 86px;
+  background: #613a93;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px 5px;
+}
+
+.intro__cover-text {
+  text-transform: uppercase;
+  font-size: 30px;
+  line-height: 1.33;
+  margin: 0;
+  color: #fff;
+  max-width: 750px;
+  text-align: center;
+}
+
+.intro__hashtag {
+  font-weight: 800;
+  font-size: 40px;
 }
 
 @media (max-width: 1280px) {
@@ -197,19 +208,38 @@ export default {
     max-width: 773px;
     max-height: 400px;
   }
+
+  .intro__cover-text {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .intro__hashtag {
+    font-size: 38px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .intro__slider-container {
+    max-width: 690px;
+  }
+
+  .intro__video-caption {
+    margin-bottom: 18px;
+  }
 }
 
 @media (max-width: 1024px) {
   .intro {
-    padding: 85px 0 80px;
+    padding: 80px 0;
   }
 
   .intro__left {
-    padding-top: 4px;
+    padding-top: 10px;
   }
 
   .intro__container {
-    min-height: 389px;
+    min-height: 393px;
     max-width: 924px;
   }
 
@@ -231,8 +261,28 @@ export default {
     max-height: 314px;
   }
 
-  .slider-buttons {
+  .slider-buttons-container {
     margin-bottom: 79px;
+  }
+
+  .intro__cover {
+    min-height: 80px;
+  }
+
+  .intro__hashtag {
+    font-size: 34px;
+  }
+
+  .intro__cover-text {
+    font-size: 24px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .intro__slider-container {
+    max-width: 500px;
+    max-height: 254px;
   }
 }
 
@@ -243,6 +293,10 @@ export default {
 
   .intro__container {
     display: none;
+  }
+
+  .slider-buttons {
+    min-width: 40px;
   }
 
   .intro__middle-container {
@@ -261,22 +315,38 @@ export default {
     margin: 26px 0 0;
   }
 
-  .slider-buttons {
-    margin: 0;
-  }
-
   .intro__slider-container {
     max-width: 580px;
   }
 
   .intro__middle {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     min-height: 300px;
     max-width: 688px;
     align-items: center;
     margin: 60px 14px 80px;
+  }
+
+  .slider-buttons-container {
+    margin-bottom: 75px;
+  }
+
+  .intro__cover {
+    min-height: 100px;
+    padding: 12px 0;
+  }
+
+  .intro__cover-text {
+    font-size: 22px;
+    line-height: 1.24;
+    text-align: center;
+    max-width: 450px;
+  }
+
+  .intro__hashtag {
+    font-size: 32px;
   }
 }
 
@@ -311,9 +381,10 @@ export default {
   }
 
   .intro__middle {
-    margin: 42px 0 25px;
+    margin: 42px 0 8px;
     position: relative;
     min-height: 200px;
+    justify-content: space-between;
   }
 
   .youtube-video {
@@ -324,29 +395,30 @@ export default {
   }
 
   .slider-buttons {
-    z-index: 2;
-    background-color: transparent;
-    width: 20px;
+    min-width: 20px;
+    background: transparent;
+  }
+
+  .intro__cover {
+    min-height: 80px;
+    padding: 15px 0;
+  }
+
+  .intro__cover-text {
+    font-size: 16px;
+    line-height: 1.12;
+    text-align: center;
+    max-width: 220px;
+  }
+
+  .intro__hashtag {
+    font-size: 20px;
   }
 }
 
-@media (max-width: 425px) {
-  .intro__title {
-    max-width: 290px;
-  }
-
-  .intro__text {
-    max-width: 290px;
-  }
-
+@media (max-width: 400px) {
   .intro__middle {
-    position: relative;
-    min-height: 150px;
-    max-width: 290px;
+    min-height: 165px;
   }
-
-  /*.intro__slider-container {*/
-  /*  max-width: 290px;*/
-  /*}*/
 }
 </style>

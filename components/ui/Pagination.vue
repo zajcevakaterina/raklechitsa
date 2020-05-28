@@ -1,8 +1,13 @@
 <template>
   <div class="pagination">
-    <div class="pagination__item-first" @click="setActive(1)">
+    <div
+      class="pagination__item-first"
+      :class="{ 'pagination__item-first_disable': active === 1 }"
+      @click="setActive(1)"
+    >
       Первая
     </div>
+    <div class="pagination__arrow pagination__arrow_left"></div>
     <div
       v-for="index in pagesCount"
       :key="index"
@@ -17,7 +22,12 @@
     >
       {{ index }}
     </div>
-    <div class="pagination__item-last" @click="setActive(pagesCount)">
+    <div class="pagination__arrow pagination__arrow_right"></div>
+    <div
+      class="pagination__item-last"
+      :class="{ 'pagination__item-last_disable': active === pagesCount }"
+      @click="setActive(pagesCount)"
+    >
       Последняя
     </div>
   </div>
@@ -110,9 +120,34 @@ export default {
 .pagination__item:hover {
   background-color: #f4f4f4;
 }
+.pagination__item-first_disable,
+.pagination__item-last_disable {
+  color: #a2a2a2;
+}
+.pagination__arrow {
+  width: 58px;
+  height: 58px;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  display: flex;
+  font-style: normal;
+}
+.pagination__arrow_right {
+  background-image: url('/arrows/right_arrow.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pagination__arrow_left {
+  background-image: url('/arrows/left_arrow.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 @media screen and (max-width: 1280px) {
   .pagination {
-    margin: 130px 0 90px 0;
+    margin: 113px 0 90px 0;
   }
   .pagination__item {
     width: 56px;

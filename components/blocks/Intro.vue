@@ -14,14 +14,20 @@
           class="slider-buttons swiper-buttons-prev swiper-buttons_size_small"
           side="slider-button_left"
         />
-        <sliderB class="swiper-buttons-next swiper-buttons_size_small" />
+        <sliderB
+          class="swiper-buttons-next swiper-buttons_size_small"
+          side="slider-button_right"
+        />
       </div>
 
       <sliderB
         class="slider-buttons swiper-buttons-prev swiper-buttons_size_big"
         side="slider-button_left"
       />
-      <sliderB class="swiper-buttons-next swiper-buttons_size_big" />
+      <sliderB
+        class="swiper-buttons-next swiper-buttons_size_big"
+        side="slider-button_right"
+      />
     </div>
 
     <div class="intro__cover">
@@ -270,7 +276,9 @@ export default {
     top: 40%;
     z-index: 1;
     width: 20px;
-    background: transparent;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .swiper-buttons-next {
@@ -280,6 +288,10 @@ export default {
     z-index: 1;
     width: 20px;
     background: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(/arrows/arrow-active.svg);
+    transform: rotate(0deg);
   }
 
   .intro__title {

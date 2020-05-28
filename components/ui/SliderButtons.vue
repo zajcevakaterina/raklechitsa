@@ -33,6 +33,7 @@ export default {
   background-image: url('/arrows/arrow-disable.svg');
   transform: rotate(180deg);
 }
+
 .swiper-button-disabled {
   background-image: url('/arrows/arrow-disable.svg');
   transform: rotate(0deg);

@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import InstaPhoto from '@/components/InstaPhoto';
+import InstaPhoto from '@/components/blocks/InstaPhoto';
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 

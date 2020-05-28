@@ -74,7 +74,6 @@ export default {
     currentQuestion() {
       const { quiz } = this.$store.state;
       const { currentQuestion, questions } = quiz;
-      console.log(questions[currentQuestion]);
       return questions[currentQuestion];
     },
 
@@ -97,7 +96,6 @@ export default {
       const { quiz } = this.$store.state;
       const { questions, currentQuestion } = quiz;
       const questionsLength = Object.keys(questions).length;
-      console.log(currentQuestion);
       if (currentQuestion === questionsLength) {
         return true;
       }

@@ -53,9 +53,9 @@
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
-import Menu from '@/components/Menu';
+import Menu from '@/components/ui/Menu';
 import Button from '@/components/ui/Button';
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 
 export default {
   components: {
@@ -247,7 +247,6 @@ export default {
     padding-right: 6%;
   }
   .footer__social {
-    /*width: 226px;*/
     width: 360px;
   }
   .footer__link {

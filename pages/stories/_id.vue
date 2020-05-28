@@ -1,7 +1,5 @@
 <template>
-  <!-- TODO: разобраться с отступом внизу от "поделиться в социальных сетях в зависимости от контента истории и тегов в ней" -->
-  <!-- TODO: добавить год истории в дату -->
-  <container class="container">
+  <container class="container" v-if="story">
     <article class="individual-story">
       <div class="individual-story__lead">
         <story-title class="individual-story__title">
@@ -46,18 +44,20 @@
     </article>
 
     <stories :stories="itemsToLoop" />
-    <nuxt-link to="/stories" class="more-stories-link">
-      <p class="more-stories-link__text">Больше статей</p>
-    </nuxt-link>
+    <more-link :whereToGo="'/stories'">Больше статей</more-link>
   </container>
+
+  <error v-else />
 </template>
 
 <script>
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 import ArticleTitle from '@/components/ui/ArticleTitle';
 import ArticleColumn from '@/components/ui/ArticleColumn';
 import Button from '@/components/ui/Button';
 import Stories from '@/components/blocks/Stories';
+import MoreLink from '@/components/ui/MoreLink';
+import Error404 from '@/components/blocks/Error404';
 
 export default {
   components: {
@@ -66,19 +66,26 @@ export default {
     'story-column': ArticleColumn,
     'share-button': Button,
     stories: Stories,
+    'more-link': MoreLink,
+    error: Error404,
   },
   data() {
     return {
       baseurl: process.env.BASE_URL,
     };
   },
+
   computed: {
     stories() {
       return this.$store.getters['stories/getStories'];
     },
 
+    storyId() {
+      return this.$route.params.id;
+    },
+
     story() {
-      return this.$store.getters['stories/getCurrentsStory'];
+      return this.$store.getters['stories/getCurrentStory'](this.storyId);
     },
 
     isLargeImageToSet() {
@@ -130,17 +137,10 @@ export default {
       this.$store.commit('popup/openSharePopup');
     },
   },
-  async fetch({ store, route }) {
-    await store.dispatch('stories/fetchStories');
-    await store.dispatch('stories/fetchStoriesWithId', { id: route.params.id });
-    await store.dispatch('blocks/fetchBlocks');
-  },
 };
 </script>
 
 <style scoped>
-@import url(@/blocks/more-stories-link/more-stories-link.css);
-
 .individual-story {
   padding: 100px 0 160px;
 }

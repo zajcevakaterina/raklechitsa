@@ -34,8 +34,8 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import Button from '@/components/ui/Button';
-import Tabs from '@/components/Tabs';
-import Container from '@/components/Container';
+import Tabs from '@/components/ui/Tabs';
+import Container from '@/components/ui/Container';
 
 export default {
   components: {
@@ -60,11 +60,9 @@ export default {
   },
   computed: {
     callBlock() {
-      console.log(this.$store.getters['blocks/getCurrentBlock']('story'));
       return this.$store.getters['blocks/getCurrentBlock']('story');
     },
     tabsDataActions() {
-      console.log(this.callBlock.extraTexts);
       return this.callBlock.extraTexts;
     },
   },

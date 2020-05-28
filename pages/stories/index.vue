@@ -35,7 +35,7 @@ import Stories from '@/components/blocks/Stories';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import Pagination from '@/components/ui/Pagination';
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 
 export default {
   data() {
@@ -106,11 +106,6 @@ export default {
         this.itemsPerPage = 16;
       }
     }
-  },
-  fetchOnServer: false,
-  async fetch({ store }) {
-    await store.dispatch('stories/fetchStories');
-    await store.dispatch('blocks/fetchBlocks');
   },
 };
 </script>

@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu';
+import Menu from '@/components/ui/Menu';
 import Button from '@/components/ui/Button';
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 import MobileIcon from '@/components/ui/MobileIcon';
 
 export default {

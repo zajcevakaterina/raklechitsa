@@ -7,7 +7,10 @@
     >
       Первая
     </div>
-    <div class="pagination__arrow pagination__arrow_left"></div>
+    <div
+      class="pagination__arrow pagination__arrow_left"
+      @click="setActive(clickArrowsLeft(active - 1))"
+    ></div>
     <div
       v-for="index in pagesCount"
       :key="index"
@@ -22,7 +25,10 @@
     >
       {{ index }}
     </div>
-    <div class="pagination__arrow pagination__arrow_right"></div>
+    <div
+      class="pagination__arrow pagination__arrow_right"
+      @click="setActive(clickArrowsRight(active + 1))"
+    ></div>
     <div
       class="pagination__item-last"
       :class="{ 'pagination__item-last_disable': active === pagesCount }"
@@ -59,23 +65,33 @@ export default {
   methods: {
     setActive(index) {
       this.active = index;
+
+      console.log(index);
       if (
         index > 2 &&
         index < Math.ceil(this.totalItems / this.itemsPerPage) - 1
       ) {
         this.page = index;
-        console.log(this.page);
-
-        console.log(Math.ceil(this.totalItems / this.itemsPerPage));
       } else if (index <= 2) {
         this.page = 3;
-        console.log(this.page);
       } else {
         this.page = Math.ceil(this.totalItems / this.itemsPerPage) - 2;
-        console.log(this.page);
       }
-      console.log(this.page);
       this.$emit('onPageChanged', index);
+    },
+    clickArrowsRight(right) {
+      if (this.active === this.pagesCount) {
+        return this.active;
+      } else {
+        return right;
+      }
+    },
+    clickArrowsLeft(left) {
+      if (this.active === 1) {
+        return this.active;
+      } else {
+        return left;
+      }
     },
   },
 };

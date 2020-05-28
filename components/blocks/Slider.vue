@@ -9,7 +9,7 @@
 <script>
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
-import VideoFrame from '@/components/VideoFrame';
+import VideoFrame from '@/components/ui/VideoFrame';
 
 export default {
   name: 'swiper-example-navigation',
@@ -44,6 +44,10 @@ export default {
   flex-direction: column;
 }
 .swiper-slide {
+  width: 100%;
+}
+
+.swiper-slide-active {
   width: 100%;
 }
 @media (max-width: 900px) {

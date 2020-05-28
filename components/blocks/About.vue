@@ -13,8 +13,8 @@
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
-import Tabs from '@/components/Tabs';
-import Container from '@/components/Container';
+import Tabs from '@/components/ui/Tabs';
+import Container from '@/components/ui/Container';
 export default {
   components: {
     'section-title': SectionTitle,

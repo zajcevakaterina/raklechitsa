@@ -14,7 +14,7 @@
           $emit('tab-changed', index);
         "
       >
-        {{ tab.name }}
+        {{ tab.title }}
       </li>
     </ul>
     <div class="tabs__content">
@@ -24,15 +24,7 @@
         v-for="(tab, index) in tabsData"
         v-if="show === index"
         :key="tab.id"
-        v-html="tab.content"
-      ></p>
-      <p
-        class="tabs__text"
-        :class="`tabs__text_${theme}`"
-        v-for="(tab, index) in tabsData"
-        v-if="show === index && tab.content2"
-        :key="tab.name"
-        v-html="tab.content2"
+        v-html="tab.text"
       ></p>
       <slot></slot>
     </div>
@@ -110,6 +102,10 @@ export default {
   margin-bottom: 0;
 }
 
+.tabs__text >>> p {
+  margin: 0;
+}
+
 .tabs__text_call-to-action {
   color: #666;
 }
@@ -128,7 +124,7 @@ export default {
 }
 @media screen and (max-width: 1024px) {
   .tabs {
-    margin: 20px 0 0;
+    margin: 27px 0 0;
   }
   .tabs__link {
     margin-bottom: 8px;

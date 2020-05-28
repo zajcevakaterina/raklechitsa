@@ -1,10 +1,6 @@
 <template>
   <swiper class="swiper" :options="swiperOption">
-    <swiper-slide
-      class="swiper-slide"
-      v-for="video in introVideo"
-      :key="video.id"
-    >
+    <swiper-slide class="swiper-slide" v-for="video in videos" :key="video.id">
       <youtube-video :url="video.url"></youtube-video>
     </swiper-slide>
   </swiper>
@@ -13,7 +9,7 @@
 <script>
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
-import VideoFrame from '@/components/VideoFrame';
+import VideoFrame from '@/components/ui/VideoFrame';
 
 export default {
   name: 'swiper-example-navigation',
@@ -23,28 +19,20 @@ export default {
     SwiperSlide,
     'youtube-video': VideoFrame,
   },
+  computed: {
+    videos() {
+      return this.$store.getters['video/getVideo'];
+    },
+  },
   data() {
     return {
+      baseurl: process.env.BASE_URL,
       swiperOption: {
         navigation: {
           nextEl: '.swiper-buttons-next',
           prevEl: '.swiper-buttons-prev',
         },
       },
-      introVideo: [
-        {
-          id: 1,
-          url: 'https://www.youtube.com/embed/coOppM34GtI',
-        },
-        {
-          id: 2,
-          url: 'https://www.youtube.com/embed/ZKWilQnPovg',
-        },
-        {
-          id: 3,
-          url: 'https://www.youtube.com/embed/FFrioIZ65q0',
-        },
-      ],
     };
   },
 };
@@ -57,5 +45,14 @@ export default {
 }
 .swiper-slide {
   width: 100%;
+}
+
+.swiper-slide-active {
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .swiper-slide {
+    width: 500px;
+  }
 }
 </style>

@@ -35,7 +35,7 @@ import Stories from '@/components/blocks/Stories';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import Pagination from '@/components/ui/Pagination';
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 
 export default {
   data() {
@@ -107,10 +107,6 @@ export default {
       }
     }
   },
-  fetchOnServer: false,
-  async fetch({ store }) {
-    await store.dispatch('stories/fetchStories');
-  },
 };
 </script>
 
@@ -134,6 +130,10 @@ export default {
   padding: 0;
   background-color: #613a93;
 }
+.stories__button:disabled {
+  background-color: #613a93;
+}
+
 .stories__button-mobile {
   background-color: #613a93;
   height: 46px;

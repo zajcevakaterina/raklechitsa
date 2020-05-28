@@ -1,9 +1,7 @@
 <template>
   <header class="header">
     <container class="header__container">
-      <p class="header__logo">
-        Проект Благотворительного Фонда Константина Хабенского
-      </p>
+      <p class="header__logo" v-html="headerBlock.title" />
       <main-menu />
       <button-header @btnClick="openQuizPopup" class="header__button"
         >Рассказать историю</button-header
@@ -14,9 +12,9 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu';
+import Menu from '@/components/ui/Menu';
 import Button from '@/components/ui/Button';
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 import MobileIcon from '@/components/ui/MobileIcon';
 
 export default {
@@ -29,6 +27,11 @@ export default {
   methods: {
     openQuizPopup() {
       this.$store.commit('popup/openQuizPopup');
+    },
+  },
+  computed: {
+    headerBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('header');
     },
   },
 };
@@ -49,7 +52,7 @@ export default {
 }
 
 .header__logo {
-  width: 340px;
+  max-width: 340px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;

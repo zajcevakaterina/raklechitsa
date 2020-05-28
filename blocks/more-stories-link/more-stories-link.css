@@ -30,6 +30,12 @@
     height: 50px;
     font-size: 13px;
     line-height: 1.54;
-    margin-bottom: 66px;
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 425px) {
+  .more-stories-link {
+    margin-bottom: 45px;
   }
 }

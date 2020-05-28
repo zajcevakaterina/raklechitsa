@@ -1,8 +1,16 @@
 <template>
   <div class="pagination">
-    <div class="pagination__item-first" @click="setActive(1)">
+    <div
+      class="pagination__item-first"
+      :class="{ 'pagination__item-first_disable': active === 1 }"
+      @click="setActive(1)"
+    >
       Первая
     </div>
+    <div
+      class="pagination__arrow pagination__arrow_left"
+      @click="setActive(clickArrowsLeft(active - 1))"
+    ></div>
     <div
       v-for="index in pagesCount"
       :key="index"
@@ -17,7 +25,15 @@
     >
       {{ index }}
     </div>
-    <div class="pagination__item-last" @click="setActive(pagesCount)">
+    <div
+      class="pagination__arrow pagination__arrow_right"
+      @click="setActive(clickArrowsRight(active + 1))"
+    ></div>
+    <div
+      class="pagination__item-last"
+      :class="{ 'pagination__item-last_disable': active === pagesCount }"
+      @click="setActive(pagesCount)"
+    >
       Последняя
     </div>
   </div>
@@ -49,23 +65,33 @@ export default {
   methods: {
     setActive(index) {
       this.active = index;
+
+      console.log(index);
       if (
         index > 2 &&
         index < Math.ceil(this.totalItems / this.itemsPerPage) - 1
       ) {
         this.page = index;
-        console.log(this.page);
-
-        console.log(Math.ceil(this.totalItems / this.itemsPerPage));
       } else if (index <= 2) {
         this.page = 3;
-        console.log(this.page);
       } else {
         this.page = Math.ceil(this.totalItems / this.itemsPerPage) - 2;
-        console.log(this.page);
       }
-      console.log(this.page);
       this.$emit('onPageChanged', index);
+    },
+    clickArrowsRight(right) {
+      if (this.active === this.pagesCount) {
+        return this.active;
+      } else {
+        return right;
+      }
+    },
+    clickArrowsLeft(left) {
+      if (this.active === 1) {
+        return this.active;
+      } else {
+        return left;
+      }
     },
   },
 };
@@ -110,9 +136,34 @@ export default {
 .pagination__item:hover {
   background-color: #f4f4f4;
 }
+.pagination__item-first_disable,
+.pagination__item-last_disable {
+  color: #a2a2a2;
+}
+.pagination__arrow {
+  width: 58px;
+  height: 58px;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  display: flex;
+  font-style: normal;
+}
+.pagination__arrow_right {
+  background-image: url('/arrows/right_arrow.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pagination__arrow_left {
+  background-image: url('/arrows/left_arrow.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 @media screen and (max-width: 1280px) {
   .pagination {
-    margin: 130px 0 90px 0;
+    margin: 113px 0 90px 0;
   }
   .pagination__item {
     width: 56px;

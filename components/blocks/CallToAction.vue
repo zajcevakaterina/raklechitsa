@@ -1,18 +1,15 @@
 <template>
   <section class="call-to-action">
     <container class="call-to-action__container">
-      <section-title class="call-to-action__title"
-        >Расскажите свою историю</section-title
-      >
+      <section-title class="call-to-action__title" v-html="callBlock.title" />
       <div class="call-to-action__content">
-        <section-text class="call-to-action__section-text">
-          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-          поделиться своей историей неизлечимых привычек, навязчивых идей и
-          болезненных привязанностей.
-        </section-text>
+        <section-text
+          class="call-to-action__section-text"
+          v-html="callBlock.text"
+        />
         <main-tabs
           v-on:tab-changed="tabIndex = $event"
-          :tabsData="actions"
+          :tabsData="tabsDataActions"
           theme="call-to-action"
         >
           <action-button
@@ -37,8 +34,8 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import Button from '@/components/ui/Button';
-import Tabs from '@/components/Tabs';
-import Container from '@/components/Container';
+import Tabs from '@/components/ui/Tabs';
+import Container from '@/components/ui/Container';
 
 export default {
   components: {
@@ -62,8 +59,11 @@ export default {
     },
   },
   computed: {
-    actions() {
-      return this.$store.getters['call-to-action/getAction'];
+    callBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('story');
+    },
+    tabsDataActions() {
+      return this.callBlock.extraTexts;
     },
   },
 };

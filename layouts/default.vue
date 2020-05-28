@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import MobileMenu from '@/components/MobileMenu';
+import MobileMenu from '@/components/ui/MobileMenu';
 import Header from '@/components/blocks/Header';
 import Footer from '@/components/blocks/Footer';
 import Popup from '@/components/ui/Popup';
-import Qiuz from '@/components/Quiz';
-import SocialShare from '@/components/SocialShare';
+import Qiuz from '@/components/blocks/Quiz';
+import SocialShare from '@/components/blocks/SocialShare';
 export default {
   head: {
     title: 'РАКЛЕЧИТСЯ.РФ — истории людей, победивших рак, но не свои привычки',
@@ -67,7 +67,7 @@ export default {
 body {
   margin: 0;
 }
-/* TODO: временное решение, пока не найду способа добраться до body и поставить ему класс */
+
 .root {
   font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;

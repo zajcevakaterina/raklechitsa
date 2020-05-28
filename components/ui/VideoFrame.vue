@@ -20,7 +20,6 @@ export default {
 
 <style scoped>
 .video {
-  max-width: 867px;
   width: 100%;
 }
 
@@ -45,6 +44,11 @@ export default {
   .video {
     max-width: 773px;
     max-height: 400px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .video {
+    max-width: 690px;
   }
 }
 
@@ -76,10 +80,6 @@ export default {
 }
 
 @media (max-width: 425px) {
-  .video {
-    max-width: 290px;
-  }
-
   .video__container {
     max-height: 150px;
   }

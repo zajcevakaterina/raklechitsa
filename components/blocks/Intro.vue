@@ -1,78 +1,39 @@
 <template>
   <div class="intro">
     <div class="intro__container">
-      <div class="intro__left">
-        <title-text class="intro__title">
-          {{ title }}
-        </title-text>
-        <regular-text class="intro__text">
-          {{ text }}
-        </regular-text>
-        <div class="slider-buttons-container">
-          <sliderB class="slider-buttons swiper-buttons-prev" />
-          <sliderB class="swiper-buttons-next " side="slider-button_right" />
-        </div>
+      <div class="intro__desc">
+        <title-text class="intro__title">{{ intro.title }}</title-text>
+        <regular-text class="intro__text" v-html="intro.text"></regular-text>
       </div>
+
       <div class="intro__slider-container">
         <slider-intro />
-        <p class="intro__video-caption">
-          Все видео вы можете найте на нашем
-          <a
-            class="intro__video-link"
-            target="_blank"
-            href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-          >
-            YouTube канале</a
-          >
-        </p>
-      </div>
-    </div>
+        <p class="intro__video-caption">{{ intro.note }}</p>
 
-    <div class="intro__middle-container">
-      <title-text class="intro__title">
-        {{ title }}
-      </title-text>
-      <regular-text class="intro__text">
-        {{ text }}
-      </regular-text>
-      <div class="intro__middle">
-        <sliderB class="slider-buttons swiper-buttons-prev" />
-        <div class="intro__slider-container">
-          <slider-intro />
-          <p class="intro__video-caption">
-            Все видео вы можете найте на нашем
-            <a
-              class="intro__video-link"
-              href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
-            >
-              YouTube канале</a
-            >.
-          </p>
-        </div>
-        <sliderB class="swiper-buttons-next " side="slider-button_right" />
-      </div>
-    </div>
-
-    <div class="intro__mini-container">
-      <title-text class="intro__title">
-        {{ title }}
-      </title-text>
-      <regular-text class="intro__text">
-        {{ text }}
-      </regular-text>
-      <div class="intro__middle">
-        <sliderB class="slider-buttons swiper-buttons-prev" />
-        <slider-intro class="intro__slider-container youtube-video" />
         <sliderB
-          class="slider-buttons swiper-buttons-next "
+          class="slider-buttons swiper-buttons-prev swiper-buttons_size_small"
+        />
+        <sliderB
+          class="swiper-buttons-next swiper-buttons_size_small"
           side="slider-button_right"
         />
       </div>
+
+      <sliderB
+        class="slider-buttons swiper-buttons-prev swiper-buttons_size_big"
+      />
+      <sliderB
+        class="swiper-buttons-next swiper-buttons_size_big"
+        side="slider-button_right"
+      />
     </div>
 
-    <tag-lead class="intro__cover" :theme="'thin'">
-      и в отличие от рака,
-    </tag-lead>
+    <div class="intro__cover">
+      <p class="intro__cover-text">
+        {{ tagLeadIntroBlock.title }}
+        <span class="intro__hashtag">{{ tagLeadIntroBlock.hashtag }}</span>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -80,9 +41,8 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import SliderButtons from '@/components/ui/SliderButtons';
-import VideoFrame from '@/components/VideoFrame';
-import TagLead from '@/components/TagLead';
-import Slider from '@/components/Slider';
+import VideoFrame from '@/components/ui/VideoFrame';
+import Slider from '@/components/blocks/Slider';
 
 export default {
   components: {
@@ -90,263 +50,269 @@ export default {
     'regular-text': SectionText,
     sliderB: SliderButtons,
     'youtube-video': VideoFrame,
-    'tag-lead': TagLead,
     'slider-intro': Slider,
   },
 
-  data() {
-    return {
-      title: 'Истории людей, победивших рак, но не свои привычки',
-      text:
-        'Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии, страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди с их историями.',
-    };
+  computed: {
+    intro() {
+      return this.$store.getters['blocks/getCurrentBlock']('videos');
+    },
+    tagLeadIntroBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('note-1');
+    },
   },
 };
 </script>
 
 <style scoped>
-.intro__video-link {
+/* .intro__video-link {
   color: #666;
-}
-
-.intro__mini-container {
-  display: none;
-}
-
-.intro__middle-container {
-  display: none;
-}
-
-.slider-buttons-container {
-  margin-top: auto;
-  margin-bottom: 99px;
-}
+} */
+/* если вдруг появится ссылка */
 
 .intro {
   margin: 0 auto;
   padding: 100px 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .intro__container {
-  display: flex;
-  justify-content: space-between;
-  min-height: 550px;
-  max-width: 1320px;
+  display: grid;
+  grid-template-columns: 40px 373px 1fr;
+  grid-template-rows: auto;
+  margin-bottom: 74px;
 }
 
-.intro__left {
-  display: flex;
-  flex-direction: column;
-  padding-top: 12px;
-  min-height: 100%;
+.intro__desc {
+  grid-column: 1/3;
+  margin-bottom: 150px;
 }
 
 .intro__slider-container {
+  padding: 0 0 0 40px;
+  grid-column: 3/4;
+  grid-row: 1/3;
+  overflow: hidden;
   position: relative;
-  max-width: 867px;
-  width: 100%;
-  max-height: 450px;
-}
-
-.slider-buttons {
-  margin: 0;
 }
 
 .intro__video-caption {
-  margin-bottom: -24px;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
-  line-height: 16px;
-  left: 0;
-  bottom: 0;
-  position: absolute;
+  line-height: 1.33;
   color: #666;
+  margin: 10px 0 0;
+}
+
+.swiper-buttons_size_small {
+  display: none;
+}
+
+.intro__cover {
+  width: 100%;
+  min-height: 86px;
+  background: #613a93;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px 5px;
+}
+
+.intro__cover-text {
+  text-transform: uppercase;
+  font-size: 30px;
+  line-height: 1.33;
+  margin: 0;
+  color: #fff;
+  max-width: 750px;
+  text-align: center;
+}
+
+.intro__hashtag {
+  font-weight: 800;
+  font-size: 40px;
 }
 
 @media (max-width: 1280px) {
-  .intro__container {
-    min-height: 490px;
-    max-width: 1180px;
-  }
-
   .intro {
     padding: 90px 0;
   }
 
-  .intro__title {
-    max-width: 367px;
+  .intro__container {
+    grid-template-columns: 40px 367px 1fr;
+    margin-bottom: 64px;
+  }
+
+  .intro__desc {
+    margin-bottom: 124px;
+  }
+
+  .intro__cover-text {
     font-size: 28px;
-    line-height: 32px;
+    line-height: 1.4;
   }
 
-  .slider-buttons-container {
-    margin-top: auto;
-    margin-bottom: 89px;
-  }
-
-  .intro__text {
-    max-width: 305px;
-    font-size: 16px;
-    line-height: 20px;
-  }
-
-  .intro__slider-container {
-    max-width: 773px;
-    max-height: 400px;
+  .intro__hashtag {
+    font-size: 38px;
   }
 }
 
 @media (max-width: 1024px) {
   .intro {
-    padding: 85px 0 80px;
-  }
-
-  .intro__left {
-    padding-top: 4px;
+    padding: 80px 0;
   }
 
   .intro__container {
-    min-height: 389px;
-    max-width: 924px;
+    grid-template-columns: 40px 278px 1fr;
+    margin-bottom: 54px;
   }
 
-  .intro__title {
-    max-width: 288px;
+  .intro__desc {
+    margin-bottom: 80px;
+  }
+
+  .intro__cover {
+    min-height: 80px;
+  }
+
+  .intro__hashtag {
+    font-size: 34px;
+  }
+
+  .intro__cover-text {
     font-size: 24px;
-    line-height: 28px;
+    line-height: 40px;
   }
+}
 
-  .intro__text {
-    max-width: 260px;
-    font-size: 13px;
-    line-height: 16px;
-    margin: 20px 0 0;
-  }
-
-  .intro__slider-container {
-    max-width: 606px;
-    max-height: 314px;
-  }
-
-  .slider-buttons {
-    margin-bottom: 79px;
+@media (max-width: 830px) {
+  .intro__desc {
+    margin-bottom: 40px;
   }
 }
 
 @media (max-width: 768px) {
-  .intro__video-caption {
-    margin-bottom: -36px;
-  }
-
   .intro__container {
-    display: none;
+    grid-template-columns: 40px 1fr 40px;
+    margin-bottom: 44px;
   }
 
-  .intro__middle-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .intro__desc {
+    grid-column: 2/3;
+    margin-bottom: 60px;
+    justify-self: center;
   }
 
   .intro__title {
-    max-width: 380px;
     text-align: center;
   }
 
-  .intro__text {
-    max-width: 380px;
-    margin: 26px 0 0;
-  }
-
-  .slider-buttons {
-    margin: 0;
-  }
-
   .intro__slider-container {
-    max-width: 580px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding: 0 10px 0;
   }
 
-  .intro__middle {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 300px;
-    max-width: 688px;
-    align-items: center;
-    margin: 60px 14px 80px;
+  .swiper-buttons-prev {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+  }
+
+  .swiper-buttons-next {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    align-self: center;
+  }
+
+  .intro__video-caption {
+    margin: 20px 0 0;
+  }
+
+  .intro__cover {
+    min-height: 100px;
+    padding: 12px 0;
+  }
+
+  .intro__cover-text {
+    font-size: 22px;
+    line-height: 1.24;
+    text-align: center;
+    max-width: 450px;
+  }
+
+  .intro__hashtag {
+    font-size: 32px;
   }
 }
 
 @media (max-width: 475px) {
-  .intro__mini-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .intro {
-    padding-top: 49px;
-    padding-bottom: 24px;
+    padding: 50px 0;
   }
 
-  .intro__middle-container {
+  .intro__container {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  .intro__desc {
+    margin-bottom: 40px;
+  }
+
+  .swiper-buttons_size_big {
     display: none;
   }
 
-  .intro__title {
-    max-width: 310px;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: left;
-    min-height: 42px;
+  .swiper-buttons_size_small {
+    display: block;
   }
 
-  .intro__text {
-    max-width: 360px;
-    margin-top: 17px;
-    min-height: 64px;
-  }
-
-  .intro__middle {
-    margin: 42px 0 25px;
-    position: relative;
-    min-height: 200px;
-  }
-
-  .youtube-video {
-    margin: 0;
+  .swiper-buttons-prev {
     position: absolute;
-    top: 0;
     left: 0;
-  }
-
-  .slider-buttons {
-    z-index: 2;
-    background-color: transparent;
+    top: 40%;
+    z-index: 1;
     width: 20px;
+    background: transparent;
   }
-}
 
-@media (max-width: 425px) {
+  .swiper-buttons-next {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    z-index: 1;
+    width: 20px;
+    background: transparent;
+  }
+
   .intro__title {
-    max-width: 290px;
+    text-align: left;
   }
 
-  .intro__text {
-    max-width: 290px;
+  .intro__video-caption {
+    display: none;
   }
 
-  .intro__middle {
+  .intro__slider-container {
+    padding: 0;
     position: relative;
-    min-height: 150px;
-    max-width: 290px;
   }
 
-  /*.intro__slider-container {*/
-  /*  max-width: 290px;*/
-  /*}*/
+  .intro__cover {
+    min-height: 80px;
+    padding: 15px 0;
+  }
+
+  .intro__cover-text {
+    font-size: 16px;
+    line-height: 1.12;
+    text-align: center;
+    max-width: 220px;
+  }
+
+  .intro__hashtag {
+    font-size: 20px;
+  }
 }
 </style>

@@ -1,14 +1,11 @@
 <template>
   <section class="about">
     <container class="about__container">
-      <p class="about__hashtag">#РАКЛЕЧИТСЯ</p>
-      <section-title class="about__section-title">О проекте</section-title>
+      <p class="about__hashtag" v-html="aboutBlock.hashtag" />
+      <section-title class="about__section-title" v-html="aboutBlock.title" />
       <div class="about__content">
-        <section-text class="about__section-text"
-          >Этот проект был создан благотворительным фондом Константина
-          Хабенского.
-        </section-text>
-        <main-tabs :tabsData="about" :theme="'about'" />
+        <section-text class="about__section-text" v-html="aboutBlock.text" />
+        <main-tabs :tabsData="tabsAboutData" :theme="'about'" />
       </div>
     </container>
   </section>
@@ -16,8 +13,8 @@
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
-import Tabs from '@/components/Tabs';
-import Container from '@/components/Container';
+import Tabs from '@/components/ui/Tabs';
+import Container from '@/components/ui/Container';
 export default {
   components: {
     'section-title': SectionTitle,
@@ -26,8 +23,11 @@ export default {
     container: Container,
   },
   computed: {
-    about() {
-      return this.$store.getters['about/getAbout'];
+    aboutBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('about');
+    },
+    tabsAboutData() {
+      return this.aboutBlock.extraTexts;
     },
   },
 };
@@ -83,6 +83,9 @@ export default {
   .about__container {
     min-height: 571px;
   }
+  .about__section-text {
+    margin-top: 29px;
+  }
   .about__hashtag {
     font-size: 52px;
     line-height: 63px;
@@ -92,7 +95,7 @@ export default {
 @media screen and (max-width: 768px) {
   .about__container {
     min-height: 660px;
-    padding: 50px 0;
+    padding: 82px 0 50px;
     align-items: center;
   }
   .about__hashtag {
@@ -111,6 +114,7 @@ export default {
   .about__container {
     min-height: 628px;
     align-items: start;
+    padding-top: 52px;
   }
   .about__hashtag {
     display: none;

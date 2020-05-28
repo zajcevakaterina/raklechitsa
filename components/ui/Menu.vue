@@ -52,7 +52,6 @@ export default {};
   border-bottom: solid 2px;
 }
 
-/*TODO нет ли дублирования с menu-link выше?*/
 .nuxt-link-exact-active:hover {
   opacity: 0.8;
   transition: opacity 0.3s linear;
@@ -61,10 +60,6 @@ export default {};
 @media screen and (max-width: 1280px) {
   .menu__link {
     font-size: 16px;
-  }
-  /*TODO нужен ли этот класс??*/
-  .header__logo {
-    line-height: 1.12;
   }
 }
 

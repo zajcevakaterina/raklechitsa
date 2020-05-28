@@ -1,7 +1,5 @@
 <template>
-  <!-- TODO: разобраться с отступом внизу от "поделиться в социальных сетях в зависимости от контента истории и тегов в ней" -->
-  <!-- TODO: добавить год истории в дату -->
-  <container class="container">
+  <container class="container" v-if="story">
     <article class="individual-story">
       <div class="individual-story__lead">
         <story-title class="individual-story__title">
@@ -14,9 +12,7 @@
         <div class="individual-story__image-wrapper">
           <div
             class="individual-story__image"
-            :style="
-              `background-image: url(${publicPath}${story.ImageUrl[0].url})`
-            "
+            :style="`background-image: url('${baseurl}${isLargeImageToSet}')`"
           ></div>
         </div>
 
@@ -55,7 +51,7 @@
 </template>
 
 <script>
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 import ArticleTitle from '@/components/ui/ArticleTitle';
 import ArticleColumn from '@/components/ui/ArticleColumn';
 import Button from '@/components/ui/Button';
@@ -71,7 +67,7 @@ export default {
   },
   data() {
     return {
-      publicPath: process.env.BASE_URL,
+      baseurl: process.env.BASE_URL,
     };
   },
   computed: {
@@ -79,9 +75,34 @@ export default {
       return this.$store.getters['stories/getStories'];
     },
 
-    story() {
-      return this.$store.getters['stories/getCurrentsStory'];
+    storyId() {
+      return this.$route.params.id;
     },
+
+    story() {
+      const storyFound = this.$store.getters['stories/getCurrentStory'](
+        this.storyId
+      );
+      console.log(this.$route.params.id);
+      if (
+        !storyFound &&
+        this.$route.path.includes('stories') &&
+        this.$route.params.id
+      ) {
+        this.$router.push('/404');
+        return null;
+      }
+      return storyFound;
+    },
+
+    isLargeImageToSet() {
+      const imageFormats = this.story.ImageUrl[0].formats;
+      if (imageFormats.hasOwnProperty('large')) {
+        return imageFormats.large.url;
+      }
+      return this.story.ImageUrl[0].url;
+    },
+
     itemsToLoop() {
       if (process.browser) {
         if (window.innerWidth <= 768 && window.innerWidth > 475) {
@@ -122,10 +143,6 @@ export default {
     openSharePopup() {
       this.$store.commit('popup/openSharePopup');
     },
-  },
-  async fetch({ store, route }) {
-    await store.dispatch('stories/fetchStories');
-    await store.dispatch('stories/fetchStoriesWithId', { id: route.params.id });
   },
 };
 </script>

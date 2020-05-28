@@ -3,18 +3,10 @@
     <container class="footer__container">
       <div class="footer__content">
         <div class="footer__title-menu">
-          <section-title class="section__title_place_footer"
-            >Спасибо всем, кто помог состояться этому проекту</section-title
-          >
-          <!-- <footer-menu /> -->
-
-          <!--          старый код-->
-          <!--          <div class="footer__menu">-->
-          <!--            <a href="/" class="footer__link footer__link_type_menu">Главная</a>-->
-          <!--            <a href="/stories" class="footer__link footer__link_type_menu"-->
-          <!--              >Истории</a-->
-          <!--            >-->
-          <!--          </div>-->
+          <section-title
+            class="section__title_place_footer"
+            v-html="footerBlock.title"
+          />
         </div>
         <footer-menu class="footer__menu" />
         <div class="footer__social">
@@ -44,13 +36,14 @@
         </div>
       </div>
       <div class="footer__copyright">
-        <span class="footer__copyright-text"
-          >Рак Лечится {{ new Date().getFullYear() }}</span
-        >
+        <span
+          class="footer__copyright-text"
+          v-html="`${footerBlock.text} ${currentYear}`"
+        ></span>
         <span class="footer__copyright-text"
           >Сделано студентами
-          <a href="https://praktikum.yandex.ru/" class="footer__praktikum-link"
-            >Яндекс Практикум</a
+          <a href="https://praktikum.yandex.ru/" class="footer__praktikum-link">
+            Яндекс Практикум</a
           ></span
         >
       </div>
@@ -60,9 +53,9 @@
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
-import Menu from '@/components/Menu';
+import Menu from '@/components/ui/Menu';
 import Button from '@/components/ui/Button';
-import Container from '@/components/Container';
+import Container from '@/components/ui/Container';
 
 export default {
   components: {
@@ -74,6 +67,14 @@ export default {
   methods: {
     openSharePopup() {
       this.$store.commit('popup/openSharePopup');
+    },
+  },
+  computed: {
+    footerBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('footer');
+    },
+    currentYear() {
+      return new Date().getFullYear();
     },
   },
 };
@@ -120,7 +121,6 @@ export default {
   text-decoration: none;
 }
 
-/*TODO проверить наличие в разметке классов, которые указаны ниже*/
 .footer__link_type_menu {
   margin-right: 40px;
   text-decoration: none;
@@ -174,11 +174,15 @@ export default {
   margin-top: auto;
 }
 .footer__copyright-text {
+  display: flex;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 18px;
   color: #898989;
+}
+.footer__copyright-text >>> p {
+  margin: 0 6px 0 0;
 }
 .section__title_place_footer {
   max-width: 340px;
@@ -186,6 +190,7 @@ export default {
 .footer__praktikum-link {
   text-decoration: none;
   color: #898989;
+  margin-left: 6px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -217,8 +222,11 @@ export default {
     min-height: 292px;
     padding: 50px 0;
   }
+  .footer__social {
+    width: 381px;
+  }
   .footer__menu {
-    padding-right: 23%;
+    padding-right: 20%;
   }
   .section__title_place_footer {
     max-width: 288px;
@@ -227,7 +235,7 @@ export default {
     width: 50%;
   }
 }
-@media screen and (max-width: 950px) {
+@media (max-width: 950px) {
   .section__title_place_footer {
     max-width: 268px;
   }
@@ -236,10 +244,13 @@ export default {
   }
   .footer__menu {
     flex-direction: column;
-    padding-right: 20%;
+    padding-right: 6%;
   }
   .footer__social {
-    width: 226px;
+    width: 360px;
+  }
+  .footer__link {
+    margin-bottom: 25px;
   }
   ::v-deep .menu__links {
     flex-direction: column;
@@ -251,7 +262,7 @@ export default {
     margin-bottom: 16px;
   }
 }
-@media screen and (max-width: 660px) {
+@media (max-width: 660px) {
   .section__title_place_footer {
     max-width: 290px;
     font-size: 18px;
@@ -294,6 +305,11 @@ export default {
   }
   .footer__copyright-text:last-child {
     margin: 0;
+  }
+}
+@media (max-width: 425px) {
+  ::v-deep .menu__link-wrapper {
+    margin-bottom: 8px;
   }
 }
 </style>

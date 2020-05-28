@@ -7,15 +7,6 @@
             class="section__title_place_footer"
             v-html="footerBlock.title"
           />
-          <!-- <footer-menu /> -->
-
-          <!--          старый код-->
-          <!--          <div class="footer__menu">-->
-          <!--            <a href="/" class="footer__link footer__link_type_menu">Главная</a>-->
-          <!--            <a href="/stories" class="footer__link footer__link_type_menu"-->
-          <!--              >Истории</a-->
-          <!--            >-->
-          <!--          </div>-->
         </div>
         <footer-menu class="footer__menu" />
         <div class="footer__social">
@@ -45,15 +36,14 @@
         </div>
       </div>
       <div class="footer__copyright">
-        <!--        TODO исправить отступы в копирайте-->
         <span
           class="footer__copyright-text"
-          v-html="footerBlock.text + ' ' + currentYear"
+          v-html="`${footerBlock.text} ${currentYear}`"
         ></span>
         <span class="footer__copyright-text"
           >Сделано студентами
-          <a href="https://praktikum.yandex.ru/" class="footer__praktikum-link"
-            >Яндекс Практикум</a
+          <a href="https://praktikum.yandex.ru/" class="footer__praktikum-link">
+            Яндекс Практикум</a
           ></span
         >
       </div>
@@ -192,8 +182,8 @@ export default {
   line-height: 18px;
   color: #898989;
 }
-.footer__copyright-text p {
-  margin: 0;
+.footer__copyright-text >>> p {
+  margin: 0 6px 0 0;
 }
 .section__title_place_footer {
   max-width: 340px;

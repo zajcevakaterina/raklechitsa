@@ -9,6 +9,7 @@ export default {
     },
 
     title: process.env.npm_package_name || '',
+
     meta: [
       { charset: 'utf-8' },
       {
@@ -61,6 +62,10 @@ export default {
 
   env: {
     BASE_URL: 'https://strapi.kruzhok.io',
+  },
+
+  router: {
+    middleware: 'data',
   },
   /*
    ** Build configuration

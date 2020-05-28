@@ -1,6 +1,5 @@
 <template>
   <!-- TODO: разобраться с отступом внизу от "поделиться в социальных сетях в зависимости от контента истории и тегов в ней" -->
-  <!-- TODO: добавить год истории в дату -->
   <container class="container">
     <article class="individual-story">
       <div class="individual-story__lead">
@@ -77,8 +76,22 @@ export default {
       return this.$store.getters['stories/getStories'];
     },
 
+    storyId() {
+      return this.$route.params.id;
+    },
+
     story() {
-      return this.$store.getters['stories/getCurrentsStory'];
+      // const storyFound = this.$store.getters['stories/getCurrentStory'](this.storyId);
+      const storyFound = this.stories.find(
+        story => story.id === Number(this.storyId)
+      );
+      console.log(storyFound);
+      if (!storyFound) {
+        console.log(storyFound);
+        return this.$router.push('/404');
+        // return null;
+      }
+      return storyFound;
     },
 
     isLargeImageToSet() {
@@ -129,11 +142,6 @@ export default {
     openSharePopup() {
       this.$store.commit('popup/openSharePopup');
     },
-  },
-  async fetch({ store, route }) {
-    await store.dispatch('stories/fetchStories');
-    await store.dispatch('stories/fetchStoriesWithId', { id: route.params.id });
-    await store.dispatch('blocks/fetchBlocks');
   },
 };
 </script>

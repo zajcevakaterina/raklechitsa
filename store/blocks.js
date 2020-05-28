@@ -21,10 +21,6 @@ export const actions = {
 };
 
 export const getters = {
-  // getBlocks(state) {
-  //   return state.blocks;
-  // },
-
   getCurrentBlock: state => blockName => {
     return state.blocks.find(block => block.block === blockName);
   },

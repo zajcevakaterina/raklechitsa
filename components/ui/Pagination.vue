@@ -1,6 +1,7 @@
 <template>
   <div class="pagination">
     <div
+      v-if="pagesCount !== 0"
       class="pagination__item-first"
       :class="{ 'pagination__item-first_disable': active === 1 }"
       @click="setActive(1)"
@@ -8,6 +9,7 @@
       Первая
     </div>
     <div
+      v-if="pagesCount !== 0"
       class="pagination__arrow pagination__arrow_left"
       @click="setActive(clickArrowsLeft(active - 1))"
     ></div>
@@ -26,10 +28,12 @@
       {{ index }}
     </div>
     <div
+      v-if="pagesCount !== 0"
       class="pagination__arrow pagination__arrow_right"
       @click="setActive(clickArrowsRight(active + 1))"
     ></div>
     <div
+      v-if="pagesCount !== 0"
       class="pagination__item-last"
       :class="{ 'pagination__item-last_disable': active === pagesCount }"
       @click="setActive(pagesCount)"

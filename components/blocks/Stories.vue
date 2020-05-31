@@ -6,7 +6,7 @@
       >{{ storiesBlock.title }}</section-title
     >
     <slot></slot>
-    <ul class="stories__list" v-if="stories.length !== 0">
+    <ul v-if="totalItems !== 0" class="stories__list">
       <li class="stories__item" v-for="story in stories" :key="story.id">
         <story-item
           :author="story.author"
@@ -16,7 +16,7 @@
         />
       </li>
     </ul>
-    <div v-if="stories.length === 0" class="stories__failing">
+    <div v-if="totalItems === 0" class="stories__failing">
       <p class="stories__failing-title">Ничего не найдено</p>
       <p class="stories__failing-text">Попробуйте еще раз.</p>
     </div>
@@ -28,7 +28,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import StoryItem from '@/components/blocks/StoryItem';
 
 export default {
-  props: ['stories'],
+  props: ['stories', 'totalItems'],
   components: {
     'section-title': SectionTitle,
     'story-item': StoryItem,

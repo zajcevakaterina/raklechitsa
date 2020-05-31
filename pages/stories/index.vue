@@ -1,6 +1,6 @@
 <template>
   <container class="container">
-    <stories :stories="renderStories" class="stories">
+    <stories :stories="renderStories" :totalItems="totalItems" class="stories">
       <form class="stories__form" v-on:submit.prevent="findStories">
         <stories-input
           class="stories__input "

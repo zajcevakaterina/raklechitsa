@@ -93,6 +93,7 @@ export default {
   resize: none;
   padding: 10px 0 10px 4px;
   border-bottom: 1px solid #e7e7e7;
+  outline: none;
 }
 
 .input__item_theme_contacts {
@@ -133,11 +134,12 @@ export default {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
   .input,
   .input__item {
     font-size: 13px;
     line-height: 1.23;
+    padding: 5px 0 5px 2px;
   }
 
   .input__item_theme_contacts {

@@ -129,7 +129,7 @@ export default {
     margin: 26px 0 0;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
   .call-to-action__container {
     min-height: 462px;
     padding: 50px 0;

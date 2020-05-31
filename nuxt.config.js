@@ -8,7 +8,7 @@ export default {
       lang: 'ru',
     },
 
-    title: process.env.npm_package_name || '',
+    title: 'РАКЛЕЧИТСЯ.РФ — истории людей, победивших рак, но не свои привычки',
 
     meta: [
       { charset: 'utf-8' },
@@ -34,7 +34,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['assets/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -62,6 +62,7 @@ export default {
 
   env: {
     BASE_URL: 'https://strapi.kruzhok.io',
+    INSTA_URL: 'https://www.instagram.com/raklechitsa/?__a=1',
   },
 
   router: {

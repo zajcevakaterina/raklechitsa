@@ -16,13 +16,15 @@
     </container>
 
     <about />
-    <popup
-      v-if="popupContactsShown"
-      @closePopup="closeContactsPopup"
-      @overlayClick="closeContactsPopup"
-    >
-      <contacts />
-    </popup>
+    <popup-fade>
+      <popup
+        v-if="popupContactsShown"
+        @closePopup="closeContactsPopup"
+        @overlayClick="closeContactsPopup"
+      >
+        <contacts />
+      </popup>
+    </popup-fade>
   </main>
 </template>
 
@@ -38,6 +40,7 @@ import About from '@/components/blocks/About';
 import Popup from '@/components/ui/Popup';
 import Contacts from '@/components/blocks/Contacts';
 import MoreLink from '@/components/ui/MoreLink';
+import FadeAnimation from '@/components/ui/FadeAnimation';
 
 export default {
   components: {
@@ -52,6 +55,7 @@ export default {
     popup: Popup,
     contacts: Contacts,
     'more-link': MoreLink,
+    'popup-fade': FadeAnimation,
   },
 
   computed: {

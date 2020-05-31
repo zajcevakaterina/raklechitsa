@@ -33,7 +33,13 @@ export default {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 475px) {
+  .container {
+    width: calc(100% - 50px);
+  }
+}
+
+@media screen and (max-width: 425px) {
   .container {
     width: calc(100% - 30px);
   }

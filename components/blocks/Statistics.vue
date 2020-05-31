@@ -32,6 +32,7 @@ export default {
     'stat-item': StatisticsItem,
     'section-title': SectionTitle,
   },
+
   computed: {
     statistics() {
       return this.$store.getters['statistics/getStatistics'];
@@ -68,12 +69,14 @@ export default {
 <style scoped>
 .statistics {
   padding: 100px 0;
+  position: relative;
 }
 
 .statistics__container {
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  position: relative;
 }
 
 .statistics__title {
@@ -133,6 +136,10 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .statistics__scroll-help {
+    display: block;
+  }
+
   .statistics__title {
     margin: 0 auto 60px;
     text-align: center;
@@ -145,9 +152,13 @@ export default {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
   .statistics {
     padding: 50px 0;
+  }
+
+  .statistics__scroll-help {
+    top: 55px;
   }
 
   .statistics__title {

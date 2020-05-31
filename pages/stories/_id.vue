@@ -69,9 +69,16 @@ export default {
     'more-link': MoreLink,
     error: Error404,
   },
+
   data() {
     return {
       baseurl: process.env.BASE_URL,
+    };
+  },
+
+  head() {
+    return {
+      title: `${this.story.author} - история о побежденном раке, но не своей привычке`,
     };
   },
 

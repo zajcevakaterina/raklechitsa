@@ -30,10 +30,6 @@ export default {
   font-family: inherit;
 }
 
-.button:disabled {
-  background: #666;
-}
-
 .button:hover {
   opacity: 0.9;
   transition: opacity 0.3s linear;
@@ -62,7 +58,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
   .button {
     font-size: 13px;
     line-height: 1.23;

@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <container class="header__container">
-      <p class="header__logo" v-html="headerBlock.title" />
+      <nuxt-link to="/" class="header__logo" v-html="headerBlock.title" />
       <main-menu />
       <button-header @btnClick="openQuizPopup" class="header__button"
         >Рассказать историю</button-header
@@ -57,6 +57,9 @@ export default {
   line-height: 20px;
   font-weight: 600;
   margin-right: auto;
+  text-decoration: oldlace;
+  color: #000;
+  margin: 16px auto 16px 0;
 }
 
 .header__button {
@@ -109,7 +112,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 475px) {
   .header {
     min-height: 64px;
   }

@@ -23,9 +23,7 @@ const getPosts = data => {
 
 export const actions = {
   async fetchPhotos({ commit }) {
-    const data = await this.$axios.$get(
-      'https://www.instagram.com/raklechitsa/?__a=1'
-    );
+    const data = await this.$axios.$get(process.env.INSTA_URL);
     const instagram = getPosts(data);
     commit('setState', {
       name: 'instagram',

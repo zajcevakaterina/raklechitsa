@@ -12,7 +12,7 @@
     </p>
     <quiz-input
       class="quiz__input"
-      :type="'text'"
+      type="text"
       v-model="answer"
       placeholder="Напишите тут"
     />
@@ -35,7 +35,7 @@
 
       <p class="quiz__policy" v-if="isLastQuestion">
         Нажимая на кнопку «Отправить», вы даете согласие на
-        <a class="quiz__policy-link" href="/policy"
+        <a class="quiz__policy-link" href="/policy" target="_blank"
           >обработку персональных данных</a
         >
       </p>
@@ -203,6 +203,10 @@ export default {
   color: #fff;
 }
 
+.quiz__button_direction_next:disabled {
+  background: #666;
+}
+
 .quiz__policy {
   font-size: 14px;
   line-height: 1.21;
@@ -278,7 +282,7 @@ export default {
     margin: 0 0 380px;
   }
   .quiz__question {
-    min-height: 96px;
+    min-height: 110px;
   }
   .quiz__input {
     margin: 30px 0 0;
@@ -290,10 +294,10 @@ export default {
   }
 
   .quiz__policy {
-    margin: 10px 0 0;
+    margin: 40px 0 0;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
   .quiz__title {
     font-size: 18px;
     line-height: 1.17;
@@ -307,7 +311,7 @@ export default {
   .quiz__question {
     font-size: 13px;
     line-height: 1.23;
-    min-height: 120px;
+    min-height: 90px;
   }
 
   .quiz__submit {
@@ -332,6 +336,7 @@ export default {
     max-width: 350px;
     font-size: 11px;
     line-height: 1.18;
+    margin-top: 15px;
   }
 }
 </style>

@@ -362,6 +362,18 @@ export default {
     'policy-text': ArticleColumn,
   },
 
+  data() {
+    return {
+      title: 'РАКЛЕЧИТСЯ.РФ — политика конфиденциальности',
+    };
+  },
+
+  head() {
+    return {
+      title: this.title,
+    };
+  },
+
   computed: {
     policy() {
       return this.$store.getters['policy/getPolicy'];
@@ -461,7 +473,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 475px) {
   .policy {
     max-width: 290px;
   }

@@ -1,7 +1,16 @@
 <template>
   <container class="container">
-    <stories :stories="renderStories" class="stories">
+    <stories :stories="renderStories" :totalItems="totalItems" class="stories">
       <form class="stories__form" v-on:submit.prevent="findStories">
+        <stories-button class="stories__clean-button" @btnClick="cleanSearch">
+          Очистить
+        </stories-button>
+        <stories-button
+          class="stories__clean-button_mobile"
+          @btnClick="cleanSearch"
+        >
+          <img src="button/cleansearchmobile.svg" alt="" />
+        </stories-button>
         <stories-input
           class="stories__input "
           v-model="searchText"
@@ -45,8 +54,15 @@ export default {
       startIndex: 0,
       texts: '',
       totalItems: this.$store.state.stories.stories.length,
+      title: 'РАКЛЕЧИТСЯ.РФ — истории неизлечимых превычек ',
     };
   },
+  head() {
+    return {
+      title: this.title,
+    };
+  },
+
   components: {
     stories: Stories,
     'stories-input': Input,
@@ -86,13 +102,20 @@ export default {
       this.startIndex = (index - 1) * this.itemsPerPage;
     },
     findStories(event) {
-      this.texts = this.searchText;
+      this.texts = this.searchText.toLowerCase();
       const { stories } = this.$store.state;
       const newTotalItems = stories.stories.filter(
         item =>
           item.author.toLowerCase().includes(this.texts) ||
           item.title.toLowerCase().includes(this.texts)
       );
+      this.totalItems = newTotalItems.length;
+    },
+    cleanSearch(event) {
+      this.searchText = '';
+      this.texts = '';
+      const { stories } = this.$store.state;
+      const newTotalItems = stories.stories;
       this.totalItems = newTotalItems.length;
     },
   },
@@ -116,6 +139,7 @@ export default {
 }
 .stories__form {
   display: flex;
+  position: relative;
   justify-content: space-between;
   margin-bottom: 70px;
 }
@@ -130,9 +154,6 @@ export default {
   padding: 0;
   background-color: #613a93;
 }
-.stories__button:disabled {
-  background-color: #613a93;
-}
 
 .stories__button-mobile {
   background-color: #613a93;
@@ -143,6 +164,39 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   display: none;
+}
+.stories__clean-button {
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+  padding: 0;
+  right: 266px;
+  position: absolute;
+  color: #666666;
+  top: 17px;
+  outline: 0;
+}
+.stories__clean-button_mobile {
+  display: none;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+  padding: 0;
+  right: 266px;
+  position: absolute;
+  color: #666666;
+  top: 17px;
+  outline: 0;
 }
 
 @media screen and (max-width: 1280px) {
@@ -157,6 +211,9 @@ export default {
   }
   .stories__button {
     height: 48px;
+  }
+  .stories__clean-button {
+    top: 15px;
   }
 }
 
@@ -174,11 +231,25 @@ export default {
     height: 46px;
     width: 208px;
   }
+  .stories__clean-button {
+    font-size: 15px;
+    line-height: 18px;
+    right: 248px;
+    top: 14px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .stories__form {
     margin-bottom: 60px;
+  }
+  .stories__clean-button {
+    display: none;
+  }
+  .stories__clean-button_mobile {
+    display: block;
+    top: 9px;
+    right: 243.22px;
   }
 }
 
@@ -188,9 +259,14 @@ export default {
   }
   .stories__input {
     margin-right: 6px;
+    padding: 0;
   }
   .stories__button-mobile {
     display: block;
+  }
+  .stories__clean-button_mobile {
+    top: 9px;
+    right: 68px;
   }
 }
 

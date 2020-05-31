@@ -54,6 +54,12 @@ export default {
       startIndex: 0,
       texts: '',
       totalItems: this.$store.state.stories.stories.length,
+      title: 'РАКЛЕЧИТСЯ.РФ — истории неизлечимых превычек ',
+    };
+  },
+  head() {
+    return {
+      title: this.title,
     };
   },
 

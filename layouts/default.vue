@@ -29,10 +29,6 @@ import Popup from '@/components/ui/Popup';
 import Qiuz from '@/components/blocks/Quiz';
 import SocialShare from '@/components/blocks/SocialShare';
 export default {
-  head: {
-    title: 'РАКЛЕЧИТСЯ.РФ — истории людей, победивших рак, но не свои привычки',
-  },
-
   components: {
     'mobile-menu': MobileMenu,
     'page-header': Header,

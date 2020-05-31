@@ -8,7 +8,7 @@ export default {
       lang: 'ru',
     },
 
-    title: process.env.npm_package_name || '',
+    title: 'РАКЛЕЧИТСЯ.РФ — истории людей, победивших рак, но не свои привычки',
 
     meta: [
       { charset: 'utf-8' },

@@ -2,6 +2,9 @@
   <container class="container">
     <stories :stories="renderStories" :totalItems="totalItems" class="stories">
       <form class="stories__form" v-on:submit.prevent="findStories">
+        <stories-button class="stories__clean-button" @btnClick="cleanSearch">
+          Очистить
+        </stories-button>
         <stories-input
           class="stories__input "
           v-model="searchText"
@@ -96,6 +99,13 @@ export default {
       );
       this.totalItems = newTotalItems.length;
     },
+    cleanSearch(event) {
+      this.searchText = '';
+      this.texts = '';
+      const { stories } = this.$store.state;
+      const newTotalItems = stories.stories;
+      this.totalItems = newTotalItems.length;
+    },
   },
   mounted() {
     if (process.browser) {
@@ -117,6 +127,7 @@ export default {
 }
 .stories__form {
   display: flex;
+  position: relative;
   justify-content: space-between;
   margin-bottom: 70px;
 }
@@ -141,6 +152,22 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   display: none;
+}
+.stories__clean-button {
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+  padding: 0;
+  right: 266px;
+  position: absolute;
+  color: #666666;
+  top: 17px;
+  outline: 0;
 }
 
 @media screen and (max-width: 1280px) {

@@ -311,5 +311,8 @@ export default {
   ::v-deep .menu__link-wrapper {
     margin-bottom: 8px;
   }
+  .footer__social {
+    width: 100%;
+  }
 }
 </style>

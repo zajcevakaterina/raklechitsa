@@ -203,6 +203,10 @@ export default {
   color: #fff;
 }
 
+.quiz__button_direction_next:disabled {
+  background: #666;
+}
+
 .quiz__policy {
   font-size: 14px;
   line-height: 1.21;

@@ -34,7 +34,7 @@ import Footer from '@/components/blocks/Footer';
 import Popup from '@/components/ui/Popup';
 import Qiuz from '@/components/blocks/Quiz';
 import SocialShare from '@/components/blocks/SocialShare';
-import PopupFade from '@/components/ui/PopupFade';
+import FadeAnimation from '@/components/ui/FadeAnimation';
 
 export default {
   components: {
@@ -44,7 +44,7 @@ export default {
     popup: Popup,
     quiz: Qiuz,
     'social-share': SocialShare,
-    'popup-fade': PopupFade,
+    'popup-fade': FadeAnimation,
   },
   computed: {
     popupQuizShown() {

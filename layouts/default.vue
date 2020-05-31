@@ -2,22 +2,28 @@
   <div class="root">
     <mobile-menu v-if="isMobileMenuOpened" />
     <page-header />
-    <popup
-      v-if="popupQuizShown"
-      @closePopup="closeQuizPopup"
-      @overlayClick="closeQuizPopup"
-    >
-      <quiz />
-    </popup>
     <nuxt />
     <page-footer />
-    <popup
-      v-if="popupShareShown"
-      @closePopup="closeSharePopup"
-      @overlayClick="closeSharePopup"
-    >
-      <social-share />
-    </popup>
+
+    <popup-fade>
+      <popup
+        v-if="popupQuizShown"
+        @closePopup="closeQuizPopup"
+        @overlayClick="closeQuizPopup"
+      >
+        <quiz />
+      </popup>
+    </popup-fade>
+
+    <popup-fade>
+      <popup
+        v-if="popupShareShown"
+        @closePopup="closeSharePopup"
+        @overlayClick="closeSharePopup"
+      >
+        <social-share />
+      </popup>
+    </popup-fade>
   </div>
 </template>
 
@@ -28,6 +34,8 @@ import Footer from '@/components/blocks/Footer';
 import Popup from '@/components/ui/Popup';
 import Qiuz from '@/components/blocks/Quiz';
 import SocialShare from '@/components/blocks/SocialShare';
+import PopupFade from '@/components/ui/PopupFade';
+
 export default {
   components: {
     'mobile-menu': MobileMenu,
@@ -36,6 +44,7 @@ export default {
     popup: Popup,
     quiz: Qiuz,
     'social-share': SocialShare,
+    'popup-fade': PopupFade,
   },
   computed: {
     popupQuizShown() {

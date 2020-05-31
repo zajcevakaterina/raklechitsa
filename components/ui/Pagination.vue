@@ -154,11 +154,13 @@ export default {
   background-image: url('/arrows/right_arrow.svg');
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 .pagination__arrow_left {
   background-image: url('/arrows/left_arrow.svg');
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1280px) {

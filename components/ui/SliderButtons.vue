@@ -21,6 +21,7 @@ export default {
   background-image: url('/arrows/arrow-active.svg');
   background-position: center;
   background-repeat: no-repeat;
+  outline: none;
 }
 
 .slider-button_left {

@@ -64,6 +64,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   margin-top: auto;
+  outline: none;
 }
 
 @media screen and (max-width: 1280px) {

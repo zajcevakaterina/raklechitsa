@@ -1,11 +1,35 @@
 <template>
-  <div class="cover">
-    <h1 class="cover__heading">#РАКЛЕЧИТСЯ</h1>
-    <button class="cover__arrow-button" />
+  <div class="cover" ref="cover">
+    <h1 class="cover__heading" v-html="cover.hashtag"></h1>
+    <button @click="scrollToIntro" class="cover__arrow-button" />
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  methods: {
+    scrollToIntro() {
+      this.$refs.cover.nextElementSibling.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
+    },
+    findBlock(blockToFind) {
+      this.$store.commit('blocks/findCurrentBlock', blockToFind);
+    },
+  },
+  computed: {
+    cover() {
+      return this.$store.getters['blocks/getCurrentBlock']('cover');
+    },
+  },
+  computed: {
+    cover() {
+      return this.$store.getters['blocks/getCurrentBlock']('cover');
+    },
+  },
+};
+</script>
 
 <style scoped>
 .cover {
@@ -23,7 +47,7 @@
   font-size: 92px;
   line-height: 111px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
 }
 
 .cover__arrow-button {
@@ -40,6 +64,7 @@
   left: 50%;
   transform: translateX(-50%);
   margin-top: auto;
+  outline: none;
 }
 
 @media screen and (max-width: 1280px) {

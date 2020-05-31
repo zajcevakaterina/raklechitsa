@@ -1,28 +1,12 @@
 <template>
-  <div class="slider-buttons">
-    <button class="slider-button" @click="$emit('btnClickLeftIntro')">
-      <img
-        src="@/static/arrows/leftNactivearrow.png"
-        alt="arrow"
-        class="arrow"
-      />
-    </button>
-    <button class="slider-button" @click="$emit('btnClickRightIntro')">
-      <img
-        src="@/static/arrows/rightActivearrow.png"
-        alt="arrow"
-        class="arrow"
-      />
-    </button>
-  </div>
+  <button class="slider-button " :class="[side]" @click="$emit('method')">
+    <!-- <img src="@/static/arrows/leftNactivearrow.png" alt="arrow" class="arrow" /> -->
+  </button>
 </template>
 
 <script>
 export default {
-  //TODO сделать обработчик активности кнопки
-  methods: {
-    buttonHandler() {},
-  },
+  props: ['side'],
 };
 </script>
 
@@ -34,5 +18,25 @@ export default {
   height: 40px;
   background-color: #fbfbfb;
   padding: 0;
+  background-image: url('/arrows/arrow-active.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  outline: none;
+}
+
+.slider-button_left {
+  transform: rotate(180deg);
+  background-image: url('/arrows/arrow-active.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slider-button_left + .swiper-button-disabled {
+  background-image: url('/arrows/arrow-disable.svg');
+  transform: rotate(180deg);
+}
+
+.swiper-button-disabled {
+  background-image: url('/arrows/arrow-disable.svg');
+  transform: rotate(0deg);
 }
 </style>

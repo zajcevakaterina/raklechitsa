@@ -38,16 +38,14 @@ export default {};
     max-width: 380px;
     font-size: 24px;
     line-height: 1.17;
-    text-align: сenter;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 475px) {
   .section__title {
     max-width: 290px;
     font-size: 18px;
     line-height: 1.17;
-    align-self: start;
   }
 }
 </style>

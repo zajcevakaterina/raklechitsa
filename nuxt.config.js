@@ -4,10 +4,18 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    htmlAttrs: {
+      lang: 'ru',
+    },
+
+    title: 'РАКЛЕЧИТСЯ.РФ — истории людей, победивших рак, но не свои привычки',
+
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, minimum-scale=1',
+      },
       {
         hid: 'description',
         name: 'description',
@@ -26,11 +34,14 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['assets/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/route.js' },
+    { src: '@/plugins/swiper.js', ssr: false },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -48,6 +59,15 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+
+  env: {
+    BASE_URL: 'https://strapi.kruzhok.io',
+    INSTA_URL: 'https://www.instagram.com/raklechitsa/?__a=1',
+  },
+
+  router: {
+    middleware: 'data',
+  },
   /*
    ** Build configuration
    */

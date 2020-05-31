@@ -1,21 +1,28 @@
 <template>
   <section class="call-to-action">
-    <popup v-if="popupActive">
-      <form-stories />
-    </popup>
     <container class="call-to-action__container">
-      <section-title>Расскажите свою историю</section-title>
+      <section-title class="call-to-action__title" v-html="callBlock.title" />
       <div class="call-to-action__content">
-        <section-text class="call-to-action__section-text"
-          >Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-          поделиться своей историей неизлечимых привычек, навязчивых идей и
-          болезненных привязанностей.
-        </section-text>
-        <main-tabs :tabsData="actions" :theme="'call-to-action'">
+        <section-text
+          class="call-to-action__section-text"
+          v-html="callBlock.text"
+        />
+        <main-tabs
+          v-on:tab-changed="tabIndex = $event"
+          :tabsData="tabsDataActions"
+          theme="call-to-action"
+        >
           <action-button
-            @btnClick="popupToggle"
+            v-if="tabIndex === 0"
+            @btnClick="openQuizPopup"
             class="call-to-action__action-button"
             >Заполнить форму</action-button
+          >
+          <action-button
+            v-else
+            @btnClick="openContactsPopup"
+            class="call-to-action__action-button"
+            >Оставить контакт</action-button
           >
         </main-tabs>
       </div>
@@ -27,10 +34,8 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import SectionText from '@/components/ui/SectionText';
 import Button from '@/components/ui/Button';
-import Tabs from '@/components/Tabs';
-import Popup from '@/components/Popup';
-import FormStories from '@/components/FormStories';
-import Container from '@/components/Container';
+import Tabs from '@/components/ui/Tabs';
+import Container from '@/components/ui/Container';
 
 export default {
   components: {
@@ -38,26 +43,28 @@ export default {
     'section-text': SectionText,
     'main-tabs': Tabs,
     'action-button': Button,
-    popup: Popup,
-    'form-stories': FormStories,
     container: Container,
   },
-
+  data() {
+    return {
+      tabIndex: 0,
+    };
+  },
   methods: {
-    popupToggle() {
-      this.popupActive = !this.popupActive;
+    openQuizPopup() {
+      this.$store.commit('popup/openQuizPopup');
+    },
+    openContactsPopup() {
+      this.$store.commit('popup/openContactsPopup');
     },
   },
   computed: {
-    actions() {
-      return this.$store.getters['call-to-action/getAction'];
+    callBlock() {
+      return this.$store.getters['blocks/getCurrentBlock']('story');
     },
-  },
-
-  data() {
-    return {
-      popupActive: false,
-    };
+    tabsDataActions() {
+      return this.callBlock.extraTexts;
+    },
   },
 };
 </script>
@@ -86,14 +93,11 @@ export default {
   margin: auto 0 0;
   width: 280px;
   height: 52px;
-  font-size: 16px;
-  line-height: 19px;
-  padding: 0;
 }
 
 @media screen and (max-width: 1280px) {
   .call-to-action__container {
-    min-height: 480px;
+    min-height: 487px;
     padding: 90px 0;
   }
   .call-to-action__action-button {
@@ -109,8 +113,6 @@ export default {
   .call-to-action__action-button {
     width: 230px;
     height: 46px;
-    font-size: 15px;
-    line-height: 18px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -127,17 +129,20 @@ export default {
     margin: 26px 0 0;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 475px) {
   .call-to-action__container {
     min-height: 462px;
     padding: 50px 0;
+    align-items: flex-start;
   }
+
+  .call-to-action__title {
+    text-align: left;
+  }
+
   .call-to-action__action-button {
-    width: 290px;
+    width: 100%;
     height: 40px;
-    font-size: 13px;
-    line-height: 16px;
-    padding: 0;
   }
   .call-to-action__section-text {
     margin: 16px 0 0;

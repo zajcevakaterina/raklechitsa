@@ -1,0 +1,76 @@
+<template>
+  <svg width="32" height="27" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <title>background</title>
+      <rect
+        fill="#fff"
+        id="canvas_background"
+        height="28"
+        width="34"
+        y="-1"
+        x="-1"
+      />
+      <g
+        display="none"
+        overflow="visible"
+        y="0"
+        x="0"
+        height="100%"
+        width="100%"
+        id="canvasGrid"
+      >
+        <rect
+          fill="url(#gridpattern)"
+          stroke-width="0"
+          y="0"
+          x="0"
+          height="100%"
+          width="100%"
+        />
+      </g>
+    </g>
+    <g>
+      <title>Layer 1</title>
+      <line
+        stroke-linecap="undefined"
+        stroke-linejoin="undefined"
+        id="svg_2"
+        y2="1.333331"
+        x2="32.00001"
+        y1="1.333331"
+        x1="-0.166657"
+        stroke-width="3"
+        stroke="#000"
+        fill="none"
+      />
+      <line
+        stroke-linecap="undefined"
+        stroke-linejoin="undefined"
+        id="svg_3"
+        y2="13.000117"
+        x2="32.00001"
+        y1="13.000117"
+        x1="-0.166657"
+        stroke-width="3"
+        stroke="#000"
+        fill="none"
+      />
+      <line
+        stroke-linecap="undefined"
+        stroke-linejoin="undefined"
+        id="svg_4"
+        y2="25.000117"
+        x2="32.00001"
+        y1="25.000117"
+        x1="-0.166657"
+        stroke-width="3"
+        stroke="#000"
+        fill="none"
+      />
+    </g>
+  </svg>
+</template>
+
+<script></script>
+
+<style scoped></style>

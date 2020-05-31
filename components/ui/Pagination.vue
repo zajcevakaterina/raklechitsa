@@ -1,44 +1,64 @@
 <template>
-  <div class="pagination">
-    <div
-      v-if="pagesCount !== 0"
-      class="pagination__item-first"
-      :class="{ 'pagination__item-first_disable': active === 1 }"
-      @click="setActive(1)"
-    >
-      Первая
+  <div class="container">
+    <div class="pagination">
+      <div
+        v-if="pagesCount !== 0"
+        class="pagination__item-first"
+        :class="{ 'pagination__item-first_disable': active === 1 }"
+        @click="setActive(1)"
+      >
+        Первая
+      </div>
+      <div
+        v-if="pagesCount !== 0"
+        class="pagination__arrow pagination__arrow_left"
+        @click="setActive(clickArrowsLeft(active - 1))"
+      ></div>
+      <div
+        v-for="index in pagesCount"
+        :key="index"
+        @click="setActive(index)"
+        :class="[
+          'pagination__item',
+          {
+            pagination__item_active: index === active,
+          },
+        ]"
+        v-if="index >= page - indexPage && index <= page + indexPage"
+      >
+        {{ index }}
+      </div>
+      <div
+        v-if="pagesCount !== 0"
+        class="pagination__arrow pagination__arrow_right"
+        @click="setActive(clickArrowsRight(active + 1))"
+      ></div>
+      <div
+        v-if="pagesCount !== 0"
+        class="pagination__item-last"
+        :class="{ 'pagination__item-last_disable': active === pagesCount }"
+        @click="setActive(pagesCount)"
+      >
+        Последняя
+      </div>
     </div>
-    <div
-      v-if="pagesCount !== 0"
-      class="pagination__arrow pagination__arrow_left"
-      @click="setActive(clickArrowsLeft(active - 1))"
-    ></div>
-    <div
-      v-for="index in pagesCount"
-      :key="index"
-      @click="setActive(index)"
-      :class="[
-        'pagination__item',
-        {
-          pagination__item_active: index === active,
-        },
-      ]"
-      v-if="index >= page - 2 && index <= page + 2"
-    >
-      {{ index }}
-    </div>
-    <div
-      v-if="pagesCount !== 0"
-      class="pagination__arrow pagination__arrow_right"
-      @click="setActive(clickArrowsRight(active + 1))"
-    ></div>
-    <div
-      v-if="pagesCount !== 0"
-      class="pagination__item-last"
-      :class="{ 'pagination__item-last_disable': active === pagesCount }"
-      @click="setActive(pagesCount)"
-    >
-      Последняя
+    <div class="pagination__mobile">
+      <div
+        class="pagination__mobile-first"
+        v-if="pagesCount !== 0"
+        :class="{ 'pagination__mobile-first_disable': active === 1 }"
+        @click="setActive(1)"
+      >
+        Первая
+      </div>
+      <div
+        class="pagination__mobile-last"
+        v-if="pagesCount !== 0"
+        :class="{ 'pagination__mobile-last_disable': active === pagesCount }"
+        @click="setActive(pagesCount)"
+      >
+        Последняя
+      </div>
     </div>
   </div>
 </template>
@@ -59,6 +79,9 @@ export default {
     return {
       active: 1,
       page: 3,
+      indexPage: 2,
+      firstPage: 3,
+      lastPage: 2,
     };
   },
   computed: {
@@ -77,9 +100,10 @@ export default {
       ) {
         this.page = index;
       } else if (index <= 2) {
-        this.page = 3;
+        this.page = this.firstPage;
       } else {
-        this.page = Math.ceil(this.totalItems / this.itemsPerPage) - 2;
+        this.page =
+          Math.ceil(this.totalItems / this.itemsPerPage) - this.lastPage;
       }
       this.$emit('onPageChanged', index);
     },
@@ -98,6 +122,22 @@ export default {
       }
     },
   },
+  mounted() {
+    if (process.browser) {
+      if (window.innerWidth > 475) {
+        this.indexPage = 2;
+        this.page = 3;
+        this.firstPage = 3;
+        this.lastPage = 2;
+      } else if (window.innerWidth <= 475) {
+        this.indexPage = 1;
+        this.page = 2;
+        this.firstPage = 2;
+        this.lastPage = 1;
+      }
+      console.log(this.indexPage);
+    }
+  },
 };
 </script>
 
@@ -106,9 +146,15 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 140px 0 100px 0;
+  margin: 89px 0 100px 0;
 }
-
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.pagination__mobile {
+  display: none;
+}
 .pagination__item {
   width: 58px;
   height: 58px;
@@ -141,7 +187,9 @@ export default {
   background-color: #f4f4f4;
 }
 .pagination__item-first_disable,
-.pagination__item-last_disable {
+.pagination__item-last_disable,
+.pagination__mobile-first_disable,
+.pagination__mobile-last_disable {
   color: #a2a2a2;
 }
 .pagination__arrow {
@@ -169,7 +217,7 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .pagination {
-    margin: 113px 0 90px 0;
+    margin: 89px 0 90px 0;
   }
   .pagination__item {
     width: 56px;
@@ -179,7 +227,7 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .pagination {
-    margin: 110px 0 80px 0;
+    margin: 82px 0 80px 0;
   }
   .pagination__item {
     width: 50px;
@@ -190,13 +238,35 @@ export default {
 }
 @media screen and (max-width: 768px) {
   .pagination {
-    margin: 130px 0 80px 0;
+    margin: 90px 0 80px 0;
   }
 }
 
 @media screen and (max-width: 475px) {
   .pagination {
-    margin: 50px 0 50px 0;
+    margin: 10px 0 34px 0;
+  }
+  .pagination__item-first {
+    display: none;
+  }
+  .pagination__item-last {
+    display: none;
+  }
+  .pagination__mobile {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 50px 0;
+  }
+  .pagination__arrow {
+    width: 11px;
+    height: 16px;
+    margin-right: 0px;
+  }
+  .pagination__arrow_right {
+    margin-left: 20px;
+  }
+  .pagination__arrow_left {
+    margin-right: 30px;
   }
 }
 </style>

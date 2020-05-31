@@ -147,7 +147,6 @@ export default {
   height: 52px;
   flex: 1;
   margin-right: 20px;
-  outline: none;
 }
 .stories__button {
   width: 226px;

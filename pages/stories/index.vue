@@ -2,9 +2,6 @@
   <container class="container">
     <stories :stories="renderStories" :totalItems="totalItems" class="stories">
       <form class="stories__form" v-on:submit.prevent="findStories">
-        <stories-button @btnClick="cleanSearch">
-          Очистить
-        </stories-button>
         <stories-input
           class="stories__input "
           v-model="searchText"
@@ -99,7 +96,6 @@ export default {
       );
       this.totalItems = newTotalItems.length;
     },
-    cleanSearch() {},
   },
   mounted() {
     if (process.browser) {

@@ -6,7 +6,7 @@
       >{{ storiesBlock.title }}</section-title
     >
     <slot></slot>
-    <ul class="stories__list">
+    <ul class="stories__list" v-if="stories.length !== 0">
       <li class="stories__item" v-for="story in stories" :key="story.id">
         <story-item
           :author="story.author"
@@ -16,6 +16,10 @@
         />
       </li>
     </ul>
+    <div v-if="stories.length === 0" class="stories__failing">
+      <p class="stories__failing-title">Ничего не найдено</p>
+      <p class="stories__failing-text">Попробуйте еще раз.</p>
+    </div>
   </section>
 </template>
 
@@ -66,7 +70,28 @@ export default {
   justify-content: center;
   margin: 0 0 51px;
 }
-
+.stories__failing {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.stories__failing-title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 58px;
+  margin: 50px 0 40px;
+}
+.stories__failing-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+}
 @media screen and (max-width: 1280px) {
   .stories__list {
     row-gap: 42px;

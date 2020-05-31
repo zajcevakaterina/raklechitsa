@@ -93,6 +93,7 @@ export default {
   resize: none;
   padding: 10px 0 10px 4px;
   border-bottom: 1px solid #e7e7e7;
+  outline: none;
 }
 
 .input__item_theme_contacts {

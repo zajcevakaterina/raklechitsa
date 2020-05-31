@@ -83,7 +83,7 @@ export default {
   font-weight: normal;
   font-size: 48px;
   line-height: 58px;
-  margin: 50px 0 40px;
+  margin: 40px 0 40px;
 }
 .stories__failing-text {
   font-style: normal;
@@ -100,6 +100,9 @@ export default {
   .stories__title {
     margin: 0 0 50px;
   }
+  .stories__failing-title {
+    margin: 50px 0 40px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -111,6 +114,9 @@ export default {
 
   .stories__title {
     margin: 0 0 46px;
+  }
+  .stories__failing-title {
+    margin: 64px 0 40px;
   }
 }
 
@@ -126,6 +132,9 @@ export default {
     text-align: center;
     margin: 0 auto 60px;
   }
+  .stories__failing-title {
+    margin: 50px 0 40px;
+  }
 }
 
 @media screen and (max-width: 475px) {
@@ -137,6 +146,15 @@ export default {
   .stories__title {
     margin: 0 0 40px;
     text-align: left;
+  }
+  .stories__failing-title {
+    font-size: 24px;
+    line-height: 29px;
+    margin: 30px 0 15px;
+  }
+  .stories__failing-text {
+    font-size: 14px;
+    line-height: 20px;
   }
 }
 </style>

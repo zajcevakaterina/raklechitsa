@@ -69,6 +69,7 @@ export default {
     'more-link': MoreLink,
     error: Error404,
   },
+
   data() {
     return {
       baseurl: process.env.BASE_URL,

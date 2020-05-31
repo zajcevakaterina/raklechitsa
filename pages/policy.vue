@@ -473,7 +473,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 475px) {
   .policy {
     max-width: 290px;
   }

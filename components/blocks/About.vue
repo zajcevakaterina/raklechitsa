@@ -47,6 +47,7 @@ export default {
   margin: 0 auto;
   box-sizing: border-box;
 }
+
 .about__hashtag {
   font-style: normal;
   font-weight: 800;
@@ -56,13 +57,16 @@ export default {
   text-align: center;
   margin: 0 auto 70px;
 }
+
 .about__content {
   display: flex;
   justify-content: space-between;
 }
+
 .about__section-title {
   color: #fff;
 }
+
 .about__section-text {
   color: #dedede;
   margin-top: 37px;
@@ -73,6 +77,7 @@ export default {
     min-height: 626px;
     padding: 80px 0;
   }
+
   .about__hashtag {
     font-size: 58px;
     line-height: 70px;
@@ -83,9 +88,11 @@ export default {
   .about__container {
     min-height: 571px;
   }
+
   .about__section-text {
     margin-top: 29px;
   }
+
   .about__hashtag {
     font-size: 52px;
     line-height: 63px;
@@ -98,32 +105,38 @@ export default {
     padding: 82px 0 50px;
     align-items: center;
   }
+
   .about__hashtag {
     display: none;
   }
+
   .about__section-text {
     margin: 26px 0 0;
   }
+
   .about__content {
     flex-direction: column;
     align-items: center;
     flex: none;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
   .about__container {
     min-height: 628px;
     align-items: start;
     padding-top: 52px;
   }
+
   .about__hashtag {
     display: none;
   }
+
   .about__content {
     flex-direction: column;
     align-items: center;
     flex: none;
   }
+
   .about__section-text {
     margin: 16px 0 0;
   }

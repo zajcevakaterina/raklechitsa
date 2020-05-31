@@ -58,7 +58,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
   .button {
     font-size: 13px;
     line-height: 1.23;

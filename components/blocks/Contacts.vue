@@ -193,7 +193,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
   .contacts__title {
     font-size: 18px;
     line-height: 1.17;

@@ -297,7 +297,7 @@ export default {
     margin: 40px 0 0;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
   .quiz__title {
     font-size: 18px;
     line-height: 1.17;

@@ -79,7 +79,7 @@ export default {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 475px) {
   .video__container {
     max-height: 150px;
   }

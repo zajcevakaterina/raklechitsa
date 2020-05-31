@@ -112,7 +112,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 475px) {
   .header {
     min-height: 64px;
   }

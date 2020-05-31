@@ -1,12 +1,7 @@
 <template>
   <section class="statistics">
     <section-title class="statistics__title" v-html="statisticsBlock.title" />
-    <scroll-help
-      class="statistics__scroll-help"
-      :side="'right'"
-      v-if="statIsNotScrolled"
-    ></scroll-help>
-    <div class="statistics__container" v-on:scroll.passive="statIsScrolled">
+    <div class="statistics__container">
       <ul class="statistics__list">
         <li
           class="statistics__item"
@@ -31,20 +26,13 @@
 <script>
 import StatisticsItem from '@/components/blocks/StatisticsItem';
 import SectionTitle from '@/components/ui/SectionTitle';
-import SliderButtons from '@/components/ui/SliderButtons';
 
 export default {
-  data() {
-    return {
-      statIsNotScrolled: true,
-    };
-  },
-
   components: {
     'stat-item': StatisticsItem,
     'section-title': SectionTitle,
-    'scroll-help': SliderButtons,
   },
+
   computed: {
     statistics() {
       return this.$store.getters['statistics/getStatistics'];
@@ -75,37 +63,10 @@ export default {
       return this.$store.getters['blocks/getCurrentBlock']('statistics');
     },
   },
-  methods: {
-    statIsScrolled() {
-      this.statIsNotScrolled = false;
-    },
-  },
 };
 </script>
 
 <style scoped>
-@keyframes slidein {
-  from {
-    margin-right: 10px;
-  }
-
-  to {
-    margin-right: 0;
-  }
-}
-.statistics__scroll-help {
-  animation-duration: 1s;
-  animation-name: slidein;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  position: absolute;
-  right: 0;
-  top: 150px;
-  height: 30px;
-  width: 30px;
-  display: none;
-}
-
 .statistics {
   padding: 100px 0;
   position: relative;

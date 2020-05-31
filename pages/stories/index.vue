@@ -87,7 +87,7 @@ export default {
       this.startIndex = (index - 1) * this.itemsPerPage;
     },
     findStories(event) {
-      this.texts = this.searchText;
+      this.texts = this.searchText.toLowerCase();
       const { stories } = this.$store.state;
       const newTotalItems = stories.stories.filter(
         item =>

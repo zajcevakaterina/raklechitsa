@@ -30,10 +30,6 @@ export default {
   font-family: inherit;
 }
 
-.button:disabled {
-  background: #666;
-}
-
 .button:hover {
   opacity: 0.9;
   transition: opacity 0.3s linear;

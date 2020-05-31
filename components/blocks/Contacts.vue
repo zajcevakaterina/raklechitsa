@@ -81,6 +81,7 @@ export default {
       },
     };
   },
+
   methods: {
     closeContactsPopup() {
       this.$store.commit('popup/closeContactsPopup');

@@ -16,22 +16,27 @@
         />
       </li>
     </ul>
-    <div v-if="totalItems === 0" class="stories__failing">
-      <p class="stories__failing-title">Ничего не найдено</p>
-      <p class="stories__failing-text">Попробуйте еще раз.</p>
-    </div>
+
+    <fade>
+      <div v-if="totalItems === 0" class="stories__failing">
+        <p class="stories__failing-title">Ничего не найдено</p>
+        <p class="stories__failing-text">Попробуйте еще раз.</p>
+      </div>
+    </fade>
   </section>
 </template>
 
 <script>
 import SectionTitle from '@/components/ui/SectionTitle';
 import StoryItem from '@/components/blocks/StoryItem';
+import FadeAnimation from '@/components/ui/FadeAnimation';
 
 export default {
   props: ['stories', 'totalItems'],
   components: {
     'section-title': SectionTitle,
     'story-item': StoryItem,
+    fade: FadeAnimation,
   },
 
   methods: {

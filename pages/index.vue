@@ -40,7 +40,7 @@ import About from '@/components/blocks/About';
 import Popup from '@/components/ui/Popup';
 import Contacts from '@/components/blocks/Contacts';
 import MoreLink from '@/components/ui/MoreLink';
-import PopupFade from '@/components/ui/PopupFade';
+import FadeAnimation from '@/components/ui/FadeAnimation';
 
 export default {
   components: {
@@ -55,7 +55,7 @@ export default {
     popup: Popup,
     contacts: Contacts,
     'more-link': MoreLink,
-    'popup-fade': PopupFade,
+    'popup-fade': FadeAnimation,
   },
 
   computed: {

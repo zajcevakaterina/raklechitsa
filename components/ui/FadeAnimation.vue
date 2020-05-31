@@ -1,5 +1,5 @@
 <template>
-  <transition class="popup-fade" name="fade">
+  <transition class="fade-animation" name="fade">
     <slot></slot>
   </transition>
 </template>

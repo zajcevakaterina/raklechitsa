@@ -12,7 +12,7 @@
         <a
           class="insta__title-link"
           href="https://www.instagram.com/raklechitsa/"
-          target="blank"
+          target="_blank"
         >
           <section-title class="insta__title">
             {{ instagramBlock.title }}

@@ -307,7 +307,7 @@ export default {
     margin: 0;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 475px) {
   ::v-deep .menu__link-wrapper {
     margin-bottom: 8px;
   }

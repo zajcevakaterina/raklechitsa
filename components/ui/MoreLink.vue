@@ -49,7 +49,7 @@ export default {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 475px) {
   .more-link {
     margin-bottom: 45px;
   }

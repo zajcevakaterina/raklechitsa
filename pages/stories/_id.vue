@@ -75,6 +75,12 @@ export default {
     };
   },
 
+  head() {
+    return {
+      title: `${this.story.author} - история о побежденном раке, но не своей привычке`,
+    };
+  },
+
   computed: {
     stories() {
       return this.$store.getters['stories/getStories'];

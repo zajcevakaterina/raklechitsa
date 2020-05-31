@@ -47,6 +47,7 @@ export default {
       totalItems: this.$store.state.stories.stories.length,
     };
   },
+
   components: {
     stories: Stories,
     'stories-input': Input,

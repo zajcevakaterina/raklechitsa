@@ -5,6 +5,12 @@
         <stories-button class="stories__clean-button" @btnClick="cleanSearch">
           Очистить
         </stories-button>
+        <stories-button
+          class="stories__clean-button_mobile"
+          @btnClick="cleanSearch"
+        >
+          <img src="button/cleansearchmobile.svg" alt="" />
+        </stories-button>
         <stories-input
           class="stories__input "
           v-model="searchText"
@@ -169,6 +175,23 @@ export default {
   top: 17px;
   outline: 0;
 }
+.stories__clean-button_mobile {
+  display: none;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+  padding: 0;
+  right: 266px;
+  position: absolute;
+  color: #666666;
+  top: 17px;
+  outline: 0;
+}
 
 @media screen and (max-width: 1280px) {
   .stories {
@@ -182,6 +205,9 @@ export default {
   }
   .stories__button {
     height: 48px;
+  }
+  .stories__clean-button {
+    top: 15px;
   }
 }
 
@@ -199,11 +225,25 @@ export default {
     height: 46px;
     width: 208px;
   }
+  .stories__clean-button {
+    font-size: 15px;
+    line-height: 18px;
+    right: 248px;
+    top: 14px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .stories__form {
     margin-bottom: 60px;
+  }
+  .stories__clean-button {
+    display: none;
+  }
+  .stories__clean-button_mobile {
+    display: block;
+    top: 9px;
+    right: 243.22px;
   }
 }
 
@@ -213,9 +253,14 @@ export default {
   }
   .stories__input {
     margin-right: 6px;
+    padding: 0;
   }
   .stories__button-mobile {
     display: block;
+  }
+  .stories__clean-button_mobile {
+    top: 9px;
+    right: 68px;
   }
 }
 

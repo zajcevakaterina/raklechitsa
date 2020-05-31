@@ -138,6 +138,7 @@ export default {
   .input__item {
     font-size: 13px;
     line-height: 1.23;
+    padding: 0 0 10px 2px;
   }
 
   .input__item_theme_contacts {

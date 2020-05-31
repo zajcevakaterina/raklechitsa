@@ -7,44 +7,44 @@
     </p>
     <contacts-input
       class="contacts__input"
-      :type="'text'"
-      :theme="'contacts'"
+      type="text"
+      theme="contacts"
       placeholder="Напишите тут"
-      :labelText="'Как вас зовут?'"
-      :name="'name'"
+      labelText="Как вас зовут?"
+      name="name"
       v-model="contacts.fullName"
     />
 
     <div class="contacts__input-container">
       <contacts-input
         class="contacts__input contacts__input_type_contacts"
-        :type="'text'"
+        type="text"
         placeholder="pochta@example.com"
-        :labelText="'Электронная почта'"
-        :theme="'contacts'"
-        :name="'e-mail'"
+        labelText="Электронная почта"
+        theme="contacts"
+        name="e-mail"
         v-model="contacts.email"
       />
       <contacts-input
         class="contacts__input contacts__input_type_contacts"
-        :type="'text'"
+        type="text"
         placeholder="+7 000 000 00 00"
-        :labelText="'Телефон'"
-        :theme="'contacts'"
-        :name="'phone'"
+        labelText="Телефон"
+        theme="contacts"
+        name="phone"
         v-model="contacts.phone"
       />
     </div>
 
     <contacts-input
       class="contacts__input"
-      :type="'text'"
+      type="text"
       placeholder="Телефон / почта и удобное время"
-      :labelText="
-        'Напишите, если есть предпочтительный способ связи и удобное время'
+      labelText="
+        Напишите, если есть предпочтительный способ связи и удобное время
       "
-      :theme="'contacts'"
-      :name="'message'"
+      theme="contacts"
+      name="preferred"
       v-model="contacts.preferred"
     />
 
@@ -54,7 +54,7 @@
       >
       <p class="contacts__policy">
         Нажимая на кнопку «отправить», вы даете согласие на
-        <a class="contacts__policy-link" href="/policy"
+        <a class="contacts__policy-link" href="/policy" target="_blank"
           >обработку персональных данных</a
         >
       </p>
@@ -197,6 +197,7 @@ export default {
     font-size: 18px;
     line-height: 1.17;
     margin: 0 0 35px;
+    max-width: 185px;
   }
 
   .contacts__subtitle {

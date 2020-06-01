@@ -1,5 +1,5 @@
 <template>
-  <a class="story-item" :href="link">
+  <a class="story-item" href="#" @click.prevent="openStory(link)">
     <div
       :style="`background-image: url('${baseurl}${ImageUrl}')`"
       class="story-item__photo"
@@ -17,6 +17,11 @@ export default {
     return {
       baseurl: process.env.BASE_URL,
     };
+  },
+  methods: {
+    openStory(story) {
+      this.$router.push('/stories/' + story);
+    },
   },
 };
 </script>

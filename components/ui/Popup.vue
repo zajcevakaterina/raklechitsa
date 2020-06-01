@@ -55,12 +55,12 @@ export default {
 }
 
 .popup__content_type_wide-screens {
-  margin: 90px auto 0;
-  height: calc(100vh - 90px);
+  margin: 70px auto 0;
+  max-height: calc(100vh - 90px);
 }
 
 .popup__content_type_thin-screens {
-  height: calc(100vh - 17px);
+  max-height: calc(100vh - 17px);
   margin: 17px auto 0;
 }
 

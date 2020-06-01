@@ -93,7 +93,6 @@ export default {
     setActive(index) {
       this.active = index;
 
-      console.log(index);
       if (
         index > 2 &&
         index < Math.ceil(this.totalItems / this.itemsPerPage) - 1
@@ -135,7 +134,6 @@ export default {
         this.firstPage = 2;
         this.lastPage = 1;
       }
-      console.log(this.indexPage);
     }
   },
 };

@@ -12,7 +12,7 @@
           :author="story.author"
           :title="story.title"
           :ImageUrl="isSmallImageToSet(story)"
-          :link="`/stories/${story.id}`"
+          :link="story.id"
         />
       </li>
     </ul>

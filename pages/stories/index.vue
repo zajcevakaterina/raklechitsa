@@ -110,6 +110,7 @@ export default {
           item.title.toLowerCase().includes(this.texts)
       );
       this.totalItems = newTotalItems.length;
+      this.startIndex = 0;
     },
     cleanSearch(event) {
       this.searchText = '';

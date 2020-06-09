@@ -63,17 +63,8 @@ export default {
 }
 
 .header__button {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
-  text-decoration: none;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  color: #121212;
-  padding: 0;
-  outline: 0;
+  height: 44px;
+  width: 219px;
 }
 
 .header__button:hover {

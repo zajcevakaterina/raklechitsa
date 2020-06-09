@@ -83,6 +83,10 @@ export default {
       this.$store.commit('popup/closeContactsPopup');
     },
   },
+
+  async fetch({ store, params }) {
+    await store.dispatch('insta/fetchPhotos');
+  },
 };
 </script>
 

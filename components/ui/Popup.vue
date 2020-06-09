@@ -9,20 +9,7 @@
 </template>
 
 <script>
-export default {
-  computed: {
-    marginTopToSet() {
-      if (process.browser) {
-        if (window.innerHeight <= 710 && window.innerWidth >= 476) {
-          return 'popup__content_type_wide-screens';
-        } else if (window.innerHeight <= 666 && window.innerWidth <= 475) {
-          return 'popup__content_type_thin-screens';
-        }
-      }
-      // Вычисляет значение верхнего margin на устройствах с маленькой высотой экрана. Включается скролл, но сверху над попапом имеем отступ
-    },
-  },
-};
+export default {};
 </script>
 
 <style scoped>
@@ -52,16 +39,7 @@ export default {
   background-color: #fff;
   padding: 40px;
   box-sizing: border-box;
-}
-
-.popup__content_type_wide-screens {
-  margin: 70px auto 0;
-  max-height: calc(100vh - 90px);
-}
-
-.popup__content_type_thin-screens {
-  max-height: calc(100vh - 17px);
-  margin: 17px auto 0;
+  max-height: calc(100vh - 20px);
 }
 
 .popup__close-button {

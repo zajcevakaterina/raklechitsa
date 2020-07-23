@@ -19,15 +19,15 @@
 ## Установка проекта
 
 ```bash
-# install dependencies
+# установите зависимости
 $ npm install
 
-# serve with hot reload at localhost:3000
+# запуск в режиме разработки
 $ npm run dev
 
-# build for production and launch server
+# билд в режиме production
 $ npm run build
 $ npm run start
 
-# generate static project
+# генерация статического проекта
 $ npm run generate
